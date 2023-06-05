@@ -1,0 +1,39 @@
+@import "../../node_modules/toastr/toastr.scss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply inline-flex items-center py-2 px-4 uppercase tracking-widest text-sm;
+    @apply hover:opacity-80;
+}
+.btn-primary {
+    @apply bg-indigo-500 text-white;
+}
+.btn-secondary {
+    @apply bg-transparent text-slate-500 border border-slate-500;
+}
+.btn-danger {
+    @apply bg-red-500 text-white;
+}
+label {
+    @apply block font-medium text-sm text-gray-700 inline-flex items-center;
+}
+input {
+    @apply border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full;
+}
+input[type="checkbox"] {
+    @apply rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500;
+}
+.card {
+    @apply overflow-hidden shadow-sm sm:rounded-lg p-6 text-gray-900 mb-3;
+}
+
+input.invalid {
+    @apply rounded w-full text-red-700 focus:outline-none border-b-4 border-red-300 focus:border-purple-600 transition duration-500 px-3 pb-3
+rounded w-full text-red-700 focus:outline-none border-b-4 border-red-300 focus:border-purple-600 transition duration-500 px-3 pb-3;
+}
+span.invalid {
+    @apply text-red-500 text-sm;
+}
