@@ -15,6 +15,13 @@ class LabAcceptanceController extends Controller
         return view('record_and_report.lab_acceptance.index', compact('acceptances'));
     }
 
+    public function labWorkOrder()
+    {
+        $acceptances = LabAcceptance::orderByDesc('created_at')
+        ->paginate(10);
+        return view('laboratory.lab_work_order.index', compact('acceptances'));
+    }
+
     public function create($analysis_id)
     {
         // analysis_id

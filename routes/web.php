@@ -53,9 +53,9 @@ Route::middleware('auth')->group(function () {
         // lab result status
         Route::get('lab-acceptance/{analysis_id}',[LabAcceptanceController::class, 'create'])->name('laboratory.lab-acceptance.create');
         Route::post('lab-acceptance/store', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
-        Route::get('lab-work-order', function () {
-            return view('laboratory.lab_work_order.index');
-        });
+
+        Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('record-and-report.lab-acceptance.index');
+
         Route::get('lab-approval', function () {
             return view('laboratory.lab_approval.index');
         });

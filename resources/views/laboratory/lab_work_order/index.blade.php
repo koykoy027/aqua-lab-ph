@@ -24,19 +24,16 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                 <tr>
                     <th scope="col" class="px-6 py-3">
-                        Acceptance number
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Test number
+                        Sample ID
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Evaluated By
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Date
+                        Date Evaluated
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Time
+                        Time Evaluated
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Sample Condition
@@ -45,44 +42,40 @@
                         Remarks
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Final Remarks
-                    </th>
-
-                    <th scope="col" class="px-6 py-3">
                         <span class="sr-only">Action</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
+                @foreach ($acceptances as $acceptance)
                 <tr class="bg-white border-b">
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        0001
+                        {{ $acceptance -> sample_id }}
                     </th>
                     <td class="px-6 py-4">
-                        -
+                        {{ $acceptance -> evaluated_by }}
                     </td>
                     <td class="px-6 py-4">
-                        Isabella Reyes
+                        {{ $acceptance -> date_evaluated }}
                     </td>
                     <td class="px-6 py-4">
-                        -
+                        {{ $acceptance -> time_evaluated }}
                     </td>
                     <td class="px-6 py-4">
-                        -
+                        {{ $acceptance -> sample_condition }}
                     </td>
                     <td class="px-6 py-4">
-                        -
-                    </td>
-                    <td class="px-6 py-4">
-                        -
-                    </td>
-                    <td class="px-6 py-4">
-                        <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">Accepted</span>
+                        <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
+                            {{ $acceptance -> remarks }}
+                        </span>
                     </td>
                     <td class="px-6 py-4 text-right">
                         <a href="#" class="font-medium text-blue-600 hover:underline">Create Raw Data File</a>
                     </td>
                 </tr>
+
+                @endforeach
+
             </tbody>
         </table>
     </div>
