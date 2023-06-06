@@ -51,9 +51,25 @@
                                 {{ $acceptance->sample_condition }}
                             </td>
                             <td class="px-6 py-4">
-                                <span class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                                    {{ $acceptance->remarks }}
-                                </span>
+                                @if ($acceptance->remarks === 'Conditionally Accepted')
+                                        <span
+                                            class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                            {{ $acceptance->remarks }}
+                                        </span>
+                                    @endif
+
+                                    @if ($acceptance->remarks === 'Accepted')
+                                        <span
+                                            class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                                            {{ $acceptance->remarks }}
+                                        </span>
+                                    @endif
+                                    @if ($acceptance->remarks === 'Rejected')
+                                        <span
+                                            class="mr-2 rounded bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800">
+                                            {{ $acceptance->remarks }}
+                                        </span>
+                                    @endif
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('laboratory.lab-work-order-form.create', ['sample_id' => $acceptance->sample_id]) }}"
