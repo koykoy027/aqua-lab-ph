@@ -4,7 +4,7 @@
 
     <form action="{{ route('laboratory.lab-acceptance.store') }}" method="POST">
         @csrf
-        <input type="hidden" name="analysis_id" type="hidden" value="{{ $requests->analysis_id }}">
+        <input type="hidden" name="analysis_id" value="{{ $requests->analysis_id }}">
 
         <div class="card mb-3 bg-white">
             <label>@yield('title')</label>
