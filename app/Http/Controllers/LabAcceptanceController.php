@@ -18,6 +18,7 @@ class LabAcceptanceController extends Controller
     public function labWorkOrder()
     {
         $acceptances = LabAcceptance::orderByDesc('created_at')
+        ->orWhere('remarks', '!=','Rejected')
         ->paginate(10);
         return view('laboratory.lab_work_order.index', compact('acceptances'));
     }

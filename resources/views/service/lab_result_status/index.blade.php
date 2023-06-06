@@ -52,7 +52,7 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
-                                    {{ $data->status }}
+                                    {{ $data->remarks }}
                                 </span>
                             </td>
                             <td class="px-6 py-4">
