@@ -84,6 +84,7 @@
     <form method="POST" action="{{ route('service.add-analysis-request.store') }}">
         @csrf
         <input id="account_number" type="hidden" name="account_number" value="{{ $clients->account_number }}" readonly>
+        <input id="status" type="hidden" name="status" value="Pending" readonly>
         <div class="card mb-3 bg-white">
             <h1 class="mb-3">Sample Collection</h1>
             <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">

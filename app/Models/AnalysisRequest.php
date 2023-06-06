@@ -26,5 +26,6 @@ class AnalysisRequest extends Model
             'water_purpose',
             'water_purpose_others',
             'test_parameters',
+            'status',
     ];
 }
