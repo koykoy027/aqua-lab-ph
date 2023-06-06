@@ -9,6 +9,7 @@ class LabResultStatusController extends Controller
 {
     public function index(){
         $datas = AnalysisRequest::orderByDesc('created_at')
+        ->orWhere('status', 'Pending')
         ->paginate(10);
         return view ('service.lab_result_status.index', compact('datas'));
     }
