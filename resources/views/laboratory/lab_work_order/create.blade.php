@@ -33,7 +33,4 @@
     @include('laboratory.lab_work_order.partials.micro.micr2')
     @include('laboratory.lab_work_order.partials.micro.micr3')
 
-    </div>
-    </div>
-
 @endsection
