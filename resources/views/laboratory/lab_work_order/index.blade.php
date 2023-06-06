@@ -36,7 +36,7 @@
                     @foreach ($acceptances as $acceptance)
                         <tr class="border-b bg-white">
                             <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                {{ $acceptance->sample_id }}
+                                {{ $acceptance->analysis_id }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $acceptance->evaluated_by }}
@@ -72,7 +72,7 @@
                                     @endif
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route('laboratory.lab-work-order-form.create', ['sample_id' => $acceptance->sample_id]) }}"
+                                <a href="{{ route('laboratory.lab-work-order-form.create', ['analysis_id' => $acceptance->analysis_id]) }}"
                                     class="font-medium text-blue-600 hover:underline">Create Raw Data File</a>
                             </td>
                         </tr>

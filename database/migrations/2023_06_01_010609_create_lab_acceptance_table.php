@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lab_acceptance', function (Blueprint $table) {
 
-            $table->string('sample_id');
+            $table->string('analysis_id');
             $table->string('evaluated_by');
             $table->string('date_evaluated');
             $table->string('time_evaluated');

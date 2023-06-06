@@ -37,7 +37,7 @@
                     @foreach ($acceptances as $acceptance)
                         <tr class="border-b bg-white">
                             <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                {{ $acceptance->sample_id }}
+                                {{ $acceptance->analysis_id }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $acceptance->evaluated_by }}

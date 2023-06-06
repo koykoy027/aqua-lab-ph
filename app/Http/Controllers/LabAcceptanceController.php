@@ -33,7 +33,7 @@ class LabAcceptanceController extends Controller
     {
 
         $request->validate([
-            'sample_id' => 'unique:lab_acceptance',
+            'analysis_id' => 'unique:lab_acceptance',
             'evaluated_by' => 'required',
             'date_evaluated' => 'required',
             'time_evaluated' => 'required',
