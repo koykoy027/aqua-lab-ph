@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class LabAcceptance extends Model
 {
     protected $table = 'lab_acceptance';
+    protected $primaryKey = 'sample_id';
     protected $fillable =[
         'sample_id',
         'evaluated_by',

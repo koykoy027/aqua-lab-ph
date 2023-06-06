@@ -116,7 +116,7 @@
                             </li> --}}
 
                             <li>
-                                <a href="{{ url('laboratory/lab-work-order') }}"
+                                <a href="{{ route('laboratory.lab-lab-work-order.labWorkOrder') }}"
                                     class="block px-4 py-2 hover:bg-gray-100">Lab Work Order</a>
                             </li>
                             <li>

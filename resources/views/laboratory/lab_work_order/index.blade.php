@@ -70,7 +70,7 @@
                         </span>
                     </td>
                     <td class="px-6 py-4 text-right">
-                        <a href="#" class="font-medium text-blue-600 hover:underline">Create Raw Data File</a>
+                        <a href="{{ route('laboratory.lab-work-order-form.create', ['sample_id' => $acceptance -> sample_id]) }}" class="font-medium text-blue-600 hover:underline">Create Raw Data File</a>
                     </td>
                 </tr>
 

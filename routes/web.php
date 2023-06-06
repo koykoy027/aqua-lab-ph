@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AnalysisRequestController;
+use App\Http\Controllers\CreateRawDataFileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LabAcceptanceController;
 use App\Http\Controllers\LabResultStatusController;
@@ -54,7 +55,8 @@ Route::middleware('auth')->group(function () {
         Route::get('lab-acceptance/{analysis_id}',[LabAcceptanceController::class, 'create'])->name('laboratory.lab-acceptance.create');
         Route::post('lab-acceptance/store', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
 
-        Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('record-and-report.lab-acceptance.index');
+        Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
+        Route::get('lab-work-order-form/{sample_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
 
         Route::get('lab-approval', function () {
             return view('laboratory.lab_approval.index');
