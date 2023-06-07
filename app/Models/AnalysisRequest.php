@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AnalysisRequest extends Model
 {
     protected $table = 'analysis_requests';
-    protected $primaryKey = 'account_number';
+    protected $primaryKey = 'analysis_id';
     protected $fillable = [
             'account_number',
             'collector_name',
@@ -28,4 +28,6 @@ class AnalysisRequest extends Model
             'test_parameters',
             'remarks',
     ];
+
+    
 }
