@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('analysis_requests', function (Blueprint $table) {
             $table->id('analysis_id');
-            $table->string('account_number'); // connect in clients account number
+            $table->unsignedBigInteger('account_number');
+            $table->foreign('account_number')->references('account_number')->on('clients'); // connect in clients account number
             $table->string('collector_name');
             $table->string('date_collected');
             $table->string('time_collected');
