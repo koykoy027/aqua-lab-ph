@@ -1,14 +1,13 @@
 // can be seen in service.client.create
 function marketSegment(val) {
+    var input = document.getElementById('market_segment_others');
 
     if (val === "Others") {
         // actve readonly
-        var input = document.getElementById('market_segment_others');
         input.removeAttribute('readonly');
     }
     else {
         // disable readonly
-        var input = document.getElementById('market_segment_others');
         input.setAttribute('readonly', 'readonly');
         input.value = '';
     }
@@ -16,15 +15,14 @@ function marketSegment(val) {
 
 // can be seen in service.add-analysis-request-form
 function collectionPoint(val) {
-
+    var input = document.getElementById('collection_point_others');
     if (val === "Others") {
         // actve readonly
-        var input = document.getElementById('collection_point_others');
+
         input.removeAttribute('readonly');
     }
     else {
         // disable readonly
-        var input = document.getElementById('collection_point_others');
         input.setAttribute('readonly', 'readonly');
         input.value = '';
     }
@@ -32,15 +30,13 @@ function collectionPoint(val) {
 
 // can be seen in service.add-analysis-request-form
 function samplingLocationAddress(val) {
-
+    var input = document.getElementById('sampling_location_address_others');
     if (val === "Others") {
         // actve readonly
-        var input = document.getElementById('sampling_location_address_others');
         input.removeAttribute('readonly');
     }
     else {
         // disable readonly
-        var input = document.getElementById('sampling_location_address_others');
         input.setAttribute('readonly', 'readonly');
         input.value = '';
     }
@@ -48,15 +44,13 @@ function samplingLocationAddress(val) {
 
 // can be seen in service.add-analysis-request-form
 function sourceOfWaterSample(val) {
-
+    var input = document.getElementById('source_of_water_sample_others');
     if (val === "Others") {
         // actve readonly
-        var input = document.getElementById('source_of_water_sample_others');
         input.removeAttribute('readonly');
     }
     else {
         // disable readonly
-        var input = document.getElementById('source_of_water_sample_others');
         input.setAttribute('readonly', 'readonly');
         input.value = '';
     }
@@ -64,15 +58,13 @@ function sourceOfWaterSample(val) {
 
 // can be seen in service.add-analysis-request-form
 function waterPurpose(val) {
-
+    var input = document.getElementById('water_purpose_others');
     if (val === "Others") {
         // actve readonly
-        var input = document.getElementById('water_purpose_others');
         input.removeAttribute('readonly');
     }
     else {
         // disable readonly
-        var input = document.getElementById('water_purpose_others');
         input.setAttribute('readonly', 'readonly');
         input.value = '';
     }
