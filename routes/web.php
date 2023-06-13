@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
+        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
 
         Route::get('lab-approval', function () {
             return view('laboratory.lab_approval.index');
