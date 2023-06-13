@@ -7,7 +7,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="account_name">Account Name</label>
-                <input id="account_name" type="text" name="account_name" value="{{ w }}" readonly>
+                <input id="account_name" type="text" name="account_name" value="{{ $clients->account_name }}" readonly>
 
             </div>
             <div class="mb-3">

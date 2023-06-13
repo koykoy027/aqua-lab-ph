@@ -14,7 +14,7 @@
     @include('laboratory.lab_work_order.partials.chem.chem5')
     @include('laboratory.lab_work_order.partials.chem.chem6')
     @include('laboratory.lab_work_order.partials.chem.chem7')
-    <!-- @include('laboratory.lab_work_order.partials.chem.chem8') -->
+    {{-- <!-- @include('laboratory.lab_work_order.partials.chem.chem8') --> --}}
     @include('laboratory.lab_work_order.partials.chem.chem9')
     @include('laboratory.lab_work_order.partials.chem.chem10')
     @include('laboratory.lab_work_order.partials.phys.phys1')
