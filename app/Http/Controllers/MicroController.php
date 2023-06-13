@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Micro1;
 use App\Models\Micro2;
+use App\Models\Micro3;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
@@ -35,5 +36,21 @@ class MicroController extends Controller
 
         Micro2::create($request->all());
         return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation CSuccess']);
+    }
+
+    public function micro3(Request $request)
+    {
+
+        $request->validate([
+            'micr3_lauryl_24' => 'required',
+            'micr3_lauryl_48' => 'required',
+            'micr3_brillant_24' => 'required',
+            'micr3_brillant_48' => 'required',
+            'micr3_final_result' => 'required',
+            'micr3_remarks' => 'required',
+        ]);
+
+        Micro3::create($request->all());
+        return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation CSuccess']);
     }
 }
