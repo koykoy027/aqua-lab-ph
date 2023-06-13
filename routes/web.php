@@ -18,6 +18,7 @@ use App\Http\Controllers\CreateRawDataFileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LabAcceptanceController;
 use App\Http\Controllers\LabResultStatusController;
+use App\Http\Controllers\MicroController;
 use App\Http\Controllers\QuerySeachController;
 
 // Route::get('/', function () {
@@ -58,6 +59,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
         Route::get('lab-work-order-form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
+        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
 
         Route::get('lab-approval', function () {
             return view('laboratory.lab_approval.index');
