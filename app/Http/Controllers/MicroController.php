@@ -19,7 +19,7 @@ class MicroController extends Controller
         ]);
 
         Micro1::create($request->all());
-        return redirect()->back()->with(['message' => 'Micro 1 Success']);
+        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation CSuccess']);
 
     }
 }
