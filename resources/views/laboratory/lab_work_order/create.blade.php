@@ -3,8 +3,8 @@
 @section('content')
 
 
-    {{-- @include('laboratory.lab_work_order.partials.micro.micr1')
-    @include('laboratory.lab_work_order.partials.micro.micr2') --}}
+    @include('laboratory.lab_work_order.partials.micro.micr1')
+    @include('laboratory.lab_work_order.partials.micro.micr2')
     @include('laboratory.lab_work_order.partials.micro.micr3')
     @include('laboratory.lab_work_order.partials.micro.micr4')
     @include('laboratory.lab_work_order.partials.chem.chem1')
