@@ -82,4 +82,37 @@ function remarksRejected(radio) {
     }
 }
 
+// can be seen in laboratory.lab-acceptance-form
+function micro1() {
+    var micr1_hpc_plate_a = document.querySelector('[name="micr1_hpc_plate_a"]').value;
+    var micr1_hpc_plate_b = document.querySelector('[name="micr1_hpc_plate_b"]').value;
+    var micr1_hpc_average = document.querySelector('[name="micr1_hpc_average"]');
+    var micr1_hpc_difference = document.querySelector('[name="micr1_hpc_difference"]');
+    var micr1_hpc_remarks = document.querySelector('[name="micr1_hpc_remarks"]');
+    var micr1_hpc_final_result = document.querySelector('[name="micr1_hpc_final_result"]');
+
+    if (micr1_hpc_plate_a.length > 0 && micr1_hpc_plate_b.length > 0) {
+        // COMPUTE Average
+        micr1_hpc_average.value = Math.ceil((parseFloat(micr1_hpc_plate_a) + parseFloat(micr1_hpc_plate_b)) / 2);
+
+        // COMPUTE Difference
+        micr1_hpc_difference.value = Math.ceil(parseFloat(((parseFloat(micr1_hpc_plate_a) - parseFloat(micr1_hpc_plate_b)) /
+            ((parseFloat(micr1_hpc_plate_a) + parseFloat(micr1_hpc_plate_b)) / 2) * 100).toFixed(2)));
+
+        if (micr1_hpc_average.value >= 499) {
+            micr1_hpc_remarks.value = 'FAIL';
+            micr1_hpc_final_result.value = '≥ 500 est';
+        } else {
+            micr1_hpc_remarks.value = 'PASSED';
+            micr1_hpc_final_result.value = '≤ 500 est';
+        }
+    } else {
+        micr1_hpc_average.value = '';
+        micr1_hpc_difference.value = '';
+        micr1_hpc_remarks.value = '';
+        micr1_hpc_final_result.value = '';
+    }
+}
+
+
 
