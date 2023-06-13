@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
         Route::get('lab-work-order-form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
+        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
 
         Route::get('lab-approval', function () {
             return view('laboratory.lab_approval.index');
