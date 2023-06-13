@@ -9,7 +9,7 @@
             <div class="mb-3">
                 <label for="micr2_tc_24">No. of Lauryl Tryptose Broth tube with (+) rxn after 24h</label>
                 <input id="micr2_tc_24" type="number" name="micr2_tc_24" value="{{ old('micr2_tc_24') }}" required
-                    autofocus autocomplete="micr2_tc_24">
+                    autofocus autocomplete="micr2_tc_24" onchange="micro2()">
                 @error('micr2_tc_24')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -20,7 +20,7 @@
             <div class="mb-3">
                 <label for="micr2_tc_48">No. of Lauryl Tryptose Broth tube with (+) rxn after 48h</label>
                 <input id="micr2_tc_48" type="number" name="micr2_tc_48" value="{{ old('micr2_tc_48') }}" required
-                    autofocus autocomplete="micr2_tc_48">
+                    autofocus autocomplete="micr2_tc_48" onchange="micro2()">
                 @error('micr2_tc_48')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>

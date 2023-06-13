@@ -82,7 +82,7 @@ function remarksRejected(radio) {
     }
 }
 
-// can be seen in laboratory.lab-acceptance-form
+// can be seen in laboratory.lab_work_order-partials
 function micro1() {
     var micr1_hpc_plate_a = document.querySelector('[name="micr1_hpc_plate_a"]').value;
     var micr1_hpc_plate_b = document.querySelector('[name="micr1_hpc_plate_b"]').value;
@@ -113,6 +113,91 @@ function micro1() {
         micr1_hpc_final_result.value = '';
     }
 }
+
+// can be seen in laboratory.lab_work_order-partials
+function micro2() {
+    var micr2_tc_24 = document.querySelector('[name="micr2_tc_24"]').value;
+    var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
+    var micr2_tc_final_result = document.querySelector('[name="micr2_tc_final_result"]');
+    var micr2_tc_remarks = document.querySelector('[name="micr2_tc_remarks"]');
+
+    if (micr2_tc_24.length > 0 && micr2_tc_48.length > 0) {
+        if (micr2_tc_24 == 0) {
+            micr2_tc_final_result.value = '< 1.1';
+        } else if (micr2_tc_24 == 1) {
+            micr2_tc_final_result.value = '1.1';
+        } else if (micr2_tc_24 == 2) {
+            micr2_tc_final_result.value = '2.6';
+        } else if (micr2_tc_24 == 3) {
+            micr2_tc_final_result.value = '4.6';
+        } else if (micr2_tc_24 == 4) {
+            micr2_tc_final_result.value = '8.0';
+        } else if (micr2_tc_24 >= 5) {
+            micr2_tc_final_result.value = '> 8.0';
+        }
+
+        if (micr2_tc_final_result.value == '< 1.1') {
+            micr2_tc_remarks.value = 'PASSED';
+        } else {
+            micr2_tc_remarks.value = 'FAILED';
+        }
+    } else {
+        micr2_tc_final_result.value = '';
+        micr2_tc_remarks.value = '';
+    }
+}
+
+// can be seen in laboratory.lab_work_order-partials
+function micro3() {
+
+    var micr3_lauryl_24 = document.querySelector('[name="micr3_lauryl_24"]').value;
+    var micr3_lauryl_48 = document.querySelector('[name="micr3_lauryl_48"]').value;
+    var micr3_brillant_24 = document.querySelector('[name="micr3_brillant_24"]').value;
+    var micr3_brillant_48 = document.querySelector('[name="micr3_brillant_48"]').value;
+    var micr3_final_result = document.querySelector('[name="micr3_final_result"]');
+    var micr3_remarks = document.querySelector('[name="micr3_remarks"]');
+
+
+    if (micr3_lauryl_48.length > 0) {
+
+        if (micr3_lauryl_48 == 0) {
+            micr3_final_result.value = '< 1.1';
+        }
+        else if (micr3_lauryl_48 == 1) {
+            micr3_final_result.value = '1.1';
+
+        }
+        else if (micr3_lauryl_48 == 2) {
+            micr3_final_result.value = '2.6';
+
+        }
+        else if (micr3_lauryl_48 == 3) {
+            micr3_final_result.value = '4.6';
+
+        } else if (micr3_lauryl_48 == 4) {
+            micr3_final_result.value = '8.0';
+
+        } else if (micr3_lauryl_48 >= 5) {
+            micr3_final_result.value = '> 8.0';
+        }
+
+        if (micr3_final_result == '< 1.1') {
+            micr3_remarks.value = 'PASSED';
+        } else {
+            micr3_remarks.value = 'FAILED';
+        }
+
+    } else {
+        micr3_final_result.value = '';
+        micr3_remarks.value = '';
+    }
+
+}
+
+
+
+
+
 
 
 
