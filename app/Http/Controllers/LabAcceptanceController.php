@@ -30,7 +30,7 @@ class LabAcceptanceController extends Controller
         return view('laboratory.lab_acceptance.create', compact('requests'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $analysis_id)
     {
 
         $request->validate([
@@ -43,9 +43,34 @@ class LabAcceptanceController extends Controller
 
         ]);
 
+       
         LabAcceptance::create($request->all());
+
+        $remarks = $request->remarks;
+
+        $accepted = "Accepted";
+        $conditionally_accepted = "Conditionally Accepted";
+        $rejected = "Rejected";
+
+        if($remarks == $accepted){
+
+            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $accepted]);
+
+        }
+
+        if($remarks == $conditionally_accepted){
+
+            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $conditionally_accepted]);
+
+        }
+
+        if($remarks == $rejected){
+
+            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $rejected]);
+
+        }
+
         return redirect()->back()->with(['message' => 'Lab acceptance has been created successfully!']);
     }
-
 
 }
