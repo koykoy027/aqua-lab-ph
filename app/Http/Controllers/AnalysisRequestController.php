@@ -48,4 +48,6 @@ class AnalysisRequestController extends Controller
         $details = AnalysisRequest::find($analysis_id);
         return view('record_and_report.analysis_request.details', compact('details'));
     }
+
+    
 }

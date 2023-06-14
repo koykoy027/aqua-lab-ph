@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
+use App\Models\Micro4;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
@@ -21,7 +22,7 @@ class MicroController extends Controller
         ]);
 
         Micro1::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation CSuccess']);
+        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
     }
 
     public function micro2(Request $request)
@@ -35,7 +36,7 @@ class MicroController extends Controller
         ]);
 
         Micro2::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation CSuccess']);
+        return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation Success']);
     }
 
     public function micro3(Request $request)
@@ -51,6 +52,18 @@ class MicroController extends Controller
         ]);
 
         Micro3::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation CSuccess']);
+        return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation Success']);
+    }
+
+    public function micro4(Request $request)
+    {
+        $request->validate([
+            'micr4_color_of_the_sample' => 'required',
+            'micr4_fluorescence' => 'required',
+            'micr4_final_result' => 'required',
+        ]);
+
+        Micro4::create($request->all());
+        return redirect()->back()->with(['message' => 'MICR4 - E. coli Test Computation Success']);
     }
 }

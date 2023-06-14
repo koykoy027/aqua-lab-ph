@@ -18,6 +18,7 @@ use App\Http\Controllers\ChemsController;
 use App\Http\Controllers\CreateRawDataFileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LabAcceptanceController;
+use App\Http\Controllers\LabApprovalController;
 use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\QuerySeachController;
@@ -63,6 +64,7 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
         Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
+        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
 
         //chem routes
         Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
@@ -75,9 +77,7 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
         Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
 
-        Route::get('lab-approval', function () {
-            return view('laboratory.lab_approval.index');
-        });
+        Route::get('lab-approval', [LabApprovalController::class, 'index']);
 
 
     });
