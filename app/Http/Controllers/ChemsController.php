@@ -2,17 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Chem1;
-use App\Models\Chem10;
-use App\Models\Chem2;
-use App\Models\Chem3;
-use App\Models\Chem4;
-use App\Models\Chem5;
-use App\Models\Chem6;
-use App\Models\Chem7;
-use App\Models\Chem9;
+use App\Models\Chem;
 use Illuminate\Http\Request;
-
 class ChemsController extends Controller
 {
     public function chem1(Request $request){
@@ -26,7 +17,7 @@ class ChemsController extends Controller
             'chem1_final_result_remarks' => 'required',
         ]);
 
-        Chem1::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM1 - pH Computation Success']);
 
     }
@@ -42,7 +33,7 @@ class ChemsController extends Controller
             'chem2_final_result_remarks' => 'required',
         ]);
 
-        Chem2::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM2 - Nitrate Computation Success']);
 
     }
@@ -62,7 +53,7 @@ class ChemsController extends Controller
             'chem3_final_result_remarks' => 'required',
         ]);
 
-        Chem3::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM3 - Total Dissolved Solids Computation Success']);
 
     }
@@ -75,7 +66,7 @@ class ChemsController extends Controller
             'chem4_final_result_remarks' => 'required',
         ]);
 
-        Chem4::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM4 - Chlorine (Residual), Computation Success']);
 
     }
@@ -91,7 +82,7 @@ class ChemsController extends Controller
             'chem5_final_result_remarks' => 'required',
         ]);
 
-        Chem5::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM5 - Arsenic Computation Success']);
 
     }
@@ -107,7 +98,7 @@ class ChemsController extends Controller
             'chem6_final_result_remarks' => 'required',
         ]);
 
-        Chem6::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM6 - Cadmium Computation Success']);
 
     }
@@ -123,7 +114,7 @@ class ChemsController extends Controller
             'chem7_final_result_remarks' => 'required',
         ]);
 
-        Chem7::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM7 - Lead Computation Success']);
 
     }
@@ -139,7 +130,7 @@ class ChemsController extends Controller
             'chem9_final_result_remarks' => 'required',
         ]);
 
-        Chem9::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM9 - Iron Computation Success']);
 
     }
@@ -155,7 +146,7 @@ class ChemsController extends Controller
             'chem10_final_result_remarks' => 'required',
         ]);
 
-        Chem10::create($request->all());
+        Chem::create($request->all());
         return redirect()->back()->with(['message' => 'CHEM10 - Manganese Computation Success']);
 
     }

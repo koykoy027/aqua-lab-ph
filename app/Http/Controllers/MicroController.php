@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Micro1;
+use App\Models\Micro;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
@@ -21,7 +21,7 @@ class MicroController extends Controller
             'micr1_hpc_remarks' => 'required',
         ]);
 
-        Micro1::create($request->all());
+        Micro::create($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
     }
 
@@ -35,7 +35,7 @@ class MicroController extends Controller
             'micr2_tc_remarks' => 'required',
         ]);
 
-        Micro2::create($request->all());
+        Micro::create($request->all());
         return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation Success']);
     }
 
@@ -51,7 +51,7 @@ class MicroController extends Controller
             'micr3_remarks' => 'required',
         ]);
 
-        Micro3::create($request->all());
+        Micro::create($request->all());
         return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation Success']);
     }
 
@@ -63,7 +63,7 @@ class MicroController extends Controller
             'micr4_final_result' => 'required',
         ]);
 
-        Micro4::create($request->all());
+        Micro::create($request->all());
         return redirect()->back()->with(['message' => 'MICR4 - E. coli Test Computation Success']);
     }
 }
