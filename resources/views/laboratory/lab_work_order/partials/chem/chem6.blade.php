@@ -1,4 +1,4 @@
-<form action="route('laboratory.lab-work-order-form.chem6', ['analysis_id' => $acceptance->analysis_id])" method="POST">
+<form action="{{ route('laboratory.lab-work-order-form.chem6', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
     @csrf
     <input id="analysis_id" type="hidden" name="analysis_id" value="{{ $requests->analysis_id }}" required autofocus autocomplete="analysis_id" readonly>
 

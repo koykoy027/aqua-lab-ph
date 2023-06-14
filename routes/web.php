@@ -61,21 +61,21 @@ Route::middleware('auth')->group(function () {
 
         Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
         Route::get('lab-work-order-form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
-        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
-        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
-        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
-        Route::post('lab-work-order-form/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
+        Route::post('lab-work-order-form-micro1/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
+        Route::post('lab-work-order-form-micro2/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
+        Route::post('lab-work-order-form-micro3/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
+        Route::post('lab-work-order-form-micro4/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
 
         //chem routes
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem5'])->name('laboratory.lab-work-order-form.chem5');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem6'])->name('laboratory.lab-work-order-form.chem6');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem7'])->name('laboratory.lab-work-order-form.chem7');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
-        Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
+        Route::post('lab-work-order-form-chem1/{analysis_id}', [ChemsController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
+        Route::post('lab-work-order-form-chem2/{analysis_id}', [ChemsController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
+        Route::post('lab-work-order-form-chem3/{analysis_id}', [ChemsController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
+        Route::post('lab-work-order-form-chem4/{analysis_id}', [ChemsController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');
+        Route::post('lab-work-order-form-chem5/{analysis_id}', [ChemsController::class, 'chem5'])->name('laboratory.lab-work-order-form.chem5');
+        Route::post('lab-work-order-form-chem6/{analysis_id}', [ChemsController::class, 'chem6'])->name('laboratory.lab-work-order-form.chem6');
+        Route::post('lab-work-order-form-chem7/{analysis_id}', [ChemsController::class, 'chem7'])->name('laboratory.lab-work-order-form.chem7');
+        Route::post('lab-work-order-form-chem9/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
+        Route::post('lab-work-order-form-chem10/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
 
         Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.index');
         Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
