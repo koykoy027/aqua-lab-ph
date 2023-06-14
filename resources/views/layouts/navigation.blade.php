@@ -120,7 +120,7 @@
                                     class="block px-4 py-2 hover:bg-gray-100">Lab Work Order</a>
                             </li>
                             <li>
-                                <a href="{{ url('laboratory/lab-approval') }}"
+                                <a href="{{ route('laboratory.lab_approval.index') }}"
                                     class="block px-4 py-2 hover:bg-gray-100">Lab Approval</a>
                             </li>
                         </ul>
