@@ -21,6 +21,7 @@ use App\Http\Controllers\LabAcceptanceController;
 use App\Http\Controllers\LabApprovalController;
 use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
+use App\Http\Controllers\PhysController;
 use App\Http\Controllers\QuerySeachController;
 
 // Route::get('/', function () {
@@ -77,6 +78,13 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form-chem9/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
         Route::post('lab-work-order-form-chem10/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
 
+        //phys routes
+        Route::post('lab-work-order-form-phys1/{analysis_id}', [PhysController::class, 'phys1'])->name('laboratory.lab-work-order-form.phys1');
+        Route::post('lab-work-order-form-phys2/{analysis_id}', [PhysController::class, 'phys2'])->name('laboratory.lab-work-order-form.phys2');
+        Route::post('lab-work-order-form-phys3/{analysis_id}', [PhysController::class, 'phys3'])->name('laboratory.lab-work-order-form.phys3');
+        Route::post('lab-work-order-form-phys4/{analysis_id}', [PhysController::class, 'phys4'])->name('laboratory.lab-work-order-form.phys4');
+
+        Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.details');
         Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.index');
         Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
 
