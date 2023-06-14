@@ -13,9 +13,9 @@
                             <th scope="col" class="px-6 py-3">
                                 Analysis reqeust id
                             </th>
-                            <th scope="col" class="px-6 py-3">
+                            {{-- <th scope="col" class="px-6 py-3">
                                 Account Name
-                            </th>
+                            </th> --}}
 
                             <th scope="col" class="px-6 py-3">
                                 Collected By
@@ -35,9 +35,9 @@
                                 <td scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
                                     {{ $request->analysis_id }}
                                 </td>
-                                <td class="px-6 py-3">
+                                {{-- <td class="px-6 py-3">
                                     {{ $request->account_name }}
-                                </td>
+                                </td> --}}
                                 <td class="px-6 py-3">
                                     {{ $request->collector_name }}
                                 </td>

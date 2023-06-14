@@ -12,9 +12,9 @@
                         <th scope="col" class="px-6 py-3">
                             Analysis Request ID
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        {{-- <th scope="col" class="px-6 py-3">
                             Account Name
-                        </th>
+                        </th> --}}
                         <th scope="col" class="px-6 py-3">
                             Remarks
                         </th>
@@ -47,9 +47,9 @@
                             <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
                                 {{ $data->analysis_id }}
                             </th>
-                            <td class="px-6 py-4">
+                            {{-- <td class="px-6 py-4">
                                 {{ $data->account_name }}
-                            </td>
+                            </td> --}}
                             <td class="px-6 py-4">
                                 <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
                                     {{ $data->remarks }}
