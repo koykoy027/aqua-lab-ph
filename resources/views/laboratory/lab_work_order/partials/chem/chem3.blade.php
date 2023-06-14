@@ -103,7 +103,9 @@
                     </span>
                 @enderror
             </div>
-
+        </div>
+        <div class="flex justify-end">
+            <button class="btn btn-primary">Submit</button>
         </div>
     </div>
 </form>
