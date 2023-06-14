@@ -77,7 +77,8 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
         Route::post('lab-work-order-form/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
 
-        Route::get('lab-approval', [LabApprovalController::class, 'index']);
+        Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.details');
+        Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
 
 
     });

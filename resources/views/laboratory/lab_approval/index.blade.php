@@ -31,7 +31,9 @@
                             </td>
 
                             <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 hover:underline">View</a>
+                                {{-- <a href="{{ route('laboratory.lab_approval.details', ['analysis_id' => $request->analysis_id]) }}" class="font-medium text-blue-600 hover:underline">View</a> --}}
+                                <a href="{{ route('laboratory.lab_approval.details', ['analysis_id' => $request->analysis_id]) }}"
+                                    class="font-medium text-blue-600 hover:underline">View Details</a>
                             </td>
                         </tr>
                     @endforeach

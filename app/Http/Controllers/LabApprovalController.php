@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
+use App\Models\Micro1;
 use Illuminate\Http\Request;
 
 class LabApprovalController extends Controller
@@ -17,6 +18,11 @@ class LabApprovalController extends Controller
     public function details($analysis_id)
     {
         $details = AnalysisRequest::find($analysis_id);
-        return view('laboratory.lab_approval.details', compact('details'));
+
+        $lab_approval = Micro1::find($details->analysis_id);
+
+        return view('laboratory.lab_approval.details', compact('details' , 'lab_approval'));
     }
+
+
 }
