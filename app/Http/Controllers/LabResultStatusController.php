@@ -19,6 +19,8 @@ class LabResultStatusController extends Controller
 
     public function table(){
         $datas = AnalysisRequest::orderByDesc('updated_at')
+        ->orWhere('remarks', 'Accepted')
+        ->orWhere('remarks', 'Conditionally Accepted')
         ->paginate(10);
         return view('record_and_report.lab_result.index', compact('datas'));
     }
