@@ -195,10 +195,10 @@ const micro3 = () => {
 }
 
 const categoryClientInformation = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.add('text-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
 
     document.querySelector('.categoryClientInformation').style.display = 'block';
     document.querySelector('.categoryAnalysisRequest').style.display = 'none';
@@ -208,10 +208,10 @@ const categoryClientInformation = () => {
 }
 
 const categoryAnalysisRequest = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.add('text-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
 
     document.querySelector('.categoryClientInformation').style.display = 'none';
     document.querySelector('.categoryAnalysisRequest').style.display = 'block';
@@ -220,10 +220,10 @@ const categoryAnalysisRequest = () => {
 }
 
 const categoryLabAcceptance = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.add('text-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
 
     document.querySelector('.categoryClientInformation').style.display = 'none';
     document.querySelector('.categoryAnalysisRequest').style.display = 'none';
@@ -232,10 +232,10 @@ const categoryLabAcceptance = () => {
 }
 
 const categoryRawData = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.add('text-blue-500');
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    document.querySelector('button[onclick="categoryRawData()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
 
 
     document.querySelector('.categoryClientInformation').style.display = 'none';

@@ -8,10 +8,10 @@
 
 
 
-    <button class="btn border-b-2 text-blue-500" onclick="categoryClientInformation()">Client Information</button>
-    <button class="btn border-b-2" onclick="categoryAnalysisRequest()">Analysis Request</button>
-    <button class="btn border-b-2" onclick="categoryLabAcceptance()">Lab Acceptance</button>
-    <button class="btn border-b-2" onclick="categoryRawData()">Raw Data File</button>
+    <button class="btn border-b-2 border-blue-500 text-blue-500" onclick="categoryClientInformation()">Client Information</button>
+    <button class="btn" onclick="categoryAnalysisRequest()">Analysis Request</button>
+    <button class="btn" onclick="categoryLabAcceptance()">Lab Acceptance</button>
+    <button class="btn" onclick="categoryRawData()">Raw Data File</button>
 
 
     <div class="categoryClientInformation">
