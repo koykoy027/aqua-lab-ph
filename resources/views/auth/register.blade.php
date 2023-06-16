@@ -1,6 +1,7 @@
-@extends('layouts.guest')
+@extends('layouts.app')
+@section('title', 'Add User')
 @section('content')
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" class="card bg-white">
         @csrf
 
         <input type="hidden" name="status" value="0"/>
@@ -68,11 +69,11 @@
             </button>
         </div>
 
-        <div class="mb-3 flex items-center justify-end">
+        {{-- <div class="mb-3 flex items-center justify-end">
             <a class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
                 href="{{ route('login') }}">
                 Already Registered?
             </a>
-        </div>
+        </div> --}}
     </form>
 @endsection
