@@ -22,10 +22,16 @@ class LabResultStatusController extends Controller
         return view('record_and_report.lab_result.index', compact('datas'));
     }
 
-    public function details($account_number){
-        $clients = Client::find($account_number);
 
-        return view('record_and_report.lab_result.details', compact('clients'));
+    public function details($analysis_id){
+
+        $analysis = AnalysisRequest::find($analysis_id);
+
+        $clients = Client::find($analysis->account_number);
+
+        return view('record_and_report.lab_result.details', compact('analysis', 'clients'));
     }
+
+
 
 }

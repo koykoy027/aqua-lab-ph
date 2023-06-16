@@ -196,11 +196,15 @@ const micro3 = () => {
 
 const categoryClientInformation = () => {
     document.querySelector('#categoryClientInformation').style.display = 'block';
+    document.querySelector('#categoryAnalysisRequest').style.display = 'none';
+
+
 
 }
 
 const categoryAnalysisRequest = () => {
     document.querySelector('#categoryClientInformation').style.display = 'none';
+    document.querySelector('#categoryAnalysisRequest').style.display = 'block';
 }
 
 

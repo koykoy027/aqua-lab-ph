@@ -13,6 +13,11 @@
             @include('record_and_report.lab_result.partials.client')
         </div>
 
+        <div id="categoryAnalysisRequest" style="display: none">
+            @include('record_and_report.lab_result.partials.analysis_request')
+        </div>
+
+
     </div>
 
 </div>
