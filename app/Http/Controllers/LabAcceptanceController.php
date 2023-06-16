@@ -43,32 +43,12 @@ class LabAcceptanceController extends Controller
 
         ]);
 
-       
-        LabAcceptance::create($request->all());
 
         $remarks = $request->remarks;
-
-        $accepted = "Accepted";
-        $conditionally_accepted = "Conditionally Accepted";
-        $rejected = "Rejected";
-
-        if($remarks == $accepted){
-
-            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $accepted]);
-
-        }
-
-        if($remarks == $conditionally_accepted){
-
-            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $conditionally_accepted]);
-
-        }
-
-        if($remarks == $rejected){
-
-            AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $rejected]);
-
-        }
+       
+        LabAcceptance::create($request->all());
+        
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
         return redirect()->back()->with(['message' => 'Lab acceptance has been created successfully!']);
     }
