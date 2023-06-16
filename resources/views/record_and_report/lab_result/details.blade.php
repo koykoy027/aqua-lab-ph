@@ -21,7 +21,7 @@
         </div>
 
         <div class="category categoryRawData hidden">
-            {{-- @include('record_and_report.lab_result.partials.raw_data') --}}
+            @include('record_and_report.lab_result.partials.raw_data')
         </div>
     </div>
 

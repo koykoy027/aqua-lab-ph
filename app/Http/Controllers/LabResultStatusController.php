@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
 use App\Models\LabAcceptance;
+use App\Models\Micro;
 use Illuminate\Http\Request;
 
 class LabResultStatusController extends Controller
@@ -32,8 +33,9 @@ class LabResultStatusController extends Controller
 
         $clients = Client::find($analysis->account_number);
         $acceptance = LabAcceptance::find($analysis->analysis_id);
+        $rawData = Micro::find($analysis->analysis_id);
 
-        return view('record_and_report.lab_result.details', compact('analysis', 'clients', 'acceptance'));
+        return view('record_and_report.lab_result.details', compact('analysis', 'clients', 'acceptance', 'rawData'));
     }
 
 
