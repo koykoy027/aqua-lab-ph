@@ -1,5 +1,5 @@
 // can be seen in service.client.create
-function marketSegment(val) {
+const marketSegment = (val) => {
     var input = document.getElementById('market_segment_others');
 
     if (val === "Others") {
@@ -14,7 +14,7 @@ function marketSegment(val) {
 }
 
 // can be seen in service.add-analysis-request-form
-function collectionPoint(val) {
+const collectionPoint = (val) => {
     var input = document.getElementById('collection_point_others');
     if (val === "Others") {
         // actve readonly
@@ -29,7 +29,7 @@ function collectionPoint(val) {
 }
 
 // can be seen in service.add-analysis-request-form
-function samplingLocationAddress(val) {
+const samplingLocationAddress = (val) => {
     var input = document.getElementById('sampling_location_address_others');
     if (val === "Others") {
         // actve readonly
@@ -43,7 +43,7 @@ function samplingLocationAddress(val) {
 }
 
 // can be seen in service.add-analysis-request-form
-function sourceOfWaterSample(val) {
+const sourceOfWaterSample = (val) => {
     var input = document.getElementById('source_of_water_sample_others');
     if (val === "Others") {
         // actve readonly
@@ -57,7 +57,7 @@ function sourceOfWaterSample(val) {
 }
 
 // can be seen in service.add-analysis-request-form
-function waterPurpose(val) {
+const waterPurpose = (val) => {
     var input = document.getElementById('water_purpose_others');
     if (val === "Others") {
         // actve readonly
@@ -71,7 +71,7 @@ function waterPurpose(val) {
 }
 
 // can be seen in laboratory.lab-acceptance-form
-function remarksRejected(radio) {
+const remarksRejected = (radio) => {
     var input = document.getElementById('if_remarks_are_rejected');
 
     if (radio.checked && radio.value === 'Rejected') {
@@ -83,7 +83,7 @@ function remarksRejected(radio) {
 }
 
 // can be seen in laboratory.lab_work_order-partials
-function micro1() {
+const micro1 = () => {
     var micr1_hpc_plate_a = document.querySelector('[name="micr1_hpc_plate_a"]').value;
     var micr1_hpc_plate_b = document.querySelector('[name="micr1_hpc_plate_b"]').value;
     var micr1_hpc_average = document.querySelector('[name="micr1_hpc_average"]');
@@ -115,7 +115,7 @@ function micro1() {
 }
 
 // can be seen in laboratory.lab_work_order-partials
-function micro2() {
+const micro2 = () => {
     var micr2_tc_24 = document.querySelector('[name="micr2_tc_24"]').value;
     var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
     var micr2_tc_final_result = document.querySelector('[name="micr2_tc_final_result"]');
@@ -148,7 +148,7 @@ function micro2() {
 }
 
 // can be seen in laboratory.lab_work_order-partials
-function micro3() {
+const micro3 = () => {
 
     var micr3_lauryl_24 = document.querySelector('[name="micr3_lauryl_24"]').value;
     var micr3_lauryl_48 = document.querySelector('[name="micr3_lauryl_48"]').value;
@@ -198,7 +198,7 @@ const categoryClientInformation = () => {
     document.querySelector('#categoryClientInformation').style.display = 'block';
 
 }
-  
+
 const categoryAnalysisRequest = () => {
     document.querySelector('#categoryClientInformation').style.display = 'none';
 }
