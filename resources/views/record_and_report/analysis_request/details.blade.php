@@ -2,6 +2,8 @@
 @section('title', 'Analysis request details')
 @section('content')
 
+<a href="{{ route('sample-pdf', ['analysis_id' => $details->analysis_id]) }}" class="font-medium text-blue-600 hover:underline">Generate Pdf Copy</a>
+
     <div class="card mb-3 bg-white">
         <h1 class="mb-3">Sample Collection</h1>
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">

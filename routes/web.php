@@ -21,6 +21,7 @@ use App\Http\Controllers\LabAcceptanceController;
 use App\Http\Controllers\LabApprovalController;
 use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PhysController;
 use App\Http\Controllers\QuerySeachController;
 
@@ -101,10 +102,12 @@ Route::middleware('auth')->group(function () {
 
         Route::get('facility', function () {
             return view('record_and_report.facility.index');
-        });
+        })
+        ;
         Route::get('client-list', [ClientController::class, 'index'])->name('record-and-report.record_and_report.client_list.index');
         Route::get('client-list/client/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
 
+        Route::get('generate-analysis-pdf/{analysis_id}', [PdfController::class, 'generateAnalysisPdf'])->name('sample-pdf');
 
 
     });
