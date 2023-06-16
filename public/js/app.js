@@ -194,58 +194,40 @@ const micro3 = () => {
 
 }
 
+
+
+const handleCategoryClick = (category, selector) => {
+    const buttons = document.querySelectorAll('.category-button');
+    buttons.forEach((button) => {
+        button.classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
+    });
+
+    const clickedButton = document.querySelector(selector);
+    clickedButton.classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
+
+    const categories = document.querySelectorAll('.category');
+    categories.forEach((categoryElement) => {
+        if (categoryElement.classList.contains(category)) {
+            categoryElement.style.display = 'block';
+        } else {
+            categoryElement.style.display = 'none';
+        }
+    });
+};
+
 const categoryClientInformation = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-
-    document.querySelector('.categoryClientInformation').style.display = 'block';
-    document.querySelector('.categoryAnalysisRequest').style.display = 'none';
-    document.querySelector('.categoryLabAcceptance').style.display = 'none';
-    document.querySelector('.categoryRawData').style.display = 'none';
-
-}
+    handleCategoryClick('categoryClientInformation', '[onclick="categoryClientInformation()"]');
+};
 
 const categoryAnalysisRequest = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-
-    document.querySelector('.categoryClientInformation').style.display = 'none';
-    document.querySelector('.categoryAnalysisRequest').style.display = 'block';
-    document.querySelector('.categoryLabAcceptance').style.display = 'none';
-    document.querySelector('.categoryRawData').style.display = 'none';
-}
+    handleCategoryClick('categoryAnalysisRequest', '[onclick="categoryAnalysisRequest()"]');
+};
 
 const categoryLabAcceptance = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-
-    document.querySelector('.categoryClientInformation').style.display = 'none';
-    document.querySelector('.categoryAnalysisRequest').style.display = 'none';
-    document.querySelector('.categoryLabAcceptance').style.display = 'block';
-    document.querySelector('.categoryRawData').style.display = 'none';
-}
+    handleCategoryClick('categoryLabAcceptance', '[onclick="categoryLabAcceptance()"]');
+};
 
 const categoryRawData = () => {
-    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500', 'border-b-2', 'border-blue-500');
-    document.querySelector('button[onclick="categoryRawData()"]').classList.add('text-blue-500', 'border-b-2', 'border-blue-500');
-
-
-    document.querySelector('.categoryClientInformation').style.display = 'none';
-    document.querySelector('.categoryAnalysisRequest').style.display = 'none';
-    document.querySelector('.categoryLabAcceptance').style.display = 'none';
-    document.querySelector('.categoryRawData').style.display = 'block';
-}
-
-
-
-
-
+    handleCategoryClick('categoryRawData', '[onclick="categoryRawData()"]');
+};
 
