@@ -195,18 +195,35 @@ const micro3 = () => {
 }
 
 const categoryClientInformation = () => {
-    document.querySelector('#categoryClientInformation').style.display = 'block';
-    document.querySelector('#categoryAnalysisRequest').style.display = 'none';
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.add('text-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500');
 
-
+    document.querySelector('.categoryClientInformation').style.display = 'block';
+    document.querySelector('.categoryAnalysisRequest').style.display = 'none';
+    document.querySelector('.categoryLabAcceptance').style.display = 'none';
 
 }
 
 const categoryAnalysisRequest = () => {
-    document.querySelector('#categoryClientInformation').style.display = 'none';
-    document.querySelector('#categoryAnalysisRequest').style.display = 'block';
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.add('text-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.remove('text-blue-500');
+
+    document.querySelector('.categoryClientInformation').style.display = 'none';
+    document.querySelector('.categoryAnalysisRequest').style.display = 'block';
+    document.querySelector('.categoryLabAcceptance').style.display = 'none';
 }
 
+const categoryLabAcceptance = () => {
+    document.querySelector('button[onclick="categoryClientInformation()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryAnalysisRequest()"]').classList.remove('text-blue-500');
+    document.querySelector('button[onclick="categoryLabAcceptance()"]').classList.add('text-blue-500');
+
+    document.querySelector('.categoryClientInformation').style.display = 'none';
+    document.querySelector('.categoryAnalysisRequest').style.display = 'none';
+    document.querySelector('.categoryLabAcceptance').style.display = 'block';
+}
 
 
 
