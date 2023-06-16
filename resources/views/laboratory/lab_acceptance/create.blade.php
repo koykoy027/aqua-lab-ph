@@ -2,7 +2,7 @@
 @section('title', 'Lab Acceptance Form')
 @section('content')
 
-    <form action="{{ route('laboratory.lab-acceptance.store') }}" method="POST">
+    <form action="{{ route('laboratory.lab-acceptance.store', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
         @csrf
         <input type="hidden" name="analysis_id" value="{{ $requests->analysis_id }}">
 
