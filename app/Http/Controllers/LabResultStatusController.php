@@ -17,9 +17,9 @@ class LabResultStatusController extends Controller
     }
 
     public function table(){
-        $clients = Client::orderByDesc('updated_at')
+        $datas = AnalysisRequest::orderByDesc('updated_at')
         ->paginate(10);
-        return view('record_and_report.lab_result.index', compact('clients'));
+        return view('record_and_report.lab_result.index', compact('datas'));
     }
 
     public function details($account_number){

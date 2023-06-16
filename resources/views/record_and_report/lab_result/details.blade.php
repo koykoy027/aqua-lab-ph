@@ -2,7 +2,7 @@
 @section('title', 'Lab Result All Details')
 @section('content')
 
-<div class="grid grid-cols-5">
+<div class="grid grid-row-5">
 
     <div class="p-4 col-span-1">
         <button class="btn btn-secondary" onclick="categoryClientInformation()">Client Information</button>

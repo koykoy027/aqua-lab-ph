@@ -95,7 +95,7 @@ Route::middleware('auth')->group(function () {
         // lab result status
         Route::get('lab-acceptance', [LabAcceptanceController::class, 'index'])->name('record-and-report.lab-acceptance.index');
         Route::get('lab-result', [LabResultStatusController::class, 'table'])->name('record-and-report.lab-result.table');
-        Route::get('lab-result/details/{account_number}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
+        Route::get('lab-result/details/{analysis_id}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
         Route::get('analysis-request', [AnalysisRequestController::class, 'index'])->name('record-and-report.analysis-request.index');
         Route::get('analysis-request/{analysis_id}', [AnalysisRequestController::class, 'details'])->name('record-and-report.analysis-request.details');
 

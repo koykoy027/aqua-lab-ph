@@ -10,13 +10,13 @@
                 <thead class="bg-gray-50 text-xs uppercase text-gray-700">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Account Name
+                            Analysis Request ID
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Email
+                            Collector name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Municipality Or City
+                            Date Collected
                         </th>
                         <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Action</span>
@@ -24,20 +24,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($clients as $client)
+                    @foreach ($datas as $data)
                         <tr class="border-b bg-white">
                             <td scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
-                                {{ $client->account_name }}
+                                {{ $data->analysis_id }}
                             </td>
                             <td class="px-6 py-3">
-                                {{ $client->email }}
+                                {{ $data->collector_name }}
                             </td>
                             <td class="px-6 py-3">
-                                {{ $client->municipality_or_city }}
+                                {{ $data->date_collected }}
                             </td>
 
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route('record-and-report.lab-result.details', ['account_number' => $client->account_number]) }}"
+                                <a href="{{ route('record-and-report.lab-result.details', ['analysis_id' => $data->analysis_id]) }}"
                                     class="font-medium text-blue-600 hover:underline">View Details</a>
                             </td>
                         </tr>
