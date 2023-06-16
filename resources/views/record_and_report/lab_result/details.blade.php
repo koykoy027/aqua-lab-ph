@@ -26,7 +26,7 @@
         @include('record_and_report.lab_result.partials.lab_acceptance')
     </div>
 
-    <div class="categoryLabAcceptance hidden">
+    <div class="categoryRawData hidden">
         {{-- @include('record_and_report.lab_result.partials.raw_data') --}}
     </div>
 
