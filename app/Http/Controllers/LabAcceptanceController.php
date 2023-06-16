@@ -30,7 +30,7 @@ class LabAcceptanceController extends Controller
         return view('laboratory.lab_acceptance.create', compact('requests'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $analysis_id)
     {
 
         $request->validate([
@@ -43,9 +43,14 @@ class LabAcceptanceController extends Controller
 
         ]);
 
+
+        $remarks = $request->remarks;
+       
         LabAcceptance::create($request->all());
+        
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'Lab acceptance has been created successfully!']);
     }
-
 
 }

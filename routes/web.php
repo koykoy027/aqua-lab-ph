@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('laboratory')->group(function () {
         // lab result status
         Route::get('lab-acceptance/{analysis_id}',[LabAcceptanceController::class, 'create'])->name('laboratory.lab-acceptance.create');
-        Route::post('lab-acceptance/store', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
+        Route::post('lab-acceptance/store/{analysis_id}', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
 
         Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
         Route::get('lab-work-order-form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
