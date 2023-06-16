@@ -194,8 +194,14 @@ function micro3() {
 
 }
 
+const categoryClientInformation = () => {
+    document.querySelector('#categoryClientInformation').style.display = 'block';
 
-
+}
+  
+const categoryAnalysisRequest = () => {
+    document.querySelector('#categoryClientInformation').style.display = 'none';
+}
 
 
 

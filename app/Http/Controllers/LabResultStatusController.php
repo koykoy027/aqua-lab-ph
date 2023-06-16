@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class LabResultStatusController extends Controller
@@ -14,4 +15,17 @@ class LabResultStatusController extends Controller
         ->paginate(10);
         return view ('service.lab_result_status.index', compact('datas'));
     }
+
+    public function table(){
+        $clients = Client::orderByDesc('updated_at')
+        ->paginate(10);
+        return view('record_and_report.lab_result.index', compact('clients'));
+    }
+
+    public function details($account_number){
+        $clients = Client::find($account_number);
+
+        return view('record_and_report.lab_result.details', compact('clients'));
+    }
+
 }
