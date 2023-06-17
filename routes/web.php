@@ -55,7 +55,7 @@ Route::middleware('auth', 'status')->group(function () {
      Route::prefix('service')->group(function () {
         //  add clients accounts
         Route::get('add-client-account', [ClientController::class, 'create'])->name('service.add-client-account.create');
-        Route::post('client/store', [ClientController::class, 'store'])->name('service.add-client-account.store');
+        Route::post('add-client-account/store', [ClientController::class, 'store'])->name('service.add-client-account.store');
 
         // add analysis request
         Route::get('add-analysis-request', [AnalysisRequestController::class, 'create'])->name('service.add-analysis-request.create');
