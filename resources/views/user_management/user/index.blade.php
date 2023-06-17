@@ -55,13 +55,13 @@
                                 @endif
 
                             </td>
-                            <td class="flex justify-end px-6 py-4">
+                            <td class="px-6 py-4 text-right">
 
                                 @if ($user->status == '0')
                                     <form action="{{ route('user-management.user-lists.setAsActive', $user) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="text-blue-500">
+                                        <button type="submit" class="font-medium text-blue-600 hover:underline">
                                             Set as Active
                                         </button>
                                     </form>
@@ -70,7 +70,7 @@
                                     <form action="{{ route('user-management.user-lists.setAsInactive', $user) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="text-blue-500">
+                                        <button type="submit" class="font-medium text-blue-600 hover:underline">
                                             Set as Inactive
                                         </button>
                                     </form>
