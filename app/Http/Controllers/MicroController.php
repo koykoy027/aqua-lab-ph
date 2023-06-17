@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Micro;
-use App\Models\Micro2;
-use App\Models\Micro3;
-use App\Models\Micro4;
+use App\Models\RawData;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
@@ -22,7 +19,7 @@ class MicroController extends Controller
             'micr1_hpc_remarks' => 'required',
         ]);
 
-        $micro = Micro::findOrFail($analysis_id);
+        $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
     }
@@ -37,7 +34,7 @@ class MicroController extends Controller
             'micr2_tc_remarks' => 'required',
         ]);
 
-        $micro = Micro::findOrFail($analysis_id);
+        $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation Success']);
     }
@@ -54,7 +51,7 @@ class MicroController extends Controller
             'micr3_remarks' => 'required',
         ]);
 
-        $micro = Micro::findOrFail($analysis_id);
+        $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation Success']);
     }
@@ -67,7 +64,7 @@ class MicroController extends Controller
             'micr4_final_result' => 'required',
         ]);
 
-        $micro = Micro::findOrFail($analysis_id);
+        $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR4 - E. coli Test Computation Success']);
     }

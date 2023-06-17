@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Chem;
+use App\Models\RawData;
 use Illuminate\Http\Request;
-class ChemsController extends Controller
+class ChemController extends Controller
 {
-    public function chem1(Request $request){
+    public function chem1(Request $request, $analysis_id){
 
         $request->validate([
             'chem1_instrument_reading_1' => 'required',
@@ -17,12 +18,13 @@ class ChemsController extends Controller
             'chem1_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM1 - pH Computation Success']);
 
     }
 
-    public function chem2(Request $request){
+    public function chem2(Request $request, $analysis_id){
 
         $request->validate([
             'chem2_instrument_reading_1' => 'required',
@@ -33,13 +35,14 @@ class ChemsController extends Controller
             'chem2_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM2 - Nitrate Computation Success']);
 
     }
 
-    
-    public function chem3(Request $request){
+
+    public function chem3(Request $request, $analysis_id){
 
         $request->validate([
             'chem3_initial_wt_of_evaporating_dish_replicate_1' => 'required',
@@ -53,12 +56,13 @@ class ChemsController extends Controller
             'chem3_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM3 - Total Dissolved Solids Computation Success']);
 
     }
 
-    public function chem4(Request $request){
+    public function chem4(Request $request, $analysis_id){
 
         $request->validate([
             'chem4_instrument_reading' => 'required',
@@ -66,12 +70,13 @@ class ChemsController extends Controller
             'chem4_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM4 - Chlorine (Residual), Computation Success']);
 
     }
 
-    public function chem5(Request $request){
+    public function chem5(Request $request, $analysis_id){
 
         $request->validate([
             'chem5_instrument_reading_1' => 'required',
@@ -82,12 +87,13 @@ class ChemsController extends Controller
             'chem5_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM5 - Arsenic Computation Success']);
 
     }
 
-    public function chem6(Request $request){
+    public function chem6(Request $request, $analysis_id){
 
         $request->validate([
             'chem6_instrument_reading_1' => 'required',
@@ -98,12 +104,13 @@ class ChemsController extends Controller
             'chem6_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM6 - Cadmium Computation Success']);
 
     }
 
-    public function chem7(Request $request){
+    public function chem7(Request $request, $analysis_id){
 
         $request->validate([
             'chem7_instrument_reading_1' => 'required',
@@ -114,12 +121,13 @@ class ChemsController extends Controller
             'chem7_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM7 - Lead Computation Success']);
 
     }
 
-    public function chem9(Request $request){
+    public function chem9(Request $request, $analysis_id){
 
         $request->validate([
             'chem9_instrument_reading_1' => 'required',
@@ -130,12 +138,13 @@ class ChemsController extends Controller
             'chem9_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM9 - Iron Computation Success']);
 
     }
 
-    public function chem10(Request $request){
+    public function chem10(Request $request, $analysis_id){
 
         $request->validate([
             'chem10_instrument_reading_1' => 'required',
@@ -146,7 +155,8 @@ class ChemsController extends Controller
             'chem10_final_result_remarks' => 'required',
         ]);
 
-        Chem::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM10 - Manganese Computation Success']);
 
     }

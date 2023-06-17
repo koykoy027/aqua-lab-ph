@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Phys;
+use App\Models\RawData;
 use Illuminate\Http\Request;
 
 class PhysController extends Controller
@@ -15,7 +15,7 @@ class PhysController extends Controller
             'phys1_final_result_remarks' => 'required',
         ]);
 
-        Phys::create($request->all());
+        RawData::create($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
 
     }
@@ -28,7 +28,7 @@ class PhysController extends Controller
             'phys2_final_result_remarks' => 'required',
         ]);
 
-        Phys::create($request->all());
+        RawData::create($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
 
     }
@@ -41,9 +41,9 @@ class PhysController extends Controller
             'phys3_final_result_remarks' => 'required',
         ]);
 
-        Phys::create($request->all());
+        RawData::create($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
-        
+
     }
 
     public function phys4(Request $request){
@@ -54,8 +54,8 @@ class PhysController extends Controller
             'phys4_instrument_reading_3' => 'required',
         ]);
 
-        Phys::create($request->all());
+        RawData::create($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
-        
+
     }
 }

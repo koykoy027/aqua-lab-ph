@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
-use App\Models\Micro;
+use App\Models\RawData;
 use Illuminate\Http\Request;
 
 class AnalysisRequestController extends Controller
@@ -36,7 +36,7 @@ class AnalysisRequestController extends Controller
         ]);
 
         $analysisRequest = AnalysisRequest::create($request->all());
-        Micro::create([
+        RawData::create([
             'analysis_id' => $analysisRequest->analysis_id,
             // other Micro attributes
         ]);
