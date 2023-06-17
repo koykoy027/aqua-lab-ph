@@ -9,7 +9,7 @@
                     <h1 class="mb-4 text-2xl font-bold">Forbidden</h1>
                     <p class="text-gray-700">You don't have permission to access this page.</p>
                     <p class="text-gray-700">Please contact the administrator for assistance.</p>
-                    <div class="flex justify-end">
+                    <div class="my-5 flex justify-center">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
