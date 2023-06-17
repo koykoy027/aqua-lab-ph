@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
 
      public function index(){
-        $users = User::all();
+        $users = User::orderByDesc('created_at')->paginate(10);
         return view('user_management.user.index', compact('users'));
      }
     public function create(): View
