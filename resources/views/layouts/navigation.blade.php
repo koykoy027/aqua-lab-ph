@@ -1,4 +1,4 @@
-<nav class="border-gray-200 bg-white">
+<nav class="border-gray-200 bg-white sticky top-0 z-10"">
     <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
         <a href="{{ url('/') }}" class="flex items-center">
             <img src="{{ asset('image/branding.png') }}" class="mr-3 w-44" alt="AQUALAB PH" />
