@@ -23,6 +23,7 @@ use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PhysController;
 use App\Http\Controllers\QuerySeachController;
+use App\Http\Controllers\UserController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -114,6 +115,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('user-management')->group(function () {
         // lab result status
         Route::get('user-lists', [RegisteredUserController::class, 'index'])->name('user-management.user-lists.index');
+        Route::put('user-lists/{user}/active', [UserController::class, 'setAsActive'])->name('user-management.user-lists.setAsActive');
+        Route::put('user-lists/{user}/inactive', [UserController::class, 'setAsInactive'])->name('user-management.user-lists.setAsInactive');
         Route::get('role-lists', [RoleController::class, 'index'])->name('user-management.role-lists.index');
 
     });
@@ -181,7 +184,7 @@ Route::middleware('auth')->group(function () {
     //             ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
-    
+
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 
