@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Chem extends Model
 {
     use HasFactory;
-    protected $table ='chems';
+    protected $table = 'raw_datas';
     protected $fillable = [
         'analysis_id',
         'chem1_instrument_reading_1',

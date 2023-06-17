@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Micro extends Model
 {
-    protected $table ='micros';
+    protected $table = 'raw_datas';
     protected $fillable = [
         'analysis_id',
         'micr1_hpc_plate_a',

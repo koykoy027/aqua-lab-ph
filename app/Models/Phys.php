@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Phys extends Model
 {
     use HasFactory;
-    protected $table = 'phys';
+    protected $table = 'raw_datas';
     protected $fillable = [
         'analysis_id',
         'phys1_observation',
