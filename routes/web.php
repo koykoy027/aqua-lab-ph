@@ -24,6 +24,7 @@ use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PhysController;
 use App\Http\Controllers\QuerySeachController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -31,7 +32,19 @@ use App\Http\Controllers\UserController;
 
 
 
-Route::middleware('auth')->group(function () {
+Route::get('403', function () {
+    $user = Auth::user();
+
+    if ($user->status == 1) {
+        return redirect()->route('login'); // Redirect to a different page
+    }
+
+    return view('forbidden.status');
+})->middleware('auth');
+
+
+Route::middleware('auth', 'status')->group(function () {
+
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -176,7 +189,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'status')->group(function () {
 
     Route::get('register', [RoleController::class, 'roleInRegister'])->name('register');
 
@@ -203,6 +216,8 @@ Route::middleware('auth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+
 });
+
+Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout')->middleware('auth');
