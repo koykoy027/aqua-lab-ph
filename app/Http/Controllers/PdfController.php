@@ -15,10 +15,12 @@ class PdfController extends Controller
         
         $micro_details = Micro::where('analysis_id',$analysis_id)->get();
         
-        $details = AnalysisRequest::where('analysis_id',$analysis_id)->get();
+        $details = AnalysisRequest::find($analysis_id);
 
-        $pdf = Pdf::loadView('record_and_report.analysis_request.pdf', ['details' =>  $details, 'micro_details' =>  $micro_details]);
-        return $pdf->stream('analysis-request-details.pdf');
+        $collection_details = AnalysisRequest::where('analysis_id',$analysis_id)->get();
+
+        $pdf = Pdf::loadView('record_and_report.analysis_request.pdf', ['details' =>  $details, 'micro_details' =>  $micro_details, 'collection_details' => $collection_details]);
+        return $pdf->stream('analysis-request.pdf');
         
     }
     
