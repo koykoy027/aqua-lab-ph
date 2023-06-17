@@ -45,23 +45,23 @@
         </div>
 
         <!-- Password -->
-        <div class="mb-3">
-            <label for="password">Password</label>
-            <input id="password" type="password" name="password" required autocomplete="new-password" />
-            @error('password')
+        {{-- <div class="mb-3">
+            <label for="password">Password</label> --}}
+            <input id="password" type="hidden" name="password" required autocomplete="new-password" value="Pa$$w0rd!"/>
+            {{-- @error('password')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-        </div>
+        </div> --}}
 
         <!-- Confirm Password -->
-        <div class="mb-3">
-            <label for="password_confirmation">Confirm Password</label>
-            <input id="password_confirmation" type="password" name="password_confirmation" required
-                autocomplete="new-password" />
+        {{-- <div class="mb-3">
+            <label for="password_confirmation">Confirm Password</label> --}}
+            <input id="password_confirmation" type="hidden" name="password_confirmation" required
+                autocomplete="new-password" value="Pa$$w0rd!"/>
 
-        </div>
+        {{-- </div> --}}
 
         <div class="mb-3 flex justify-end">
             <button class="btn btn-primary" type="submit">
