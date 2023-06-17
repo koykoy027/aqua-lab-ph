@@ -14,7 +14,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AnalysisRequestController;
-use App\Http\Controllers\ChemsController;
+use App\Http\Controllers\ChemController;
 use App\Http\Controllers\CreateRawDataFileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LabAcceptanceController;
@@ -23,7 +23,9 @@ use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PhysController;
-use App\Http\Controllers\QuerySeachController;
+use App\Http\Controllers\QuerySearchController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -31,7 +33,19 @@ use App\Http\Controllers\QuerySeachController;
 
 
 
-Route::middleware('auth')->group(function () {
+Route::get('403', function () {
+    $user = Auth::user();
+
+    if ($user->status == 1) {
+        return redirect()->route('login'); // Redirect to a different page
+    }
+
+    return view('forbidden.status');
+})->middleware('auth');
+
+
+Route::middleware('auth', 'status')->group(function () {
+
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -45,7 +59,7 @@ Route::middleware('auth')->group(function () {
 
         // add analysis request
         Route::get('add-analysis-request', [AnalysisRequestController::class, 'create'])->name('service.add-analysis-request.create');
-        Route::get('add-analysis-request', [QuerySeachController::class, 'client'])->name('service.add-analysis-request.create');
+        Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
 
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
@@ -69,15 +83,15 @@ Route::middleware('auth')->group(function () {
         Route::post('lab-work-order-form-micro4/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
 
         //chem routes
-        Route::post('lab-work-order-form-chem1/{analysis_id}', [ChemsController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
-        Route::post('lab-work-order-form-chem2/{analysis_id}', [ChemsController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
-        Route::post('lab-work-order-form-chem3/{analysis_id}', [ChemsController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
-        Route::post('lab-work-order-form-chem4/{analysis_id}', [ChemsController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');
-        Route::post('lab-work-order-form-chem5/{analysis_id}', [ChemsController::class, 'chem5'])->name('laboratory.lab-work-order-form.chem5');
-        Route::post('lab-work-order-form-chem6/{analysis_id}', [ChemsController::class, 'chem6'])->name('laboratory.lab-work-order-form.chem6');
-        Route::post('lab-work-order-form-chem7/{analysis_id}', [ChemsController::class, 'chem7'])->name('laboratory.lab-work-order-form.chem7');
-        Route::post('lab-work-order-form-chem9/{analysis_id}', [ChemsController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
-        Route::post('lab-work-order-form-chem10/{analysis_id}', [ChemsController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
+        Route::post('lab-work-order-form-chem1/{analysis_id}', [ChemController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
+        Route::post('lab-work-order-form-chem2/{analysis_id}', [ChemController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
+        Route::post('lab-work-order-form-chem3/{analysis_id}', [ChemController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
+        Route::post('lab-work-order-form-chem4/{analysis_id}', [ChemController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');
+        Route::post('lab-work-order-form-chem5/{analysis_id}', [ChemController::class, 'chem5'])->name('laboratory.lab-work-order-form.chem5');
+        Route::post('lab-work-order-form-chem6/{analysis_id}', [ChemController::class, 'chem6'])->name('laboratory.lab-work-order-form.chem6');
+        Route::post('lab-work-order-form-chem7/{analysis_id}', [ChemController::class, 'chem7'])->name('laboratory.lab-work-order-form.chem7');
+        Route::post('lab-work-order-form-chem9/{analysis_id}', [ChemController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
+        Route::post('lab-work-order-form-chem10/{analysis_id}', [ChemController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
 
         //phys routes
         Route::post('lab-work-order-form-phys1/{analysis_id}', [PhysController::class, 'phys1'])->name('laboratory.lab-work-order-form.phys1');
@@ -117,6 +131,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('user-management')->group(function () {
         // lab result status
         Route::get('user-lists', [RegisteredUserController::class, 'index'])->name('user-management.user-lists.index');
+        Route::put('user-lists/{user}/active', [UserController::class, 'setAsActive'])->name('user-management.user-lists.setAsActive');
+        Route::put('user-lists/{user}/inactive', [UserController::class, 'setAsInactive'])->name('user-management.user-lists.setAsInactive');
         Route::get('role-lists', [RoleController::class, 'index'])->name('user-management.role-lists.index');
 
     });
@@ -176,7 +192,7 @@ Route::middleware('guest')->group(function () {
                 ->name('password.store');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth', 'status')->group(function () {
 
     Route::get('register', [RoleController::class, 'roleInRegister'])->name('register');
 
@@ -184,7 +200,7 @@ Route::middleware('auth')->group(function () {
     //             ->name('register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);
-    
+
     Route::get('verify-email', EmailVerificationPromptController::class)
                 ->name('verification.notice');
 
@@ -203,6 +219,8 @@ Route::middleware('auth')->group(function () {
 
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
-                ->name('logout');
+
 });
+
+Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+    ->name('logout')->middleware('auth');

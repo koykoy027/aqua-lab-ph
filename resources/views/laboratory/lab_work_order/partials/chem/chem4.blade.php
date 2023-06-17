@@ -1,6 +1,5 @@
 <form action="{{ route('laboratory.lab-work-order-form.chem4', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
     @csrf
-    <input id="analysis_id" type="hidden" name="analysis_id" value="{{ $requests->analysis_id }}" required autofocus autocomplete="analysis_id" readonly>
 
     <div class="card mb-3 bg-white">
         <h1 class="mb-3">CHEM4 - Chlorine (Residual), as free</h1>

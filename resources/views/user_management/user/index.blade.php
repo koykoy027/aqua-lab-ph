@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card mb-3 bg-white">
-        <div class="flex justify-between mb-3">
+        <div class="mb-3 flex justify-between">
             <label>@yield('title')</label>
             <a class="btn btn-primary" href="{{ route('register') }}">Add new User</a>
         </div>
@@ -42,6 +42,7 @@
                                 {{ $user->role }}
                             </td>
                             <td class="px-6 py-4">
+
                                 @if ($user->status == '0')
                                     <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
                                         Inactive
@@ -54,8 +55,26 @@
                                 @endif
 
                             </td>
-                            <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 hover:underline">Action</a>
+                            <td class="flex justify-end px-6 py-4">
+
+                                @if ($user->status == '0')
+                                    <form action="{{ route('user-management.user-lists.setAsActive', $user) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="text-blue-500">
+                                            Set as Active
+                                        </button>
+                                    </form>
+
+                                @else
+                                    <form action="{{ route('user-management.user-lists.setAsInactive', $user) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="text-blue-500">
+                                            Set as Inactive
+                                        </button>
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

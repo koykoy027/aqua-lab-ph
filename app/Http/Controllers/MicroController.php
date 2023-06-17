@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Micro;
-use App\Models\Micro2;
-use App\Models\Micro3;
-use App\Models\Micro4;
+use App\Models\RawData;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
 {
-    public function micro1(Request $request){
+    public function micro1(Request $request, $analysis_id)
+    {
 
         $request->validate([
             'micr1_hpc_plate_a' => 'required',
@@ -21,11 +19,12 @@ class MicroController extends Controller
             'micr1_hpc_remarks' => 'required',
         ]);
 
-        Micro::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
     }
 
-    public function micro2(Request $request)
+    public function micro2(Request $request, $analysis_id)
     {
 
         $request->validate([
@@ -35,11 +34,12 @@ class MicroController extends Controller
             'micr2_tc_remarks' => 'required',
         ]);
 
-        Micro::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation Success']);
     }
 
-    public function micro3(Request $request)
+    public function micro3(Request $request, $analysis_id)
     {
 
         $request->validate([
@@ -51,11 +51,12 @@ class MicroController extends Controller
             'micr3_remarks' => 'required',
         ]);
 
-        Micro::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation Success']);
     }
 
-    public function micro4(Request $request)
+    public function micro4(Request $request, $analysis_id)
     {
         $request->validate([
             'micr4_color_of_the_sample' => 'required',
@@ -63,7 +64,8 @@ class MicroController extends Controller
             'micr4_final_result' => 'required',
         ]);
 
-        Micro::create($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
         return redirect()->back()->with(['message' => 'MICR4 - E. coli Test Computation Success']);
     }
 }

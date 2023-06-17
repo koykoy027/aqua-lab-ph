@@ -4,7 +4,7 @@
     <form method="POST" action="{{ route('register') }}" class="card bg-white">
         @csrf
 
-        <input type="hidden" name="status" value="0"/>
+        <input type="hidden" name="status" value="0" />
         <!-- Name -->
         <div class="mb-3">
             <label for="name">Name</label>
@@ -21,7 +21,7 @@
         <div class="mb-3">
             <label for="role">Role</label>
             <select id="role" name="role" value="{{ old('role') }}" required autofocus autocomplete="role">
-                 @foreach ($roles as $role)
+                @foreach ($roles as $role)
                     <option value="{{ $role->name }}">{{ $role->name }}</option>
                 @endforeach
             </select>
@@ -45,7 +45,7 @@
         </div>
 
         <!-- Password -->
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="password">Password</label>
             <input id="password" type="password" name="password" required autocomplete="new-password" />
             @error('password')
@@ -53,15 +53,15 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-        </div>
+        </div> --}}
 
         <!-- Confirm Password -->
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="password_confirmation">Confirm Password</label>
             <input id="password_confirmation" type="password" name="password_confirmation" required
                 autocomplete="new-password" />
 
-        </div>
+        </div> --}}
 
         <div class="mb-3 flex justify-end">
             <button class="btn btn-primary" type="submit">

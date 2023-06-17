@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
+use App\Models\RawData;
 use Illuminate\Http\Request;
 
 class AnalysisRequestController extends Controller
@@ -34,7 +35,11 @@ class AnalysisRequestController extends Controller
             'test_parameters'=> 'required',
         ]);
 
-        AnalysisRequest::create($request->all());
+        $analysisRequest = AnalysisRequest::create($request->all());
+        RawData::create([
+            'analysis_id' => $analysisRequest->analysis_id,
+            // other Micro attributes
+        ]);
         return redirect()->back()->with(['message' => 'Analysis Request has been created successfully!']);
     }
 
@@ -49,5 +54,5 @@ class AnalysisRequestController extends Controller
         return view('record_and_report.analysis_request.details', compact('details'));
     }
 
-    
+
 }

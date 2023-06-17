@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
 
      public function index(){
-        $users = User::all();
+        $users = User::orderByDesc('created_at')->paginate(10);
         return view('user_management.user.index', compact('users'));
      }
     public function create(): View
@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'role' => ['required', 'string', 'max:255'],
             'status' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
@@ -48,7 +48,7 @@ class RegisteredUserController extends Controller
             'role' => $request->role,
             'status' => $request->status,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => Hash::make('Pa$$w0rd!'),
         ]);
 
         event(new Registered($user));
