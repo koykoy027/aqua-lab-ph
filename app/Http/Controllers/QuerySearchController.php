@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
 
-class QuerySeachController extends Controller
+class QuerySearchController extends Controller
 {
     public function client(Request $request)
     {

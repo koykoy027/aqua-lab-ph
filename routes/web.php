@@ -22,7 +22,7 @@ use App\Http\Controllers\LabApprovalController;
 use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PhysController;
-use App\Http\Controllers\QuerySeachController;
+use App\Http\Controllers\QuerySearchController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,7 +58,7 @@ Route::middleware('auth', 'status')->group(function () {
 
         // add analysis request
         Route::get('add-analysis-request', [AnalysisRequestController::class, 'create'])->name('service.add-analysis-request.create');
-        Route::get('add-analysis-request', [QuerySeachController::class, 'client'])->name('service.add-analysis-request.create');
+        Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
 
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
