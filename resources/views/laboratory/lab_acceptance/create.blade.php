@@ -6,13 +6,14 @@
         @csrf
         <input type="hidden" name="analysis_id" value="{{ $requests->analysis_id }}">
 
+
         <div class="card mb-3 bg-white">
             <label>@yield('title')</label>
 
             <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="evaluated_by">Evaluated By</label>
-                    <input id="evaluated_by" type="text" name="evaluated_by" value="{{ old('evaluated_by') }}" required
+                    <input id="evaluated_by" type="text" name="evaluated_by" value="{{ $acceptance->evaluated_by }}" required
                         autofocus autocomplete="evaluated_by">
                     @error('evaluated_by')
                         <span class="invalid" role="alert">
@@ -23,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="date_evaluated">Date Evaluated</label>
-                    <input id="date_evaluated" type="date" name="date_evaluated" value="{{ old('date_evaluated') }}"
+                    <input id="date_evaluated" type="date" name="date_evaluated" value="{{ $acceptance->date_evaluated }}"
                         required autofocus autocomplete="date_evaluated">
                     @error('date_evaluated')
                         <span class="invalid" role="alert">
@@ -34,7 +35,7 @@
 
                 <div class="mb-3">
                     <label for="time_evaluated">Time Evaluated</label>
-                    <input id="time_evaluated" type="time" name="time_evaluated" value="{{ old('time_evaluated') }}"
+                    <input id="time_evaluated" type="time" name="time_evaluated" value="{{ $acceptance->time_evaluated }}"
                         required autofocus autocomplete="time_evaluated">
                     @error('time_evaluated')
                         <span class="invalid" role="alert">
@@ -118,7 +119,7 @@
                     <div class="mb-3">
                         <label for="if_remarks_are_rejected">If remarks are rejected</label>
                         <input id="if_remarks_are_rejected" type="text" name="if_remarks_are_rejected"
-                            value="{{ old('if_remarks_are_rejected') }}" required autofocus
+                            value="{{ $acceptance->if_remarks_are_rejected }}" required autofocus
                             autocomplete="if_remarks_are_rejected" readonly>
                         @error('if_remarks_are_rejected')
                             <span class="invalid" role="alert">

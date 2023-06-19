@@ -27,7 +27,8 @@ class LabAcceptanceController extends Controller
     {
         // analysis_id
         $requests = AnalysisRequest::find($analysis_id);
-        return view('laboratory.lab_acceptance.create', compact('requests'));
+        $acceptance = LabAcceptance::find($requests->analysis_id);
+        return view('laboratory.lab_acceptance.create', compact('requests', 'acceptance'));
     }
 
     public function store(Request $request, $analysis_id)
