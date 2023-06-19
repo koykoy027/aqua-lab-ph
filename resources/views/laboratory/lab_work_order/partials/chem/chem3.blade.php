@@ -6,8 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="chem3_initial_wt_of_evaporating_dish_replicate_1">Initial Wt. of Evaporating Dish Replicate 1</label>
-                <input id="chem3_initial_wt_of_evaporating_dish_replicate_1" type="number" name="chem3_initial_wt_of_evaporating_dish_replicate_1" value="{{ old('chem3_initial_wt_of_evaporating_dish_replicate_1') }}" required autofocus
-                    autocomplete="chem3_initial_wt_of_evaporating_dish_replicate_1">
+                <input id="chem3_initial_wt_of_evaporating_dish_replicate_1" type="number" name="chem3_initial_wt_of_evaporating_dish_replicate_1" value="{{ $rawDataFileValue->chem3_initial_wt_of_evaporating_dish_replicate_1 }}" required autofocus autocomplete="chem3_initial_wt_of_evaporating_dish_replicate_1">
                 @error('chem3_initial_wt_of_evaporating_dish_replicate_1')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -17,8 +16,7 @@
 
             <div class="mb-3">
                 <label for="chem3_final_wt_of_evaporating_dish_replicate_1">Final Wt. of Evaporating Dish Replicate 1</label>
-                <input id="chem3_final_wt_of_evaporating_dish_replicate_1" type="number" name="chem3_final_wt_of_evaporating_dish_replicate_1" value="{{ old('chem3_final_wt_of_evaporating_dish_replicate_1') }}" required
-                    autofocus autocomplete="chem3_final_wt_of_evaporating_dish_replicate_1">
+                <input id="chem3_final_wt_of_evaporating_dish_replicate_1" type="number" name="chem3_final_wt_of_evaporating_dish_replicate_1" value="{{ $rawDataFileValue->chem3_final_wt_of_evaporating_dish_replicate_1 }}" required autofocus autocomplete="chem3_final_wt_of_evaporating_dish_replicate_1">
                 @error('chem3_final_wt_of_evaporating_dish_replicate_1')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -28,8 +26,7 @@
 
             <div class="mb-3">
                 <label for="chem3_wt_of_residue_replicate_1">Wt. of Residue Replicate 1</label>
-                <input id="chem3_wt_of_residue_replicate_1" type="number" name="chem3_wt_of_residue_replicate_1" value="{{ old('chem3_wt_of_residue_replicate_1') }}" required
-                    autofocus autocomplete="chem3_wt_of_residue_replicate_1">
+                <input id="chem3_wt_of_residue_replicate_1" type="number" name="chem3_wt_of_residue_replicate_1" value="{{ $rawDataFileValue->chem3_wt_of_residue_replicate_1 }}" required autofocus autocomplete="chem3_wt_of_residue_replicate_1">
                 @error('chem3_wt_of_residue_replicate_1')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,8 +36,7 @@
 
             <div class="mb-3">
                 <label for="chem3_initial_wt_of_evaporating_dish_replicate_2">Initial Wt. of Evaporating Dish Replicate 2</label>
-                <input id="chem3_initial_wt_of_evaporating_dish_replicate_2" type="number" name="chem3_initial_wt_of_evaporating_dish_replicate_2" value="{{ old('chem3_initial_wt_of_evaporating_dish_replicate_2') }}" required
-                    autofocus autocomplete="chem3_initial_wt_of_evaporating_dish_replicate_2">
+                <input id="chem3_initial_wt_of_evaporating_dish_replicate_2" type="number" name="chem3_initial_wt_of_evaporating_dish_replicate_2" value="{{ $rawDataFileValue->chem3_initial_wt_of_evaporating_dish_replicate_2 }}" required autofocus autocomplete="chem3_initial_wt_of_evaporating_dish_replicate_2">
                 @error('chem3_initial_wt_of_evaporating_dish_replicate_2')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -50,8 +46,7 @@
 
             <div class="mb-3">
                 <label for="chem3_final_wt_of_evaporating_dish_replicate_2">Final Wt. of Evaporating Dish Replicate 2</label>
-                <input id="chem3_final_wt_of_evaporating_dish_replicate_2" type="number" name="chem3_final_wt_of_evaporating_dish_replicate_2" value="{{ old('chem3_final_wt_of_evaporating_dish_replicate_2') }}" required
-                    autofocus autocomplete="chem3_final_wt_of_evaporating_dish_replicate_2">
+                <input id="chem3_final_wt_of_evaporating_dish_replicate_2" type="number" name="chem3_final_wt_of_evaporating_dish_replicate_2" value="{{ $rawDataFileValue->chem3_final_wt_of_evaporating_dish_replicate_2 }}" required autofocus autocomplete="chem3_final_wt_of_evaporating_dish_replicate_2">
                 @error('chem3_final_wt_of_evaporating_dish_replicate_2')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -61,8 +56,7 @@
 
             <div class="mb-3">
                 <label for="chem3_wt_of_residue_replicate_2">Wt. of Residue Replicate 2</label>
-                <input id="chem3_wt_of_residue_replicate_2" type="number" name="chem3_wt_of_residue_replicate_2" value="{{ old('chem3_wt_of_residue_replicate_2') }}" required
-                    autofocus autocomplete="chem3_wt_of_residue_replicate_2">
+                <input id="chem3_wt_of_residue_replicate_2" type="number" name="chem3_wt_of_residue_replicate_2" value="{{ $rawDataFileValue->chem3_wt_of_residue_replicate_2 }}" required autofocus autocomplete="chem3_wt_of_residue_replicate_2">
                 @error('chem3_wt_of_residue_replicate_2')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -72,8 +66,7 @@
 
             <div class="mb-3">
                 <label for="chem3_average_wt_of_residue">Average Wt. of Residue</label>
-                <input id="chem3_average_wt_of_residue" type="text" name="chem3_average_wt_of_residue" value="{{ old('chem3_average_wt_of_residue') }}" required
-                    autofocus autocomplete="chem3_average_wt_of_residue" readonly>
+                <input id="chem3_average_wt_of_residue" type="text" name="chem3_average_wt_of_residue" value="{{ $rawDataFileValue->chem3_average_wt_of_residue }}" required autofocus autocomplete="chem3_average_wt_of_residue" readonly>
                 @error('chem3_average_wt_of_residue')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -81,10 +74,9 @@
                 @enderror
             </div>
 
-             <div class="mb-3">
+            <div class="mb-3">
                 <label for="chem3_final_result">Final Result</label>
-                <input id="chem3_final_result" type="number" name="chem3_final_result" value="{{ old('chem3_final_result') }}" required
-                    autofocus autocomplete="chem3_final_result">
+                <input id="chem3_final_result" type="number" name="chem3_final_result" value="{{ $rawDataFileValue->chem3_final_result }}" required autofocus autocomplete="chem3_final_result">
                 @error('chem3_final_result')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -94,8 +86,7 @@
 
             <div class="mb-3">
                 <label for="chem3_final_result_remarks">Final Result Remarks</label>
-                <input id="chem3_final_result_remarks" type="text" name="chem3_final_result_remarks"
-                    value="{{ old('chem3_final_result_remarks') }}" required autofocus autocomplete="chem3_final_result_remarks" readonly>
+                <input id="chem3_final_result_remarks" type="text" name="chem3_final_result_remarks" value="{{ $rawDataFileValue->chem3_final_result_remarks }}" required autofocus autocomplete="chem3_final_result_remarks" readonly>
                 @error('chem3_final_result_remarks')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
