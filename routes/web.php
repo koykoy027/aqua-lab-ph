@@ -99,7 +99,6 @@ Route::middleware('auth', 'status')->group(function () {
         Route::post('lab-work-order-form-phys3/{analysis_id}', [PhysController::class, 'phys3'])->name('laboratory.lab-work-order-form.phys3');
         Route::post('lab-work-order-form-phys4/{analysis_id}', [PhysController::class, 'phys4'])->name('laboratory.lab-work-order-form.phys4');
 
-        Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.details');
         Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.index');
         Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
 

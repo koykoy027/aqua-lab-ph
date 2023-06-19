@@ -31,6 +31,9 @@ class LabApprovalController extends Controller
         $lab = AnalysisRequest::findOrFail($analysis_id);
         $lab->update(['remarks' => 'Approve']);
 
+        $analysis = AnalysisRequest::findOrFail($analysis_id);
+        $analysis->update(['remarks' => 'Approve']);
+
         return redirect()->back()->with(['message' => 'Approve']);
 
     }
