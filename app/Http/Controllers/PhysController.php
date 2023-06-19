@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PhysController extends Controller
 {
-    public function phys1(Request $request){
+    public function phys1(Request $request, $analysis_id){
 
         $request->validate([
             'phys1_observation' => 'required',
@@ -15,12 +15,13 @@ class PhysController extends Controller
             'phys1_final_result_remarks' => 'required',
         ]);
 
-        RawData::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+        $phys = RawData::findOrFail($analysis_id);
+        $phys->update($request->all());
+        return redirect()->back()->with(['message' => 'PHYS1 - Appearance Computation Success']);
 
     }
 
-    public function phys2(Request $request){
+    public function phys2(Request $request, $analysis_id){
 
         $request->validate([
             'phys2_observation' => 'required',
@@ -28,12 +29,13 @@ class PhysController extends Controller
             'phys2_final_result_remarks' => 'required',
         ]);
 
-        RawData::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+        $phys = RawData::findOrFail($analysis_id);
+        $phys->update($request->all());
+        return redirect()->back()->with(['message' => 'PHYS2 - Odor Computation Success']);
 
     }
 
-    public function phys3(Request $request){
+    public function phys3(Request $request, $analysis_id){
 
         $request->validate([
             'phys3_concentration_of_comparable_color_standard' => 'required',
@@ -41,12 +43,13 @@ class PhysController extends Controller
             'phys3_final_result_remarks' => 'required',
         ]);
 
-        RawData::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+        $phys = RawData::findOrFail($analysis_id);
+        $phys->update($request->all());
+        return redirect()->back()->with(['message' => 'PHYS3 - Color, apparent Computation Success']);
 
     }
 
-    public function phys4(Request $request){
+    public function phys4(Request $request, $analysis_id){
 
         $request->validate([
             'phys4_instrument_reading_1' => 'required',
@@ -54,8 +57,9 @@ class PhysController extends Controller
             'phys4_instrument_reading_3' => 'required',
         ]);
 
-        RawData::create($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+        $phys = RawData::findOrFail($analysis_id);
+        $phys->update($request->all());
+        return redirect()->back()->with(['message' => 'PHYS4 - Turbidity Computation Success']);
 
     }
 }

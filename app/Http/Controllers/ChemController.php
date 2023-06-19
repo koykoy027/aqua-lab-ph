@@ -18,8 +18,8 @@ class ChemController extends Controller
             'chem1_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM1 - pH Computation Success']);
 
     }
@@ -35,8 +35,8 @@ class ChemController extends Controller
             'chem2_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM2 - Nitrate Computation Success']);
 
     }
@@ -56,8 +56,8 @@ class ChemController extends Controller
             'chem3_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM3 - Total Dissolved Solids Computation Success']);
 
     }
@@ -70,8 +70,8 @@ class ChemController extends Controller
             'chem4_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM4 - Chlorine (Residual), Computation Success']);
 
     }
@@ -87,8 +87,8 @@ class ChemController extends Controller
             'chem5_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM5 - Arsenic Computation Success']);
 
     }
@@ -104,8 +104,8 @@ class ChemController extends Controller
             'chem6_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM6 - Cadmium Computation Success']);
 
     }
@@ -121,8 +121,8 @@ class ChemController extends Controller
             'chem7_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM7 - Lead Computation Success']);
 
     }
@@ -138,8 +138,8 @@ class ChemController extends Controller
             'chem9_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM9 - Iron Computation Success']);
 
     }
@@ -155,8 +155,8 @@ class ChemController extends Controller
             'chem10_final_result_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
+        $chem = RawData::findOrFail($analysis_id);
+        $chem->update($request->all());
         return redirect()->back()->with(['message' => 'CHEM10 - Manganese Computation Success']);
 
     }
