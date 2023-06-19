@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
+use App\Models\LabAcceptance;
 use App\Models\RawData;
 use Illuminate\Http\Request;
 
@@ -25,5 +26,13 @@ class LabApprovalController extends Controller
         return view('laboratory.lab_approval.details', compact('details' , 'lab_approval'));
     }
 
+    public function approval($analysis_id){
+
+        $lab = AnalysisRequest::findOrFail($analysis_id);
+        $lab->update(['remarks' => 'Approve']);
+
+        return redirect()->back()->with(['message' => 'Approve']);
+
+    }
 
 }

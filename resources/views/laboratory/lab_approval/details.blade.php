@@ -285,4 +285,12 @@
         </div>
     @endif
 
+    <form action="{{ route('laboratory.lab_approval.approval', ['analysis_id' => $details->analysis_id ])}}" method="POST">
+        @csrf
+        <div class="flex justify-end">
+            <button class="btn btn-primary">Approve</button>
+        </div>
+
+    </form>
+
 @endsection

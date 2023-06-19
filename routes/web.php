@@ -103,6 +103,8 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('lab-approval', [LabApprovalController::class, 'index'])->name('laboratory.lab_approval.index');
         Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
 
+        Route::post('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'approval'])->name('laboratory.lab_approval.approval');
+
 
     });
 
