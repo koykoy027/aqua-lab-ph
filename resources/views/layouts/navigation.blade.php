@@ -94,6 +94,10 @@
                                 <a href="{{ route('service.lab-result-status.index') }}"
                                     class="block px-4 py-2 hover:bg-gray-100">Lab Result Status</a>
                             </li>
+                            <li>
+                                <a href="{{ route('record-and-report.lab-result.table') }}"
+                                    class="block px-4 py-2 hover:bg-gray-100">Generate Report</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
