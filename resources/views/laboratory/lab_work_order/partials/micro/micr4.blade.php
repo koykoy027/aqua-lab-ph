@@ -6,9 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr4_color_of_the_sample">Color of the sample</label>
-                <select id="micr4_color_of_the_sample" type="number" name="micr4_color_of_the_sample"
-                    value="{{ old('micr4_color_of_the_sample') }}" required autofocus
-                    autocomplete="micr4_color_of_the_sample">
+                <select id="micr4_color_of_the_sample" name="micr4_color_of_the_sample" required autofocus autocomplete="micr4_color_of_the_sample">
                     <option value="Faint Yellow">Faint Yellow</option>
                     <option value="Intense Yellow">Intense Yellow</option>
                 </select>
@@ -21,8 +19,7 @@
 
             <div class="mb-3">
                 <label for="micr4_fluorescence">Fluorescence</label>
-                <select id="micr4_fluorescence" type="number" name="micr4_fluorescence"
-                    value="{{ old('micr4_fluorescence') }}" required autofocus autocomplete="micr4_fluorescence">
+                <select id="micr4_fluorescence" name="micr4_fluorescence" required autofocus autocomplete="micr4_fluorescence">
                     <option value="Fluorescence">Fluorescence</option>
                     <option value="Non-Fluorescence">Non-Fluorescence</option>
                 </select>
@@ -35,8 +32,7 @@
 
             <div class="mb-3">
                 <label for="micr4_final_result">Final Result</label>
-                <select id="micr4_final_result" type="text" name="micr4_final_result"
-                    value="{{ old('micr4_final_result') }}" required autofocus autocomplete="micr4_final_result">
+                <select id="micr4_final_result" name="micr4_final_result" required autofocus autocomplete="micr4_final_result">
                     <option value="Present">Present</option>
                     <option value="Absent">Absent</option>
                 </select>
