@@ -56,7 +56,7 @@
 
             <div class="mb-3">
                 <label for="chem7_final_result_remarks">Final Result Remarks</label>
-                <input id="chem7_final_result_remarks" type="text" name="chem7_final_result_remarks" value="{{ old('chem7_final_result_remarks') }}" required autofocus autocomplete="chem7_final_result_remarks" readonly>
+                <input id="chem7_final_result_remarks" type="text" name="chem7_final_result_remarks" value="{{ $rawDataFileValue->chem7_final_result_remarks }}" required autofocus autocomplete="chem7_final_result_remarks" readonly>
                 @error('chem7_final_result_remarks')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
