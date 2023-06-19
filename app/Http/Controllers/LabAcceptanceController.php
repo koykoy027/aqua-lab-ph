@@ -34,7 +34,6 @@ class LabAcceptanceController extends Controller
     {
 
         $request->validate([
-            'analysis_id' => 'unique:lab_acceptance',
             'evaluated_by' => 'required',
             'date_evaluated' => 'required',
             'time_evaluated' => 'required',
@@ -45,11 +44,11 @@ class LabAcceptanceController extends Controller
 
 
         $remarks = $request->remarks;
-       
-        LabAcceptance::create($request->all());
-        
-        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
+        $lab = LabAcceptance::findOrFail($analysis_id);
+        $lab->update($request->all());
+
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         return redirect()->back()->with(['message' => 'Lab acceptance has been created successfully!']);
     }
 

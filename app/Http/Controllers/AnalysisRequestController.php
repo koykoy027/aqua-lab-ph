@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
+use App\Models\LabAcceptance;
 use App\Models\RawData;
 use Illuminate\Http\Request;
 
@@ -38,8 +39,11 @@ class AnalysisRequestController extends Controller
         $analysisRequest = AnalysisRequest::create($request->all());
         RawData::create([
             'analysis_id' => $analysisRequest->analysis_id,
-            // other Micro attributes
         ]);
+        LabAcceptance::create([
+            'analysis_id' => $analysisRequest->analysis_id,
+        ]);
+
         return redirect()->back()->with(['message' => 'Analysis Request has been created successfully!']);
     }
 
