@@ -9,6 +9,10 @@
 
     <style>
 
+        body {
+            margin-top: 250px;
+        }
+
         .title {
             text-transform: uppercase;
             font-size: 16px;
@@ -60,7 +64,6 @@
             font-size: 12px;
         }
 
-
         span {
             padding-left: 40px;
             font-size: 12px;
@@ -87,6 +90,12 @@
 
         .collected-by {
             margin-left: 21px;
+        }
+
+        .table-fixed-bottom {
+            position: fixed;
+            bottom: 100;
+            /* width: 100%; */
         }
         
 
@@ -141,25 +150,169 @@
             @foreach ( $micro_details as $micro_detail)
                 <tr>
                     @foreach ($collection_details as $collection_detail)
+
                         <td class="details">{{ $collection_detail->test_parameters }}</td>
 
+                        {{-- micro 1 --}}
                         @if ( $collection_detail->test_parameters == "MICR1 - Heterotrophic Plate Count (HPC)")
+
                             <td class="details">SMEWW 9215 B. Pour Plate Method</td>
                             <td class="details">{{ $micro_detail->micr1_hpc_final_result }}</td>
-                            <td class="details">{{ $micro_detail->micr1_hpc_average }}</td>
+                            <td class="details"></td>
                             <td class="details">{{ $micro_detail->micr1_hpc_remarks }}</td>
+
+                        {{-- micro 2 --}}
                         @elseif ( $collection_detail->test_parameters == "MICR2 - Thermotolerant Colifom Test" )
+
                             <td class="details">SMEWW 9221 Multiple Tube Fermentation Technique</td>
                             <td class="details">{{ $micro_detail->micr2_tc_final_result }}</td>
-                            <td class="details">{{ $micro_detail->micr2_tc_48 }}</td>
+                            <td class="details"></td>
                             <td class="details">{{ $micro_detail->micr2_tc_remarks }}</td>
+
+                        {{-- micro 3 --}}
                         @elseif ( $collection_detail->test_parameters == "MICR3 - Total Coliform" )
+
                             <td class="details">SMEWW 9221 Multiple Tube Fermentation Technique</td>
                             <td class="details">{{ $micro_detail->micr3_final_result }}</td>
-                            <td class="details">{{ $micro_detail->micr3_brillant_48 }}</td>
+                            <td class="details"></td>
                             <td class="details">{{ $micro_detail->micr3_remarks }}</td>
-                        @endif
 
+                        {{-- micro 4 --}}
+                        @elseif ( $collection_detail->test_parameters == "MICR4 - E. coli Test" )
+
+                            <td class="details">SMEWW 9223 Enzyme Substrate Coliform Test</td>
+                            <td class="details">{{ $micro_detail->micr4_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details"></td>
+
+                        {{-- micro 5 --}}
+                        @elseif ( $collection_detail->test_parameters == "MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)" )
+
+                            <td class="details">
+                                <p>1. Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
+                                <p>2. Total Coliform - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p>3. Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                            </td>
+
+                            <td class="details">
+                                <p>{{ $micro_detail->micr1_hpc_final_result }}</p>
+                                <p>{{ $micro_detail->micr2_tc_final_result }}</p>
+                                <p>{{ $micro_detail->micr3_final_result }}</p>
+                            </td>
+
+                            <td class="details"></td>
+
+                            <td class="details">
+                                <p>{{ $micro_detail->micr1_hpc_remarks }}</p>
+                                <p>{{ $micro_detail->micr2_tc_remarks }}</p>
+                                <p>{{ $micro_detail->micr3_remarks }}   </p>
+                            </td>
+
+                        {{-- chem 1 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM1 - pH" )
+
+                            <td class="details">SMEWW 4500-H+ B. Electrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem1_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem1_final_result_remarks }}</td>
+
+                        {{-- chem 2 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM2 - Nitrate" )
+
+                            <td class="details">SMEWW 4500-NO3- E. Cadmium Reduction Method</td>
+                            <td class="details">{{ $micro_detail->chem2_final_resultt }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem2_final_result_remarks }}</td>
+
+                        {{-- chem 3 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM3 - Total Dissolved Solids" )
+
+                            <td class="details">SMEWW 2540 C. Total Dissolved Solids Dried at 180°C</td>
+                            <td class="details">{{ $micro_detail->chem3_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem3_final_result_remarks }}</td>
+
+                        {{-- chem 4 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM4 - Chlorine (Residual), as free" )
+
+                            <td class="details">DPD Colorimetric Method</td>
+                            <td class="details">{{ $micro_detail->chem4_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem4_final_result_remarks }}</td>
+
+                        {{-- chem 5 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM5 - Arsenic" )
+
+                            <td class="details">SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem5_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem5_final_result_remarks }}</td>
+
+                        {{-- chem 6 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM6 - Cadmium" )
+
+                            <td class="details">SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem6_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem6_final_result_remarks }}</td>
+
+                        {{-- chem 7 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM7 - Lead" )
+
+                            <td class="details">SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem7_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem7_final_result_remarks }}</td>
+
+                        {{-- chem 9 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM9 - Iron" )
+
+                            <td class="details">SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem9_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem9_final_result_remarks }}</td>
+
+                        {{-- chem 10 --}}
+                        @elseif ( $collection_detail->test_parameters == "CHEM10 - Manganese" )
+
+                            <td class="details">SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method</td>
+                            <td class="details">{{ $micro_detail->chem10_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->chem10_final_result_remarks }}</td>
+
+                        {{-- phys 1 --}}  
+                        @elseif ( $collection_detail->test_parameters == "PHYS1 - Appearance" )
+
+                            <td class="details">Sensory Evaluation Technique</td>
+                            <td class="details">{{ $micro_detail->phys1_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->phys1_final_result_remarks }}</td>
+
+                        {{-- phys 2 --}}
+                        @elseif ( $collection_detail->test_parameters == "PHYS2 - Odor" )
+
+                            <td class="details">Sensory Evaluation Technique</td>
+                            <td class="details">{{ $micro_detail->phys2_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->phys2_final_result_remarks }}</td>
+
+                        {{-- phys 3 --}}
+                        @elseif ( $collection_detail->test_parameters == "PHYS3 - Color, apparent" )
+
+                            <td class="details">SMEWW 2120 B. Visual Comparison Method</td>
+                            <td class="details">{{ $micro_detail->phys3_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->phys3_final_result_remarks }}</td>
+
+                        {{-- phys 4 --}}
+                        @elseif ( $collection_detail->test_parameters == "PHYS4 - Turbidity" )
+
+                            <td class="details">SMEWW 2120 B. Visual Comparison Method</td>
+                            <td class="details">{{ $micro_detail->phys4_final_result }}</td>
+                            <td class="details"></td>
+                            <td class="details">{{ $micro_detail->phys4_final_result_remarks }}</td>
+
+                        @endif
                     @endforeach
                 </tr>
             @endforeach
@@ -227,5 +380,27 @@
         </thead>
     </table>
 
+    {{-- padding-top: 45%; padding-left: 15px;  --}}
+    <table class="table-fixed-bottom" style="width: 100%; padding-left: 15px;  ">
+        <thead>
+            <tr>
+                <tr>
+                    <td style="font-size: 12px;">
+                        <p style="font-weight: 500;"> CHLOE JOY C. GABAN, RMicro </p>
+                        <p style="margin-top: -3%; margin-left: 10%;"> Senior Microbiologist </p>
+                        <p style="margin-top: -3%; margin-left: 4%;"> PAM Reg. No. 105-00250 RM </p>
+                        <p style="margin-top: -3%; margin-left: 1px;"> DOH-RL Cert No. WMLA-18-0698 </p>
+                    </td>
+    
+                    <td style="font-size: 12px; padding-left: 200px; margin-top; -200px;">
+                        <p style="font-weight: 500;"> PAULO ANTONIO E. CLEMENTE, MD, DPSP </p>
+                        <p style="margin-right: 10%; text-align: center;"> Head of Laboratory </p>
+                        <p style="margin-right: 10%; text-align: center;"> PRC Reg. No. 0113927 </p>
+                        <p></p>
+                    </td>
+                </tr>
+            </tr>
+        </thead>
+    </table>
 </body>
 </html>

@@ -20,7 +20,7 @@ class PdfController extends Controller
 
         $collection_details = AnalysisRequest::where('analysis_id',$analysis_id)->get();
 
-        $pdf = Pdf::loadView('record_and_report.analysis_request.pdf', ['details' =>  $details, 'micro_details' =>  $micro_details, 'collection_details' => $collection_details]);
+        $pdf = Pdf::loadView('record_and_report.analysis_request.pdf', ['details' =>  $details, 'micro_details' =>  $micro_details, 'collection_details' => $collection_details])->setPaper([0, 0, 612, 1008], 'portrait');
         return $pdf->stream('analysis-request.pdf');
 
     }
