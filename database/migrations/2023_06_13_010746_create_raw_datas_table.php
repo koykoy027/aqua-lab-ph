@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('micr1_hpc_plate_b')->nullable();
             $table->integer('micr1_hpc_average')->nullable();
             $table->integer('micr1_hpc_difference')->nullable();
-            $table->integer('micr1_hpc_final_result')->nullable();
+            $table->string('micr1_hpc_final_result', '50')->nullable();
             $table->string('micr1_hpc_remarks', 50)->nullable();
 
             // micro 2
