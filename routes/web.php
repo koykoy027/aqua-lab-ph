@@ -37,7 +37,7 @@ Route::get('403', function () {
     $user = Auth::user();
 
     if ($user->status == 1) {
-        return redirect()->route('login'); // Redirect to a different page
+        return redirect()->route('login');
     }
 
     return view('forbidden.status');
@@ -53,25 +53,20 @@ Route::middleware('auth', 'status')->group(function () {
     Route::get('/', [DashboardController::class , 'getAllData']);
 
      Route::prefix('service')->group(function () {
-        //  add clients accounts
+
         Route::get('add-client-account', [ClientController::class, 'create'])->name('service.add-client-account.create');
         Route::post('add-client-account/store', [ClientController::class, 'store'])->name('service.add-client-account.store');
-
-        // add analysis request
         Route::get('add-analysis-request', [AnalysisRequestController::class, 'create'])->name('service.add-analysis-request.create');
         Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
-
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
-
-        // lab result status
         Route::get('lab-result-status', [LabResultStatusController::class, 'index'])->name('service.lab-result-status.index');
 
 
     });
 
     Route::prefix('laboratory')->group(function () {
-        // lab result status
+
         Route::get('lab-acceptance/{analysis_id}',[LabAcceptanceController::class, 'create'])->name('laboratory.lab-acceptance.create');
         Route::post('lab-acceptance/store/{analysis_id}', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
 
@@ -104,11 +99,10 @@ Route::middleware('auth', 'status')->group(function () {
 
         Route::post('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'approval'])->name('laboratory.lab_approval.approval');
 
-
     });
 
     Route::prefix('record-and-report')->group(function () {
-        // lab result status
+
         Route::get('lab-acceptance', [LabAcceptanceController::class, 'index'])->name('record-and-report.lab-acceptance.index');
         Route::get('lab-result', [LabResultStatusController::class, 'table'])->name('record-and-report.lab-result.table');
         Route::get('lab-result/details/{analysis_id}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
@@ -123,15 +117,10 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('client-list', [ClientController::class, 'index'])->name('record-and-report.record_and_report.client_list.index');
         Route::get('client-list/client/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
 
-
-
-
     });
 
-
-
     Route::prefix('user-management')->group(function () {
-        // lab result status
+
         Route::get('user-lists', [RegisteredUserController::class, 'index'])->name('user-management.user-lists.index');
         Route::put('user-lists/{user}/active', [UserController::class, 'setAsActive'])->name('user-management.user-lists.setAsActive');
         Route::put('user-lists/{user}/inactive', [UserController::class, 'setAsInactive'])->name('user-management.user-lists.setAsInactive');
@@ -139,40 +128,9 @@ Route::middleware('auth', 'status')->group(function () {
 
     });
 
+}); // end of middleware group
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// guess routes
 
 Route::middleware('guest')->group(function () {
 
@@ -222,7 +180,7 @@ Route::middleware('auth', 'status')->group(function () {
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
 
-});
+}); // end of middleware group
 
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout')->middleware('auth');
