@@ -17,10 +17,10 @@ class LabAcceptanceController extends Controller
 
     public function labWorkOrder()
     {
-        $acceptances = LabAcceptance::orderByDesc('created_at')
-        ->orWhere('remarks', '!=','Rejected')
+        $analysisRequest = AnalysisRequest::orderByDesc('created_at')
+
         ->paginate(10);
-        return view('laboratory.lab_work_order.index', compact('acceptances'));
+        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
     }
 
     public function create($analysis_id)
