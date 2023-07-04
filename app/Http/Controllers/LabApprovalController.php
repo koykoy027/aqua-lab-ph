@@ -37,4 +37,16 @@ class LabApprovalController extends Controller
 
     }
 
+    public function disapprove($analysis_id){
+
+        $lab = AnalysisRequest::findOrFail($analysis_id);
+        $lab->update(['remarks' => 'Disapprove']);
+
+        $analysis = AnalysisRequest::findOrFail($analysis_id);
+        $analysis->update(['remarks' => 'Disapprove']);
+
+        return redirect()->back()->with(['message' => 'Disapprove']);
+
+    }
+
 }
