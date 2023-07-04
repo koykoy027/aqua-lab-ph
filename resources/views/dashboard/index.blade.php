@@ -7,15 +7,15 @@
             <p class="text-slate-500">Total Clients</p>
         </div>
         <div class="card bg-white">
-            <h1 class="bold text-2xl">4</h1>
+            <h1 class="bold text-2xl">{{ $totalLabAccepted }}</h1>
             <p class="text-slate-500">Total Lab accepted</p>
         </div>
         <div class="card bg-white">
-            <h1 class="bold text-2xl">5</h1>
+            <h1 class="bold text-2xl">{{ $totalLabRejected }}</h1>
             <p class="text-slate-500">Total Lab rejected</p>
         </div>
         <div class="card bg-white">
-            <h1 class="bold text-2xl">2</h1>
+            <h1 class="bold text-2xl">{{ $totalReleaseStatus }}</h1>
             <p class="text-slate-500">Total released result</p>
         </div>
     </div>
