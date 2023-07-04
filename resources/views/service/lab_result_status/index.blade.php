@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Lab Result Status')
+@section('title', 'Lab Acceptance')
 @section('content')
 
     <div class="card mb-3 bg-white">
-        <label>Lab result status table</label>
+        <label>Lab Acceptance Table</label>
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">
@@ -51,7 +51,13 @@
                                 {{ $data->account_name }}
                             </td> --}}
                             <td class="px-6 py-4">
-                                <span class="mr-2 rounded bg-red-100 px-2.5 py-0.5 text-xs font-medium text-red-800">
+
+                                <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if($data->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if($data->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if($data->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if($data->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                ">
                                     {{ $data->remarks }}
                                 </span>
                             </td>
@@ -84,7 +90,7 @@
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('laboratory.lab-acceptance.create', ['analysis_id' => $data->analysis_id]) }}"
-                                    class="font-medium text-blue-600 hover:underline">Lab Acceptance</a>
+                                    class="font-medium text-blue-600 hover:underline">Lab Acceptance Form</a>
                             </td>
                         </tr>
                     @endforeach

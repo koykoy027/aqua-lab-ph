@@ -92,7 +92,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('service.lab-result-status.index') }}"
-                                    class="block px-4 py-2 hover:bg-gray-100">Lab Result Status</a>
+                                    class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>
                             </li>
                             <li>
                                 <a href="{{ route('record-and-report.lab-result.table') }}"
