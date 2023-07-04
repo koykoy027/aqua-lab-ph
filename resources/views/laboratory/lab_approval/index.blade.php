@@ -16,6 +16,9 @@
                             Test Parameters
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Remarks
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Action</span>
                         </th>
                     </tr>
@@ -28,6 +31,16 @@
                             </th>
                             <td class="px-6 py-4">
                                 {{ $request->test_parameters }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if($request->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if($request->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if($request->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if($request->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                ">
+                                    {{ $request->remarks }}
+                                </span>
                             </td>
 
                             <td class="px-6 py-4 text-right">

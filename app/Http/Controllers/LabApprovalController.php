@@ -12,7 +12,6 @@ class LabApprovalController extends Controller
     public function index()
     {
         $requests = AnalysisRequest::orderByDesc('created_at')
-        ->orWhere('remarks', 'Accepted')
         ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests'));
     }
