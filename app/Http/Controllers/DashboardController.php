@@ -18,7 +18,7 @@ class DashboardController extends Controller
         $totalClient = Client::count();
         $totalLabAccepted = AnalysisRequest::where('remarks', 'Accepted')->count();
         $totalLabRejected = AnalysisRequest::where('remarks', 'Rejected')->count();
-        $totalReleaseStatus = AnalysisRequest::count();
+        $totalReleaseStatus = AnalysisRequest::where('remarks', 'Approve')->count();
 
         return view('dashboard.index', compact('recentClients', 'totalClient', 'totalLabAccepted', 'totalLabRejected', 'totalReleaseStatus'));
     }
