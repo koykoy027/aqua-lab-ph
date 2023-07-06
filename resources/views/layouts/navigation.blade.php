@@ -64,7 +64,7 @@
                     <!-- Dropdown menu -->
                     <div id="service" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white font-normal shadow">
                         <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                            @if (Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Laboratory Asstistant' or Auth::user()->role === 'Service Coordinator' or Auth::user()->role === 'Marketing Manager' or Auth::user()->role === 'Sales Manager')
+                            @if (Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'FSR' or Auth::user()->role === 'Service Coordinator' or Auth::user()->role === 'Marketing Manager' or Auth::user()->role === 'Sales Manager')
                                 <li>
                                     <a href="{{ route('service.add-client-account.create') }}" class="block px-4 py-2 hover:bg-gray-100">Add Client Account</a>
                                 </li>

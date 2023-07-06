@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
         ]);
         User::create([
             'name'            => 'Jack Flores',
-            'role'            => 'Laboratory Asstistant',
+            'role'            => 'FSR',
             'status'            => '1',
             'email_verified_at'            => '2023-05-10 13:29:43',
             'email'            => 'qarehydiko@mailinator.com',
