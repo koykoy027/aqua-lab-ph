@@ -7,14 +7,49 @@ use App\Models\Client;
 use App\Models\LabAcceptance;
 use App\Models\RawData;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class LabResultStatusController extends Controller
 {
-    public function index(){
-        $datas = AnalysisRequest::orderByDesc('created_at')
-        ->paginate(10);
-        return view ('service.lab_result_status.index', compact('datas'));
+    public function index()
+    {
+    $query = AnalysisRequest::orderByDesc('created_at');
+
+    if (Auth::user()->role === 'Micro Manager' || Auth::user()->role === 'Micro Analyst') {
+        $query->orWhere('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
+        ->orWhere('test_parameters', 'MICR2 - Thermotolerant Coliform Test')
+        ->orWhere('test_parameters', 'MICR3 - Total Coliform')
+        ->orWhere('test_parameters', 'MICR4 - E. coli Test')
+        ->orWhere('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)');
     }
+    if (Auth::user()->role === 'Pchem Manager' || Auth::user()->role === 'Pchem Analyst') {
+
+        $query->where('test_parameters', 'CHEM1 - pH')
+        ->orWhere('test_parameters', 'CHEM2 - Nitrate')
+        ->orWhere('test_parameters', 'CHEM3 - Total Dissolved Solids')
+        ->orWhere('test_parameters', 'CHEM4 - Chlorine (Residual), as free')
+        ->orWhere('test_parameters', 'CHEM5 - Arsenic')
+        ->orWhere('test_parameters', 'CHEM6 - Cadmium')
+        ->orWhere('test_parameters', 'CHEM7 - Lead')
+        ->orWhere('test_parameters', 'CHEM8 - All Twenty (20) Mandatory Chemical Parameters (DOH AO 2013-003 Dialysis Water)')
+        ->orWhere('test_parameters', 'CHEM9 - Iron')
+        ->orWhere('test_parameters', 'CHEM10 - Manganese')
+        ->orWhere('test_parameters', 'PHCH1 - All Nine (9) Mandatory Physical and Chemical Parameters (PNSDW 2017/DOH AO 2013-003)')
+        ->orWhere('test_parameters', 'PHYS1 - Appearance')
+        ->orWhere('test_parameters', 'PHYS2 - Odor')
+        ->orWhere('test_parameters', 'PHYS3 - Color, apparent')
+        ->orWhere('test_parameters', 'PHYS4 - Turbidity');
+    }
+
+
+
+    $datas = $query->paginate(10);
+    return view('service.lab_result_status.index', compact('datas'));
+    }
+
+
+
 
     public function table(){
         $datas = AnalysisRequest::orderByDesc('updated_at')
