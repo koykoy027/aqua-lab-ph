@@ -19,7 +19,7 @@ class LabApprovalController extends Controller
         ->orWhere('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
         ->paginate(10);
 
-        return view('laboratory.lab_approval.micro', compact('requests'));
+        return view('laboratory.lab_approval.index', compact('requests'));
     }
 
     public function phyChem()
@@ -42,7 +42,7 @@ class LabApprovalController extends Controller
         ->orWhere('test_parameters', 'PHYS4 - Turbidity')
 
         ->paginate(10);
-        return view('laboratory.lab_approval.phyChem', compact('requests'));
+        return view('laboratory.lab_approval.index', compact('requests'));
     }
 
 
