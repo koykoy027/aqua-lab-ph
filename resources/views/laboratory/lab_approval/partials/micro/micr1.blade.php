@@ -3,32 +3,32 @@
     <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
         <div class="mb-3">
             <label for="micr1_hpc_plate_a">Plate A Colony Count</label>
-            <input id="micr1_hpc_plate_a" type="number" name="micr1_hpc_plate_a" value="{{ $lab_approval->micr1_hpc_plate_a }}" required autofocus autocomplete="micr1_hpc_plate_a" readonly>
+            <input id="micr1_hpc_plate_a" type="number" name="micr1_hpc_plate_a" value="{{ $lab_approval->micr1_hpc_plate_a }}" readonly autofocus autocomplete="micr1_hpc_plate_a">
         </div>
 
         <div class="mb-3">
             <label for="micr1_hpc_plate_b">Plate B Colony Count</label>
-            <input id="micr1_hpc_plate_b" type="number" name="micr1_hpc_plate_b" value="{{ $lab_approval->micr1_hpc_plate_b }}" required autofocus autocomplete="micr1_hpc_plate_b" readonly>
+            <input id="micr1_hpc_plate_b" type="number" name="micr1_hpc_plate_b" value="{{ $lab_approval->micr1_hpc_plate_b }}" readonly autofocus autocomplete="micr1_hpc_plate_b">
         </div>
 
         <div class="mb-3">
             <label for="micr1_hpc_average">Average Colony Count</label>
-            <input id="micr1_hpc_average" type="text" name="micr1_hpc_average" value="{{ $lab_approval->micr1_hpc_average }}" required autofocus autocomplete="micr1_hpc_average" readonly>
+            <input id="micr1_hpc_average" type="text" name="micr1_hpc_average" value="{{ $lab_approval->micr1_hpc_average }}" readonly autofocus autocomplete="micr1_hpc_average">
         </div>
 
         <div class="mb-3">
             <label for="micr1_hpc_difference">% Difference</label>
-            <input id="micr1_hpc_difference" type="text" name="micr1_hpc_difference" value="{{ $lab_approval->micr1_hpc_difference }}" required autofocus autocomplete="micr1_hpc_difference" readonly>
+            <input id="micr1_hpc_difference" type="text" name="micr1_hpc_difference" value="{{ $lab_approval->micr1_hpc_difference }}" readonly autofocus autocomplete="micr1_hpc_difference">
         </div>
 
         <div class="mb-3">
             <label for="micr1_hpc_final_result">Final Result</label>
-            <input id="micr1_hpc_final_result" type="text" name="micr1_hpc_final_result" value="{{ $lab_approval->micr1_hpc_final_result }}" required autofocus autocomplete="micr1_hpc_final_result" readonly>
+            <input id="micr1_hpc_final_result" type="text" name="micr1_hpc_final_result" value="{{ $lab_approval->micr1_hpc_final_result }}" readonly autofocus autocomplete="micr1_hpc_final_result">
         </div>
 
         <div class="mb-3">
             <label for="micr1_hpc_remarks">Remarks</label>
-            <input id="micr1_hpc_remarks" type="text" name="micr1_hpc_remarks" value="{{ $lab_approval->micr1_hpc_remarks }}" required autofocus autocomplete="micr1_hpc_remarks" readonly>
+            <input id="micr1_hpc_remarks" type="text" name="micr1_hpc_remarks" value="{{ $lab_approval->micr1_hpc_remarks }}" readonly autofocus autocomplete="micr1_hpc_remarks">
         </div>
     </div>
 </div>

@@ -11,11 +11,11 @@
         </div>
         <div class="mb-3">
             <label for="micr2_tc_final_result">Final Result</label>
-            <input id="micr2_tc_final_result" type="text" name="micr2_tc_final_result" value="{{ $lab_approval->micr2_tc_final_result }}" required autofocus autocomplete="micr2_tc_final_result" readonly>
+            <input id="micr2_tc_final_result" type="text" name="micr2_tc_final_result" value="{{ $lab_approval->micr2_tc_final_result }}" readonly autofocus autocomplete="micr2_tc_final_result">
         </div>
         <div class="mb-3">
             <label for="micr2_tc_remarks">Remarks</label>
-            <input id="micr2_tc_remarks" type="text" name="micr2_tc_remarks" value="{{ $lab_approval->micr2_tc_remarks }}" required autofocus autocomplete="micr2_tc_remarks" readonly>
+            <input id="micr2_tc_remarks" type="text" name="micr2_tc_remarks" value="{{ $lab_approval->micr2_tc_remarks }}" readonly autofocus autocomplete="micr2_tc_remarks">
         </div>
     </div>
 </div>
