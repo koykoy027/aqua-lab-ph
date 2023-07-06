@@ -52,24 +52,16 @@
                                 {{ $acceptance->sample_condition }}
                             </td>
                             <td class="px-6 py-4">
-                                @if ($acceptance->remarks === 'Conditionally Accepted')
-                                    <span class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                        {{ $acceptance->remarks }}
-                                    </span>
-                                @endif
-
-                                @if ($acceptance->remarks === 'Accepted')
-                                    <span
-                                        class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                                        {{ $acceptance->remarks }}
-                                    </span>
-                                @endif
-                                @if ($acceptance->remarks === 'Rejected')
-                                    <span
-                                        class="mr-2 rounded bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800">
-                                        {{ $acceptance->remarks }}
-                                    </span>
-                                @endif
+                                <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if($acceptance->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if($acceptance->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                    @if($acceptance->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if($acceptance->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if($acceptance->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if($acceptance->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                ">
+                                    {{ $acceptance->remarks }}
+                                </span>
                             </td>
                             {{-- <td class="px-6 py-4 text-right">
                                 <a href="#" class="font-medium text-blue-600 hover:underline">Action</a>

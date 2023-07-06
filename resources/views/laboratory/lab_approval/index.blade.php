@@ -34,6 +34,8 @@
                             </td>
                             <td class="px-6 py-4">
                                 <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if($request->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if($request->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
                                     @if($request->remarks === 'Accepted') text-green-800 bg-green-100 @endif
                                     @if($request->remarks === 'Rejected') text-red-800 bg-red-100 @endif
                                     @if($request->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
