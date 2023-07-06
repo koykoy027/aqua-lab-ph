@@ -109,12 +109,14 @@
                                 </button>
                                 <div id="doubleDropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow">
                                     <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
-                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Micro Analyst')
+                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Micro Analyst')
+
                                             <li>
                                                 <a href="{{ route('laboratory.lab_approval.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
                                             </li>
                                         @endif
-                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Pchem Analyst')
+                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Pchem Analyst')
+
                                             <li>
                                                 <a href="{{ route('laboratory.lab_approval.phyChem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
                                             </li>
@@ -130,7 +132,8 @@
 
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex w-full items-center justify-between border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">
-                        Records & Reports <svg class="ml-1 h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        Records & Reports
+                        <svg class="ml-1 h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
