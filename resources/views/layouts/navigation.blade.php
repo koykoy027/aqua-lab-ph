@@ -92,15 +92,32 @@
                     <!-- Dropdown menu -->
                     <div id="laboratory" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white font-normal shadow">
                         <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                            {{-- <li>
-                                <a href="{{ url('laboratory/lab-acceptance') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>
-                            </li> --}}
 
                             <li>
                                 <a href="{{ route('laboratory.lab-lab-work-order.labWorkOrder') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Work Order</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('laboratory.lab_approval.index') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Approval</a>
+                            </li> --}}
+
+                            <li aria-labelledby="dropdownNavbarLink">
+                                <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown" data-dropdown-placement="right-start" type="button" class="flex w-full items-center justify-between px-4 py-2 hover:bg-gray-100 ">
+                                    Lab Approval
+                                    <svg class="ml-2.5 h-2.5 w-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                    </svg>
+                                </button>
+                                <div id="doubleDropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow">
+                                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
+                                        <li>
+                                            <a href="{{ route('laboratory.lab_approval.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="{{ route('laboratory.lab_approval.phyChem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </li>
                         </ul>
                     </div>
