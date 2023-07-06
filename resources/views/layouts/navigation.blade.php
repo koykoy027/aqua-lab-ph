@@ -109,19 +109,25 @@
                                 </button>
                                 <div id="doubleDropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow">
                                     <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
-                                        <li>
-                                            <a href="{{ route('laboratory.lab_approval.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
-                                        </li>
-
-                                        <li>
-                                            <a href="{{ route('laboratory.lab_approval.phyChem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
-                                        </li>
+                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Micro Analyst')
+                                            <li>
+                                                <a href="{{ route('laboratory.lab_approval.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                            </li>
+                                        @endif
+                                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Pchem Analyst')
+                                            <li>
+                                                <a href="{{ route('laboratory.lab_approval.phyChem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
+                                            </li>
+                                        @endif
                                     </ul>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </li>
+
+                @if (Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Sales Manager')
+
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex w-full items-center justify-between border-b border-gray-100 py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-50 md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">
                         Records & Reports <svg class="ml-1 h-5 w-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -149,6 +155,9 @@
                         </ul>
                     </div>
                 </li>
+
+                @endif
+
 
                 @if (Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant')
                     <li>
