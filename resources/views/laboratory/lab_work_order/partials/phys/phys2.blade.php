@@ -37,8 +37,10 @@
                 @enderror
             </div>
         </div>
-        <div class="flex justify-end">
-            <button class="btn btn-primary">Submit</button>
+        <div class="flex justify-end gap-2">
+            <button class="btn btn-primary" name="remarks" value="Testing on-going">Save</button>
+            <button class="btn btn-primary" name="remarks" value="For approval">Save and Exit</button>
+            <button class="btn btn-primary" name="remarks" value="For releasing">Save and Submit</button>
         </div>
     </div>
 </form>

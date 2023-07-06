@@ -40,6 +40,9 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test changes has been save']);
     }
 
@@ -57,6 +60,9 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'MICR3 - Total Coliform changes has been save']);
     }
 
@@ -70,6 +76,8 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         return redirect()->back()->with(['message' => 'MICR4 - E. coli Test changes has been save']);
     }
 }

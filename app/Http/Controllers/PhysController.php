@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AnalysisRequest;
+
 use App\Models\RawData;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,9 @@ class PhysController extends Controller
 
         $phys = RawData::findOrFail($analysis_id);
         $phys->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'PHYS1 - Appearance Computation Success']);
     }
 
@@ -32,6 +37,9 @@ class PhysController extends Controller
 
         $phys = RawData::findOrFail($analysis_id);
         $phys->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'PHYS2 - Odor Computation Success']);
     }
 
@@ -46,6 +54,9 @@ class PhysController extends Controller
 
         $phys = RawData::findOrFail($analysis_id);
         $phys->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'PHYS3 - Color, apparent Computation Success']);
     }
 
@@ -63,6 +74,9 @@ class PhysController extends Controller
 
         $phys = RawData::findOrFail($analysis_id);
         $phys->update($request->all());
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
         return redirect()->back()->with(['message' => 'PHYS4 - Turbidity Computation Success']);
     }
 }
