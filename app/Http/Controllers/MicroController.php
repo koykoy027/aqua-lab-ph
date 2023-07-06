@@ -3,26 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Models\RawData;
+use App\Models\AnalysisRequest;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
 {
     public function micro1(Request $request, $analysis_id)
     {
+    $request->validate([
+    'micr1_hpc_plate_a' => 'required',
+    'micr1_hpc_plate_b' => 'required',
+    'micr1_hpc_average' => 'required',
+    'micr1_hpc_difference' => 'required',
+    'micr1_hpc_final_result' => 'required',
+    'micr1_hpc_remarks' => 'required',
+    ]);
 
-        $request->validate([
-            'micr1_hpc_plate_a' => 'required',
-            'micr1_hpc_plate_b' => 'required',
-            'micr1_hpc_average' => 'required',
-            'micr1_hpc_difference' => 'required',
-            'micr1_hpc_final_result' => 'required',
-            'micr1_hpc_remarks' => 'required',
-        ]);
+    $micro = RawData::findOrFail($analysis_id);
+    $micro->update($request->all());
 
-        $micro = RawData::findOrFail($analysis_id);
-        $micro->update($request->all());
-        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+    $remarks = $request->input('remarks');
+    AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
+    return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
     }
+
+
 
     public function micro2(Request $request, $analysis_id)
     {
