@@ -43,7 +43,7 @@
 
     <div class="grid gap-2 sm:grid-cols-1 lg:grid-cols-2">
         <div class="card bg-white">
-            <h1 class="bold mb-3 text-2xl">Recent clients</h1>
+            <h1 class="bold mb-3 text-2xl uppercase">Recent clients</h1>
             <hr>
 
             <div class="relative mt-3 overflow-x-auto sm:rounded-lg">
