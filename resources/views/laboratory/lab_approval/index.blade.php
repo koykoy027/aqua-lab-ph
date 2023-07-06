@@ -40,6 +40,9 @@
                                     @if($request->remarks === 'Rejected') text-red-800 bg-red-100 @endif
                                     @if($request->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
                                     @if($request->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if($request->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if($request->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if($request->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
                                 ">
                                     {{ $request->remarks }}
                                 </span>

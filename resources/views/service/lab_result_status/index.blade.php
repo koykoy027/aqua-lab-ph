@@ -59,6 +59,10 @@
                                     @if($data->remarks === 'Rejected') text-red-800 bg-red-100 @endif
                                     @if($data->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
                                     @if($data->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if($data->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if($data->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if($data->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+
                                 ">
                                     {{ $data->remarks }}
                                 </span>
