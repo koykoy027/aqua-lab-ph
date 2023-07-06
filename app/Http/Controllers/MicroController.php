@@ -10,25 +10,23 @@ class MicroController extends Controller
 {
     public function micro1(Request $request, $analysis_id)
     {
-    $request->validate([
-    'micr1_hpc_plate_a' => 'required',
-    'micr1_hpc_plate_b' => 'required',
-    'micr1_hpc_average' => 'required',
-    'micr1_hpc_difference' => 'required',
-    'micr1_hpc_final_result' => 'required',
-    'micr1_hpc_remarks' => 'required',
-    ]);
+        $request->validate([
+            'micr1_hpc_plate_a' => 'required',
+            'micr1_hpc_plate_b' => 'required',
+            'micr1_hpc_average' => 'required',
+            'micr1_hpc_difference' => 'required',
+            'micr1_hpc_final_result' => 'required',
+            'micr1_hpc_remarks' => 'required',
+        ]);
 
-    $micro = RawData::findOrFail($analysis_id);
-    $micro->update($request->all());
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
 
-    $remarks = $request->input('remarks');
-    AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-    return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) Computation Success']);
+        return redirect()->back()->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) changes has been save']);
     }
-
-
 
     public function micro2(Request $request, $analysis_id)
     {
@@ -42,7 +40,7 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
-        return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test Computation Success']);
+        return redirect()->back()->with(['message' => 'MICR2 - Thermotolerant Coliform Test changes has been save']);
     }
 
     public function micro3(Request $request, $analysis_id)
@@ -59,7 +57,7 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
-        return redirect()->back()->with(['message' => 'MICR3 - Total Coliform Computation Success']);
+        return redirect()->back()->with(['message' => 'MICR3 - Total Coliform changes has been save']);
     }
 
     public function micro4(Request $request, $analysis_id)
@@ -72,6 +70,6 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
-        return redirect()->back()->with(['message' => 'MICR4 - E. coli Test Computation Success']);
+        return redirect()->back()->with(['message' => 'MICR4 - E. coli Test changes has been save']);
     }
 }

@@ -20,7 +20,8 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM1 - pH Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM1 - pH changes has been save']);
+
 
     }
 
@@ -37,7 +38,8 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM2 - Nitrate Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM2 - Nitrate changes has been save']);
+
 
     }
 
@@ -58,7 +60,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM3 - Total Dissolved Solids Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM3 - Total Dissolved Solids changes has been save']);
 
     }
 
@@ -72,7 +74,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM4 - Chlorine (Residual), Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM4 - Chlorine (Residual), changes has been save']);
 
     }
 
@@ -89,7 +91,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM5 - Arsenic Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM5 - Arsenic changes has been save']);
 
     }
 
@@ -106,7 +108,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM6 - Cadmium Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM6 - Cadmium changes has been save']);
 
     }
 
@@ -123,7 +125,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM7 - Lead Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM7 - Lead changes has been save']);
 
     }
 
@@ -140,7 +142,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM9 - Iron Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM9 - Iron changes has been save']);
 
     }
 
@@ -157,7 +159,7 @@ class ChemController extends Controller
 
         $chem = RawData::findOrFail($analysis_id);
         $chem->update($request->all());
-        return redirect()->back()->with(['message' => 'CHEM10 - Manganese Computation Success']);
+        return redirect()->back()->with(['message' => 'CHEM10 - Manganese changes has been save']);
 
     }
 
