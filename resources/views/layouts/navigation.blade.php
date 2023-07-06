@@ -115,17 +115,18 @@
                 </button>
                 <div id="doubleDropdown" class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white shadow">
                     <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
-                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Micro Analyst')
-
+                        @if(Auth::user()->role !== 'Pchem Manager' && Auth::user()->role !== 'Pchem Analyst')
                         <li>
                             <a href="{{ route('laboratory.lab_approval.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
                         </li>
                         @endif
-                        @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Pchem Analyst')
+
+                        @if(Auth::user()->role !== 'Micro Manager' && Auth::user()->role !== 'Micro Analyst')
 
                         <li>
                             <a href="{{ route('laboratory.lab_approval.phyChem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
                         </li>
+
                         @endif
                     </ul>
                 </div>
