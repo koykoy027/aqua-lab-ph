@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Dashboard')
 @section('content')
-    <div class="mb-3 grid sm:grid-cols-1 sm:gap-2 lg:grid-cols-4 lg:gap-4">
+    <div class="mb-3 grid sm:grid-cols-1 sm:gap-2 lg:grid-cols-4 lg:gap-4 uppercase">
         <div class="card bg-white">
             <h1 class="bold text-2xl">{{ $totalClient }}</h1>
             <p class="text-slate-500">Total Clients</p>
@@ -19,6 +19,26 @@
             <p class="text-slate-500">Total released result</p>
         </div>
     </div>
+
+    <div class="mb-3 grid sm:grid-cols-1 sm:gap-2 lg:grid-cols-4 lg:gap-4 uppercase">
+        <div class="card bg-white">
+            <h1 class="bold text-2xl">{{ $totalPending }}</h1>
+            <p class="text-slate-500">Total Pending</p>
+        </div>
+        <div class="card bg-white">
+            <h1 class="bold text-2xl">{{ $totalConditionallyAccepted }}</h1>
+            <p class="text-slate-500">Total Conditionally Accepted</p>
+        </div>
+        <div class="card bg-white">
+            <h1 class="bold text-2xl">{{ $totalDisapprove }}</h1>
+            <p class="text-slate-500">Total Disapprove</p>
+        </div>
+        <div class="card bg-white">
+            <h1 class="bold text-2xl">{{ $totalReleaseStatus }}</h1>
+            <p class="text-slate-500">Total released result</p>
+        </div>
+    </div>
+
 
 
     <div class="grid gap-2 sm:grid-cols-1 lg:grid-cols-2">

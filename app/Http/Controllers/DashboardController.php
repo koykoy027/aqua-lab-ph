@@ -19,7 +19,10 @@ class DashboardController extends Controller
         $totalLabAccepted = AnalysisRequest::where('remarks', 'Accepted')->count();
         $totalLabRejected = AnalysisRequest::where('remarks', 'Rejected')->count();
         $totalReleaseStatus = AnalysisRequest::where('remarks', 'Approve')->count();
+        $totalPending = AnalysisRequest::where('remarks', 'Pending')->count();
+        $totalConditionallyAccepted = AnalysisRequest::where('remarks', 'Conditionally Accepted')->count();
+        $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
 
-        return view('dashboard.index', compact('recentClients', 'totalClient', 'totalLabAccepted', 'totalLabRejected', 'totalReleaseStatus'));
+        return view('dashboard.index', compact('recentClients', 'totalClient', 'totalLabAccepted', 'totalLabRejected', 'totalReleaseStatus', 'totalPending', 'totalConditionallyAccepted', 'totalDisapprove'));
     }
 }
