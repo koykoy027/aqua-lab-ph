@@ -126,7 +126,7 @@
         <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr class="top-information">
-                    <td>Requested By:</td>
+                    <td>Requested By: <span class="main-source">{{ $clients->fsr_assigned }}</span></td>
                 </tr>
 
                 <tr class="top-information">
@@ -140,13 +140,13 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="top-information-content">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->date_evaluated }}</span></td>
-                    <td>Date/Time Received: <span class="top-information-content">-</span></td>
+                    <td>Date/Time Collected: <span class="top-information-content">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Received: <span class="top-information-content">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Collected by: <span class="collected-by">{{ $details->collector_name }}</span></td>
-                    <td>Date/Time Tested:</td>
+                    <td>Date/Time Tested: <span class="top-information-content">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
                 </tr>
 
             </thead>
