@@ -17,10 +17,10 @@ class ClientSeeder extends Seeder
         $faker = Faker::create();
 
         Client::create([
-            'account_name' => 'Water Test Company 1',
+            'account_name' => $faker->name,
             'business_tin' => $faker->randomNumber(9),
             'name_of_owner' => $faker->name,
-            'type_of_ownership' => 'Single Prorietorship',
+            'type_of_ownership' => $faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),
             'name_of_authorized_person' => $faker->name,
             'unit_no_floor_bldg_name' => $faker->secondaryAddress,
             'street_name_or_subdivision' => $faker->streetName,
@@ -42,10 +42,10 @@ class ClientSeeder extends Seeder
         ]);
 
         Client::create([
-            'account_name' => 'Water Test Company 2',
+            'account_name' => $faker->name,
             'business_tin' => $faker->randomNumber(9),
             'name_of_owner' => $faker->name,
-            'type_of_ownership' => 'Partnership',
+            'type_of_ownership' => $faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),
             'name_of_authorized_person' => $faker->name,
             'unit_no_floor_bldg_name' => $faker->secondaryAddress,
             'street_name_or_subdivision' => $faker->streetName,
@@ -67,10 +67,10 @@ class ClientSeeder extends Seeder
         ]);
 
         Client::create([
-            'account_name' => 'Water Test Company 3',
+            'account_name' => $faker->name,
             'business_tin' => $faker->randomNumber(9),
             'name_of_owner' => $faker->name,
-            'type_of_ownership' => 'Cooperative',
+            'type_of_ownership' => $faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),
             'name_of_authorized_person' => $faker->name,
             'unit_no_floor_bldg_name' => $faker->secondaryAddress,
             'street_name_or_subdivision' => $faker->streetName,
@@ -91,10 +91,10 @@ class ClientSeeder extends Seeder
             'type' => 'walk in',
         ]);
         Client::create([
-            'account_name' => 'Water Test Company 4',
+            'account_name' => $faker->name,
             'business_tin' => $faker->randomNumber(9),
             'name_of_owner' => $faker->name,
-            'type_of_ownership' => 'Corporation',
+            'type_of_ownership' => $faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),
             'name_of_authorized_person' => $faker->name,
             'unit_no_floor_bldg_name' => $faker->secondaryAddress,
             'street_name_or_subdivision' => $faker->streetName,
