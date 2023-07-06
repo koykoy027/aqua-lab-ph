@@ -70,7 +70,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('service.add-analysis-request.create') }}" class="block px-4 py-2 hover:bg-gray-100">Add Analysis Request</a>
+                                    <a href="{{ route('service.add-analysis-request.create') }}" class="block px-4 py-2 hover:bg-gray-100">Analysis Request</a>
                                 </li>
                             @endif
 
