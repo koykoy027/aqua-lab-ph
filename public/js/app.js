@@ -194,6 +194,71 @@ const micro3 = () => {
 
 }
 
+// can be seen in laboratory.lab_work_order-partials
+
+const chem1 = () => {
+
+
+    var chem1_instrument_reading_1 = document.querySelector('[name="chem1_instrument_reading_1"]').value
+    var chem1_instrument_reading_2 = document.querySelector('[name="chem1_instrument_reading_2"]').value
+    var chem1_instrument_reading_3 = document.querySelector('[name="chem1_instrument_reading_3"]').value
+    var chem1_average_instrument_reading = document.querySelector('[name="chem1_average_instrument_reading"]')
+    var chem1_final_result = document.querySelector('[name="chem1_final_result"]')
+    var chem1_final_result_remarks = document.querySelector('[name="chem1_final_result_remarks"]')
+
+    var reading1 = parseFloat(chem1_instrument_reading_1)
+    var reading2 = parseFloat(chem1_instrument_reading_2)
+    var reading3 = parseFloat(chem1_instrument_reading_3)
+
+    var averageReading = (reading1 + reading2 + reading3) / 3;
+
+
+
+    if (chem1_average_instrument_reading.length > 0) {
+
+        if (chem1_final_result == 0) {
+            chem1_final_result.value = '< 1.1';
+        }
+        else if (chem1_final_result == 1) {
+            chem1_final_result.value = '1.1';
+
+        }
+        else if (chem1_final_result == 2) {
+            chem1_final_result.value = '2.6';
+
+        }
+        else if (chem1_final_result == 3) {
+            chem1_final_result.value = '4.6';
+
+        } else if (chem1_final_result == 4) {
+            chem1_final_result.value = '8.0';
+
+        } else if (chem1_final_result >= 5) {
+            chem1_final_result.value = '> 8.0';
+        }
+
+        if (chem1_final_result == '< 1.1') {
+            chem1_final_result_remarks.value = 'PASSED';
+        } else {
+            chem1_final_result_remarks.value = 'FAILED';
+        }
+
+    } else {
+        chem1_average_instrument_reading.value = averageReading;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 const handleCategoryClick = (category, selector) => {
@@ -230,4 +295,3 @@ const categoryLabAcceptance = () => {
 const categoryRawData = () => {
     handleCategoryClick('categoryRawData', '[onclick="categoryRawData()"]');
 };
-
