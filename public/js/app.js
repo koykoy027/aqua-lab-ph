@@ -215,6 +215,8 @@ const micro3 = () => {
 
 // can be seen in laboratory.lab_work_order-partials
 
+// chem1
+
 const chem1 = () => {
     var chem1_instrument_reading_1 = document.querySelector(
         '[name="chem1_instrument_reading_1"]'
@@ -241,7 +243,7 @@ const chem1 = () => {
 
     var averageReading = (reading1 + reading2 + reading3) / 3;
 
-    if (averageReading < 6.5 || averageReading > 8.5) {
+    if (averageReading.toFixed(0) < 6.5 || averageReading.toFixed(0) > 8.5) {
         chem1_final_result_remarks.value = "FAIL";
     } else {
         chem1_final_result_remarks.value = "PASS";
@@ -264,6 +266,187 @@ const chem1 = () => {
         chem1_average_instrument_reading.value = averageReading.toFixed(1);
     }
 };
+
+// chem2
+
+const chem2 = () => {
+    var chem2_instrument_reading_1 = parseFloat(document.querySelector('[name="chem2_instrument_reading_1"]').value);
+    var chem2_instrument_reading_2 = parseFloat(document.querySelector('[name="chem2_instrument_reading_2"]').value);
+    var chem2_instrument_reading_3 = parseFloat(document.querySelector('[name="chem2_instrument_reading_3"]').value);
+    var chem2_average_instrument_reading = document.querySelector('[name="chem2_average_instrument_reading"]');
+    var chem2_final_result = document.querySelector('[name="chem2_final_result"]');
+    var chem2_final_result_remarks = document.querySelector('[name="chem2_final_result_remarks"]');
+
+    var averageReading2 = (chem2_instrument_reading_1 + chem2_instrument_reading_2 + chem2_instrument_reading_3) / 3;
+
+    if (averageReading2 <= 50.0) {
+        chem2_final_result_remarks.value = "PASS";
+    } else {
+        chem2_final_result_remarks.value = "FAIL";
+    }
+
+    chem2_final_result.value = averageReading2.toFixed(1);
+    chem2_average_instrument_reading.value = averageReading2.toFixed(0);
+};
+
+// chem3
+
+const chem3 = () => {
+    var chem3_initial_wt_of_evaporating_dish_replicate_1 = parseFloat(document.querySelector('[name="chem3_initial_wt_of_evaporating_dish_replicate_1"]').value);
+    var chem3_final_wt_of_evaporating_dish_replicate_1 = parseFloat(document.querySelector('[name="chem3_final_wt_of_evaporating_dish_replicate_1"]').value);
+    var chem3_wt_of_residue_replicate_1 = parseFloat(document.querySelector('[name="chem3_wt_of_residue_replicate_1"]').value);
+    var chem3_initial_wt_of_evaporating_dish_replicate_2 = parseFloat(document.querySelector('[name="chem3_initial_wt_of_evaporating_dish_replicate_2"]').value);
+    var chem3_final_wt_of_evaporating_dish_replicate_2 = parseFloat(document.querySelector('[name="chem3_final_wt_of_evaporating_dish_replicate_2"]').value);
+    var chem3_wt_of_residue_replicate_2 = parseFloat(document.querySelector('[name="chem3_wt_of_residue_replicate_2"]').value);
+    var chem3_average_wt_of_residue = document.querySelector('[name="chem3_average_wt_of_residue"]');
+    var chem3_final_result = document.querySelector('[name="chem3_final_result"]');
+    var chem3_final_result_remarks = document.querySelector('[name="chem3_final_result_remarks"]');
+
+    var averageReading3 = (chem3_initial_wt_of_evaporating_dish_replicate_1 + chem3_final_wt_of_evaporating_dish_replicate_1 + chem3_wt_of_residue_replicate_1 + chem3_initial_wt_of_evaporating_dish_replicate_2 + chem3_final_wt_of_evaporating_dish_replicate_2 + chem3_wt_of_residue_replicate_2) / 6;
+
+    if (averageReading3 <= 600) {
+        chem3_final_result_remarks.value = "PASS";
+    } else {
+        chem3_final_result_remarks.value = "FAIL";
+    }
+
+    chem3_final_result.value = averageReading3.toFixed(1);
+    chem3_average_wt_of_residue.value = averageReading3.toFixed(0);
+};
+
+
+// chem4
+
+const chem4 = () => {
+    var chem4_instrument_reading = parseFloat(document.querySelector('[name="chem4_instrument_reading"]').value);
+    var chem4_final_result = document.querySelector('[name="chem4_final_result"]');
+    var chem4_final_result_remarks = document.querySelector('[name="chem4_final_result_remarks"]');
+
+    if (chem4_instrument_reading > 1.5) {
+        chem4_final_result_remarks.value = "FAIL";
+    } else if (chem4_instrument_reading < 0.3) {
+        chem4_final_result_remarks.value = "FAIL";
+    } else {
+        chem4_final_result_remarks.value = "PASS";
+    }
+
+    chem4_final_result.value = chem4_instrument_reading.toFixed(0);
+};
+
+//chem 5
+
+const chem5 = () => {
+    var chem5_instrument_reading_1 = parseFloat(document.querySelector('[name="chem5_instrument_reading_1"]').value);
+    var chem5_instrument_reading_2 = parseFloat(document.querySelector('[name="chem5_instrument_reading_2"]').value);
+    var chem5_instrument_reading_3 = parseFloat(document.querySelector('[name="chem5_instrument_reading_3"]').value);
+    var chem5_average_instrument_reading = document.querySelector('[name="chem5_average_instrument_reading"]');
+    var chem5_final_result = document.querySelector('[name="chem5_final_result"]');
+    var chem5_final_result_remarks = document.querySelector('[name="chem5_final_result_remarks"]');
+
+    var averageReading = (chem5_instrument_reading_1 + chem5_instrument_reading_2 + chem5_instrument_reading_3) / 3;
+
+    if (averageReading <= 0.01) {
+        chem5_final_result_remarks.value = "PASS";
+    } else {
+        chem5_final_result_remarks.value = "FAIL";
+    }
+
+    chem5_final_result.value = averageReading.toFixed(2);
+    chem5_average_instrument_reading.value = averageReading.toFixed(0);
+};
+
+// chem 6
+
+const chem6 = () => {
+    var chem6_instrument_reading_1 = parseFloat(document.querySelector('[name="chem6_instrument_reading_1"]').value);
+    var chem6_instrument_reading_2 = parseFloat(document.querySelector('[name="chem6_instrument_reading_2"]').value);
+    var chem6_instrument_reading_3 = parseFloat(document.querySelector('[name="chem6_instrument_reading_3"]').value);
+    var chem6_average_instrument_reading = document.querySelector('[name="chem6_average_instrument_reading"]');
+    var chem6_final_result = document.querySelector('[name="chem6_final_result"]');
+    var chem6_final_result_remarks = document.querySelector('[name="chem6_final_result_remarks"]');
+
+    var averageReading = (chem6_instrument_reading_1 + chem6_instrument_reading_2 + chem6_instrument_reading_3)/3;
+
+    if (averageReading <= 0.003) {
+      chem6_final_result_remarks.value = "PASS";
+    } else {
+      chem6_final_result_remarks.value = "FAIL";
+    }
+
+    chem6_final_result.value = averageReading.toFixed(1);
+    chem6_average_instrument_reading.value = averageReading.toFixed(0);
+  };
+
+//   chem 7
+
+const chem7 = () => {
+    var chem7_instrument_reading_1 = parseFloat(document.querySelector('[name="chem7_instrument_reading_1"]').value);
+    var chem7_instrument_reading_2 = parseFloat(document.querySelector('[name="chem7_instrument_reading_2"]').value);
+    var chem7_instrument_reading_3 = parseFloat(document.querySelector('[name="chem7_instrument_reading_3"]').value);
+    var chem7_average_instrument_reading = document.querySelector('[name="chem7_average_instrument_reading"]');
+    var chem7_final_result = document.querySelector('[name="chem7_final_result"]');
+    var chem7_final_result_remarks = document.querySelector('[name="chem7_final_result_remarks"]');
+
+    var averageReading = (chem7_instrument_reading_1 + chem7_instrument_reading_2 + chem7_instrument_reading_3) / 3;
+
+    if (averageReading <= 0.01) {
+        chem7_final_result_remarks.value = "PASS";
+    } else {
+        chem7_final_result_remarks.value = "FAIL";
+    }
+
+    chem7_final_result.value = averageReading.toFixed(1);
+    chem7_average_instrument_reading.value = averageReading.toFixed(0);
+};
+
+// chem 9
+
+const chem9 = () => {
+    var chem9_instrument_reading_1 = parseFloat(document.querySelector('[name="chem9_instrument_reading_1"]').value);
+    var chem9_instrument_reading_2 = parseFloat(document.querySelector('[name="chem9_instrument_reading_2"]').value);
+    var chem9_instrument_reading_3 = parseFloat(document.querySelector('[name="chem9_instrument_reading_3"]').value);
+    var chem9_average_instrument_reading = document.querySelector('[name="chem9_average_instrument_reading"]');
+    var chem9_final_result = document.querySelector('[name="chem9_final_result"]');
+    var chem9_final_result_remarks = document.querySelector('[name="chem9_final_result_remarks"]');
+
+    var averageReading = (chem9_instrument_reading_1 + chem9_instrument_reading_2 + chem9_instrument_reading_3) / 3;
+
+    if (averageReading <= 1.0) {
+        chem9_final_result_remarks.value = "PASS";
+    } else {
+        chem9_final_result_remarks.value = "FAIL";
+    }
+
+    chem9_final_result.value = averageReading.toFixed(1);
+    chem9_average_instrument_reading.value = averageReading.toFixed(0);
+};
+
+// chem 10
+
+const chem10 = () => {
+    var chem10_instrument_reading_1 = parseFloat(document.querySelector('[name="chem10_instrument_reading_1"]').value);
+    var chem10_instrument_reading_2 = parseFloat(document.querySelector('[name="chem10_instrument_reading_2"]').value);
+    var chem10_instrument_reading_3 = parseFloat(document.querySelector('[name="chem10_instrument_reading_3"]').value);
+    var chem10_average_instrument_reading = document.querySelector('[name="chem10_average_instrument_reading"]');
+    var chem10_final_result = document.querySelector('[name="chem10_final_result"]');
+    var chem10_final_result_remarks = document.querySelector('[name="chem10_final_result_remarks"]');
+
+    var averageReading = (chem10_instrument_reading_1 + chem10_instrument_reading_2 + chem10_instrument_reading_3) / 3;
+
+    if (averageReading <= 0.4) {
+        chem10_final_result_remarks.value = "PASS";
+    } else {
+        chem10_final_result_remarks.value = "FAIL";
+    }
+
+    chem10_final_result.value = averageReading.toFixed(1);
+    chem10_average_instrument_reading.value = averageReading.toFixed(0);
+};
+
+
+
+
+
 
 const handleCategoryClick = (category, selector) => {
     const buttons = document.querySelectorAll(".category-button");
@@ -291,6 +474,7 @@ const handleCategoryClick = (category, selector) => {
         }
     });
 };
+
 
 const categoryClientInformation = () => {
     handleCategoryClick(

@@ -6,7 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="chem4_instrument_reading">Instrument Reading</label>
-                <input id="chem4_instrument_reading" type="number" name="chem4_instrument_reading" value="{{ $rawDataFileValue->chem4_instrument_reading }}" required autofocus autocomplete="chem4_instrument_reading">
+                <input id="chem4_instrument_reading" type="number" name="chem4_instrument_reading" value="{{ $rawDataFileValue->chem4_instrument_reading }}" required autofocus autocomplete="chem4_instrument_reading" onchange="chem4()">
                 @error('chem4_instrument_reading')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -16,7 +16,7 @@
 
             <div class="mb-3">
                 <label for="chem4_final_result">Final Result</label>
-                <input id="chem4_final_result" type="number" name="chem4_final_result" value="{{ $rawDataFileValue->chem4_final_result }}" required autofocus autocomplete="chem4_final_result">
+                <input id="chem4_final_result" type="number" name="chem4_final_result" value="{{ $rawDataFileValue->chem4_final_result }}" required autofocus autocomplete="chem4_final_result" onchange="chem4()">
                 @error('chem4_final_result')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
