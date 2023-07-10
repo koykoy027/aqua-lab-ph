@@ -6,7 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys2_observation">Observation</label>
-                <select id="phys2_observation" type="number" name="phys2_observation" required autofocus autocomplete="phys2_observation">
+                <select id="phys2_observation" type="number" name="phys2_observation" required autofocus autocomplete="phys2_observation" onchange="phy2()">
                     <option value="No without objectionable color">No objectionable color</option>
                     <option value="With objectionable color">With objectionable color</option>
                 </select>

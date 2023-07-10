@@ -443,6 +443,89 @@ const chem10 = () => {
     chem10_average_instrument_reading.value = averageReading.toFixed(0);
 };
 
+// phychem 1
+
+const phy1 = () => {
+    var phys1_observation = document.querySelector('[name="phys1_observation"]').value;
+    var phys1_final_result = document.querySelector('[name="phys1_final_result"]');
+    var phys1_final_result_remarks = document.querySelector('[name="phys1_final_result_remarks"]');
+
+    if (phys1_observation === 'Color without objectionable color') {
+        phys1_final_result.value = phys1_observation;
+        if (phys1_final_result.value === 'Color without objectionable color') {
+            phys1_final_result_remarks.value = "PASS";
+        } else {
+            phys1_final_result_remarks.value = "FAIL";
+        }
+    } else {
+        phys1_final_result.value = 'Not clear and with objectionable color';
+        phys1_final_result_remarks.value = "FAIL";
+    }
+};
+
+// phychem2
+
+const phy2 = () => {
+    var phys2_observation = document.querySelector('[name="phys2_observation"]').value;
+    var phys2_final_result = document.querySelector('[name="phys2_final_result"]');
+    var phys2_final_result_remarks = document.querySelector('[name="phys2_final_result_remarks"]');
+
+    if (phys2_observation === 'No without objectionable color') {
+        phys2_final_result.value = phys2_observation;
+        if (phys2_final_result.value === 'No without objectionable color') {
+            phys2_final_result_remarks.value = "PASS";
+        } else {
+            phys2_final_result_remarks.value = "FAIL";
+        }
+    } else {
+        phys2_final_result.value = 'With objectionable color';
+        phys2_final_result_remarks.value = "FAIL";
+    }
+};
+
+// phychem3
+
+const phy3 = () => {
+    var phys3_concentration_of_comparable_color_standard = document.querySelector('[name="phys3_concentration_of_comparable_color_standard"]').value;
+    var phys3_final_result = document.querySelector('[name="phys3_final_result"]');
+    var phys3_final_result_remarks = document.querySelector('[name="phys3_final_result_remarks"]');
+
+    var finalResultValue = phys3_concentration_of_comparable_color_standard;
+
+    phys3_final_result.value = phys3_concentration_of_comparable_color_standard;
+    if (finalResultValue < 10) {
+        phys3_final_result_remarks.value = "PASS";
+    } else {
+        phys3_final_result_remarks.value = "FAIL";
+    }
+};
+
+// phychem4
+
+
+const phy4 = () => {
+    var phys4_instrument_reading_1 = parseFloat(document.querySelector('[name="phys4_instrument_reading_1"]').value);
+    var phys4_instrument_reading_2 = parseFloat(document.querySelector('[name="phys4_instrument_reading_2"]').value);
+    var phys4_instrument_reading_3 = parseFloat(document.querySelector('[name="phys4_instrument_reading_3"]').value);
+    var phys4_average_instrument_reading = document.querySelector('[name="phys4_average_instrument_reading"]');
+    var phys4_final_result = document.querySelector('[name="phys4_final_result"]');
+    var phys4_final_result_remarks = document.querySelector('[name="phys4_final_result_remarks"]');
+
+    var averageReading = (phys4_instrument_reading_1 + phys4_instrument_reading_2 + phys4_instrument_reading_3) / 3;
+
+    if (averageReading <= 5) {
+        phys4_final_result_remarks.value = "PASS";
+    } else {
+        phys4_final_result_remarks.value = "FAIL";
+    }
+
+    phys4_final_result.value = averageReading.toFixed(0);
+    phys4_average_instrument_reading.value = averageReading.toFixed(0);
+};
+
+
+
+
 
 
 
