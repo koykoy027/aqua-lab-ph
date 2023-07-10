@@ -231,3 +231,119 @@ const categoryRawData = () => {
     handleCategoryClick('categoryRawData', '[onclick="categoryRawData()"]');
 };
 
+
+
+// chart 1
+
+const chart = () => {
+    const labels = ["Caloocan","Muntinlupa","Baguio","Samar","cagayan"];
+const data = {
+  labels: labels,
+  datasets: [
+    {
+      label: "Samples per Market/Municipality",
+      backgroundColor: "black",
+      borderColor: 'rgb(0, 0, 0)',
+      data: [0, 10, 5, 2, 20, 30, 45,50,12,45,11,90],
+      fill: false,
+    },
+  ],
+};
+
+const configLineChart = {
+  type: "line",
+  data,
+  options: {},
+};
+
+var chartLine = new Chart(
+  document.getElementById("chartLine"),
+  configLineChart
+);
+};
+
+// chart 2
+const chart_2 = () => {
+    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Samples per Market",
+          backgroundColor: "black",
+          borderColor: "rgb(0, 0, 0)",
+          data: [15, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_2 = new Chart(
+      document.getElementById("chartLine_2"),
+      configLineChart
+    );
+  };
+
+// chart3
+
+const chart_3 = () => {
+    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Micro Samples per Market/Municipality",
+          backgroundColor: "black",
+          borderColor: "rgb(0, 0, 0)",
+          data: [15, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_3 = new Chart(
+      document.getElementById("chartLine_3"),
+      configLineChart
+    );
+  };
+
+//   chart 4
+
+const chart_4 = () => {
+    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Micro Samples per Market Segment",
+          backgroundColor: "black",
+          borderColor: "rgb(0, 0, 0)",
+          data: [15, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_4 = new Chart(
+      document.getElementById("chartLine_4"),
+      configLineChart
+    );
+  };
