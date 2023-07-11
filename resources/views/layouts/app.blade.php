@@ -8,6 +8,8 @@
     <link rel="icon" type="png" href="{{ asset('image/branding.png') }}">
     <title>@yield('title') - {{ config('app.name') }}</title>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body class="font-sans antialiased">
