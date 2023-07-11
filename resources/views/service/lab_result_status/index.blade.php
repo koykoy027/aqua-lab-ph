@@ -104,6 +104,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="my-5">
+            {{ $datas->links() }}
+        </div>
     </div>
 
 @endsection
