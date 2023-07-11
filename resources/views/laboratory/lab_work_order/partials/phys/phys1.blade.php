@@ -6,7 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys1_observation">Observation</label>
-                <select id="phys1_observation" type="number" name="phys1_observation" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys1_observation">
+                <select id="phys1_observation" type="number" name="phys1_observation" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys1_observation" onchange="phy1()">
                     <option value="Color without objectionable color">Color without objectionable color</option>
                     <option value="Not clear and with objectionable color">Not clear and with objectionable color</option>
                 </select>

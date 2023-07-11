@@ -6,7 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys3_concentration_of_comparable_color_standard">Concentration of comparable color standard</label>
-                <select id="phys3_concentration_of_comparable_color_standard" type="number" name="phys3_concentration_of_comparable_color_standard" required autofocus autocomplete="phys3_concentration_of_comparable_color_standard">
+                <select id="phys3_concentration_of_comparable_color_standard" type="number" name="phys3_concentration_of_comparable_color_standard" required autofocus autocomplete="phys3_concentration_of_comparable_color_standard" onchange="phy3()">
                     <option value="&lt; 10">&lt; 10</option>
                     <option value="10">10</option>
                     <option value="15">15</option>
