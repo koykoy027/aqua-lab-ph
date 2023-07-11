@@ -66,16 +66,18 @@ const waterPurpose = (val) => {
 };
 
 // can be seen in laboratory.lab-acceptance-form
-const remarksRejected = (radio) => {
-    var input = document.getElementById("if_remarks_are_rejected");
+const test = (val) => {
+    var inputFields = document.querySelector('#if_remarks_are_rejected');
 
-    if (radio.checked && radio.value === "Rejected") {
-        input.removeAttribute("readonly");
-    } else {
-        input.setAttribute("readonly", "readonly");
-        input.value = "";
+    if (val === 'Rejected') {
+        inputFields.removeAttribute('readonly');
     }
-};
+    else{
+        inputFields.setAttribute('readonly', true);
+        inputFields.value = "";
+    }
+}
+
 
 // can be seen in laboratory.lab_work_order-partials
 const micro1 = () => {
