@@ -40,15 +40,25 @@
     </div>
 {{-- chart  --}}
 
-<div class="mb-3 grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-2 lg:gap-4 uppercase">
+<div class="mb-3 grid gap-2 sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4 uppercase">
     <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine"></canvas>
+                <script>perRegion();</script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mb-3 grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-2 lg:gap-4 uppercase">
+    {{-- <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
                 <canvas class="w-full p-2" id="chartLine"></canvas>
                 <script>chart();</script>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
