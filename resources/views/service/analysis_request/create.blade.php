@@ -5,7 +5,7 @@
     <div class="card mb-3 bg-white">
         @include('components.search')
 
-        <label for="">Client Lists</label>
+        <h1>Client Lists</h1>
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">
@@ -48,19 +48,13 @@
                             </td>
                         </tr>
                     @endforeach
-
-
                 </tbody>
             </table>
         </div>
+
+        <div class="my-5">
+            {{ $clients->links() }}
+        </div>
     </div>
-
-
-
-    {{-- <div class="flex justify-end">
-        <button class="btn btn-primary" type="submit">
-            Submit
-        </button>
-    </div> --}}
 
 @endsection
