@@ -224,8 +224,8 @@
                         </option>
                         <option value="003 - Hospitalit Industry">003 - Hospitalit Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
-                        <option value="004B - Healthcare (Lying-in)">004A - Healthcare (Lying-in)</option>
-                        <option value="004C - Healthcare (Hospital)">004A - Healthcare (Hospital)</option>
+                        <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>
+                        <option value="004C - Healthcare (Hospital)">004C - Healthcare (Hospital)</option>
                         <option value="005 - Water Service Provider">005 - Water Service Provider</option>
                         <option value="Others">Others</option>
                     </select>
