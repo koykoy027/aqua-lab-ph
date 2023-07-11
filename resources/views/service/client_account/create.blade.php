@@ -220,8 +220,7 @@
                         autofocus autocomplete="market_segment" onchange="marketSegment(this.value)">
                         <option value="0001 - Water Refilling Station">0001 - Water Refilling Station</option>
                         <option value="002A - Food and Beverages (Service)">002A - Food and Beverages (Service)</option>
-                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)
-                        </option>
+                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)</option>
                         <option value="003 - Hospitalit Industry">003 - Hospitalit Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
                         <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>
