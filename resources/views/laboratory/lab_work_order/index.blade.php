@@ -70,6 +70,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="my-5">
+            {{ $analysisRequest->links() }}
+        </div>
     </div>
 
 @endsection

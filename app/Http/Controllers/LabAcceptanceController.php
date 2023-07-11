@@ -18,7 +18,6 @@ class LabAcceptanceController extends Controller
     public function labWorkOrder()
     {
         $analysisRequest = AnalysisRequest::orderByDesc('created_at')
-
         ->paginate(10);
         return view('laboratory.lab_work_order.index', compact('analysisRequest'));
     }
