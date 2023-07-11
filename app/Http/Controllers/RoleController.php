@@ -9,7 +9,8 @@ class RoleController extends Controller
 {
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::orderByDesc('updated_at')
+        ->paginate(10);
         return view('user_management.role.index', compact('roles'));
     }
 

@@ -13,9 +13,9 @@
                             Role
                         </th>
 
-                        <th scope="col" class="px-6 py-3">
+                        {{-- <th scope="col" class="px-6 py-3">
                             <span class="sr-only">Action</span>
-                        </th>
+                        </th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -24,14 +24,17 @@
                             <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
                                 {{ $role->name }}
                             </th>
-                            <td class="px-6 py-4 text-right">
+                            {{-- <td class="px-6 py-4 text-right">
                                 <a href="#" class="font-medium text-blue-600 hover:underline">Edit</a>
-                            </td>
+                            </td> --}}
                         </tr>
                     @endforeach
 
                 </tbody>
             </table>
+        </div>
+        <div class="my-5">
+            {{ $roles->links() }}
         </div>
     </div>
 
