@@ -1,6 +1,6 @@
 // can be seen in service.client.create
-const marketSegment = (val) => {
-    var input = document.getElementById('market_segment_others');
+const SampleSegment = (val) => {
+    var input = document.getElementById('Sample_segment_others');
 
     if (val === "Others") {
         // actve readonly
@@ -241,9 +241,9 @@ const data = {
   labels: labels,
   datasets: [
     {
-      label: "Samples per Market/Municipality",
-      backgroundColor: "black",
-      borderColor: 'rgb(0, 0, 0)',
+      label: "Samples per Sample/Municipality",
+      backgroundColor: "#06b6d4",
+      borderColor: '#06b6d4',
       data: [0, 10, 5, 2, 20, 30, 45,50,12,45,11,90],
       fill: false,
     },
@@ -264,16 +264,16 @@ var chartLine = new Chart(
 
 // chart 2
 const chart_2 = () => {
-    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
     const data = {
       labels: labels,
       datasets: [
         {
-          label: "Samples per Market",
-          backgroundColor: "black",
-          borderColor: "rgb(0, 0, 0)",
-          data: [15, 8, 20, 12, 6],
-          fill: false,
+            label: "No. of Samples per Market Segment",
+            backgroundColor: "#06b6d4",
+            borderColor: '#06b6d4',
+            data: [0, 10, 5, 2, 20, 30, 45,50,12,45,11,90],
+            fill: false,
         },
       ],
     };
@@ -293,14 +293,14 @@ const chart_2 = () => {
 // chart3
 
 const chart_3 = () => {
-    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
     const data = {
       labels: labels,
       datasets: [
         {
-          label: "No. of Micro Samples per Market/Municipality",
-          backgroundColor: "black",
-          borderColor: "rgb(0, 0, 0)",
+          label: "No. of Micro Samples per Sample/Municipality",
+          backgroundColor: "#06b6d4",
+      borderColor: '#06b6d4',
           data: [15, 8, 20, 12, 6],
           fill: false,
         },
@@ -322,16 +322,16 @@ const chart_3 = () => {
 //   chart 4
 
 const chart_4 = () => {
-    const labels = ["Market A", "Market B", "Market C", "Market D", "Market E"];
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
     const data = {
       labels: labels,
       datasets: [
         {
-          label: "No. of Micro Samples per Market Segment",
-          backgroundColor: "black",
-          borderColor: "rgb(0, 0, 0)",
-          data: [15, 8, 20, 12, 6],
-          fill: false,
+            label: "No. of Micro Samples per Market Segment",
+            backgroundColor: "#06b6d4",
+            borderColor: '#06b6d4',
+            data: [0, 10, 5, 2, 20, 30, 45,50,12,45,11,90],
+            fill: false,
         },
       ],
     };
@@ -344,6 +344,238 @@ const chart_4 = () => {
 
     var chartLine_4 = new Chart(
       document.getElementById("chartLine_4"),
+      configLineChart
+    );
+  };
+
+//   chart 5
+
+const chart_5 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per City/Municipality",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [15, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_5 = new Chart(
+      document.getElementById("chartLine_5"),
+      configLineChart
+    );
+  };
+
+//   chart_6
+
+const chart_6 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per Sample Segment",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_6 = new Chart(
+      document.getElementById("chartLine_6"),
+      configLineChart
+    );
+  };
+
+//   chart 7
+
+const chart_7 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_7 = new Chart(
+      document.getElementById("chartLine_7"),
+      configLineChart
+    );
+  };
+
+//   chart 8
+
+const chart_8 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Micro Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_8 = new Chart(
+      document.getElementById("chartLine_8"),
+      configLineChart
+    );
+  };
+
+//   chart 9
+
+const chart_9 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_9 = new Chart(
+      document.getElementById("chartLine_9"),
+      configLineChart
+    );
+  };
+
+//   chart 10
+
+const chart_10 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_10 = new Chart(
+      document.getElementById("chartLine_10"),
+      configLineChart
+    );
+  };
+
+//   chart 11
+
+const chart_11 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_11 = new Chart(
+      document.getElementById("chartLine_11"),
+      configLineChart
+    );
+  };
+
+//   chart 12
+
+const chart_12 = () => {
+    const labels = ["Sample A", "Sample B", "Sample C", "Sample D", "Sample E"];
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: "No. of Phy-Chem Samples per FSR",
+          backgroundColor: "#06b6d4",
+          borderColor: '#06b6d4',
+          data: [5, 8, 20, 12, 6],
+          fill: false,
+        },
+      ],
+    };
+
+    const configLineChart = {
+      type: "line",
+      data,
+      options: {},
+    };
+
+    var chartLine_12 = new Chart(
+      document.getElementById("chartLine_12"),
       configLineChart
     );
   };

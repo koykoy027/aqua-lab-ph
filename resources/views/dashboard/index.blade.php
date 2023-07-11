@@ -41,7 +41,7 @@
 {{-- chart  --}}
 
 <div class="mb-3 grid gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-2 lg:gap-4 uppercase">
-    <div class="w-full sm:w-auto">
+    <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
                 <canvas class="w-full p-2" id="chartLine"></canvas>
@@ -50,7 +50,7 @@
         </div>
     </div>
 
-    <div class="w-full sm:w-auto">
+    <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
                 <canvas class="w-full p-2" id="chartLine_2"></canvas>
@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div class="w-full sm:w-auto">
+    <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
                 <canvas class="w-full p-2" id="chartLine_3"></canvas>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <div class="w-full sm:w-auto">
+    <div class="w-full sm:w-auto rounded">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
                 <canvas class="w-full p-2" id="chartLine_4"></canvas>
@@ -76,6 +76,78 @@
             </div>
         </div>
     </div>
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_5"></canvas>
+                <script>chart_5();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_6"></canvas>
+                <script>chart_6();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_7"></canvas>
+                <script>chart_7();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_8"></canvas>
+                <script>chart_8();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_9"></canvas>
+                <script>chart_9();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_10"></canvas>
+                <script>chart_10();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_11"></canvas>
+                <script>chart_11();</script>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full sm:w-auto rounded">
+        <div class="bg-white">
+            <div class="rounded-lg shadow-md">
+                <canvas class="w-full p-2" id="chartLine_12"></canvas>
+                <script>chart_12();</script>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
@@ -95,7 +167,7 @@
             <h1 class="bold mb-3 text-2xl uppercase">Recent clients</h1>
             <hr>
 
-            <div class="relative mt-3 overflow-x-auto sm:rounded-lg">
+            <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
                 <table class="w-full text-left text-sm text-gray-500">
                     <thead class="bg-gray-50 text-xs uppercase text-gray-700">
                         <tr>
