@@ -6,37 +6,42 @@ use App\Models\Client;
 use App\Models\LabAcceptance;
 use App\Models\RawData;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AnalysisRequestController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         return view('service.analysis_request.create');
     }
 
-    public function form($account_number){
+    public function form($account_number)
+    {
         $clients = Client::find($account_number);
         return view('service.analysis_request.form', compact('clients'));
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
         $request->validate([
             'account_number' => 'unique:analysis_requests',
             'collector_name' => 'required',
-            'date_collected'=> 'required',
-            'time_collected'=> 'required',
-            'collection_point'=> 'required',
-            'sampling_location_address'=> 'required',
-            'uvlight'=> 'required',
-            'chlorinator'=> 'required',
-            'faucet_condition'=> 'required',
-            'source_of_water_sample'=> 'required',
-            'water_purpose'=> 'required',
-            'test_parameters'=> 'required',
+            'date_collected' => 'required',
+            'time_collected' => 'required',
+            'collection_point' => 'required',
+            'sampling_location_address' => 'required',
+            'uvlight' => 'required',
+            'chlorinator' => 'required',
+            'faucet_condition' => 'required',
+            'source_of_water_sample' => 'required',
+            'water_purpose' => 'required',
+            'test_parameters' => 'required',
         ]);
 
-        $analysisRequest = AnalysisRequest::create($request->all());
+        $input = $request->all();
+        $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
+
+        $analysisRequest = AnalysisRequest::create($input);
         RawData::create([
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
@@ -44,19 +49,20 @@ class AnalysisRequestController extends Controller
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
 
-        return redirect()->back()->with(['message' => 'Analysis Request has been created successfully!']);
+        return redirect()
+            ->back()
+            ->with(['message' => 'Analysis Request has been created successfully!']);
     }
 
-    public function index(){
-        $requests = AnalysisRequest::orderByDesc('created_at')
-        ->paginate(10);
+    public function index()
+    {
+        $requests = AnalysisRequest::orderByDesc('created_at')->paginate(10);
         return view('record_and_report.analysis_request.index', compact('requests'));
     }
 
-    public function details($analysis_id){
+    public function details($analysis_id)
+    {
         $details = AnalysisRequest::find($analysis_id);
         return view('record_and_report.analysis_request.details', compact('details'));
     }
-
-
 }

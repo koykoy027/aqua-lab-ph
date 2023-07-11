@@ -97,7 +97,7 @@
                                 {{ $data->date_collected }}
                             </td>
                             <td class="px-6 py-4">
-                                next test
+                                {{ $data->date_next_schedule }}
                             </td>
 
                             <td class="px-6 py-4 text-right">

@@ -13,6 +13,7 @@ class AnalysisRequest extends Model
             'account_number',
             'collector_name',
             'date_collected',
+            'date_next_schedule',
             'time_collected',
             'collection_point',
             'collection_point_others',
@@ -29,5 +30,5 @@ class AnalysisRequest extends Model
             'remarks',
     ];
 
-    
+
 }
