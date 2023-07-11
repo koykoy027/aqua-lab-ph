@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('account_number');
             $table->foreign('account_number')->references('account_number')->on('clients'); // connect in clients account number
             $table->string('collector_name');
-            $table->date('date_collected')->format('m-d-Y');
-            $table->date('date_next_schedule')->format('m-d-Y');
+            $table->date('date_collected');
+            $table->date('date_next_schedule');
             $table->string('time_collected');
             $table->string('collection_point');
             $table->string('collection_point_others')->nullable();
