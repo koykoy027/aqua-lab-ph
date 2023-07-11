@@ -83,6 +83,10 @@
                         <li>
                             <a href="{{ route('record-and-report.lab-result.table') }}" class="block px-4 py-2 hover:bg-gray-100">Generate Report</a>
                         </li>
+                        <li>
+                            <a href="{{ route('service.schedule-and-sample-information.clientTable') }}" class="block px-4 py-2 hover:bg-gray-100">Schedule and Sample Information</a>
+                        </li>
+
                     </ul>
                 </div>
             </li>

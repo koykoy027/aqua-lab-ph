@@ -25,6 +25,9 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PhysController;
 use App\Http\Controllers\QuerySearchController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScheduleAndSampleInformationController;
+
+
 use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
@@ -61,6 +64,12 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
         Route::get('lab-acceptance-table', [LabResultStatusController::class, 'index'])->name('service.lab-result-status.index');
+
+        Route::prefix('schedule-and-sample-information')->group(function () {
+            Route::get('client-table', [ScheduleAndSampleInformationController::class, 'clientTable'])->name('service.schedule-and-sample-information.clientTable');
+            Route::get('analysis-table/{account_number}', [ScheduleAndSampleInformationController::class, 'profileTable'])->name('service.schedule-and-sample-information.profileTable');
+
+        });
 
     });
 
