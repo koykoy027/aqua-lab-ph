@@ -47,6 +47,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="my-5">
+            {{ $clients->links() }}
+        </div>
     </div>
 
 @endsection

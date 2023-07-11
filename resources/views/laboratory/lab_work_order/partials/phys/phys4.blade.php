@@ -6,7 +6,7 @@
         <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys4_instrument_reading_1">Instrument Reading 1</label>
-                <input id="phys4_instrument_reading_1" type="number" name="phys4_instrument_reading_1" value="{{ $rawDataFileValue->phys4_instrument_reading_1 }}" required autofocus autocomplete="phys4_instrument_reading_1">
+                <input id="phys4_instrument_reading_1" type="number" name="phys4_instrument_reading_1" value="{{ $rawDataFileValue->phys4_instrument_reading_1 }}" required autofocus autocomplete="phys4_instrument_reading_1" onchange="phy4()">
                 @error('phys4_instrument_reading_1')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -16,7 +16,7 @@
 
             <div class="mb-3">
                 <label for="phys4_instrument_reading_2">Instrument Reading 2</label>
-                <input id="phys4_instrument_reading_2" type="number" name="phys4_instrument_reading_2" value="{{ $rawDataFileValue->phys4_instrument_reading_2 }}" required autofocus autocomplete="phys4_instrument_reading_2">
+                <input id="phys4_instrument_reading_2" type="number" name="phys4_instrument_reading_2" value="{{ $rawDataFileValue->phys4_instrument_reading_2 }}" required autofocus autocomplete="phys4_instrument_reading_2" onchange="phy4()">
                 @error('phys4_instrument_reading_2')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
 
             <div class="mb-3">
                 <label for="phys4_instrument_reading_3">Instrument Reading 3</label>
-                <input id="phys4_instrument_reading_3" type="number" name="phys4_instrument_reading_3" value="{{ $rawDataFileValue->phys4_instrument_reading_3 }}" required autofocus autocomplete="phys4_instrument_reading_3">
+                <input id="phys4_instrument_reading_3" type="number" name="phys4_instrument_reading_3" value="{{ $rawDataFileValue->phys4_instrument_reading_3 }}" required autofocus autocomplete="phys4_instrument_reading_3" onchange="phy4()">
                 @error('phys4_instrument_reading_3')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -46,7 +46,7 @@
 
             <div class="mb-3">
                 <label for="phys4_final_result">Final Result</label>
-                <input id="phys4_final_result" type="number" name="phys4_final_result" value="{{ $rawDataFileValue->phys4_final_result }}" required autofocus autocomplete="phys4_final_result">
+                <input id="phys4_final_result" type="number" name="phys4_final_result" value="{{ $rawDataFileValue->phys4_final_result }}" required autofocus autocomplete="phys4_final_result" onchange="phy4()">
                 @error('phys4_final_result')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>

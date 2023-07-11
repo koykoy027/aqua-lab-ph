@@ -42,14 +42,9 @@ class LabResultStatusController extends Controller
         ->orWhere('test_parameters', 'PHYS4 - Turbidity');
     }
 
-
-
     $datas = $query->paginate(10);
     return view('service.lab_result_status.index', compact('datas'));
     }
-
-
-
 
     public function table(){
         $datas = AnalysisRequest::orderByDesc('updated_at')

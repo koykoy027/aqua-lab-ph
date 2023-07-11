@@ -59,6 +59,9 @@
                 </tbody>
             </table>
         </div>
+        <div class="my-5">
+            {{ $requests->links() }}
+        </div>
     </div>
 
 @endsection

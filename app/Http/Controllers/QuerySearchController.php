@@ -16,7 +16,7 @@ class QuerySearchController extends Controller
         ->orWhere('email', 'LIKE', "%$query%")
         ->orWhere('municipality_or_city', 'LIKE', "%$query%")
         ->orderByDesc('created_at')
-        ->get();
+        ->paginate(10);
 
         return view('service.analysis_request.create', compact('clients'));
     }

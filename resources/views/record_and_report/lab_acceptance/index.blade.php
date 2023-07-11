@@ -27,10 +27,6 @@
                         <th scope="col" class="px-6 py-3">
                             Remarks
                         </th>
-
-                        {{-- <th scope="col" class="px-6 py-3">
-                            <span class="sr-only">Action</span>
-                        </th> --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -67,14 +63,13 @@
                                     {{ $acceptance->remarks }}
                                 </span>
                             </td>
-                            {{-- <td class="px-6 py-4 text-right">
-                                <a href="#" class="font-medium text-blue-600 hover:underline">Action</a>
-                            </td> --}}
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
+        </div>
+        <div class="my-5">
+            {{ $acceptances->links() }}
         </div>
     </div>
 
