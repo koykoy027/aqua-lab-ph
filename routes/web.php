@@ -77,9 +77,9 @@ Route::middleware('auth', 'status')->group(function () {
         });
         Route::prefix('generate-report')->group(function () {
             Route::get('table', [LabResultStatusController::class, 'table'])->name('record-and-report.lab-result.table');
-            Route::get('/search', [QuerySearchController::class, 'generateReportSearch'])->name('record-and-report.lab-result.table');
-            Route::get('/details{analysis_id}/pdf', [PdfController::class, 'generateAnalysisPdf'])->name('record-and-report.analysis-request.generateAnalysisPdf');
-            Route::get('/details/{analysis_id}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
+            Route::get('search', [QuerySearchController::class, 'generateReportSearch'])->name('record-and-report.lab-result.table');
+            Route::get('details{analysis_id}/pdf', [PdfController::class, 'generateAnalysisPdf'])->name('record-and-report.analysis-request.generateAnalysisPdf');
+            Route::get('details/{analysis_id}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
 
         });
 
