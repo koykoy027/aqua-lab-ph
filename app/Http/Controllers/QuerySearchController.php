@@ -66,6 +66,20 @@ class QuerySearchController extends Controller
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest'));
     }
+
+    public function clientSearch(Request $request)
+    {
+        $query = $request->input('search');
+
+        $clients = Client::where('account_number', 'LIKE', "%$query%")
+        ->orWhere('account_name', 'LIKE', "$$query$")
+        ->orderByDesc('updated_at')
+        ->paginate(10);
+
+        return view('record_and_report.client_list.index', compact('clients'));
+    }
+
+    
     
     
 }

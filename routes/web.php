@@ -137,10 +137,14 @@ Route::middleware('auth', 'status')->group(function () {
 
         Route::get('facility', function () {
             return view('record_and_report.facility.index');
-        })
-        ;
-        Route::get('client-list', [ClientController::class, 'index'])->name('record-and-report.record_and_report.client_list.index');
-        Route::get('client-list/client/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
+        });
+
+        Route::prefix('client')->group(function () {
+            Route::get('table', [ClientController::class, 'index'])->name('record-and-report.record_and_report.client_list.index');
+            Route::get('table', [ClientController::class, 'search'])->name('record-and-report.record_and_report.client_list.index');
+            Route::get('profile/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
+        });
+        
 
     });
 

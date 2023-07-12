@@ -5,7 +5,7 @@
 
 
     <div class="card mb-3 bg-white">
-        <label>Client Lists Table</label>
+        @include('components.search')
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">
