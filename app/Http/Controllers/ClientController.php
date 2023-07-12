@@ -41,6 +41,7 @@ class ClientController extends Controller
             'unit_no_floor_bldg_name' => 'required',
             'street_name_or_subdivision' => 'required',
             'barangay_name' => 'required',
+            'province' => 'required',
             'municipality_or_city' => 'required',
             'zip_code' => 'required',
             'province' => 'required',

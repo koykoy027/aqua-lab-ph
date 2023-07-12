@@ -95,7 +95,7 @@
 
         <div class="card bg-white">
             <h1 class="mb-3">Address</h1>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
                     <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name"
@@ -118,34 +118,52 @@
                         </span>
                     @enderror
                 </div>
-            </div>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+
+                <div class="mb-3">
+                    <label for="region">Region</label>
+                    <select id="region" type="text" name="region" value="{{ old('region') }}" required
+                        autofocus autocomplete="region">
+                        <option disabled selected>Select Region</option>
+                    </select>
+                    @error('region')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            
                 <div class="mb-3">
                     <label for="province">Province</label>
-                    <input id="province" type="text" name="province" value="{{ old('province') }}" required
+                    <select id="province" type="text" name="province" value="{{ old('province') }}" required
                         autofocus autocomplete="province">
+                        <option disabled selected>Select Province</option>
+                    </select>
                     @error('province')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
+
                 <div class="mb-3">
                     <label for="municipality_or_city">Municipality or City</label>
-                    <input id="municipality_or_city" type="text" name="municipality_or_city"
+                    <select id="municipality_or_city" type="text" name="municipality_or_city"
                         value="{{ old('municipality_or_city') }}" required autofocus autocomplete="municipality_or_city">
+                        <option disabled selected>Select Municipality or City</option>
+                    </select>
                     @error('municipality_or_city')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-            </div>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            
                 <div class="mb-3">
                     <label for="barangay_name">Barangay</label>
-                    <input id="barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
+                    <select id="barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
                         required autofocus autocomplete="barangay_name">
+                        <option disabled selected>Select Province</option>
+                    </select>
                     @error('barangay_name')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>

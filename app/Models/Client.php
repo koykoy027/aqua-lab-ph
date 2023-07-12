@@ -24,6 +24,7 @@ class Client extends Model
         'barangay_name',
         'municipality_or_city',
         'zip_code',
+        'region',
         'province',
         'telephone',
         'mobile',

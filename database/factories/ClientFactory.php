@@ -30,6 +30,7 @@ class ClientFactory extends Factory
             'street_name_or_subdivision' => $this->faker->streetName,
             'barangay_name' => $this->faker->word,
             'municipality_or_city' => $this->faker->city,
+            'region' => $this->faker->city,
             'zip_code' => $this->faker->postcode,
             'province' => $this->faker->state,
             'telephone' => $this->faker->phoneNumber,

@@ -34,11 +34,13 @@
             <input id="street_name_or_subdivision" type="text" name="street_name_or_subdivision" value="{{ $clients->street_name_or_subdivision }}" readonly>
         </div>
         <div class="mb-3">
+            <label for="region">Region</label>
+            <input id="region" type="text" name="region" value="{{ $clients->region }}" readonly>
+        </div>
+        <div class="mb-3">
             <label for="province">Province</label>
             <input id="province" type="text" name="province" value="{{ $clients->province }}" readonly>
         </div>
-    </div>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
 
         <div class="mb-3">
             <label for="municipality_or_city">Municipality or City</label>

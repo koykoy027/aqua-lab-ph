@@ -44,7 +44,7 @@
 
     <div class="card bg-white">
         <h1 class="mb-3">Address</h1>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
                 <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name"
@@ -59,8 +59,13 @@
                     autocomplete="street_name_or_subdivision" readonly>
 
             </div>
-        </div>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        
+            <div class="mb-3">
+                <label for="region">Region</label>
+                <input id="region" type="text" name="region" value="{{ $clients->region }}" required autofocus
+                    autocomplete="region" readonly>
+
+            </div>
             <div class="mb-3">
                 <label for="province">Province</label>
                 <input id="province" type="text" name="province" value="{{ $clients->province }}" required autofocus
@@ -74,8 +79,7 @@
                     readonly>
 
             </div>
-        </div>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        
             <div class="mb-3">
                 <label for="barangay_name">Barangay</label>
                 <input id="barangay_name" type="text" name="barangay_name" value="{{ $clients->barangay_name }}" required
