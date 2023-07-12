@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     
-    const regionsSelectPermanent = document.getElementById('api_region');
-    const citySelectPermanent = document.getElementById('api_municipality_or_city');
-    const brgySelectPermanent = document.getElementById('api_barangay_name');
+    const region = document.getElementById('api_region');
+    const municipalityOrCity = document.getElementById('api_municipality_or_city');
+    const barangay = document.getElementById('api_barangay_name');
     // Fetch Regions data from the API
     fetch('https://psgc.gitlab.io/api/regions/')
         .then(response => response.json())
@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error('Error:', error);
         });
     // Event listener for region selection
-    regionsSelectPermanent.addEventListener('change', () => {
-        const selectedRegion = regionsSelectPermanent.value;
+    region.addEventListener('change', () => {
+        const selectedRegion = region.value;
         // Clear the provinces select input
-        citySelectPermanent.innerHTML = '<option value="">Select Municipality or City</option>';
+        municipalityOrCity.innerHTML = '<option disabled selected>Select Municipality or City</option>';
         // Fetch data for the selected region
         fetch(`https://psgc.gitlab.io/api/regions/${selectedRegion}/cities-municipalities/`)
             .then(response => response.json())
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const option = document.createElement('option');
                     option.value = city.code;
                     option.text = city.name;
-                    citySelectPermanent.appendChild(option);
+                    municipalityOrCity.appendChild(option);
                 });
             })
             .catch(error => {
@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     });
     // Event listener for city or municipality selection
-    citySelectPermanent.addEventListener('change', () => {
-        const selectedCity = citySelectPermanent.value;
+    municipalityOrCity.addEventListener('change', () => {
+        const selectedCity = municipalityOrCity.value;
         // Clear the provinces select input
-        brgySelectPermanent.innerHTML = '<option value="">Select a Barangay</option>';
+        barangay.innerHTML = '<option disabled selected>Select a Barangay</option>';
         // Fetch data for the selected region
         fetch(`https://psgc.gitlab.io/api/cities-municipalities/${selectedCity}/barangays/`)
             .then(response => response.json())
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const option = document.createElement('option');
                     option.value = brgy.code;
                     option.text = brgy.name;
-                    brgySelectPermanent.appendChild(option);
+                    barangay.appendChild(option);
                 });
             })
             .catch(error => {

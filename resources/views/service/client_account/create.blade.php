@@ -162,7 +162,7 @@
                     <label for="api_barangay_name">Barangay</label>
                     <select id="api_barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
                         required autofocus autocomplete="barangay_name">
-                        <option disabled selected>Select Province</option>
+                        <option disabled selected>Select Barangay</option>
                     </select>
                     @error('barangay_name')
                         <span class="invalid" role="alert">
