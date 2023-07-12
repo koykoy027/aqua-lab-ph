@@ -92,8 +92,12 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('lab-acceptance/{analysis_id}',[LabAcceptanceController::class, 'create'])->name('laboratory.lab-acceptance.create');
         Route::post('lab-acceptance/store/{analysis_id}', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
 
-        Route::get('lab-work-order', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
-        Route::get('lab-work-order-form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
+        Route::prefix('lab-work-order')->group(function () {
+            Route::get('table', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
+            Route::get('search', [QuerySearchController::class, 'labWorkOrderSearch'])->name('laboratory.lab-lab-work-order.labWorkOrder');
+            Route::get('form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
+        });
+        
         Route::post('lab-work-order-form-micro1/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
         Route::post('lab-work-order-form-micro2/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
         Route::post('lab-work-order-form-micro3/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');

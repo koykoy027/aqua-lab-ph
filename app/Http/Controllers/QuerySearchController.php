@@ -51,6 +51,21 @@ class QuerySearchController extends Controller
 
         return view('record_and_report.lab_result.index', compact('datas'));
     }
+
+    public function labWorkOrderSearch(Request $request)
+    {
+        $query = $request->input('search');
+
+        $analysisRequest = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")        
+        ->orWhere('collector_name', 'LIKE', "%$query%")
+        ->orWhere('date_collected', 'LIKE', "%$query%")        
+        ->orWhere('test_parameters', 'LIKE', "%$query%")        
+        ->orWhere('remarks', 'LIKE', "%$query%")        
+        ->orderByDesc('updated_at')
+        ->paginate(10);
+
+        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+    }
     
     
 }
