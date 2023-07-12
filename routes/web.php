@@ -72,6 +72,7 @@ Route::middleware('auth', 'status')->group(function () {
 
         Route::prefix('schedule-and-sample-information')->group(function () {
             Route::get('client-table', [ScheduleAndSampleInformationController::class, 'clientTable'])->name('service.schedule-and-sample-information.clientTable');
+            Route::get('client-table', [ScheduleAndSampleInformationController::class, 'search'])->name('service.schedule-and-sample-information.clientTable');
             Route::get('analysis-table/{account_number}', [ScheduleAndSampleInformationController::class, 'profileTable'])->name('service.schedule-and-sample-information.profileTable');
 
         });
