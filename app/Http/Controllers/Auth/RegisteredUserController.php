@@ -23,6 +23,21 @@ class RegisteredUserController extends Controller
         $users = User::orderByDesc('created_at')->paginate(10);
         return view('user_management.user.index', compact('users'));
      }
+
+     public function search(Request $request){
+        $query = $request->input('search');
+
+        $users = User::where('name', 'LIKE', "%$query%")
+        ->orWhere('role', 'LIKE', "%$query%")
+        ->orWhere('email', 'LIKE', "%$query%")
+        ->orWhere('status', 'LIKE', "%$query%")
+        ->orderByDesc('updated_at')
+        ->paginate(10);
+
+        return view('user_management.user.index', compact('users'));
+    }
+
+
     public function create(): View
     {
         return view('auth.register');

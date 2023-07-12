@@ -1,10 +1,11 @@
 @extends('layouts.app')
-@section('title', 'User Lists')
+@section('title', 'User Lists table')
 @section('content')
 
-    <div class="card mb-3 bg-white">
-        <div class="mb-3 flex justify-between">
-            <label>@yield('title')</label>
+    <div class="card mb-3 bg-white">    
+
+        @include('components.search')
+        <div class="flex justify-end">
             <a class="btn btn-primary" href="{{ route('register') }}">Add new User</a>
         </div>
 
