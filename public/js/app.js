@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
     municipalityOrCity.addEventListener('change', () => {
         const selectedCity = municipalityOrCity.value;
         // Clear the provinces select input
-        barangay.innerHTML = '<option disabled selected>Select a Barangay</option>';
+        barangay.innerHTML = '<option disabled selected>Select Barangay</option>';
         // Fetch data for the selected region
         fetch(`https://psgc.gitlab.io/api/cities-municipalities/${selectedCity}/barangays/`)
             .then(response => response.json())
