@@ -12,7 +12,7 @@ class DashboardController extends Controller
     public function getAllData()
     {
         $recentClients = Client::orderByDesc('created_at')
-            ->limit(5)
+            ->limit(8)
             ->get();
 
         $totalClient = Client::count();
