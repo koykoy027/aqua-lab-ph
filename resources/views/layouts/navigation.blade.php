@@ -158,7 +158,7 @@
                     <a href="{{ route('record-and-report.lab-acceptance.index') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>
                 </li>
                 <li>
-                    <a href="{{ url('record-and-report/lab-result') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Results</a>
+                    <a href="{{ route('record-and-report.lab-result.table') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Results</a>
                 </li>
                 <li>
                     <a href="{{ url('record-and-report/facility') }}" class="block px-4 py-2 hover:bg-gray-100">Facility</a>
