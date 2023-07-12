@@ -1,11 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Add Analysis Request')
+@section('title', 'Analysis Request Table')
 @section('content')
 
     <div class="card mb-3 bg-white">
         @include('components.search')
-
-        <h1>Client Lists</h1>
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">

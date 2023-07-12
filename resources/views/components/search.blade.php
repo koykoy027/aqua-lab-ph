@@ -1,5 +1,6 @@
-<form class="mb-3">
-    <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900">Search</label>
+<form class="grid lg:grid-cols-2 sm:grid-cols-1 mb-3">
+    <div class="lg:col-start-2 sm:col-start-1">
+        <label for="default-search" class="sr-only mb-2 text-sm font-medium text-gray-900">Search</label>
     <div class="relative">
         <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <svg aria-hidden="true" class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -10,9 +11,11 @@
         </div>
         <input type="search" id="default-search"
             class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
-            placeholder="Search Account name, Account ID..." name="search" value="{{ old('search') }}" autofocus
+            placeholder="Search here..." name="search" value="{{ old('search') }}" autofocus
             autocomplete="search">
         <button type="submit"
             class="absolute right-2.5 bottom-2.5 rounded-lg bg-blue-700 px-4 py-2 text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300">Search</button>
     </div>
+    </div>
+    
 </form>
