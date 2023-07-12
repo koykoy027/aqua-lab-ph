@@ -126,7 +126,7 @@
         <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr class="top-information">
-                    <td>Requested By: <span class="main-source">{{ $clients->fsr_assigned }}</span></td>
+                    <td>Requested By: <span class="main-source">{{ $labAcceptance->evaluated_by }}</span></td>
                 </tr>
 
                 <tr class="top-information">

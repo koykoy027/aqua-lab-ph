@@ -22,7 +22,7 @@ class PdfController extends Controller
 
         $collection_details = AnalysisRequest::where('analysis_id', $analysis_id)->get();
 
-        $pdf = Pdf::loadView('record_and_report.analysis_request.pdf',
+        $pdf = Pdf::loadView('record_and_report.lab_result.pdf',
         [
             'details' => $details,
             'micro_details' => $micro_details,
