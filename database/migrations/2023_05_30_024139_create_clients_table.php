@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('municipality_or_city');
             $table->string('zip_code');
             $table->string('region');
-            $table->string('province');
+            // $table->string('province');
             $table->string('telephone');
             $table->string('mobile');
             $table->string('email');

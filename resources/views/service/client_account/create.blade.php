@@ -120,8 +120,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="region">Region</label>
-                    <select id="region" type="text" name="region" value="{{ old('region') }}" required
+                    <label for="api_region">Region</label>
+                    <select id="api_region" type="text" name="region" value="{{ old('region') }}" required
                         autofocus autocomplete="region">
                         <option disabled selected>Select Region</option>
                     </select>
@@ -132,7 +132,7 @@
                     @enderror
                 </div>
             
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="province">Province</label>
                     <select id="province" type="text" name="province" value="{{ old('province') }}" required
                         autofocus autocomplete="province">
@@ -143,11 +143,11 @@
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div>
+                </div> --}}
 
                 <div class="mb-3">
-                    <label for="municipality_or_city">Municipality or City</label>
-                    <select id="municipality_or_city" type="text" name="municipality_or_city"
+                    <label for="api_municipality_or_city">Municipality or City</label>
+                    <select id="api_municipality_or_city" type="text" name="municipality_or_city"
                         value="{{ old('municipality_or_city') }}" required autofocus autocomplete="municipality_or_city">
                         <option disabled selected>Select Municipality or City</option>
                     </select>
@@ -159,8 +159,8 @@
                 </div>
             
                 <div class="mb-3">
-                    <label for="barangay_name">Barangay</label>
-                    <select id="barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
+                    <label for="api_barangay_name">Barangay</label>
+                    <select id="api_barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
                         required autofocus autocomplete="barangay_name">
                         <option disabled selected>Select Province</option>
                     </select>

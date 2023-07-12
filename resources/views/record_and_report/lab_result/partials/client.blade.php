@@ -61,12 +61,12 @@
                 autocomplete="region" readonly>
 
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="province">Province</label>
             <input id="province" type="text" name="province" value="{{ $clients->province }}" required autofocus
                 autocomplete="province" readonly>
 
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label for="municipality_or_city">Municipality or City</label>
             <input id="municipality_or_city" type="text" name="municipality_or_city"
