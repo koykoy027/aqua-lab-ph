@@ -16,7 +16,7 @@ class QuerySearchController extends Controller
         ->orWhere('account_number', 'LIKE', "%$query%")
         ->orWhere('email', 'LIKE', "%$query%")
         ->orWhere('municipality_or_city', 'LIKE', "%$query%")
-        ->orderByDesc('created_at')
+        ->orderByDesc('updated_at')
         ->paginate(10);
 
         return view('service.analysis_request.create', compact('clients'));
@@ -33,10 +33,24 @@ class QuerySearchController extends Controller
         ->orWhere('source_of_water_sample', 'LIKE', "%$query%")
         ->orWhere('source_of_water_sample_others', 'LIKE', "%$query%")
         ->orWhere('test_parameters', 'LIKE', "%$query%")        
-        ->orderByDesc('created_at')
+        ->orderByDesc('updated_at')
         ->paginate(10);
 
         return view('service.lab_result_status.index', compact('datas'));
     }
+
+    public function generateReportSearch(Request $request)
+    {
+        $query = $request->input('search');
+
+        $datas = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")        
+        ->orWhere('collector_name', 'LIKE', "%$query%")
+        ->orWhere('date_collected', 'LIKE', "%$query%")        
+        ->orderByDesc('updated_at')
+        ->paginate(10);
+
+        return view('record_and_report.lab_result.index', compact('datas'));
+    }
+    
     
 }

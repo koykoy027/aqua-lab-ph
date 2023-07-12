@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card mb-3 bg-white">
-        <label>Lab Result Table</label>
+        @include('components.search')
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">
@@ -42,6 +42,7 @@
                             </td>
                         </tr>
                     @endforeach
+                    
                 </tbody>
             </table>
         </div>
