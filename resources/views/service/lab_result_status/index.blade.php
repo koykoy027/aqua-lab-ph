@@ -1,9 +1,9 @@
 @extends('layouts.app')
-@section('title', 'Lab Acceptance')
+@section('title', 'Lab Acceptance table')
 @section('content')
 
     <div class="card mb-3 bg-white">
-        <label>Lab Acceptance Table</label>
+        @include('components.search')
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-left text-sm text-gray-500">

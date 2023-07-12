@@ -63,7 +63,12 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
-        Route::get('lab-acceptance-table', [LabResultStatusController::class, 'index'])->name('service.lab-result-status.index');
+        
+        Route::prefix('lab-acceptance')->group(function () {
+            Route::get('table', [LabResultStatusController::class, 'index'])->name('service.lab-result-status.index');
+            Route::get('search', [QuerySearchController::class, 'labAcceptanceSearch'])->name('service.lab-result-status.index');
+
+        });
 
         Route::prefix('schedule-and-sample-information')->group(function () {
             Route::get('client-table', [ScheduleAndSampleInformationController::class, 'clientTable'])->name('service.schedule-and-sample-information.clientTable');
