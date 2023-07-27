@@ -238,9 +238,9 @@ const perRegion = () => {
             <option value="No. of Samples per City/Municipality">No. of Samples per City/Municipality</option>
             <option value="No. of Micro Samples per City/Municipality">No. of Micro Samples per City/Municipality</option>
             <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality</option>
-            <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per City/Municipality</option>
+            {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per City/Municipality</option>
             <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform Samples per City/Municipality</option>
-            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform Samples per City/Municipality</option>
+            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform Samples per City/Municipality</option> --}}
         </select>
     </div>
     <div id="samplesPerCityMunicipality">
