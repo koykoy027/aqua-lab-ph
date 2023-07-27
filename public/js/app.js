@@ -748,39 +748,4 @@ const perRegion = () => {
     );
 };
 
-const samplesPerMarketSegment = () => {
-    const labels = [
-        "0001 - Water Refilling Station",
-        "002A - Food and Beverages (Service)",
-        "002B - Food and Beverages (Manufacturer)",
-        "003 - Hospitalit Industry",
-        "004A - Healthcare (Dialysis)",
-        "004B - Healthcare (Lying-in)",
-        "004C - Healthcare (Hospital)",
-        "005 - Water Service Provider",
-        "Others",
-    ];
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                backgroundColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc"],
-                borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc"],
-                data: getRandomData(9),
-                fill: true,
-            },
 
-        ],
-    };
-
-    const configLineChart = {
-        type: "pie",
-        data,
-        options: {},
-    };
-
-    var chartLine = new Chart(
-        document.getElementById("samplesPerMarketSegment"),
-        configLineChart
-    );
-};
