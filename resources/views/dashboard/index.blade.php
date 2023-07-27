@@ -274,6 +274,39 @@ const perRegion = () => {
         </div>
     </div>
 
+    <div id="microSamplesPerCityMunicipality" class="hidden">
+        <h1 class="mb-3 text-xl font-bold uppercase">No. of Micro Samples per City/Municipality</h1>
+        <hr>
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            City/Municipality
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            NO. OF MICRO SAMPLES
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($microSamplesPerCityMunicipality as $data)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $data->municipality_or_city }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $data->total_analysis_requests }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+
 </div>
 
 {{-- <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4">

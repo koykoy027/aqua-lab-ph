@@ -43,6 +43,15 @@ class DashboardController extends Controller
         ->groupBy('municipality_or_city')
         ->get();
 
+        $microSamplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
+        ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
+        ->where('test_parameters', '=', 'MICR1 - Heterotrophic Plate Count (HPC)')
+        ->orWhere('test_parameters', '=', 'MICR2 - Thermotolerant Colifom Test')
+        ->orWhere('test_parameters', '=', 'MICR3 - Total Coliform')
+        ->orWhere('test_parameters', '=', 'MICR4 - E. coli Test')
+        ->orWhere('test_parameters', '=', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
+        ->groupBy('municipality_or_city')
+        ->get();
 
         return view('dashboard.index', compact(
             'recentClients',
@@ -63,6 +72,7 @@ class DashboardController extends Controller
         'total005',
         'totalOthers',
         'samplesPerCityMunicipality',
+        'microSamplesPerCityMunicipality',
                 ));
     }
 }
