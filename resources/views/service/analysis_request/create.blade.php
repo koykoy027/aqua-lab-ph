@@ -2,12 +2,12 @@
 @section('title', 'Analysis Request Table')
 @section('content')
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         @include('components.search')
 
         <div class="relative overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-left text-sm text-gray-500">
-                <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Account name
@@ -28,12 +28,12 @@
                 </thead>
                 <tbody>
                     @foreach ($clients as $client)
-                        <tr class="border-b bg-white">
-                            <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $client->account_name }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $client->account_number }}
+                                49SRL0623WSP{{ $client->account_number }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $client->email }}

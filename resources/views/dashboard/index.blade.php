@@ -8,20 +8,23 @@
         "0001 - Water Refilling Station",
         "002A - Food and Beverages (Service)",
         "002B - Food and Beverages (Manufacturer)",
-        "003 - Hospitalit Industry",
+        "003 - Hospitality Industry",
         "004A - Healthcare (Dialysis)",
         "004B - Healthcare (Lying-in)",
         "004C - Healthcare (Hospital)",
         "005 - Water Service Provider",
+        "006 - Residential",
+        "007 - Academe",
+        "008 - Industries",
         "Others",
     ];
     const data = {
         labels: labels,
         datasets: [
             {
-                backgroundColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc"],
-                borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc"],
-                data: [{{ $total0001 }}, {{ $total002A }} , {{ $total002B }}, {{ $total003 }}, {{ $total004A }}, {{ $total004B }}, {{ $total004C }}, {{ $total005 }}, {{ $totalOthers }}],
+                backgroundColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"],
+                borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096", "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"],
+                data: [{{ $total0001 }}, {{ $total002A }} , {{ $total002B }}, {{ $total003 }}, {{ $total004A }}, {{ $total004B }}, {{ $total004C }}, {{ $total005 }}, {{ $total006 }}, {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}],
                 fill: true,
             },
 

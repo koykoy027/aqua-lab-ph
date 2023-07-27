@@ -116,7 +116,7 @@
 
                     <td style="font-size:  13px; padding-right: 40px">
                         <p>Certificate No: </p>
-                        <p>Account ID: {{ $details->account_number }} </p>
+                        <p>Account ID: 49SRL0623WSP{{ $details->account_number }} </p>
                         <p>Sample ID: {{ $details->analysis_id }}</p>
                     </td>
                 </tr>

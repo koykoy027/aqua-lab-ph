@@ -4,9 +4,9 @@
 
 @if(Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'Service Coordinator' or Auth::user()->role === 'Marketing Manager' or Auth::user()->role === 'Sales Manager' or Auth::user()->role === 'FSR')
 
-<div class="card mb-3 bg-white">
+<div class="mb-3 bg-white card">
     <h1 class="mb-3">Account Information</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="account_name">Account Name</label>
             <input id="account_name" type="text" name="account_name" value="{{ $clients->account_name }}" readonly>
@@ -14,7 +14,7 @@
         </div>
         <div class="mb-3">
             <label for="account_number">Account Number</label>
-            <input id="account_number" type="text" name="account_number" value="{{ $clients->account_number }}" readonly>
+            <input id="account_number" type="text" name="account_number" value="49SRL0623WSP{{ $clients->account_number }}" readonly>
         </div>
         <div class="mb-3">
             <label for="name_of_owner">Name of owner</label>
@@ -23,8 +23,8 @@
     </div>
 
 
-    <h1 class="mb-3 mt-3">Address</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+    <h1 class="mt-3 mb-3">Address</h1>
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
             <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
             <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name" value="{{ $clients->unit_no_floor_bldg_name }}" readonly>
@@ -55,8 +55,8 @@
             <input id="zip_code" type="text" name="zip_code" value="{{ $clients->zip_code }}" readonly>
         </div>
     </div>
-    <h1 class="mb-3 mt-3">Contact information</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+    <h1 class="mt-3 mb-3">Contact information</h1>
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
 
 
         <div class="mb-3">
@@ -81,9 +81,9 @@
     @csrf
     <input id="account_number" type="hidden" name="account_number" value="{{ $clients->account_number }}" readonly>
     <input id="status" type="hidden" name="remarks" value="Pending" readonly>
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         <h1 class="mb-3">Sample Collection</h1>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="collector_name">Collector name</label>
                 <input id="collector_name" type="text" name="collector_name" value="{{ old('collector_name') }}" required autofocus autocomplete="collector_name">
@@ -94,7 +94,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="date_collected">Date Colected</label>
+                <label for="date_collected">Date Collected</label>
                 <input id="date_collected" type="date" name="date_collected" value="{{ old('date_collected') }}" required autofocus autocomplete="date_collected">
                 @error('date_collected')
                 <span class="invalid" role="alert">
@@ -103,7 +103,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="time_collected">Time Colected</label>
+                <label for="time_collected">Time Collected</label>
                 <input id="time_collected" type="time" name="time_collected" value="{{ old('time_collected') }}" required autofocus autocomplete="time_collected">
                 @error('time_collected')
                 <span class="invalid" role="alert">
@@ -113,7 +113,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="collection_point">Collection point</label>
                 <select name="collection_point" id="collection_point" value="{{ old('collection_point') }}" required autofocus autocomplete="collection_point" onchange="collectionPoint(this.value)">
@@ -139,10 +139,9 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
-                <label for="sampling_location_address">Address of Collection Point Sampling address is the same with
-                    the Account Address</label>
+                <label for="sampling_location_address">Address of Collection Point</label>
                 <select name="sampling_location_address" id="sampling_location_address" value="{{ old('sampling_location_address') }}" required autofocus autocomplete="sampling_location_address" onchange="samplingLocationAddress(this.value)">
                     <option value="Faucet">Faucet</option>
                     <option value="Pump">Pump</option>
@@ -166,20 +165,20 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="">UV Light</label>
                 <div class="flex justify-evenly">
-                    <div class="mr-4 flex items-center">
-                        <input id="uvlightNA" type="radio" value="N/A" name="uvlight" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="uvlightNA" type="radio" value="N/A" name="uvlight" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="uvlightNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
                     </div>
-                    <div class="mr-4 flex items-center">
-                        <input id="uvlightON" type="radio" value="ON" name="uvlight" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="uvlightON" type="radio" value="ON" name="uvlight" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="uvlightON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
                     </div>
-                    <div class="mr-4 flex items-center">
-                        <input id="uvlightOFF" type="radio" value="OFF" name="uvlight" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="uvlightOFF" type="radio" value="OFF" name="uvlight" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="uvlightOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
                     </div>
                 </div>
@@ -193,16 +192,16 @@
             <div class="mb-3">
                 <label for="">Chlorinator</label>
                 <div class="flex justify-evenly">
-                    <div class="mr-4 flex items-center">
-                        <input id="chlorinatorNA" type="radio" value="N/A" name="chlorinator" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="chlorinatorNA" type="radio" value="N/A" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="chlorinatorNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
                     </div>
-                    <div class="mr-4 flex items-center">
-                        <input id="chlorinatorON" type="radio" value="ON" name="chlorinator" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="chlorinatorON" type="radio" value="ON" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="chlorinatorON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
                     </div>
-                    <div class="mr-4 flex items-center">
-                        <input id="chlorinatorOFF" type="radio" value="OFF" name="chlorinator" class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500">
+                    <div class="flex items-center mr-4">
+                        <input id="chlorinatorOFF" type="radio" value="OFF" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
                         <label for="chlorinatorOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
                     </div>
                 </div>
@@ -225,8 +224,8 @@
         </div>
     </div>
 
-    <div class="card mb-3 bg-white">
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="mb-3 bg-white card">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="source_of_water_sample">Source of Water Sample</label>
                 <select name="source_of_water_sample" id="source_of_water_sample" value="{{ old('source_of_water_sample') }}" required autofocus autocomplete="source_of_water_sample" onchange="sourceOfWaterSample(this.value)">
@@ -253,7 +252,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="water_purpose">Water Purpose</label>
                 <select name="water_purpose" id="water_purpose" value="{{ old('water_purpose') }}" required autofocus autocomplete="water_purpose" onchange="waterPurpose(this.value)">
@@ -280,7 +279,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="test_parameters">Test Parameters</label>
                 <select name="test_parameters" id="test_parameters" value="{{ old('test_parameters') }}" required autofocus autocomplete="test_parameters">

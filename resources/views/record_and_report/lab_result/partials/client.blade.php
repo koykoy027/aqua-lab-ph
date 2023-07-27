@@ -1,14 +1,14 @@
-<div class="card mb-3 bg-white">
+<div class="mb-3 bg-white card">
     <h1 class="mb-3">General Information</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
             <label for="account_number">Account Number</label>
-            <input id="account_number" type="text" name="account_number" value="{{ $clients->account_number }}" required
+            <input id="account_number" type="text" name="account_number" value="49SRL0623WSP{{ $clients->account_number }}" required
                 autofocus autocomplete="account_number" readonly>
         </div>
     </div>
 
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="account_name">Account Name</label>
             <input id="account_name" type="text" name="account_name" value="{{ $clients->account_name }}" required
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="name_of_authorized_person">Name of Authorize Person</label>
             <input id="name_of_authorized_person" type="text" name="name_of_authorized_person"
@@ -37,9 +37,9 @@
     </div>
 </div>
 
-<div class="card bg-white">
+<div class="bg-white card">
     <h1 class="mb-3">Address</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
             <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
             <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name"
@@ -54,7 +54,7 @@
                 autocomplete="street_name_or_subdivision" readonly>
 
         </div>
-    
+
         <div class="mb-3">
             <label for="region">Region</label>
             <input id="region" type="text" name="region" value="{{ $clients->region }}" required autofocus
@@ -74,7 +74,7 @@
                 readonly>
 
         </div>
-    
+
         <div class="mb-3">
             <label for="barangay_name">Barangay</label>
             <input id="barangay_name" type="text" name="barangay_name" value="{{ $clients->barangay_name }}" required
@@ -89,9 +89,9 @@
     </div>
 </div>
 
-<div class="card bg-white">
+<div class="bg-white card">
     <h1 class="mb-3">Contact information</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
             <label for="telephone">Telephone number</label>
             <input id="telephone" type="tel" name="telephone" value="{{ $clients->telephone }}" required autofocus
@@ -111,9 +111,9 @@
     </div>
 </div>
 
-<div class="card bg-white">
+<div class="bg-white card">
     <h1 class="mb-3">Classification</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="fsr_assigned">FSR Assigned</label>
             <input id="fsr_assigned" type="text" name="fsr_assigned" value="{{ $clients->fsr_assigned }}"
@@ -127,9 +127,9 @@
         </div>
     </div>
 
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
-            <label for="no_of_microbiology_samples">Number of Microbiolog Samples</label>
+            <label for="no_of_microbiology_samples">Microbiological Samples</label>
             <input id="no_of_microbiology_samples" type="text" name="no_of_microbiology_samples"
                 value="{{ $clients->no_of_microbiology_samples }}" required autofocus
                 autocomplete="no_of_microbiology_samples" readonly>
@@ -143,7 +143,7 @@
         </div>
     </div>
 
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="no_of_physico_chemical_samples">Number of Physico Chemical Samples</label>
             <input id="no_of_physico_chemical_samples" type="text" name="no_of_physico_chemical_samples"
@@ -159,7 +159,7 @@
         </div>
     </div>
 
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="assigned_week">Assigned Week</label>
             <input name="assigned_week" id="assigned_week" value="{{ $clients->assigned_week }}" required autofocus

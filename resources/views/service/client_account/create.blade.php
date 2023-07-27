@@ -10,6 +10,18 @@
             {{-- <input type="hidden" name="account_number" value="0001" readonly/> --}}
             <input type="hidden" name="business_tin" value="business_tin" readonly />
             <input type="hidden" name="type" value="walk in" readonly />
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+                <div class="mb-3">
+                    <label for="account_number">Account Number</label>
+                    <input id="account_number" type="text" name="account_number" value="49SRL0623WSP{{ $currentAccountNumber ?? '1'}}" required
+                        autofocus autocomplete="account_number" disabled>
+                    @error('account_number')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
 
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
@@ -36,7 +48,7 @@
 
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
-                    <label for="name_of_authorized_person">Name of Authorize Person</label>
+                    <label for="name_of_authorized_person">Name of Authorized Person</label>
                     <input id="name_of_authorized_person" type="text" name="name_of_authorized_person"
                         value="{{ old('name_of_authorized_person') }}" required autofocus
                         autocomplete="name_of_authorized_person">
@@ -193,7 +205,7 @@
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="telephone">Telephone number</label>
-                    <input id="telephone" type="tel" name="telephone" value="{{ old('telephone') }}" required
+                    <input id="telephone" type="tel" name="telephone" value="{{ old('telephone') }}"
                         autofocus autocomplete="telephone">
                     @error('telephone')
                         <span class="invalid" role="alert">
@@ -244,11 +256,14 @@
                         <option value="0001 - Water Refilling Station">0001 - Water Refilling Station</option>
                         <option value="002A - Food and Beverages (Service)">002A - Food and Beverages (Service)</option>
                         <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)</option>
-                        <option value="003 - Hospitalit Industry">003 - Hospitalit Industry</option>
+                        <option value="003 - Hospitality Industry">003 - Hospitality Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
                         <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>
                         <option value="004C - Healthcare (Hospital)">004C - Healthcare (Hospital)</option>
                         <option value="005 - Water Service Provider">005 - Water Service Provider</option>
+                        <option value="006 - Residential">006 - Residential</option>
+                        <option value="007 - Academe">007 - Academe</option>
+                        <option value="008 - Industries">008 - Industries</option>
                         <option value="Others">Others</option>
                     </select>
 
@@ -272,7 +287,7 @@
             </div>
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
-                    <label for="no_of_microbiology_samples">Number of Microbiolog Samples</label>
+                    <label for="no_of_microbiology_samples">Microbiological Samples</label>
                     <input id="no_of_microbiology_samples" type="text" name="no_of_microbiology_samples"
                         value="{{ old('no_of_microbiology_samples') }}" required autofocus
                         autocomplete="no_of_microbiology_samples">

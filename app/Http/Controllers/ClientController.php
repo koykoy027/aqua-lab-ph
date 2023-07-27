@@ -27,7 +27,15 @@ class ClientController extends Controller
     }
 
     public function create(){
-        return view('service.client_account.create');
+
+        if(Client::count() === 0){
+            $currentAccountNumber = 1;
+        }else{
+            $currentAccountNumber = Client::latest()->first()->account_number;
+        }
+
+
+        return view('service.client_account.create', compact('currentAccountNumber'));
     }
     public function store(Request $request){
         // dd($request->all());
@@ -44,7 +52,7 @@ class ClientController extends Controller
             'province' => 'required',
             'municipality_or_city' => 'required',
             // 'zip_code' => 'required',
-            'telephone' => 'required',
+            // 'telephone' => 'required',
             'mobile' => 'required',
             'email' => 'required',
             'fsr_assigned' => 'required',

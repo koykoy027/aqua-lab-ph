@@ -29,15 +29,17 @@ class DashboardController extends Controller
         $total0001 = Client::where('market_segment', '0001 - Water Refilling Station')->count();
         $total002A = Client::where('market_segment', '002A - Food and Beverages (Service)')->count();
         $total002B = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')->count();
-        $total003 = Client::where('market_segment', '003 - Hospitalit Industry')->count();
+        $total003 = Client::where('market_segment', '003 - Hospitality Industry')->count();
         $total004A = Client::where('market_segment', '004A - Healthcare (Dialysis)')->count();
         $total004B = Client::where('market_segment', '004B - Healthcare (Lying-in)')->count();
         $total004C = Client::where('market_segment', '004C - Healthcare (Hospital)')->count();
         $total005 = Client::where('market_segment', '005 - Water Service Provider')->count();
+        $total006 = Client::where('market_segment', '006 - Residential')->count();
+        $total007 = Client::where('market_segment', '007 - Academe')->count();
+        $total008 = Client::where('market_segment', '008 - Industries')->count();
         $totalOthers = Client::where('market_segment', 'Others')->count();
 
         // per region
-
         $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
         ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
         ->groupBy('municipality_or_city')
@@ -80,6 +82,9 @@ class DashboardController extends Controller
         'total004B',
         'total004C',
         'total005',
+        'total006',
+        'total007',
+        'total008',
         'totalOthers',
         'samplesPerCityMunicipality',
         'microSamplesPerCityMunicipality',
