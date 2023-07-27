@@ -32,7 +32,7 @@ class ClientFactory extends Factory
             'municipality_or_city' => $this->faker->city,
             'region' => $this->faker->city,
             'zip_code' => $this->faker->postcode,
-            // 'province' => $this->faker->state,
+            'province' => $this->faker->state,
             'telephone' => $this->faker->phoneNumber,
             'mobile' => $this->faker->phoneNumber,
             'email' => $this->faker->email,

@@ -4,14 +4,14 @@
 
     <form method="POST" action="{{ route('service.add-client-account.store') }}">
         @csrf
-        <div class="card mb-3 bg-white">
+        <div class="mb-3 bg-white card">
             <h1 class="mb-3">General Information</h1>
 
             {{-- <input type="hidden" name="account_number" value="0001" readonly/> --}}
             <input type="hidden" name="business_tin" value="business_tin" readonly />
             <input type="hidden" name="type" value="walk in" readonly />
 
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="account_name">Account Name</label>
                     <input id="account_name" type="text" name="account_name" value="{{ old('account_name') }}" required
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="name_of_authorized_person">Name of Authorize Person</label>
                     <input id="name_of_authorized_person" type="text" name="name_of_authorized_person"
@@ -49,36 +49,36 @@
                 <div class="mb-3">
                     <label for="type_of_ownership">Type of ownership</label>
                     <div class="grid grid-cols-4">
-                        <div class="mb-6 flex items-start">
-                            <div class="flex h-5 items-center">
+                        <div class="flex items-start mb-6">
+                            <div class="flex items-center h-5">
                                 <input name="type_of_ownership" id="single_prorietorship" value="Single Prorietorship"
                                     type="radio"
-                                    class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300">
+                                    class="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-blue-300">
                             </div>
                             <label for="single_prorietorship" class="ml-2 text-sm font-medium text-gray-900">Single
                                 Prorietorship</label>
                         </div>
 
-                        <div class="mb-6 flex items-start">
-                            <div class="flex h-5 items-center">
+                        <div class="flex items-start mb-6">
+                            <div class="flex items-center h-5">
                                 <input name="type_of_ownership" id="partnership" value="Partnership" type="radio"
-                                    class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300">
+                                    class="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-blue-300">
                             </div>
                             <label for="partnership" class="ml-2 text-sm font-medium text-gray-900">Partnership</label>
                         </div>
 
-                        <div class="mb-6 flex items-start">
-                            <div class="flex h-5 items-center">
+                        <div class="flex items-start mb-6">
+                            <div class="flex items-center h-5">
                                 <input name="type_of_ownership" id="cooperative" value="Cooperative" type="radio"
-                                    class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300">
+                                    class="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-blue-300">
                             </div>
                             <label for="cooperative" class="ml-2 text-sm font-medium text-gray-900">Cooperative</label>
                         </div>
 
-                        <div class="mb-6 flex items-start">
-                            <div class="flex h-5 items-center">
+                        <div class="flex items-start mb-6">
+                            <div class="flex items-center h-5">
                                 <input name="type_of_ownership" id="corporation" value="Corporation" type="radio"
-                                    class="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-blue-300">
+                                    class="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-blue-300">
                             </div>
                             <label for="corporation" class="ml-2 text-sm font-medium text-gray-900">Corporation</label>
                         </div>
@@ -93,9 +93,9 @@
             </div>
         </div>
 
-        <div class="card bg-white">
+        <div class="bg-white card">
             <h1 class="mb-3">Address</h1>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
                     <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name"
@@ -121,49 +121,55 @@
 
                 <div class="mb-3">
                     <label for="api_region">Region</label>
-                    <select id="api_region" type="text" name="region" value="{{ old('region') }}" required
-                        autofocus autocomplete="region">
+                    <select id="api_region" type="text" name="api_region" value="{{ old('api_region') }}" required
+                        autofocus autocomplete="api_region">
                         <option disabled selected>Select Region</option>
                     </select>
+
+                    <input id="region" type="hidden" name="region" required autofocus autocomplete="region">
                     @error('region')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-            
-                {{-- <div class="mb-3">
-                    <label for="province">Province</label>
-                    <select id="province" type="text" name="province" value="{{ old('province') }}" required
+
+                <div class="mb-3">
+                    <label for="api_province">Province</label>
+                    <select id="api_province" type="text" name="province" value="{{ old('province') }}" required
                         autofocus autocomplete="province">
                         <option disabled selected>Select Province</option>
                     </select>
+
+                    <input id="province" type="hidden" name="province" required autofocus autocomplete="province">
                     @error('province')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
-                </div> --}}
+                </div>
 
                 <div class="mb-3">
-                    <label for="api_municipality_or_city">Municipality or City</label>
-                    <select id="api_municipality_or_city" type="text" name="municipality_or_city"
+                    <label for="api_city">Municipality or City</label>
+                    <select id="api_city" type="text" name="municipality_or_city"
                         value="{{ old('municipality_or_city') }}" required autofocus autocomplete="municipality_or_city">
                         <option disabled selected>Select Municipality or City</option>
                     </select>
+                    <input id="municipality_or_city" type="hidden" name="municipality_or_city" required autofocus autocomplete="municipality_or_city">
                     @error('municipality_or_city')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
-            
+
                 <div class="mb-3">
-                    <label for="api_barangay_name">Barangay</label>
-                    <select id="api_barangay_name" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
+                    <label for="api_barangay">Barangay</label>
+                    <select id="api_barangay" type="text" name="barangay_name" value="{{ old('barangay_name') }}"
                         required autofocus autocomplete="barangay_name">
                         <option disabled selected>Select Barangay</option>
                     </select>
+                    <input id="barangay_name" type="hidden" name="barangay_name" required autofocus autocomplete="barangay_name">
                     @error('barangay_name')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -172,8 +178,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="zip_code">Zip code</label>
-                    <input id="zip_code" type="text" name="zip_code" value="{{ old('zip_code') }}" required
-                        autofocus autocomplete="zip_code">
+                    <input id="zip_code" type="text" name="zip_code" value="{{ old('zip_code') }}" autofocus autocomplete="zip_code">
                     @error('zip_code')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -183,9 +188,9 @@
             </div>
         </div>
 
-        <div class="card bg-white">
+        <div class="bg-white card">
             <h1 class="mb-3">Contact information</h1>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="telephone">Telephone number</label>
                     <input id="telephone" type="tel" name="telephone" value="{{ old('telephone') }}" required
@@ -219,9 +224,9 @@
             </div>
         </div>
 
-        <div class="card bg-white">
+        <div class="bg-white card">
             <h1 class="mb-3">Classification</h1>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="fsr_assigned">FSR Assigned</label>
                     <input id="fsr_assigned" type="text" name="fsr_assigned" value="{{ old('fsr_assigned') }}"
@@ -265,7 +270,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="no_of_microbiology_samples">Number of Microbiolog Samples</label>
                     <input id="no_of_microbiology_samples" type="text" name="no_of_microbiology_samples"
@@ -295,7 +300,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="no_of_physico_chemical_samples">Number of Physico Chemical Samples</label>
                     <input id="no_of_physico_chemical_samples" type="text" name="no_of_physico_chemical_samples"
@@ -325,7 +330,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="assigned_week">Assigned Week</label>
                     <select name="assigned_week" id="assigned_week" value="{{ old('assigned_week') }}" required

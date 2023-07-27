@@ -22,9 +22,9 @@ return new class extends Migration
             $table->string('street_name_or_subdivision');
             $table->string('barangay_name');
             $table->string('municipality_or_city');
-            $table->string('zip_code');
+            $table->string('zip_code')->nullable();
             $table->string('region');
-            // $table->string('province');
+            $table->string('province');
             $table->string('telephone');
             $table->string('mobile');
             $table->string('email');

@@ -25,7 +25,7 @@ class Client extends Model
         'municipality_or_city',
         'zip_code',
         'region',
-        // 'province',
+        'province',
         'telephone',
         'mobile',
         'email',
