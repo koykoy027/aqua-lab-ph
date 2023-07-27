@@ -40,6 +40,86 @@
     );
 };
 
+const perRegion = () => {
+    const labels = [
+        "Region I – Ilocos Region",
+        "Region II – Cagayan Valley",
+        "Region III – Central Luzon",
+        "Region IV‑A – CALABARZON",
+        "MIMAROPA Region",
+        "Region V – Bicol Region",
+        "Region VI – Western Visayas",
+        "Region VII – Central Visayas",
+        "Region VIII – Eastern Visayas",
+        "Region IX – Zamboanga Peninsula",
+        "Region X – Northern Mindanao",
+        "Region XI – Davao Region",
+        "Region XII – SOCCSKSARGEN",
+        "Region XIII – Caraga",
+        "NCR – National Capital Region",
+        "CAR – Cordillera Administrative Region",
+        "BARMM – Bangsamoro Autonomous Region in Muslim Mindanao",
+    ];
+    const data = {
+        labels: labels,
+        datasets: [
+            {
+                label: "No. of Samples per Region",
+                backgroundColor: "#ed64a6",
+                borderColor: '#ed64a6',
+                data: getRandomData(17),
+                fill: false,
+            },
+            {
+                label: "No. of Micro Samples per Region",
+                backgroundColor: "#9f7aea",
+                borderColor: '#9f7aea',
+                data: getRandomData(17),
+                fill: false,
+            },
+            {
+                label: "No. of Phy-Chem Samples per Region",
+                backgroundColor: "#667eea",
+                borderColor: '#667eea',
+                data: getRandomData(17),
+                fill: false,
+            },
+            {
+                label: "No. of Failed HPC Samples per Region",
+                backgroundColor: "#cbd5e0",
+                borderColor: '#cbd5e0',
+                data: getRandomData(17),
+                fill: false,
+            },
+            {
+                label: "No. of Failed Total Coliform Samples per Region",
+                backgroundColor: "#a0aec0",
+                borderColor: '#a0aec0',
+                data: getRandomData(17),
+                fill: false,
+            },
+            {
+                label: "No. of Failed Fecal Coliform Samples per Region",
+                backgroundColor: "#718096",
+                borderColor: '#718096',
+                data: getRandomData(17),
+                fill: false,
+            },
+        ],
+    };
+
+    const configLineChart = {
+        type: "line",
+        data,
+        options: {},
+    };
+
+    var chartLine = new Chart(
+        document.getElementById("perRegion"),
+        configLineChart
+    );
+};
+
 
 
 
@@ -99,7 +179,7 @@
     </div>
 
     <div class="bg-white card">
-        <h1 class="mb-3 text-2xl uppercase bold">Recent clients</h1>
+        <h1 class="mb-3 text-xl font-bold uppercase">Recent clients</h1>
         <hr>
 
         <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
@@ -152,7 +232,51 @@
 
 </div>
 
-<div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4">
+<div class="bg-white card">
+    <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-3 lg:gap-4">
+        <select class="lg:col-start-3 sm:col-start-1" onchange="widgetsPerCityMunicipality(this.value)">
+            <option value="No. of Samples per City/Municipality">No. of Samples per City/Municipality</option>
+            <option value="No. of Micro Samples per City/Municipality">No. of Micro Samples per City/Municipality</option>
+            <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality</option>
+            <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per City/Municipality</option>
+            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform Samples per City/Municipality</option>
+            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform Samples per City/Municipality</option>
+        </select>
+    </div>
+    <div id="samplesPerCityMunicipality">
+        <h1 class="mb-3 text-xl font-bold uppercase">No. of Samples per City/Municipality</h1>
+        <hr>
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            City/Municipality
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            No. of Samples
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($samplesPerCityMunicipality as $data)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $data->municipality_or_city }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $data->total_analysis_requests }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{{-- <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4">
     <div class="w-full rounded sm:w-auto">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
@@ -164,6 +288,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 
 @endsection

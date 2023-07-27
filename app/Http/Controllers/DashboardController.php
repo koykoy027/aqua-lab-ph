@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,7 @@ class DashboardController extends Controller
         $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
 
 
+        // market segment
         $total0001 = Client::where('market_segment', '0001 - Water Refilling Station')->count();
         $total002A = Client::where('market_segment', '002A - Food and Beverages (Service)')->count();
         $total002B = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')->count();
@@ -33,6 +35,14 @@ class DashboardController extends Controller
         $total004C = Client::where('market_segment', '004C - Healthcare (Hospital)')->count();
         $total005 = Client::where('market_segment', '005 - Water Service Provider')->count();
         $totalOthers = Client::where('market_segment', 'Others')->count();
+
+        // per region
+
+        $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
+        ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
+        ->groupBy('municipality_or_city')
+        ->get();
+
 
         return view('dashboard.index', compact(
             'recentClients',
@@ -52,6 +62,7 @@ class DashboardController extends Controller
         'total004C',
         'total005',
         'totalOthers',
+        'samplesPerCityMunicipality',
                 ));
     }
 }

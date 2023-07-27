@@ -657,7 +657,6 @@ const categoryRawData = () => {
 };
 
 
-
 // generate random data
 const getRandomData = (count) => {
     const data = [];
@@ -667,85 +666,33 @@ const getRandomData = (count) => {
     return data;
 };
 
+const widgetsPerCityMunicipality = (val) => {
+    var samplesPerCityMunicipality = document.querySelector('#samplesPerCityMunicipality');
+    var microSamplesPerCityMunicipality = document.querySelector('#microSamplesPerCityMunicipality');
+    var phyChemSamplesPerCityMunicipality = document.querySelector('#samplphyChemSsPerCityMunicipality');
+    var phyChemSamplesPerMarketSegment = document.querySelector('#samplphyChemSsPerMarketSegment');
+    var failedHPCSamplesPerCityMunicipality = document.querySelector('#failedHPCSamplesPerCityMunicipality');
+    var totalColiformSamplesPerCityMunicipality = document.querySelector('#totalColiformSamplesPerCityMunicipality');
+    var failedFecalColiformSamplesPerCityMunicipality = document.querySelector('#failedFecalColiformSamplesPerCityMunicipality');
 
-const perRegion = () => {
-    const labels = [
-        "Region I – Ilocos Region",
-        "Region II – Cagayan Valley",
-        "Region III – Central Luzon",
-        "Region IV‑A – CALABARZON",
-        "MIMAROPA Region",
-        "Region V – Bicol Region",
-        "Region VI – Western Visayas",
-        "Region VII – Central Visayas",
-        "Region VIII – Eastern Visayas",
-        "Region IX – Zamboanga Peninsula",
-        "Region X – Northern Mindanao",
-        "Region XI – Davao Region",
-        "Region XII – SOCCSKSARGEN",
-        "Region XIII – Caraga",
-        "NCR – National Capital Region",
-        "CAR – Cordillera Administrative Region",
-        "BARMM – Bangsamoro Autonomous Region in Muslim Mindanao",
-    ];
-    const data = {
-        labels: labels,
-        datasets: [
-            {
-                label: "No. of Samples per Region",
-                backgroundColor: "#ed64a6",
-                borderColor: '#ed64a6',
-                data: getRandomData(17),
-                fill: false,
-            },
-            {
-                label: "No. of Micro Samples per Region",
-                backgroundColor: "#9f7aea",
-                borderColor: '#9f7aea',
-                data: getRandomData(17),
-                fill: false,
-            },
-            {
-                label: "No. of Phy-Chem Samples per Region",
-                backgroundColor: "#667eea",
-                borderColor: '#667eea',
-                data: getRandomData(17),
-                fill: false,
-            },
-            {
-                label: "No. of Failed HPC Samples per Region",
-                backgroundColor: "#cbd5e0",
-                borderColor: '#cbd5e0',
-                data: getRandomData(17),
-                fill: false,
-            },
-            {
-                label: "No. of Failed Total Coliform Samples per Region",
-                backgroundColor: "#a0aec0",
-                borderColor: '#a0aec0',
-                data: getRandomData(17),
-                fill: false,
-            },
-            {
-                label: "No. of Failed Fecal Coliform Samples per Region",
-                backgroundColor: "#718096",
-                borderColor: '#718096',
-                data: getRandomData(17),
-                fill: false,
-            },
-        ],
-    };
-
-    const configLineChart = {
-        type: "line",
-        data,
-        options: {},
-    };
-
-    var chartLine = new Chart(
-        document.getElementById("perRegion"),
-        configLineChart
-    );
-};
-
-
+    if(val === 'No. of Samples per City/Municipality'){
+        console.log(val);
+        samplesPerCityMunicipality.classList.remove('hidden');
+        microSamplesPerCityMunicipality.classList.add('hidden');
+        phyChemSamplesPerCityMunicipality.classList.add('hidden');
+        phyChemSamplesPerMarketSegment.classList.add('hidden');
+        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
+        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
+        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
+    }
+    else if(val === 'No. of Micro Samples per City/Municipality'){
+        console.log(val);
+        samplesPerCityMunicipality.classList.add('hidden');
+        microSamplesPerCityMunicipality.classList.remove('hidden');
+        phyChemSamplesPerCityMunicipality.classList.add('hidden');
+        phyChemSamplesPerMarketSegment.classList.add('hidden');
+        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
+        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
+        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
+    }
+}
