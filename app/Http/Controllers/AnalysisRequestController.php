@@ -24,7 +24,7 @@ class AnalysisRequestController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'account_number' => 'unique:analysis_requests',
+            // 'account_number' => 'unique:analysis_requests',
             'collector_name' => 'required',
             'date_collected' => 'required',
             'time_collected' => 'required',
