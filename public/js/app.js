@@ -669,7 +669,7 @@ const getRandomData = (count) => {
 const widgetsPerCityMunicipality = (val) => {
     var samplesPerCityMunicipality = document.querySelector('#samplesPerCityMunicipality');
     var microSamplesPerCityMunicipality = document.querySelector('#microSamplesPerCityMunicipality');
-    var phyChemSamplesPerCityMunicipality = document.querySelector('#samplphyChemSsPerCityMunicipality');
+    var phyChemSamplesPerCityMunicipality = document.querySelector('#phyChemSamplesPerCityMunicipality');
     var phyChemSamplesPerMarketSegment = document.querySelector('#samplphyChemSsPerMarketSegment');
     var failedHPCSamplesPerCityMunicipality = document.querySelector('#failedHPCSamplesPerCityMunicipality');
     var totalColiformSamplesPerCityMunicipality = document.querySelector('#totalColiformSamplesPerCityMunicipality');
@@ -690,6 +690,16 @@ const widgetsPerCityMunicipality = (val) => {
         samplesPerCityMunicipality.classList.add('hidden');
         microSamplesPerCityMunicipality.classList.remove('hidden');
         phyChemSamplesPerCityMunicipality.classList.add('hidden');
+        phyChemSamplesPerMarketSegment.classList.add('hidden');
+        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
+        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
+        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
+    }
+    else if(val === 'No. of Phy-Chem Samples per City/Municipality'){
+        console.log(val);
+        samplesPerCityMunicipality.classList.add('hidden');
+        microSamplesPerCityMunicipality.classList.add('hidden');
+        phyChemSamplesPerCityMunicipality.classList.remove('hidden');
         phyChemSamplesPerMarketSegment.classList.add('hidden');
         failedHPCSamplesPerCityMunicipality.classList.add('hidden');
         totalColiformSamplesPerCityMunicipality.classList.add('hidden');
