@@ -71,7 +71,7 @@
                     </div>
                 </li>
                 @endif
-                @if (Auth::user()->role === 'Super Admin' or Auth::user()->role === 'Admin Asstistant' or Auth::user()->role === 'FSR' or Auth::user()->role === 'Marketing Manager' or Auth::user()->role === 'Sales Manager')
+                @if (Auth::user()->role !== 'Service Coordinator')
                 <li>
                     <!-- Laboratory dropdown menu -->
                     <button id="dropdownNavbarLink" data-dropdown-toggle="laboratory" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:w-auto md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700">
