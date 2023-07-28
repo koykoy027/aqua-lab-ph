@@ -40,8 +40,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="sampling_location_address">Address of Collection Point Sampling address is the same with
-                    the Account Address</label>
+                <label for="sampling_location_address">Address of Collection Point</label>
                 <input name="sampling_location_address" id="sampling_location_address"
                     value="{{ $analysis->sampling_location_address === 'Others' ? $analysis->sampling_location_address_others : $analysis->sampling_location_address }}"
                     readonly autofocus autocomplete="sampling_location_address">
