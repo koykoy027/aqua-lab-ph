@@ -59,9 +59,6 @@
                                 </li>
                             @endif
                             <li>
-                                <a href="{{ route('service.lab-result-status.index') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>
-                            </li>
-                            <li>
                                 <a href="{{ route('record-and-report.lab-result.table') }}" class="block px-4 py-2 hover:bg-gray-100">Generate Report</a>
                             </li>
                             <li>
@@ -82,6 +79,9 @@
                     <!-- Dropdown menu -->
                     <div id="laboratory" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                            <li>
+                                <a href="{{ route('service.lab-result-status.index') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>
+                            </li>
                             <li>
                                 <a href="{{ route('laboratory.lab-lab-work-order.labWorkOrder') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Work Order</a>
                             </li>
