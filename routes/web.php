@@ -63,7 +63,7 @@ Route::middleware('auth', 'status')->group(function () {
         Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
-        
+
         Route::prefix('lab-acceptance')->group(function () {
             Route::get('table', [LabResultStatusController::class, 'index'])->name('service.lab-result-status.index');
             Route::get('search', [QuerySearchController::class, 'labAcceptanceSearch'])->name('service.lab-result-status.index');
@@ -84,7 +84,7 @@ Route::middleware('auth', 'status')->group(function () {
 
         });
 
-        
+
 
     });
 
@@ -98,7 +98,7 @@ Route::middleware('auth', 'status')->group(function () {
             Route::get('search', [QuerySearchController::class, 'labWorkOrderSearch'])->name('laboratory.lab-lab-work-order.labWorkOrder');
             Route::get('form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
         });
-        
+
         Route::post('lab-work-order-form-micro1/{analysis_id}', [MicroController::class, 'micro1'])->name('laboratory.lab-work-order-form.micro1');
         Route::post('lab-work-order-form-micro2/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
         Route::post('lab-work-order-form-micro3/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
@@ -132,7 +132,7 @@ Route::middleware('auth', 'status')->group(function () {
 
     Route::prefix('record-and-report')->group(function () {
 
-        Route::get('lab-acceptance', [LabAcceptanceController::class, 'index'])->name('record-and-report.lab-acceptance.index');        
+        Route::get('lab-acceptance', [LabAcceptanceController::class, 'index'])->name('record-and-report.lab-acceptance.index');
         Route::get('analysis-request', [AnalysisRequestController::class, 'index'])->name('record-and-report.analysis-request.index');
         Route::get('analysis-request/{analysis_id}', [AnalysisRequestController::class, 'details'])->name('record-and-report.analysis-request.details');
 
@@ -145,7 +145,7 @@ Route::middleware('auth', 'status')->group(function () {
             Route::get('table', [ClientController::class, 'search'])->name('record-and-report.record_and_report.client_list.index');
             Route::get('profile/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
         });
-        
+
 
     });
 

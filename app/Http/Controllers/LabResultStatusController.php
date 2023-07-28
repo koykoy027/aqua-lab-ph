@@ -46,11 +46,16 @@ class LabResultStatusController extends Controller
     return view('service.lab_result_status.index', compact('datas'));
     }
 
-    public function table(){
-        $datas = AnalysisRequest::orderByDesc('updated_at')
-        ->where('remarks', 'Approve')
+    public function table(Request $request){
+
+        $query = $request->input('search');
+        $datas = AnalysisRequest::where('remarks', 'For releasing')
+        // ->orWhere('analysis_id', 'LIKE', "%$query%")
+        // ->orWhere('collector_name', 'LIKE', "%$query%")
+        // ->orWhere('date_collected', 'LIKE', "%$query%")
+        ->orderByDesc('updated_at')
         ->paginate(10);
-        return view('record_and_report.lab_result.index', compact('datas'));
+        return view('record_and_report.lab_result.index', compact('datas', 'query'));
     }
 
 

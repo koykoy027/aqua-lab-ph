@@ -32,7 +32,7 @@ class QuerySearchController extends Controller
         ->orWhere('date_collected', 'LIKE', "%$query%")
         ->orWhere('source_of_water_sample', 'LIKE', "%$query%")
         ->orWhere('source_of_water_sample_others', 'LIKE', "%$query%")
-        ->orWhere('test_parameters', 'LIKE', "%$query%")        
+        ->orWhere('test_parameters', 'LIKE', "%$query%")
         ->orderByDesc('updated_at')
         ->paginate(10);
 
@@ -43,9 +43,11 @@ class QuerySearchController extends Controller
     {
         $query = $request->input('search');
 
-        $datas = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")        
-        ->orWhere('collector_name', 'LIKE', "%$query%")
-        ->orWhere('date_collected', 'LIKE', "%$query%")        
+        $query = $request->input('search');
+        $datas = AnalysisRequest::where('remarks', 'For releasing')
+        // ->orWhere('analysis_id', 'LIKE', "%$query%")
+        // ->orWhere('collector_name', 'LIKE', "%$query%")
+        // ->orWhere('date_collected', 'LIKE', "%$query%")
         ->orderByDesc('updated_at')
         ->paginate(10);
 
@@ -56,11 +58,11 @@ class QuerySearchController extends Controller
     {
         $query = $request->input('search');
 
-        $analysisRequest = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")        
+        $analysisRequest = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")
         ->orWhere('collector_name', 'LIKE', "%$query%")
-        ->orWhere('date_collected', 'LIKE', "%$query%")        
-        ->orWhere('test_parameters', 'LIKE', "%$query%")        
-        ->orWhere('remarks', 'LIKE', "%$query%")        
+        ->orWhere('date_collected', 'LIKE', "%$query%")
+        ->orWhere('test_parameters', 'LIKE', "%$query%")
+        ->orWhere('remarks', 'LIKE', "%$query%")
         ->orderByDesc('updated_at')
         ->paginate(10);
 
@@ -79,7 +81,7 @@ class QuerySearchController extends Controller
         return view('record_and_report.client_list.index', compact('clients'));
     }
 
-    
-    
-    
+
+
+
 }
