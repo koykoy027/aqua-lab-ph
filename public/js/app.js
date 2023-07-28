@@ -99,13 +99,21 @@ const collectionPoint = (val) => {
 // can be seen in service.add-analysis-request-form
 const samplingLocationAddress = (val) => {
     var input = document.getElementById("sampling_location_address_others");
-    if (val === "Others") {
-        // actve readonly
-        input.removeAttribute("readonly");
-    } else {
-        // disable readonly
+    var unit_no_floor_bldg_name = document.getElementById("unit_no_floor_bldg_name").value;
+    var street_name_or_subdivision = document.getElementById("street_name_or_subdivision").value;
+    var region = document.getElementById("region").value;
+    var municipality_or_city = document.getElementById("municipality_or_city").value;
+    var barangay_name = document.getElementById("barangay_name").value;
+    var zip_code = document.getElementById("zip_code").value;
+
+    if (val === "SAME AS ADDRESS") {
         input.setAttribute("readonly", "readonly");
+        input.value = unit_no_floor_bldg_name + " " + street_name_or_subdivision + " " + street_name_or_subdivision + " " + region + " " + municipality_or_city + " " + barangay_name + " " + zip_code;
+
+    } else {
+        input.removeAttribute("readonly");
         input.value = "";
+
     }
 };
 

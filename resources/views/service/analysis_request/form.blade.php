@@ -142,30 +142,32 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="sampling_location_address">Address of Collection Point</label>
-                <select name="sampling_location_address" id="sampling_location_address" value="{{ old('sampling_location_address') }}" required autofocus autocomplete="sampling_location_address" onchange="samplingLocationAddress(this.value)">
-                    <option value="Faucet">Faucet</option>
-                    <option value="Pump">Pump</option>
-                    <option value="Others">Others</option>
-                </select>
+                <div class="flex justify-evenly">
+                    <div class="mr-4 flex items-center">
+                        <input class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500" id="sampling_location_address_same" name="sampling_location_address" type="radio" value="SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
+                        <label class="ml-2 text-sm font-medium text-gray-900" for="sampling_location_address_same">Same with the Account Address</label>
+                    </div>
+                    <div class="mr-4 flex items-center">
+                        <input class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500" id="remarksConditionallyAccepted" name="sampling_location_address" type="radio" value="NOT SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
+                        <label class="ml-2 text-sm font-medium text-gray-900" for="remarksConditionallyAccepted">Not same with the Account Address</label>
+                    </div>
+                </div>
                 @error('sampling_location_address')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
+                <div class="my-3">
+                    <label for="sampling_location_address_others">Address of Collection Point, if others</label>
+                    <textarea id="sampling_location_address_others" rows="4" name="sampling_location_address_others" value="{{ old('sampling_location_address_others') }}" required autofocus autocomplete="sampling_location_address_others" readonly></textarea>
+                    @error('sampling_location_address_others')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="sampling_location_address_others">Sampling Location , if others</label>
-                <input id="sampling_location_address_others" type="text" name="sampling_location_address_others" value="{{ old('sampling_location_address_others') }}" required autofocus autocomplete="sampling_location_address_others" readonly>
-                @error('sampling_location_address_others')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="">UV Light</label>
                 <div class="flex justify-evenly">
@@ -187,39 +189,39 @@
                     <strong>{{ $message }}</strong>
                 </span>
                 @enderror
-            </div>
 
-            <div class="mb-3">
-                <label for="">Chlorinator</label>
-                <div class="flex justify-evenly">
-                    <div class="flex items-center mr-4">
-                        <input id="chlorinatorNA" type="radio" value="N/A" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
-                        <label for="chlorinatorNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
+                <div class="mb-3">
+                    <label for="">Chlorinator</label>
+                    <div class="flex justify-evenly">
+                        <div class="flex items-center mr-4">
+                            <input id="chlorinatorNA" type="radio" value="N/A" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            <label for="chlorinatorNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
+                        </div>
+                        <div class="flex items-center mr-4">
+                            <input id="chlorinatorON" type="radio" value="ON" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            <label for="chlorinatorON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
+                        </div>
+                        <div class="flex items-center mr-4">
+                            <input id="chlorinatorOFF" type="radio" value="OFF" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            <label for="chlorinatorOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
+                        </div>
                     </div>
-                    <div class="flex items-center mr-4">
-                        <input id="chlorinatorON" type="radio" value="ON" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
-                        <label for="chlorinatorON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
-                    </div>
-                    <div class="flex items-center mr-4">
-                        <input id="chlorinatorOFF" type="radio" value="OFF" name="chlorinator" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
-                        <label for="chlorinatorOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
-                    </div>
+                    @error('uvlight')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                 </div>
-                @error('uvlight')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
 
-            <div class="mb-3">
-                <label for="faucet_condition">Faucet Condition after Disinfection</label>
-                <input id="faucet_condition" type="text" name="faucet_condition" value="{{ old('faucet_condition') }}" required autofocus autocomplete="faucet_condition">
-                @error('faucet_condition')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <div class="mb-3">
+                    <label for="faucet_condition">Faucet Condition after Disinfection</label>
+                    <input id="faucet_condition" type="text" name="faucet_condition" value="{{ old('faucet_condition') }}" required autofocus autocomplete="faucet_condition">
+                    @error('faucet_condition')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
             </div>
         </div>
     </div>
