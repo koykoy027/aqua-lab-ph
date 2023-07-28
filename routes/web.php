@@ -47,7 +47,7 @@ Route::get('403', function () {
 })->middleware('auth');
 
 
-Route::middleware('auth', 'status')->group(function () {
+Route::middleware('auth', 'status', 'verified')->group(function () {
 
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
