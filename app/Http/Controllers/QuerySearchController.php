@@ -57,16 +57,33 @@ class QuerySearchController extends Controller
     public function labWorkOrderSearch(Request $request)
     {
         $query = $request->input('search');
+        if ($query === NULL){
+            $analysisRequest = AnalysisRequest::whereNot('remarks', 'Pending')
 
-        $analysisRequest = AnalysisRequest::where('analysis_id', 'LIKE', "%$query%")
-        ->orWhere('collector_name', 'LIKE', "%$query%")
-        ->orWhere('date_collected', 'LIKE', "%$query%")
-        ->orWhere('test_parameters', 'LIKE', "%$query%")
-        ->orWhere('remarks', 'LIKE', "%$query%")
-        ->orderByDesc('updated_at')
-        ->paginate(10);
+            ->orderByDesc('updated_at')
+            ->paginate(10);
 
-        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+            return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+
+        }
+        else{
+            $analysisRequest = AnalysisRequest::query()
+            ->orWhere('analysis_id', 'LIKE', "%$query%")
+            ->orWhere('collector_name', 'LIKE', "%$query%")
+            ->orWhere('date_collected', 'LIKE', "%$query%")
+            ->orWhere('test_parameters', 'LIKE', "%$query%")
+            ->orWhere('remarks', 'LIKE', "%$query%")
+            ->orderByDesc('updated_at')
+            ->whereNot('remarks', 'Pending')
+            ->paginate(10);
+            return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+        }
+
+
+
+
+
+
     }
 
     public function clientSearch(Request $request)
