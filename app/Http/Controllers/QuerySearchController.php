@@ -44,7 +44,7 @@ class QuerySearchController extends Controller
         $query = $request->input('search');
 
         $query = $request->input('search');
-        $datas = AnalysisRequest::where('remarks', 'For releasing')
+        $datas = AnalysisRequest::where('remarks', 'Approve')
         // ->orWhere('analysis_id', 'LIKE', "%$query%")
         // ->orWhere('collector_name', 'LIKE', "%$query%")
         // ->orWhere('date_collected', 'LIKE', "%$query%")
