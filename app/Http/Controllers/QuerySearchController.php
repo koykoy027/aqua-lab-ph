@@ -58,8 +58,9 @@ class QuerySearchController extends Controller
     {
         $query = $request->input('search');
         if ($query === NULL){
-            $analysisRequest = AnalysisRequest::whereNot('remarks', 'Pending')
-
+            $analysisRequest = AnalysisRequest::query()
+            ->whereNot('remarks', 'Pending')
+            ->whereNot('remarks', 'Rejected')
             ->orderByDesc('updated_at')
             ->paginate(10);
 
@@ -75,6 +76,7 @@ class QuerySearchController extends Controller
             ->orWhere('remarks', 'LIKE', "%$query%")
             ->orderByDesc('updated_at')
             ->whereNot('remarks', 'Pending')
+            ->whereNot('remarks', 'Rejected')
             ->paginate(10);
             return view('laboratory.lab_work_order.index', compact('analysisRequest'));
         }

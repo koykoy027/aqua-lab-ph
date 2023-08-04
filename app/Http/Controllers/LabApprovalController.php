@@ -19,6 +19,7 @@ class LabApprovalController extends Controller
         ->orWhere('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
         ->orderByDesc('updated_at')
         ->whereNot('remarks', 'Pending')
+        ->whereNot('remarks', 'Rejected')
         ->paginate(10);
 
         return view('laboratory.lab_approval.index', compact('requests'));
@@ -28,6 +29,7 @@ class LabApprovalController extends Controller
     {
         $requests = AnalysisRequest::query()
         ->whereNot('remarks', 'Pending')
+        ->whereNot('remarks', 'Rejected')
         ->whereNot('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
         ->whereNot('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
         ->whereNot('test_parameters', 'MICR3 - Total Coliform')
