@@ -209,7 +209,7 @@
 
 
         <div class="flex justify-end">
-            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="submit">Approve</button>
         </div>
     </form>
 
