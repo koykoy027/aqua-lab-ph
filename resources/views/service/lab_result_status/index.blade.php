@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        @include('components.search')
+        {{-- @include('components.search') --}}
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
