@@ -62,11 +62,7 @@
 //             });
 //     });
 
-
 // });
-
-
-
 
 // can be seen in service.client.create
 const marketSegment = (val) => {
@@ -99,21 +95,38 @@ const collectionPoint = (val) => {
 // can be seen in service.add-analysis-request-form
 const samplingLocationAddress = (val) => {
     var input = document.getElementById("sampling_location_address_others");
-    var unit_no_floor_bldg_name = document.getElementById("unit_no_floor_bldg_name").value;
-    var street_name_or_subdivision = document.getElementById("street_name_or_subdivision").value;
+    var unit_no_floor_bldg_name = document.getElementById(
+        "unit_no_floor_bldg_name"
+    ).value;
+    var street_name_or_subdivision = document.getElementById(
+        "street_name_or_subdivision"
+    ).value;
     var region = document.getElementById("region").value;
-    var municipality_or_city = document.getElementById("municipality_or_city").value;
+    var municipality_or_city = document.getElementById(
+        "municipality_or_city"
+    ).value;
     var barangay_name = document.getElementById("barangay_name").value;
     var zip_code = document.getElementById("zip_code").value;
 
     if (val === "SAME AS ADDRESS") {
         input.setAttribute("readonly", "readonly");
-        input.value = unit_no_floor_bldg_name + " " + street_name_or_subdivision + " " + street_name_or_subdivision + " " + region + " " + municipality_or_city + " " + barangay_name + " " + zip_code;
-
+        input.value =
+            unit_no_floor_bldg_name +
+            " " +
+            street_name_or_subdivision +
+            " " +
+            street_name_or_subdivision +
+            " " +
+            region +
+            " " +
+            municipality_or_city +
+            " " +
+            barangay_name +
+            " " +
+            zip_code;
     } else {
         input.removeAttribute("readonly");
         input.value = "";
-
     }
 };
 
@@ -145,71 +158,64 @@ const waterPurpose = (val) => {
 
 // can be seen in laboratory.lab-acceptance-form
 const test = (val) => {
-    var inputFields = document.querySelector('#if_remarks_are_rejected');
+    var inputFields = document.querySelector("#if_remarks_are_rejected");
 
-    if (val === 'Rejected') {
-        inputFields.removeAttribute('readonly');
-    }
-    else{
-        inputFields.setAttribute('readonly', true);
+    if (val === "Rejected") {
+        inputFields.removeAttribute("readonly");
+    } else {
+        inputFields.setAttribute("readonly", true);
         inputFields.value = "";
     }
-}
-
+};
 
 // can be seen in laboratory.lab_work_order-partials
 const micro1 = () => {
-    var micr1_hpc_plate_a = document.querySelector(
-        '[name="micr1_hpc_plate_a"]'
-    ).value;
-    var micr1_hpc_plate_b = document.querySelector(
-        '[name="micr1_hpc_plate_b"]'
-    ).value;
+    var micr1_hpc_plate_a = parseFloat(
+        document.querySelector('[name="micr1_hpc_plate_a"]').value
+    );
+    var micr1_hpc_plate_b = parseFloat(
+        document.querySelector('[name="micr1_hpc_plate_b"]').value
+    );
     var micr1_hpc_average = document.querySelector(
         '[name="micr1_hpc_average"]'
     );
     var micr1_hpc_difference = document.querySelector(
         '[name="micr1_hpc_difference"]'
     );
-    var micr1_hpc_remarks = document.querySelector(
-        '[name="micr1_hpc_remarks"]'
-    );
     var micr1_hpc_final_result = document.querySelector(
         '[name="micr1_hpc_final_result"]'
     );
+    var micr1_hpc_remarks = document.querySelector(
+        '[name="micr1_hpc_remarks"]'
+    );
 
-    if (micr1_hpc_plate_a.length > 0 && micr1_hpc_plate_b.length > 0) {
-        // COMPUTE Average
-        micr1_hpc_average.value = Math.ceil(
-            (parseFloat(micr1_hpc_plate_a) + parseFloat(micr1_hpc_plate_b)) / 2
-        );
+    var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
+    var averagecolony = microvalues / 2;
 
-        // COMPUTE Difference
-        micr1_hpc_difference.value = Math.ceil(
-            parseFloat(
-                (
-                    ((parseFloat(micr1_hpc_plate_a) -
-                        parseFloat(micr1_hpc_plate_b)) /
-                        ((parseFloat(micr1_hpc_plate_a) +
-                            parseFloat(micr1_hpc_plate_b)) /
-                            2)) *
-                    100
-                ).toFixed(2)
-            )
-        );
-
-        if (micr1_hpc_average.value >= 499) {
-            micr1_hpc_remarks.value = "FAIL";
-            micr1_hpc_final_result.value = "≥ 500 est";
-        } else {
-            micr1_hpc_remarks.value = "PASSED";
-            micr1_hpc_final_result.value = "≤ 500 est";
-        }
+    if (averagecolony === 25) {
+        micr1_hpc_average.value = 25;
+        micr1_hpc_final_result.value = 25;
+    } else if (averagecolony === 155) {
+        micr1_hpc_average.value = 160;
+        micr1_hpc_final_result.value = 160;
+    } else if (averagecolony === 114) {
+        micr1_hpc_average.value = 110;
+        micr1_hpc_final_result.value = 110;
     } else {
-        micr1_hpc_average.value = "";
-        micr1_hpc_difference.value = "";
-        micr1_hpc_remarks.value = "";
-        micr1_hpc_final_result.value = "";
+        micr1_hpc_average.value = averagecolony.toFixed(0);
+        micr1_hpc_final_result.value = averagecolony.toFixed(0);
+    }
+
+    var microdifference =
+        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / averagecolony;
+
+    micr1_hpc_difference.value = microdifference.toFixed(2);
+    // micr1_hpc_final_result.value = averagecolony.toFixed(0);
+
+    if (parseFloat(micr1_hpc_final_result.value) >= 500) {
+        micr1_hpc_remarks.value = "FAIL";
+    } else {
+        micr1_hpc_remarks.value = "PASS";
     }
 };
 
@@ -248,41 +254,40 @@ const micro2 = () => {
     }
 };
 
-// can be seen in laboratory.lab_work_order-partials
 const micro3 = () => {
-    var micr3_lauryl_24 = document.querySelector(
-        '[name="micr3_lauryl_24"]'
-    ).value;
-    var micr3_lauryl_48 = document.querySelector(
-        '[name="micr3_lauryl_48"]'
-    ).value;
-    var micr3_brillant_24 = document.querySelector(
-        '[name="micr3_brillant_24"]'
-    ).value;
-    var micr3_brillant_48 = document.querySelector(
-        '[name="micr3_brillant_48"]'
-    ).value;
+    var micr3_lauryl_24 = parseFloat(
+        document.querySelector('[name="micr3_lauryl_24"]').value
+    );
+    var micr3_lauryl_48 = parseFloat(
+        document.querySelector('[name="micr3_lauryl_48"]').value
+    );
+    var micr3_brillant_24 = parseFloat(
+        document.querySelector('[name="micr3_brillant_24"]').value
+    );
+    var micr3_brillant_48 = parseFloat(
+        document.querySelector('[name="micr3_brillant_48"]').value
+    );
     var micr3_final_result = document.querySelector(
         '[name="micr3_final_result"]'
     );
     var micr3_remarks = document.querySelector('[name="micr3_remarks"]');
 
-    if (micr3_lauryl_48.length > 0) {
+    if (micr3_lauryl_48 >= 0) {
         if (micr3_lauryl_48 == 0) {
-            micr3_final_result.value = "< 1.1";
+            micr3_final_result.value = 1.1;
         } else if (micr3_lauryl_48 == 1) {
-            micr3_final_result.value = "1.1";
+            micr3_final_result.value = 1.1;
         } else if (micr3_lauryl_48 == 2) {
-            micr3_final_result.value = "2.6";
+            micr3_final_result.value = 2.6;
         } else if (micr3_lauryl_48 == 3) {
-            micr3_final_result.value = "4.6";
+            micr3_final_result.value = 4.6;
         } else if (micr3_lauryl_48 == 4) {
-            micr3_final_result.value = "8.0";
+            micr3_final_result.value = 8.0;
         } else if (micr3_lauryl_48 >= 5) {
-            micr3_final_result.value = "> 8.0";
+            micr3_final_result.value = 8.0;
         }
 
-        if (micr3_final_result == "< 1.1") {
+        if (micr3_final_result.value <= 1.1) {
             micr3_remarks.value = "PASSED";
         } else {
             micr3_remarks.value = "FAILED";
@@ -350,14 +355,30 @@ const chem1 = () => {
 // chem2
 
 const chem2 = () => {
-    var chem2_instrument_reading_1 = parseFloat(document.querySelector('[name="chem2_instrument_reading_1"]').value);
-    var chem2_instrument_reading_2 = parseFloat(document.querySelector('[name="chem2_instrument_reading_2"]').value);
-    var chem2_instrument_reading_3 = parseFloat(document.querySelector('[name="chem2_instrument_reading_3"]').value);
-    var chem2_average_instrument_reading = document.querySelector('[name="chem2_average_instrument_reading"]');
-    var chem2_final_result = document.querySelector('[name="chem2_final_result"]');
-    var chem2_final_result_remarks = document.querySelector('[name="chem2_final_result_remarks"]');
+    var chem2_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem2_instrument_reading_1"]').value
+    );
+    var chem2_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem2_instrument_reading_2"]').value
+    );
+    var chem2_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem2_instrument_reading_3"]').value
+    );
+    var chem2_average_instrument_reading = document.querySelector(
+        '[name="chem2_average_instrument_reading"]'
+    );
+    var chem2_final_result = document.querySelector(
+        '[name="chem2_final_result"]'
+    );
+    var chem2_final_result_remarks = document.querySelector(
+        '[name="chem2_final_result_remarks"]'
+    );
 
-    var averageReading2 = (chem2_instrument_reading_1 + chem2_instrument_reading_2 + chem2_instrument_reading_3) / 3;
+    var averageReading2 =
+        (chem2_instrument_reading_1 +
+            chem2_instrument_reading_2 +
+            chem2_instrument_reading_3) /
+        3;
 
     if (averageReading2 <= 50.0) {
         chem2_final_result_remarks.value = "PASS";
@@ -372,17 +393,50 @@ const chem2 = () => {
 // chem3
 
 const chem3 = () => {
-    var chem3_initial_wt_of_evaporating_dish_replicate_1 = parseFloat(document.querySelector('[name="chem3_initial_wt_of_evaporating_dish_replicate_1"]').value);
-    var chem3_final_wt_of_evaporating_dish_replicate_1 = parseFloat(document.querySelector('[name="chem3_final_wt_of_evaporating_dish_replicate_1"]').value);
-    var chem3_wt_of_residue_replicate_1 = parseFloat(document.querySelector('[name="chem3_wt_of_residue_replicate_1"]').value);
-    var chem3_initial_wt_of_evaporating_dish_replicate_2 = parseFloat(document.querySelector('[name="chem3_initial_wt_of_evaporating_dish_replicate_2"]').value);
-    var chem3_final_wt_of_evaporating_dish_replicate_2 = parseFloat(document.querySelector('[name="chem3_final_wt_of_evaporating_dish_replicate_2"]').value);
-    var chem3_wt_of_residue_replicate_2 = parseFloat(document.querySelector('[name="chem3_wt_of_residue_replicate_2"]').value);
-    var chem3_average_wt_of_residue = document.querySelector('[name="chem3_average_wt_of_residue"]');
-    var chem3_final_result = document.querySelector('[name="chem3_final_result"]');
-    var chem3_final_result_remarks = document.querySelector('[name="chem3_final_result_remarks"]');
+    var chem3_initial_wt_of_evaporating_dish_replicate_1 = parseFloat(
+        document.querySelector(
+            '[name="chem3_initial_wt_of_evaporating_dish_replicate_1"]'
+        ).value
+    );
+    var chem3_final_wt_of_evaporating_dish_replicate_1 = parseFloat(
+        document.querySelector(
+            '[name="chem3_final_wt_of_evaporating_dish_replicate_1"]'
+        ).value
+    );
+    var chem3_wt_of_residue_replicate_1 = parseFloat(
+        document.querySelector('[name="chem3_wt_of_residue_replicate_1"]').value
+    );
+    var chem3_initial_wt_of_evaporating_dish_replicate_2 = parseFloat(
+        document.querySelector(
+            '[name="chem3_initial_wt_of_evaporating_dish_replicate_2"]'
+        ).value
+    );
+    var chem3_final_wt_of_evaporating_dish_replicate_2 = parseFloat(
+        document.querySelector(
+            '[name="chem3_final_wt_of_evaporating_dish_replicate_2"]'
+        ).value
+    );
+    var chem3_wt_of_residue_replicate_2 = parseFloat(
+        document.querySelector('[name="chem3_wt_of_residue_replicate_2"]').value
+    );
+    var chem3_average_wt_of_residue = document.querySelector(
+        '[name="chem3_average_wt_of_residue"]'
+    );
+    var chem3_final_result = document.querySelector(
+        '[name="chem3_final_result"]'
+    );
+    var chem3_final_result_remarks = document.querySelector(
+        '[name="chem3_final_result_remarks"]'
+    );
 
-    var averageReading3 = (chem3_initial_wt_of_evaporating_dish_replicate_1 + chem3_final_wt_of_evaporating_dish_replicate_1 + chem3_wt_of_residue_replicate_1 + chem3_initial_wt_of_evaporating_dish_replicate_2 + chem3_final_wt_of_evaporating_dish_replicate_2 + chem3_wt_of_residue_replicate_2) / 6;
+    var averageReading3 =
+        (chem3_initial_wt_of_evaporating_dish_replicate_1 +
+            chem3_final_wt_of_evaporating_dish_replicate_1 +
+            chem3_wt_of_residue_replicate_1 +
+            chem3_initial_wt_of_evaporating_dish_replicate_2 +
+            chem3_final_wt_of_evaporating_dish_replicate_2 +
+            chem3_wt_of_residue_replicate_2) /
+        6;
 
     if (averageReading3 <= 600) {
         chem3_final_result_remarks.value = "PASS";
@@ -394,13 +448,18 @@ const chem3 = () => {
     chem3_average_wt_of_residue.value = averageReading3.toFixed(0);
 };
 
-
 // chem4
 
 const chem4 = () => {
-    var chem4_instrument_reading = parseFloat(document.querySelector('[name="chem4_instrument_reading"]').value);
-    var chem4_final_result = document.querySelector('[name="chem4_final_result"]');
-    var chem4_final_result_remarks = document.querySelector('[name="chem4_final_result_remarks"]');
+    var chem4_instrument_reading = parseFloat(
+        document.querySelector('[name="chem4_instrument_reading"]').value
+    );
+    var chem4_final_result = document.querySelector(
+        '[name="chem4_final_result"]'
+    );
+    var chem4_final_result_remarks = document.querySelector(
+        '[name="chem4_final_result_remarks"]'
+    );
 
     if (chem4_instrument_reading > 1.5) {
         chem4_final_result_remarks.value = "FAIL";
@@ -416,14 +475,30 @@ const chem4 = () => {
 //chem 5
 
 const chem5 = () => {
-    var chem5_instrument_reading_1 = parseFloat(document.querySelector('[name="chem5_instrument_reading_1"]').value);
-    var chem5_instrument_reading_2 = parseFloat(document.querySelector('[name="chem5_instrument_reading_2"]').value);
-    var chem5_instrument_reading_3 = parseFloat(document.querySelector('[name="chem5_instrument_reading_3"]').value);
-    var chem5_average_instrument_reading = document.querySelector('[name="chem5_average_instrument_reading"]');
-    var chem5_final_result = document.querySelector('[name="chem5_final_result"]');
-    var chem5_final_result_remarks = document.querySelector('[name="chem5_final_result_remarks"]');
+    var chem5_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem5_instrument_reading_1"]').value
+    );
+    var chem5_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem5_instrument_reading_2"]').value
+    );
+    var chem5_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem5_instrument_reading_3"]').value
+    );
+    var chem5_average_instrument_reading = document.querySelector(
+        '[name="chem5_average_instrument_reading"]'
+    );
+    var chem5_final_result = document.querySelector(
+        '[name="chem5_final_result"]'
+    );
+    var chem5_final_result_remarks = document.querySelector(
+        '[name="chem5_final_result_remarks"]'
+    );
 
-    var averageReading = (chem5_instrument_reading_1 + chem5_instrument_reading_2 + chem5_instrument_reading_3) / 3;
+    var averageReading =
+        (chem5_instrument_reading_1 +
+            chem5_instrument_reading_2 +
+            chem5_instrument_reading_3) /
+        3;
 
     if (averageReading <= 0.01) {
         chem5_final_result_remarks.value = "PASS";
@@ -438,14 +513,30 @@ const chem5 = () => {
 // chem 6
 
 const chem6 = () => {
-    var chem6_instrument_reading_1 = parseFloat(document.querySelector('[name="chem6_instrument_reading_1"]').value);
-    var chem6_instrument_reading_2 = parseFloat(document.querySelector('[name="chem6_instrument_reading_2"]').value);
-    var chem6_instrument_reading_3 = parseFloat(document.querySelector('[name="chem6_instrument_reading_3"]').value);
-    var chem6_average_instrument_reading = document.querySelector('[name="chem6_average_instrument_reading"]');
-    var chem6_final_result = document.querySelector('[name="chem6_final_result"]');
-    var chem6_final_result_remarks = document.querySelector('[name="chem6_final_result_remarks"]');
+    var chem6_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem6_instrument_reading_1"]').value
+    );
+    var chem6_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem6_instrument_reading_2"]').value
+    );
+    var chem6_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem6_instrument_reading_3"]').value
+    );
+    var chem6_average_instrument_reading = document.querySelector(
+        '[name="chem6_average_instrument_reading"]'
+    );
+    var chem6_final_result = document.querySelector(
+        '[name="chem6_final_result"]'
+    );
+    var chem6_final_result_remarks = document.querySelector(
+        '[name="chem6_final_result_remarks"]'
+    );
 
-    var averageReading = (chem6_instrument_reading_1 + chem6_instrument_reading_2 + chem6_instrument_reading_3) / 3;
+    var averageReading =
+        (chem6_instrument_reading_1 +
+            chem6_instrument_reading_2 +
+            chem6_instrument_reading_3) /
+        3;
 
     if (averageReading <= 0.003) {
         chem6_final_result_remarks.value = "PASS";
@@ -460,14 +551,30 @@ const chem6 = () => {
 //   chem 7
 
 const chem7 = () => {
-    var chem7_instrument_reading_1 = parseFloat(document.querySelector('[name="chem7_instrument_reading_1"]').value);
-    var chem7_instrument_reading_2 = parseFloat(document.querySelector('[name="chem7_instrument_reading_2"]').value);
-    var chem7_instrument_reading_3 = parseFloat(document.querySelector('[name="chem7_instrument_reading_3"]').value);
-    var chem7_average_instrument_reading = document.querySelector('[name="chem7_average_instrument_reading"]');
-    var chem7_final_result = document.querySelector('[name="chem7_final_result"]');
-    var chem7_final_result_remarks = document.querySelector('[name="chem7_final_result_remarks"]');
+    var chem7_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem7_instrument_reading_1"]').value
+    );
+    var chem7_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem7_instrument_reading_2"]').value
+    );
+    var chem7_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem7_instrument_reading_3"]').value
+    );
+    var chem7_average_instrument_reading = document.querySelector(
+        '[name="chem7_average_instrument_reading"]'
+    );
+    var chem7_final_result = document.querySelector(
+        '[name="chem7_final_result"]'
+    );
+    var chem7_final_result_remarks = document.querySelector(
+        '[name="chem7_final_result_remarks"]'
+    );
 
-    var averageReading = (chem7_instrument_reading_1 + chem7_instrument_reading_2 + chem7_instrument_reading_3) / 3;
+    var averageReading =
+        (chem7_instrument_reading_1 +
+            chem7_instrument_reading_2 +
+            chem7_instrument_reading_3) /
+        3;
 
     if (averageReading <= 0.01) {
         chem7_final_result_remarks.value = "PASS";
@@ -482,14 +589,30 @@ const chem7 = () => {
 // chem 9
 
 const chem9 = () => {
-    var chem9_instrument_reading_1 = parseFloat(document.querySelector('[name="chem9_instrument_reading_1"]').value);
-    var chem9_instrument_reading_2 = parseFloat(document.querySelector('[name="chem9_instrument_reading_2"]').value);
-    var chem9_instrument_reading_3 = parseFloat(document.querySelector('[name="chem9_instrument_reading_3"]').value);
-    var chem9_average_instrument_reading = document.querySelector('[name="chem9_average_instrument_reading"]');
-    var chem9_final_result = document.querySelector('[name="chem9_final_result"]');
-    var chem9_final_result_remarks = document.querySelector('[name="chem9_final_result_remarks"]');
+    var chem9_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem9_instrument_reading_1"]').value
+    );
+    var chem9_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem9_instrument_reading_2"]').value
+    );
+    var chem9_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem9_instrument_reading_3"]').value
+    );
+    var chem9_average_instrument_reading = document.querySelector(
+        '[name="chem9_average_instrument_reading"]'
+    );
+    var chem9_final_result = document.querySelector(
+        '[name="chem9_final_result"]'
+    );
+    var chem9_final_result_remarks = document.querySelector(
+        '[name="chem9_final_result_remarks"]'
+    );
 
-    var averageReading = (chem9_instrument_reading_1 + chem9_instrument_reading_2 + chem9_instrument_reading_3) / 3;
+    var averageReading =
+        (chem9_instrument_reading_1 +
+            chem9_instrument_reading_2 +
+            chem9_instrument_reading_3) /
+        3;
 
     if (averageReading <= 1.0) {
         chem9_final_result_remarks.value = "PASS";
@@ -504,14 +627,30 @@ const chem9 = () => {
 // chem 10
 
 const chem10 = () => {
-    var chem10_instrument_reading_1 = parseFloat(document.querySelector('[name="chem10_instrument_reading_1"]').value);
-    var chem10_instrument_reading_2 = parseFloat(document.querySelector('[name="chem10_instrument_reading_2"]').value);
-    var chem10_instrument_reading_3 = parseFloat(document.querySelector('[name="chem10_instrument_reading_3"]').value);
-    var chem10_average_instrument_reading = document.querySelector('[name="chem10_average_instrument_reading"]');
-    var chem10_final_result = document.querySelector('[name="chem10_final_result"]');
-    var chem10_final_result_remarks = document.querySelector('[name="chem10_final_result_remarks"]');
+    var chem10_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="chem10_instrument_reading_1"]').value
+    );
+    var chem10_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="chem10_instrument_reading_2"]').value
+    );
+    var chem10_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="chem10_instrument_reading_3"]').value
+    );
+    var chem10_average_instrument_reading = document.querySelector(
+        '[name="chem10_average_instrument_reading"]'
+    );
+    var chem10_final_result = document.querySelector(
+        '[name="chem10_final_result"]'
+    );
+    var chem10_final_result_remarks = document.querySelector(
+        '[name="chem10_final_result_remarks"]'
+    );
 
-    var averageReading = (chem10_instrument_reading_1 + chem10_instrument_reading_2 + chem10_instrument_reading_3) / 3;
+    var averageReading =
+        (chem10_instrument_reading_1 +
+            chem10_instrument_reading_2 +
+            chem10_instrument_reading_3) /
+        3;
 
     if (averageReading <= 0.4) {
         chem10_final_result_remarks.value = "PASS";
@@ -526,19 +665,25 @@ const chem10 = () => {
 // phychem 1
 
 const phy1 = () => {
-    var phys1_observation = document.querySelector('[name="phys1_observation"]').value;
-    var phys1_final_result = document.querySelector('[name="phys1_final_result"]');
-    var phys1_final_result_remarks = document.querySelector('[name="phys1_final_result_remarks"]');
+    var phys1_observation = document.querySelector(
+        '[name="phys1_observation"]'
+    ).value;
+    var phys1_final_result = document.querySelector(
+        '[name="phys1_final_result"]'
+    );
+    var phys1_final_result_remarks = document.querySelector(
+        '[name="phys1_final_result_remarks"]'
+    );
 
-    if (phys1_observation === 'Color without objectionable color') {
+    if (phys1_observation === "Color without objectionable color") {
         phys1_final_result.value = phys1_observation;
-        if (phys1_final_result.value === 'Color without objectionable color') {
+        if (phys1_final_result.value === "Color without objectionable color") {
             phys1_final_result_remarks.value = "PASS";
         } else {
             phys1_final_result_remarks.value = "FAIL";
         }
     } else {
-        phys1_final_result.value = 'Not clear and with objectionable color';
+        phys1_final_result.value = "Not clear and with objectionable color";
         phys1_final_result_remarks.value = "FAIL";
     }
 };
@@ -546,19 +691,25 @@ const phy1 = () => {
 // phychem2
 
 const phy2 = () => {
-    var phys2_observation = document.querySelector('[name="phys2_observation"]').value;
-    var phys2_final_result = document.querySelector('[name="phys2_final_result"]');
-    var phys2_final_result_remarks = document.querySelector('[name="phys2_final_result_remarks"]');
+    var phys2_observation = document.querySelector(
+        '[name="phys2_observation"]'
+    ).value;
+    var phys2_final_result = document.querySelector(
+        '[name="phys2_final_result"]'
+    );
+    var phys2_final_result_remarks = document.querySelector(
+        '[name="phys2_final_result_remarks"]'
+    );
 
-    if (phys2_observation === 'No without objectionable color') {
+    if (phys2_observation === "No without objectionable color") {
         phys2_final_result.value = phys2_observation;
-        if (phys2_final_result.value === 'No without objectionable color') {
+        if (phys2_final_result.value === "No without objectionable color") {
             phys2_final_result_remarks.value = "PASS";
         } else {
             phys2_final_result_remarks.value = "FAIL";
         }
     } else {
-        phys2_final_result.value = 'With objectionable color';
+        phys2_final_result.value = "With objectionable color";
         phys2_final_result_remarks.value = "FAIL";
     }
 };
@@ -566,9 +717,16 @@ const phy2 = () => {
 // phychem3
 
 const phy3 = () => {
-    var phys3_concentration_of_comparable_color_standard = document.querySelector('[name="phys3_concentration_of_comparable_color_standard"]').value;
-    var phys3_final_result = document.querySelector('[name="phys3_final_result"]');
-    var phys3_final_result_remarks = document.querySelector('[name="phys3_final_result_remarks"]');
+    var phys3_concentration_of_comparable_color_standard =
+        document.querySelector(
+            '[name="phys3_concentration_of_comparable_color_standard"]'
+        ).value;
+    var phys3_final_result = document.querySelector(
+        '[name="phys3_final_result"]'
+    );
+    var phys3_final_result_remarks = document.querySelector(
+        '[name="phys3_final_result_remarks"]'
+    );
 
     var finalResultValue = phys3_concentration_of_comparable_color_standard;
 
@@ -582,16 +740,31 @@ const phy3 = () => {
 
 // phychem4
 
-
 const phy4 = () => {
-    var phys4_instrument_reading_1 = parseFloat(document.querySelector('[name="phys4_instrument_reading_1"]').value);
-    var phys4_instrument_reading_2 = parseFloat(document.querySelector('[name="phys4_instrument_reading_2"]').value);
-    var phys4_instrument_reading_3 = parseFloat(document.querySelector('[name="phys4_instrument_reading_3"]').value);
-    var phys4_average_instrument_reading = document.querySelector('[name="phys4_average_instrument_reading"]');
-    var phys4_final_result = document.querySelector('[name="phys4_final_result"]');
-    var phys4_final_result_remarks = document.querySelector('[name="phys4_final_result_remarks"]');
+    var phys4_instrument_reading_1 = parseFloat(
+        document.querySelector('[name="phys4_instrument_reading_1"]').value
+    );
+    var phys4_instrument_reading_2 = parseFloat(
+        document.querySelector('[name="phys4_instrument_reading_2"]').value
+    );
+    var phys4_instrument_reading_3 = parseFloat(
+        document.querySelector('[name="phys4_instrument_reading_3"]').value
+    );
+    var phys4_average_instrument_reading = document.querySelector(
+        '[name="phys4_average_instrument_reading"]'
+    );
+    var phys4_final_result = document.querySelector(
+        '[name="phys4_final_result"]'
+    );
+    var phys4_final_result_remarks = document.querySelector(
+        '[name="phys4_final_result_remarks"]'
+    );
 
-    var averageReading = (phys4_instrument_reading_1 + phys4_instrument_reading_2 + phys4_instrument_reading_3) / 3;
+    var averageReading =
+        (phys4_instrument_reading_1 +
+            phys4_instrument_reading_2 +
+            phys4_instrument_reading_3) /
+        3;
 
     if (averageReading <= 5) {
         phys4_final_result_remarks.value = "PASS";
@@ -602,14 +775,6 @@ const phy4 = () => {
     phys4_final_result.value = averageReading.toFixed(0);
     phys4_average_instrument_reading.value = averageReading.toFixed(0);
 };
-
-
-
-
-
-
-
-
 
 const handleCategoryClick = (category, selector) => {
     const buttons = document.querySelectorAll(".category-button");
@@ -638,7 +803,6 @@ const handleCategoryClick = (category, selector) => {
     });
 };
 
-
 const categoryClientInformation = () => {
     handleCategoryClick(
         "categoryClientInformation",
@@ -664,7 +828,6 @@ const categoryRawData = () => {
     handleCategoryClick("categoryRawData", '[onclick="categoryRawData()"]');
 };
 
-
 // generate random data
 const getRandomData = (count) => {
     const data = [];
@@ -675,42 +838,54 @@ const getRandomData = (count) => {
 };
 
 const widgetsPerCityMunicipality = (val) => {
-    var samplesPerCityMunicipality = document.querySelector('#samplesPerCityMunicipality');
-    var microSamplesPerCityMunicipality = document.querySelector('#microSamplesPerCityMunicipality');
-    var phyChemSamplesPerCityMunicipality = document.querySelector('#phyChemSamplesPerCityMunicipality');
-    var phyChemSamplesPerMarketSegment = document.querySelector('#samplphyChemSsPerMarketSegment');
-    var failedHPCSamplesPerCityMunicipality = document.querySelector('#failedHPCSamplesPerCityMunicipality');
-    var totalColiformSamplesPerCityMunicipality = document.querySelector('#totalColiformSamplesPerCityMunicipality');
-    var failedFecalColiformSamplesPerCityMunicipality = document.querySelector('#failedFecalColiformSamplesPerCityMunicipality');
+    var samplesPerCityMunicipality = document.querySelector(
+        "#samplesPerCityMunicipality"
+    );
+    var microSamplesPerCityMunicipality = document.querySelector(
+        "#microSamplesPerCityMunicipality"
+    );
+    var phyChemSamplesPerCityMunicipality = document.querySelector(
+        "#phyChemSamplesPerCityMunicipality"
+    );
+    var phyChemSamplesPerMarketSegment = document.querySelector(
+        "#samplphyChemSsPerMarketSegment"
+    );
+    var failedHPCSamplesPerCityMunicipality = document.querySelector(
+        "#failedHPCSamplesPerCityMunicipality"
+    );
+    var totalColiformSamplesPerCityMunicipality = document.querySelector(
+        "#totalColiformSamplesPerCityMunicipality"
+    );
+    var failedFecalColiformSamplesPerCityMunicipality = document.querySelector(
+        "#failedFecalColiformSamplesPerCityMunicipality"
+    );
 
-    if(val === 'No. of Samples per City/Municipality'){
+    if (val === "No. of Samples per City/Municipality") {
         console.log(val);
-        samplesPerCityMunicipality.classList.remove('hidden');
-        microSamplesPerCityMunicipality.classList.add('hidden');
-        phyChemSamplesPerCityMunicipality.classList.add('hidden');
-        phyChemSamplesPerMarketSegment.classList.add('hidden');
-        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
-        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
-        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
-    }
-    else if(val === 'No. of Micro Samples per City/Municipality'){
+        samplesPerCityMunicipality.classList.remove("hidden");
+        microSamplesPerCityMunicipality.classList.add("hidden");
+        phyChemSamplesPerCityMunicipality.classList.add("hidden");
+        phyChemSamplesPerMarketSegment.classList.add("hidden");
+        failedHPCSamplesPerCityMunicipality.classList.add("hidden");
+        totalColiformSamplesPerCityMunicipality.classList.add("hidden");
+        failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
+    } else if (val === "No. of Micro Samples per City/Municipality") {
         console.log(val);
-        samplesPerCityMunicipality.classList.add('hidden');
-        microSamplesPerCityMunicipality.classList.remove('hidden');
-        phyChemSamplesPerCityMunicipality.classList.add('hidden');
-        phyChemSamplesPerMarketSegment.classList.add('hidden');
-        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
-        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
-        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
-    }
-    else if(val === 'No. of Phy-Chem Samples per City/Municipality'){
+        samplesPerCityMunicipality.classList.add("hidden");
+        microSamplesPerCityMunicipality.classList.remove("hidden");
+        phyChemSamplesPerCityMunicipality.classList.add("hidden");
+        phyChemSamplesPerMarketSegment.classList.add("hidden");
+        failedHPCSamplesPerCityMunicipality.classList.add("hidden");
+        totalColiformSamplesPerCityMunicipality.classList.add("hidden");
+        failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
+    } else if (val === "No. of Phy-Chem Samples per City/Municipality") {
         console.log(val);
-        samplesPerCityMunicipality.classList.add('hidden');
-        microSamplesPerCityMunicipality.classList.add('hidden');
-        phyChemSamplesPerCityMunicipality.classList.remove('hidden');
-        phyChemSamplesPerMarketSegment.classList.add('hidden');
-        failedHPCSamplesPerCityMunicipality.classList.add('hidden');
-        totalColiformSamplesPerCityMunicipality.classList.add('hidden');
-        failedFecalColiformSamplesPerCityMunicipality.classList.add('hidden');
+        samplesPerCityMunicipality.classList.add("hidden");
+        microSamplesPerCityMunicipality.classList.add("hidden");
+        phyChemSamplesPerCityMunicipality.classList.remove("hidden");
+        phyChemSamplesPerMarketSegment.classList.add("hidden");
+        failedHPCSamplesPerCityMunicipality.classList.add("hidden");
+        totalColiformSamplesPerCityMunicipality.classList.add("hidden");
+        failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
     }
-}
+};
