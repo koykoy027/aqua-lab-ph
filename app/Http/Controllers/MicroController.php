@@ -80,4 +80,40 @@ class MicroController extends Controller
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         return redirect()->back()->with(['message' => 'MICR4 - E. coli Test changes has been save']);
     }
+
+    public function micro5(Request $request, $analysis_id)
+    {
+        $request->validate([
+            'micr1_hpc_plate_a' => 'required',
+            'micr1_hpc_plate_b' => 'required',
+            'micr1_hpc_average' => 'required',
+            'micr1_hpc_difference' => 'required',
+            'micr1_hpc_final_result' => 'required',
+            'micr1_hpc_remarks' => 'required',
+
+            'micr2_tc_24' => 'required',
+            'micr2_tc_48' => 'required',
+            'micr2_tc_final_result' => 'required',
+            'micr2_tc_remarks' => 'required',
+
+            'micr3_lauryl_24' => 'required',
+            'micr3_lauryl_48' => 'required',
+            'micr3_brillant_24' => 'required',
+            'micr3_brillant_48' => 'required',
+            'micr3_final_result' => 'required',
+            'micr3_remarks' => 'required',
+
+
+        ]);
+
+        $micro = RawData::findOrFail($analysis_id);
+        $micro->update($request->all());
+
+        $remarks = $request->input('remarks');
+        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
+        return redirect()->back()->with(['message' => 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003) changes has been save']);
+    }
+
+
 }

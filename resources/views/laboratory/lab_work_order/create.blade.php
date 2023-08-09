@@ -20,9 +20,7 @@
     @endif
 
     @if ($rawDataFile->test_parameters == 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
-        @include('laboratory.lab_work_order.partials.micro.micr1')
-        @include('laboratory.lab_work_order.partials.micro.micr2')
-        @include('laboratory.lab_work_order.partials.micro.micr3')
+        @include('laboratory.lab_work_order.partials.micro.micr5')
     @endif
 
     {{-- CHEM CONDITION--}}
