@@ -102,10 +102,27 @@
                                 </div>
                             </li>
 
-                            
-
-                            <li>
-                                <a href="{{ route('laboratory.lab-lab-work-order.labWorkOrder') }}" class="block px-4 py-2 hover:bg-gray-100">Lab Work Order</a>
+                            <li aria-labelledby="dropdownNavbarLink">
+                                <button id="doubleDropdownButton" data-dropdown-toggle="labWorkOrder" data-dropdown-placement="right-start" type="button" class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-100 ">
+                                    Lab Work Order
+                                    <svg class="ml-2.5 h-2.5 w-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
+                                    </svg>
+                                </button>
+                                <div id="labWorkOrder" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                                    <ul class="py-2 text-sm text-gray-700" aria-labelledby="doubleDropdownButton">
+                                        @if(Auth::user()->role !== 'Pchem Manager' && Auth::user()->role !== 'Pchem Analyst')
+                                            <li>
+                                                <a href="{{ route('laboratory.lab-lab-work-order.micro') }}" class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                            </li>
+                                        @endif
+                                        @if(Auth::user()->role !== 'Micro Manager' && Auth::user()->role !== 'Micro Analyst')
+                                            <li>
+                                                <a href="{{ route('laboratory.lab-lab-work-order.pychem') }}" class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM Parameters</a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </div>
                             </li>
 
                             <li aria-labelledby="dropdownNavbarLink">

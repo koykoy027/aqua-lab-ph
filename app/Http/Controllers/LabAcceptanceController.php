@@ -15,12 +15,38 @@ class LabAcceptanceController extends Controller
         return view('record_and_report.lab_acceptance.index', compact('acceptances'));
     }
 
-    public function labWorkOrder()
+    public function micro()
     {
         $analysisRequest = AnalysisRequest::query()
+
+        ->where('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
+        ->orWhere('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
+        ->orWhere('test_parameters', 'MICR3 - Total Coliform')
+        ->orWhere('test_parameters', 'MICR4 - E. coli Test')
+        ->orWhere('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
+        ->whereNot('remarks', 'Pending')
         ->whereNot('remarks', 'Rejected')
-        ->orderByDesc('created_at')
+        ->whereNot('remarks', 'Disapprove')
+
+        ->orderByDesc('updated_at')
         ->paginate(10);
+
+        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+    }
+
+    public function pychem()
+    {
+        $analysisRequest = AnalysisRequest::query()
+        ->whereNot('remarks', 'Pending')
+        ->whereNot('remarks', 'Rejected')
+        ->whereNot('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
+        ->whereNot('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
+        ->whereNot('test_parameters', 'MICR3 - Total Coliform')
+        ->whereNot('test_parameters', 'MICR4 - E. coli Test')
+        ->whereNot('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
+        ->orderByDesc('updated_at')
+        ->paginate(10);
+
         return view('laboratory.lab_work_order.index', compact('analysisRequest'));
     }
 

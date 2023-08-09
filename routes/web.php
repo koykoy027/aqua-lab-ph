@@ -95,7 +95,8 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::post('lab-acceptance/store/{analysis_id}', [LabAcceptanceController::class, 'store'])->name('laboratory.lab-acceptance.store');
 
         Route::prefix('lab-work-order')->group(function () {
-            Route::get('table', [LabAcceptanceController::class, 'labWorkOrder'])->name('laboratory.lab-lab-work-order.labWorkOrder');
+            Route::get('micro', [LabAcceptanceController::class, 'micro'])->name('laboratory.lab-lab-work-order.micro');
+            Route::get('pychem', [LabAcceptanceController::class, 'pychem'])->name('laboratory.lab-lab-work-order.pychem');
             Route::get('search', [QuerySearchController::class, 'labWorkOrderSearch'])->name('laboratory.lab-lab-work-order.labWorkOrder');
             Route::get('form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
         });
