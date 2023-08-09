@@ -70,14 +70,28 @@ class LabAcceptanceController extends Controller
 
         ]);
 
-
         $remarks = $request->remarks;
 
         $lab = LabAcceptance::findOrFail($analysis_id);
+        $analysisRequest = AnalysisRequest::find($analysis_id);
+        $test_parameters = $analysisRequest->test_parameters; // find value of test parameters
         $lab->update($request->all());
 
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
-        return redirect()->back()->with(['message' => 'Lab acceptance has been created successfully!']);
+
+        if(
+            $test_parameters === 'MICR1 - Heterotrophic Plate Count (HPC)' OR
+            $test_parameters === 'MICR2 - Thermotolerant Colifom Test' OR
+            $test_parameters === 'MICR3 - Total Coliform' OR
+            $test_parameters === 'MICR4 - E. coli Test' OR
+            $test_parameters === 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
+        ){
+            return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully!']);
+        }
+        else{
+            return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully!']);
+        }
+
     }
 
 }
