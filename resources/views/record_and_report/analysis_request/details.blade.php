@@ -4,7 +4,7 @@
 
 
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
 
         <div class="flex justify-between">
             <h1 class="mb-3">Sample Collection</h1>
@@ -17,7 +17,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="analysis_id">Analysis request ID</label>
                 <input id="analysis_id" type="text" name="analysis_id" value="{{ $details->analysis_id }}" readonly
@@ -27,7 +27,7 @@
         </div>
 
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="collector_name">Collector name</label>
                 <input id="collector_name" type="text" name="collector_name" value="{{ $details->collector_name }}" readonly
@@ -35,7 +35,7 @@
             </div>
             <div class="mb-3">
                 <label for="date_collected">Date Collected</label>
-                <input id="date_collected" type="text" name="date_collected" value="{{ $details->date_collected }}"
+                <input id="date_collected" type="text" name="date_collected" value="{{ \Carbon\Carbon::parse($details->date_collected)->format('F d, Y') }}"
                     readonly autofocus autocomplete="date_collected">
 
             </div>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
 
             <div class="mb-3">
                 <label for="collection_point">Collection point</label>
@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="uvlight">UV Light</label>
                 <input name="uvlight" id="uvlight" value="{{ $details->uvlight }}" readonly autofocus
@@ -87,8 +87,8 @@
         </div>
     </div>
 
-    <div class="card mb-3 bg-white">
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="mb-3 bg-white card">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="source_of_water_sample">Source of Water Sample</label>
                 <input name="source_of_water_sample" id="source_of_water_sample" value="{{ $details->source_of_water_sample === 'Others' ? $details->source_of_water_sample_others : $details->source_of_water_sample}}" readonly autofocus autocomplete="source_of_water_sample">
@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="test_parameters">Test Parameters</label>
                 <input name="test_parameters" id="test_parameters" value="{{ $details->test_parameters }}" readonly

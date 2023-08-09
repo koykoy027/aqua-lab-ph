@@ -2,12 +2,12 @@
 @section('title', 'Lab Result')
 @section('content')
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         {{-- @include('components.search') --}}
 
         <div class="relative overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-left text-sm text-gray-500">
-                <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Analysis Request ID
@@ -25,15 +25,15 @@
                 </thead>
                 <tbody>
                     @foreach ($datas as $data)
-                        <tr class="border-b bg-white">
-                            <td scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                        <tr class="bg-white border-b">
+                            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $data->analysis_id }}
                             </td>
                             <td class="px-6 py-3">
                                 {{ $data->collector_name }}
                             </td>
                             <td class="px-6 py-3">
-                                {{ $data->date_collected }}
+                                {{ \Carbon\Carbon::parse($data->date_collected)->format('F d, Y') }}
                             </td>
 
                             <td class="px-6 py-4 text-right">

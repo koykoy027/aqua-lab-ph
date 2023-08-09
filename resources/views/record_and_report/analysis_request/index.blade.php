@@ -3,12 +3,12 @@
     @section('content')
 
 
-        <div class="card mb-3 bg-white">
+        <div class="mb-3 bg-white card">
             <label>Analysis Request Table</label>
 
             <div class="relative overflow-x-auto sm:rounded-lg">
-                <table class="w-full text-left text-sm text-gray-500">
-                    <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                         <tr>
                             <th scope="col" class="px-6 py-3">
                                 Analysis reqeust id
@@ -31,8 +31,8 @@
                     </thead>
                     <tbody>
                         @foreach ($requests as $request)
-                            <tr class="border-b bg-white">
-                                <td scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                            <tr class="bg-white border-b">
+                                <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                     {{ $request->analysis_id }}
                                 </td>
                                 {{-- <td class="px-6 py-3">
@@ -42,7 +42,8 @@
                                     {{ $request->collector_name }}
                                 </td>
                                 <td class="px-6 py-3">
-                                    {{ $request->date_collected }}
+                                    {{ \Carbon\Carbon::parse( $request->date_collected)->format('F d, Y') }}
+
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                     <a href="{{ route('record-and-report.analysis-request.details', ['analysis_id' => $request->analysis_id]) }}"

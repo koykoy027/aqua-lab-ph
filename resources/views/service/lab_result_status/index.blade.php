@@ -71,10 +71,11 @@
                                 {{ $data->collector_name }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->date_collected }}
+                                {{ \Carbon\Carbon::parse($data->date_collected)->format('F d, Y') }}
+
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->time_collected }}
+                                {{\Carbon\Carbon::parse($data->time_collected)->format('h:i A')  }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($data->source_of_water_sample == 'Others')

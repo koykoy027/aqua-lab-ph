@@ -11,7 +11,7 @@
             </div>
             <div class="mb-3">
                 <label for="date_collected">Date Collected</label>
-                <input id="date_collected" type="date" name="date_collected" value="{{ $requests->date_collected }}" disabled autofocus autocomplete="date_collected">
+                <input id="date_collected" type="text" name="date_collected" value="{{ \Carbon\Carbon::parse($requests->date_collected)->format('F d, Y') }}" disabled autofocus autocomplete="date_collected">
             </div>
             <div class="mb-3">
                 <label for="time_collected">Time Collected</label>

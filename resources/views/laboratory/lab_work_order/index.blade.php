@@ -39,7 +39,7 @@
                                 {{ $analysisRequests->collector_name }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $analysisRequests->date_collected }}
+                                {{ \Carbon\Carbon::parse($analysisRequests->date_collected)->format('F d, Y') }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $analysisRequests->test_parameters }}
