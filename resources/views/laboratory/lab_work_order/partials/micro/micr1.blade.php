@@ -2,9 +2,9 @@
     @csrf
 
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         <h1 class="mb-3">MICR1 - Heterotrophic Plate Count (HPC)</h1>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr1_hpc_plate_a">Plate A Colony Count</label>
                 <input id="micr1_hpc_plate_a" type="number" name="micr1_hpc_plate_a"

@@ -2,6 +2,15 @@
 @section('title', 'Create Raw Data File')
 @section('content')
 
+
+<div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+    <div class="mb-3 bg-white card">
+        <label for="sampleID">Sample ID</label>
+        <input id="sampleID" type="text" value="{{$rawDataFile->analysis_id}}" readonly>
+    </div>
+</div>
+
+
     {{-- MICRO CONDITION --}}
     @if ($rawDataFile->test_parameters == 'MICR1 - Heterotrophic Plate Count (HPC)')
         @include('laboratory.lab_work_order.partials.micro.micr1')
