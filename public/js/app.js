@@ -192,25 +192,19 @@ const micro1 = () => {
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
 
-    if (averagecolony === 25) {
-        micr1_hpc_average.value = 25;
-        micr1_hpc_final_result.value = 25;
-    } else if (averagecolony === 155) {
-        micr1_hpc_average.value = 160;
-        micr1_hpc_final_result.value = 160;
-    } else if (averagecolony === 114) {
-        micr1_hpc_average.value = 110;
-        micr1_hpc_final_result.value = 110;
-    } else {
-        micr1_hpc_average.value = averagecolony.toFixed(0);
-        micr1_hpc_final_result.value = averagecolony.toFixed(0);
-    }
-
     var microdifference =
         Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / averagecolony;
 
+    if (averagecolony >= 100) {
+        var roundedNumber = Math.round(averagecolony / 10) * 10;
+        micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+        micr1_hpc_average.value = roundedNumber.toFixed(0);
+    } else {
+        micr1_hpc_final_result.value = averagecolony.toFixed(0);
+        micr1_hpc_average.value = averagecolony.toFixed(0);
+    }
+
     micr1_hpc_difference.value = microdifference.toFixed(2);
-    // micr1_hpc_final_result.value = averagecolony.toFixed(0);
 
     if (parseFloat(micr1_hpc_final_result.value) >= 500) {
         micr1_hpc_remarks.value = "FAIL";
