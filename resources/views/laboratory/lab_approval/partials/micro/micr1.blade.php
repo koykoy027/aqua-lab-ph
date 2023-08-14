@@ -17,7 +17,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="micr1_hpc_difference">% Difference</label>
+            <label for="micr1_hpc_difference">Difference</label>
             <input id="micr1_hpc_difference" type="text" name="micr1_hpc_difference" value="{{ $lab_approval->micr1_hpc_difference }}" readonly autofocus autocomplete="micr1_hpc_difference">
         </div>
 
