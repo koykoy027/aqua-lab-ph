@@ -10,8 +10,7 @@ class LabAcceptanceController extends Controller
 {
     public function index()
     {
-        $acceptances = LabAcceptance::orderByDesc('created_at')
-        ->paginate(10);
+        $acceptances = LabAcceptance::paginate(10);
         return view('record_and_report.lab_acceptance.index', compact('acceptances'));
     }
 

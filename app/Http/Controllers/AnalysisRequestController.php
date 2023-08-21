@@ -64,7 +64,7 @@ class AnalysisRequestController extends Controller
 
     public function index()
     {
-        $requests = AnalysisRequest::orderByDesc('created_at')->paginate(10);
+        $requests = AnalysisRequest::paginate(10);
         return view('record_and_report.analysis_request.index', compact('requests'));
     }
 
