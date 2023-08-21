@@ -93,12 +93,15 @@ class LabResultStatusController extends Controller
     public function table(Request $request){
 
         $query = $request->input('search');
-        $datas = AnalysisRequest::where('remarks', 'For releasing')
-        // ->orWhere('analysis_id', 'LIKE', "%$query%")
-        // ->orWhere('collector_name', 'LIKE', "%$query%")
-        // ->orWhere('date_collected', 'LIKE', "%$query%")
-        ->orderByDesc('updated_at')
-        ->paginate(10);
+
+        $queryBuilder = AnalysisRequest::query()
+        ->where('remarks', 'Approve')
+        ->where(function ($search) use ($query) {
+            $search->where('collector_name', 'LIKE', "%$query%")
+            ->orWhere('remarks', 'LIKE', "$query")
+                ->orWhere('test_parameters', 'LIKE', "%$query%");
+        });
+        $datas = $queryBuilder->paginate(10);
         return view('record_and_report.lab_result.index', compact('datas', 'query'));
     }
 

@@ -26,20 +26,6 @@ class QuerySearchController extends Controller
         return view('service.lab_result_status.index', compact('datas'));
     }
 
-    public function generateReportSearch(Request $request)
-    {
-        $query = $request->input('search');
-
-        $query = $request->input('search');
-        $datas = AnalysisRequest::where('remarks', 'Approve')
-        // ->orWhere('analysis_id', 'LIKE', "%$query%")
-        // ->orWhere('collector_name', 'LIKE', "%$query%")
-        // ->orWhere('date_collected', 'LIKE', "%$query%")
-        ->orderByDesc('updated_at')
-        ->paginate(10);
-
-        return view('record_and_report.lab_result.index', compact('datas'));
-    }
 
     public function labWorkOrderSearch(Request $request)
     {

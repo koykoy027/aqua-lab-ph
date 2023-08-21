@@ -71,7 +71,6 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         });
         Route::prefix('generate-report')->group(function () {
             Route::get('table', [LabResultStatusController::class, 'table'])->name('record-and-report.lab-result.table');
-            Route::get('search', [QuerySearchController::class, 'generateReportSearch'])->name('record-and-report.lab-result.table');
             Route::get('details{analysis_id}/pdf', [PdfController::class, 'generateAnalysisPdf'])->name('record-and-report.analysis-request.generateAnalysisPdf');
             Route::get('details/{analysis_id}', [LabResultStatusController::class, 'details'])->name('record-and-report.lab-result.details');
 
@@ -86,7 +85,7 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::prefix('lab-acceptance')->group(function () {
             Route::get('micro', [LabResultStatusController::class, 'micro'])->name('service.lab-result-status.micro');
             Route::get('pychem', [LabResultStatusController::class, 'pychem'])->name('service.lab-result-status.pychem');
-            
+
 
         });
 
