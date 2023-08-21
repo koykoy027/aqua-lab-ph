@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('analysis_requests', function (Blueprint $table) {
             $table->id('analysis_id');
             $table->unsignedBigInteger('account_number');
-            $table->foreign('account_number')->references('account_number')->on('clients'); // connect in clients account number
+            $table->foreign('account_number')->references('account_number')->on('clients'); // connect in Client Account ID
             $table->string('collector_name');
             $table->date('date_collected');
             $table->date('date_next_schedule');

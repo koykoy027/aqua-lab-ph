@@ -14,7 +14,7 @@
                             Account name
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Account number
+                            Client Account ID
                         </th>
                         <th scope="col" class="px-6 py-3">
                             E-mail Address

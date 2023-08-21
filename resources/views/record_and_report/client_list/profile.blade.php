@@ -7,9 +7,10 @@
         <h1 class="mb-3">General Information</h1>
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
-                <label for="account_number">Account Number</label>
-                <input id="account_number" type="text" name="account_number" value="49SRL0623WSP{{ $clients->account_number }}" required
-                    autofocus autocomplete="account_number" readonly>
+                <label for="account_number">Client Account ID</label>
+                <input id="account_number" type="text" name="account_number"
+                    value="49SRL0623WSP{{ $clients->account_number }}" required autofocus autocomplete="account_number"
+                    readonly>
             </div>
         </div>
 
@@ -82,8 +83,8 @@
 
             <div class="mb-3">
                 <label for="barangay_name">Barangay</label>
-                <input id="barangay_name" type="text" name="barangay_name" value="{{ $clients->barangay_name }}" required
-                    autofocus autocomplete="barangay_name" readonly>
+                <input id="barangay_name" type="text" name="barangay_name" value="{{ $clients->barangay_name }}"
+                    required autofocus autocomplete="barangay_name" readonly>
             </div>
             <div class="mb-3">
                 <label for="zip_code">Zip code</label>

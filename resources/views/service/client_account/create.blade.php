@@ -12,9 +12,10 @@
             <input type="hidden" name="type" value="walk in" readonly />
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
-                    <label for="account_number">Account Number</label>
-                    <input id="account_number" type="text" name="account_number" value="49SRL0623WSP{{ $currentAccountNumber ?? '1'}}" required
-                        autofocus autocomplete="account_number" disabled>
+                    <label for="account_number">Client Account ID</label>
+                    <input id="account_number" type="text" name="account_number"
+                        value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus
+                        autocomplete="account_number" disabled>
                     @error('account_number')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -167,7 +168,8 @@
                         value="{{ old('municipality_or_city') }}" required autofocus autocomplete="municipality_or_city">
                         <option disabled selected>Select Municipality or City</option>
                     </select>
-                    <input id="municipality_or_city" type="hidden" name="municipality_or_city" required autofocus autocomplete="municipality_or_city">
+                    <input id="municipality_or_city" type="hidden" name="municipality_or_city" required autofocus
+                        autocomplete="municipality_or_city">
                     @error('municipality_or_city')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -181,7 +183,8 @@
                         required autofocus autocomplete="barangay_name">
                         <option disabled selected>Select Barangay</option>
                     </select>
-                    <input id="barangay_name" type="hidden" name="barangay_name" required autofocus autocomplete="barangay_name">
+                    <input id="barangay_name" type="hidden" name="barangay_name" required autofocus
+                        autocomplete="barangay_name">
                     @error('barangay_name')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -190,7 +193,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="zip_code">Zip code</label>
-                    <input id="zip_code" type="text" name="zip_code" value="{{ old('zip_code') }}" autofocus autocomplete="zip_code">
+                    <input id="zip_code" type="text" name="zip_code" value="{{ old('zip_code') }}" autofocus
+                        autocomplete="zip_code">
                     @error('zip_code')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -205,8 +209,8 @@
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
                 <div class="mb-3">
                     <label for="telephone">Telephone number</label>
-                    <input id="telephone" type="tel" name="telephone" value="{{ old('telephone') }}"
-                        autofocus autocomplete="telephone">
+                    <input id="telephone" type="tel" name="telephone" value="{{ old('telephone') }}" autofocus
+                        autocomplete="telephone">
                     @error('telephone')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -255,7 +259,8 @@
                         autofocus autocomplete="market_segment" onchange="marketSegment(this.value)">
                         <option value="0001 - Water Refilling Station">0001 - Water Refilling Station</option>
                         <option value="002A - Food and Beverages (Service)">002A - Food and Beverages (Service)</option>
-                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)</option>
+                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)
+                        </option>
                         <option value="003 - Hospitality Industry">003 - Hospitality Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
                         <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>
