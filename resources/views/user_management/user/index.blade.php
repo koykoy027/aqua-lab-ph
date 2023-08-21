@@ -2,16 +2,19 @@
 @section('title', 'User Lists table')
 @section('content')
 
-    <div class="card mb-3 bg-white">    
+    <div class="mb-3 bg-white card">
 
-        @include('components.search')
-        <div class="flex justify-end">
-            <a class="btn btn-primary" href="{{ route('register') }}">Add new User</a>
+        <div class="flex justify-between">
+            @include('components.search')
+
+            <div class="flex items-center">
+                <a class="btn btn-primary" href="{{ route('register') }}">Add new User</a>
+            </div>
         </div>
 
         <div class="relative overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-left text-sm text-gray-500">
-                <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Name
@@ -32,8 +35,8 @@
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
-                        <tr class="border-b bg-white">
-                            <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $user->name }}
                             </th>
                             <td class="px-6 py-4">
@@ -59,16 +62,17 @@
                             <td class="px-6 py-4 text-right">
 
                                 @if ($user->status == '0')
-                                    <form action="{{ route('user-management.user-lists.setAsActive', $user) }}" method="POST">
+                                    <form action="{{ route('user-management.user-lists.setAsActive', $user) }}"
+                                        method="POST">
                                         @csrf
                                         @method('PUT')
                                         <button type="submit" class="font-medium text-blue-600 hover:underline">
                                             Set as Active
                                         </button>
                                     </form>
-
                                 @else
-                                    <form action="{{ route('user-management.user-lists.setAsInactive', $user) }}" method="POST">
+                                    <form action="{{ route('user-management.user-lists.setAsInactive', $user) }}"
+                                        method="POST">
                                         @csrf
                                         @method('PUT')
                                         <button type="submit" class="font-medium text-blue-600 hover:underline">

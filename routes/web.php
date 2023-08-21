@@ -150,10 +150,9 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
     Route::prefix('user-management')->group(function () {
 
         Route::get('user-lists', [RegisteredUserController::class, 'index'])->name('user-management.user-lists.index');
-        Route::get('user-lists', [RegisteredUserController::class, 'search'])->name('user-management.user-lists.index');
         Route::put('user-lists/{user}/active', [UserController::class, 'setAsActive'])->name('user-management.user-lists.setAsActive');
         Route::put('user-lists/{user}/inactive', [UserController::class, 'setAsInactive'])->name('user-management.user-lists.setAsInactive');
-        Route::get('role-lists', [RoleController::class, 'index'])->name('user-management.role-lists.index');
+        // Route::get('role-lists', [RoleController::class, 'index'])->name('user-management.role-lists.index');
 
     });
 

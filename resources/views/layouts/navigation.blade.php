@@ -195,9 +195,9 @@
                             <li>
                                 <a href="{{ url('user-management/user-lists') }}" class="block px-4 py-2 hover:bg-gray-100">User Lists</a>
                             </li>
-                            <li>
+                            {{-- <li>
                                 <a href="{{ route('user-management.role-lists.index') }}" class="block px-4 py-2 hover:bg-gray-100">Roles</a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </li>
