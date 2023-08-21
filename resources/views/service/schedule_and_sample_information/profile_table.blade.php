@@ -2,12 +2,14 @@
 @section('title', 'Lab Acceptance')
 @section('content')
 
-    <div class="card mb-3 bg-white">
-        <label>Lab Acceptance Table</label>
+    <div class="mb-3 bg-white card">
+        {{-- <div class="justify-end lg:flex">
+            @include('components.search')
+        </div> --}}
 
         <div class="relative overflow-x-auto sm:rounded-lg">
-            <table class="w-full text-left text-sm text-gray-500">
-                <thead class="bg-gray-50 text-xs uppercase text-gray-700">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Analysis Request ID
@@ -46,8 +48,8 @@
                 </thead>
                 <tbody>
                     @foreach ($analysisRequest as $data)
-                        <tr class="border-b bg-white">
-                            <th scope="row" class="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $data->analysis_id }}
                             </th>
 
@@ -91,13 +93,13 @@
                             </td>
 
                             <td class="px-6 py-4">
-                                {{ $data->time_collected }}
+                                {{ \Carbon\Carbon::parse($data->time_collected)->format('H:i A')  }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->date_collected }}
+                                {{ \Carbon\Carbon::parse($data->date_collected)->format('F d, Y')  }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->date_next_schedule }}
+                                {{ \Carbon\Carbon::parse($data->date_next_schedule)->format('F d, Y')  }}
                             </td>
 
                             <td class="px-6 py-4 text-right">

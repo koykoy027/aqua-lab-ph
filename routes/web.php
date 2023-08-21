@@ -23,7 +23,6 @@ use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PhysController;
-use App\Http\Controllers\QuerySearchController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScheduleAndSampleInformationController;
 
@@ -64,9 +63,8 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
 
         Route::prefix('schedule-and-sample-information')->group(function () {
-            Route::get('client-table', [ScheduleAndSampleInformationController::class, 'clientTable'])->name('service.schedule-and-sample-information.clientTable');
-            Route::get('client-table', [ScheduleAndSampleInformationController::class, 'search'])->name('service.schedule-and-sample-information.clientTable');
-            Route::get('analysis-table/{account_number}', [ScheduleAndSampleInformationController::class, 'profileTable'])->name('service.schedule-and-sample-information.profileTable');
+            Route::get('client-table', [ScheduleAndSampleInformationController::class, 'index'])->name('service.schedule-and-sample-information.clientTable');
+            Route::get('analysis-table/{account_number}', [ScheduleAndSampleInformationController::class, 'show'])->name('service.schedule-and-sample-information.profileTable');
 
         });
         Route::prefix('generate-report')->group(function () {
@@ -95,7 +93,6 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::prefix('lab-work-order')->group(function () {
             Route::get('micro', [LabAcceptanceController::class, 'micro'])->name('laboratory.lab-lab-work-order.micro');
             Route::get('pychem', [LabAcceptanceController::class, 'pychem'])->name('laboratory.lab-lab-work-order.pychem');
-            Route::get('search', [QuerySearchController::class, 'labWorkOrderSearch'])->name('laboratory.lab-lab-work-order.labWorkOrder');
             Route::get('form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
         });
 
