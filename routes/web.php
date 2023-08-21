@@ -86,7 +86,7 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::prefix('lab-acceptance')->group(function () {
             Route::get('micro', [LabResultStatusController::class, 'micro'])->name('service.lab-result-status.micro');
             Route::get('pychem', [LabResultStatusController::class, 'pychem'])->name('service.lab-result-status.pychem');
-            // Route::get('search', [QuerySearchController::class, 'labAcceptanceSearch'])->name('service.lab-result-status.index');
+            
 
         });
 

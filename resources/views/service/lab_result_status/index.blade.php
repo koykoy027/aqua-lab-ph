@@ -3,7 +3,10 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        {{-- @include('components.search') --}}
+        <div class="justify-end lg:flex">
+            @include('components.search')
+        </div>
+
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
@@ -52,16 +55,17 @@
                             </td> --}}
                             <td class="px-6 py-4">
 
-                                <span class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-center
-                                    @if($data->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
-                                    @if($data->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
-                                    @if($data->remarks === 'Accepted') text-green-800 bg-green-100 @endif
-                                    @if($data->remarks === 'Rejected') text-red-800 bg-red-100 @endif
-                                    @if($data->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
-                                    @if($data->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
-                                    @if($data->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
-                                    @if($data->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
-                                    @if($data->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+                                <span
+                                    class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-center
+                                    @if ($data->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if ($data->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                    @if ($data->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if ($data->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if ($data->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if ($data->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if ($data->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if ($data->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if ($data->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
 
                                 ">
                                     {{ $data->remarks }}
@@ -75,7 +79,7 @@
 
                             </td>
                             <td class="px-6 py-4">
-                                {{\Carbon\Carbon::parse($data->time_collected)->format('h:i A')  }}
+                                {{ \Carbon\Carbon::parse($data->time_collected)->format('h:i A') }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($data->source_of_water_sample == 'Others')
@@ -96,7 +100,8 @@
                                 {{ $data->test_parameters }}
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route('laboratory.lab-acceptance.create', ['analysis_id' => $data->analysis_id]) }}" class="font-medium text-blue-600 hover:underline">Lab Acceptance Form</a>
+                                <a href="{{ route('laboratory.lab-acceptance.create', ['analysis_id' => $data->analysis_id]) }}"
+                                    class="font-medium text-blue-600 hover:underline">Lab Acceptance Form</a>
                             </td>
                         </tr>
                     @endforeach

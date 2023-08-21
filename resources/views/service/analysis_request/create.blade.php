@@ -3,8 +3,9 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        @include('components.search')
-
+        <div class="justify-end lg:flex">
+            @include('components.search')
+        </div>
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -42,7 +43,8 @@
                                 {{ $client->municipality_or_city }}
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route ('service.add-analysis-request.form', ['account_number' => $client->account_number])  }}" class="font-medium text-blue-600 hover:underline">Add Analysis</a>
+                                <a href="{{ route('service.add-analysis-request.form', ['account_number' => $client->account_number]) }}"
+                                    class="font-medium text-blue-600 hover:underline">Add Analysis</a>
                             </td>
                         </tr>
                     @endforeach
