@@ -60,7 +60,8 @@ class LabResultStatusController extends Controller
         ])
         ->where(function ($search) use ($query) {
             $search->where('collector_name', 'LIKE', "%$query%")
-            ->orWhere('remarks', 'LIKE', "$query");
+            ->orWhere('remarks', 'LIKE', "$query")
+            ->orWhere('test_parameters', 'LIKE', "%$query%");
         });
         $datas = $queryBuilder->paginate(10);
 
@@ -78,7 +79,8 @@ class LabResultStatusController extends Controller
         ->whereNot('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
         ->where(function ($search) use ($query){
             $search->where('collector_name', 'LIKE', "%$query%")
-            ->orWhere('remarks', 'LIKE', "$query");
+            ->orWhere('remarks', 'LIKE', "$query")
+            ->orWhere('test_parameters', 'LIKE', "%$query%");
         });
         $datas = $queryBuilder->paginate(10);
 

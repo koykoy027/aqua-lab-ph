@@ -15,39 +15,50 @@ class LabAcceptanceController extends Controller
         return view('record_and_report.lab_acceptance.index', compact('acceptances'));
     }
 
-    public function micro()
+    public function micro(Request $request)
     {
-        $analysisRequest = AnalysisRequest::query()
+        $query = $request->input('search');
+        $queryBuilder = AnalysisRequest::query()
+        ->whereIn('test_parameters', [
+            'MICR1 - Heterotrophic Plate Count (HPC)',
+            'MICR2 - Thermotolerant Coliform Test',
+            'MICR3 - Total Coliform',
+            'MICR4 - E. coli Test',
+            'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
+        ])
+        ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
+        ->where(function ($search) use ($query) {
+            $search->where('collector_name', 'LIKE', "%$query%")
+            ->orWhere('remarks', 'LIKE', "%$query%")
+            ->orWhere('test_parameters', 'LIKE', "%$query%");
+        });
 
-        ->where('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
-        ->orWhere('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
-        ->orWhere('test_parameters', 'MICR3 - Total Coliform')
-        ->orWhere('test_parameters', 'MICR4 - E. coli Test')
-        ->orWhere('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
-        ->whereNot('remarks', 'Pending')
-        ->whereNot('remarks', 'Rejected')
-        ->whereNot('remarks', 'Disapprove')
+        $analysisRequest = $queryBuilder->paginate(10);
 
-        ->orderByDesc('updated_at')
-        ->paginate(10);
-
-        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+        return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }
 
-    public function pychem()
+    public function pychem(Request $request)
     {
-        $analysisRequest = AnalysisRequest::query()
-        ->whereNot('remarks', 'Pending')
-        ->whereNot('remarks', 'Rejected')
-        ->whereNot('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
-        ->whereNot('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
-        ->whereNot('test_parameters', 'MICR3 - Total Coliform')
-        ->whereNot('test_parameters', 'MICR4 - E. coli Test')
-        ->whereNot('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
-        ->orderByDesc('updated_at')
-        ->paginate(10);
+        $query = $request->input('search');
+        $queryBuilder = AnalysisRequest::query()
+        ->whereNotIn('test_parameters', [
+            'MICR1 - Heterotrophic Plate Count (HPC)',
+            'MICR2 - Thermotolerant Coliform Test',
+            'MICR3 - Total Coliform',
+            'MICR4 - E. coli Test',
+            'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
+        ])
+        ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
+        ->where(function ($search) use ($query) {
+            $search->where('collector_name', 'LIKE', "%$query%")
+            ->orWhere('remarks', 'LIKE', "%$query%")
+            ->orWhere('test_parameters', 'LIKE', "%$query%");
+        });
 
-        return view('laboratory.lab_work_order.index', compact('analysisRequest'));
+        $analysisRequest = $queryBuilder->paginate(10);
+
+        return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }
 
     public function create($analysis_id)
