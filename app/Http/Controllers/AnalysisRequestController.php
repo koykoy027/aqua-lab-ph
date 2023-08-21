@@ -10,9 +10,17 @@ use Carbon\Carbon;
 
 class AnalysisRequestController extends Controller
 {
-    public function create()
+    public function create(Request $request)
     {
-        return view('service.analysis_request.create');
+        $query = $request->input('search');
+
+        $clients = Client::query()
+        ->where('account_name', 'LIKE', "%$query%")
+        ->orWhere('account_number', 'LIKE', "%$query%")
+        ->orWhere('email', 'LIKE', "%$query%")
+        ->orWhere('municipality_or_city', 'LIKE', "%$query%")
+        ->paginate(10);
+        return view('service.analysis_request.create', compact('query', 'clients'));
     }
 
     public function form($account_number)

@@ -60,7 +60,6 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::get('add-client-account', [ClientController::class, 'create'])->name('service.add-client-account.create');
         Route::post('add-client-account/store', [ClientController::class, 'store'])->name('service.add-client-account.store');
         Route::get('add-analysis-request', [AnalysisRequestController::class, 'create'])->name('service.add-analysis-request.create');
-        Route::get('add-analysis-request', [QuerySearchController::class, 'client'])->name('service.add-analysis-request.create');
         Route::get('add-analysis-request-form/{account_number}', [AnalysisRequestController::class, 'form'])->name('service.add-analysis-request.form');
         Route::post('add-analysis-request-form/store', [AnalysisRequestController::class, 'store'])->name('service.add-analysis-request.store');
 
