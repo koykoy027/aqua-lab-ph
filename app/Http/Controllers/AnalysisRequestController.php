@@ -40,7 +40,7 @@ class AnalysisRequestController extends Controller
             'sampling_location_address' => 'required',
             'uvlight' => 'required',
             'chlorinator' => 'required',
-            'faucet_condition' => 'required',
+            // 'faucet_condition' => 'required',
             'source_of_water_sample' => 'required',
             'type_of_water' => 'required',
             'water_purpose' => 'required',

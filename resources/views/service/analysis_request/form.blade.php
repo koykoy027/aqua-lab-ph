@@ -242,7 +242,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="faucet_condition">Faucet Condition after Disinfection</label>
                         <input id="faucet_condition" type="text" name="faucet_condition"
                             value="{{ old('faucet_condition') }}" required autofocus autocomplete="faucet_condition">
@@ -251,7 +251,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

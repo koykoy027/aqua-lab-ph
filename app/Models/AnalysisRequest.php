@@ -21,7 +21,7 @@ class AnalysisRequest extends Model
             'sampling_location_address_others',
             'uvlight',
             'chlorinator',
-            'faucet_condition',
+            // 'faucet_condition',
             'source_of_water_sample',
             'source_of_water_sample_others',
             'type_of_water',
