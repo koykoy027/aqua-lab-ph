@@ -23,7 +23,7 @@ class PhysController extends Controller
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        return redirect()->back()->with(['message' => 'PHYS1 - Appearance Computation Success']);
+        return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PHYS1 - Appearance Computation Success']);
     }
 
     public function phys2(Request $request, $analysis_id)
@@ -40,7 +40,7 @@ class PhysController extends Controller
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        return redirect()->back()->with(['message' => 'PHYS2 - Odor Computation Success']);
+        return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PHYS2 - Odor Computation Success']);
     }
 
     public function phys3(Request $request, $analysis_id)
@@ -57,7 +57,7 @@ class PhysController extends Controller
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        return redirect()->back()->with(['message' => 'PHYS3 - Color, apparent Computation Success']);
+        return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PHYS3 - Color, apparent Computation Success']);
     }
 
     public function phys4(Request $request, $analysis_id)
@@ -77,6 +77,6 @@ class PhysController extends Controller
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        return redirect()->back()->with(['message' => 'PHYS4 - Turbidity Computation Success']);
+        return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PHYS4 - Turbidity Computation Success']);
     }
 }
