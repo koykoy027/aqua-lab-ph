@@ -27,7 +27,7 @@
         <header class="bg-white shadow">
             <div class="px-4 py-6 mx-auto uppercase max-w-7xl text-slate-500 sm:px-6 lg:px-8">
 
-                <nav class="flex" aria-label="Breadcrumb">
+                <nav class="flex justify-between" aria-label="Breadcrumb">
                     <ol class="inline-flex items-center space-x-1 md:space-x-3">
                         <li class="inline-flex items-center">
                             <a href="{{ url('/') }}"
@@ -52,6 +52,8 @@
                             </div>
                         </li>
                     </ol>
+
+                    <h1 id="currentDateTime" class="ml-1 text-sm font-medium text-gray-500 md:ml-2"></h1>
                 </nav>
             </div>
         </header>
@@ -62,6 +64,11 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset('js/currentDateTime.js') }}"></script>
+
 </body>
+
+
 
 </html>
