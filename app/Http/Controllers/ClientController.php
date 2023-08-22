@@ -31,7 +31,7 @@ class ClientController extends Controller
         if(Client::count() === 0){
             $currentAccountNumber = 1;
         }else{
-            $currentAccountNumber = Client::latest()->first()->account_number;
+            $currentAccountNumber = Client::latest()->first()->account_number + 1;
         }
 
 
