@@ -73,6 +73,20 @@
 
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
+                <label for="type_of_water">Type of Water</label>
+                <select name="type_of_water" id="type_of_water" disabled autofocus autocomplete="type_of_water" onchange="sourceOfWaterSample(this.value)">
+                    <option value="{{ $requests->type_of_water }}">{{ $requests->type_of_water }}</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="type_of_water_others">Type of Water , if others</label>
+                <input id="type_of_water_others" type="text" name="type_of_water_others" value="{{ $requests->type_of_water_others }}" disabled autofocus autocomplete="source_of_water_sample_others" readonly>
+            </div>
+        </div>
+
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+            <div class="mb-3">
                 <label for="water_purpose">Water Purpose</label>
                 <select name="water_purpose" id="water_purpose" disabled autofocus autocomplete="water_purpose" onchange="waterPurpose(this.value)">
                     <option value="{{ $requests->water_purpose }}">{{ $requests->water_purpose }}</option>

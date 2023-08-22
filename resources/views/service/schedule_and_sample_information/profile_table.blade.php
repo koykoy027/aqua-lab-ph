@@ -27,8 +27,12 @@
                             Source of Water Sample
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Type of water
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Water Purpose
                         </th>
+
                         <th scope="col" class="px-6 py-3">
                             Test Parameters
                         </th>
@@ -78,6 +82,13 @@
                                     {{ $data->source_of_water_sample_others }}
                                 @else
                                     {{ $data->source_of_water_sample }}
+                                @endif
+                            </td>
+                            <td class="px-6 py-4">
+                                @if ($data->type_of_water == 'Others')
+                                    {{ $data->type_of_water_others }}
+                                @else
+                                    {{ $data->type_of_water }}
                                 @endif
                             </td>
                             <td class="px-6 py-4">

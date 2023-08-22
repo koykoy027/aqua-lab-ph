@@ -72,12 +72,15 @@
     </div>
 
     <div class="mb-3 bg-white card">
-        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="source_of_water_sample">Source of Water Sample</label>
                 <input name="source_of_water_sample" id="source_of_water_sample" value="{{ $analysis->source_of_water_sample === 'Others' ? $analysis->source_of_water_sample_others : $analysis->source_of_water_sample}}" readonly autofocus autocomplete="source_of_water_sample">
             </div>
-
+            <div class="mb-3">
+                <label for="type_of_water">Type of water</label>
+                <input name="type_of_water" id="type_of_water" value="{{ $analysis->type_of_water === 'Others' ? $analysis->type_of_water_others : $analysis->type_of_water}}" readonly autofocus autocomplete="type_of_water">
+            </div>
             <div class="mb-3">
                 <label for="water_purpose">Water Purpose</label>
                 <input name="water_purpose" id="water_purpose" value="{{ $analysis->water_purpose === 'Others' ?  $analysis->water_purpose_others : $analysis->water_purpose }}" readonly autofocus autocomplete="water_purpose">
