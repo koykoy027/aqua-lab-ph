@@ -140,7 +140,6 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
 
         Route::prefix('client')->group(function () {
             Route::get('table', [ClientController::class, 'index'])->name('record-and-report.record_and_report.client_list.index');
-            Route::get('table', [ClientController::class, 'search'])->name('record-and-report.record_and_report.client_list.index');
             Route::get('profile/{account_number}', [ClientController::class, 'profile'])->name('record-and-report.record_and_report.client_list.profile');
         });
 

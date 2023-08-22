@@ -6,24 +6,18 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function index(){
-        $clients = Client::orderByDesc('updated_at')
-        ->paginate(10);
 
-        return view ('record_and_report.client_list.index', compact('clients'));
-    }
-
-    public function search(Request $request){
+    public function index(Request $request){
         $query = $request->input('search');
 
         $clients = Client::where('account_number', 'LIKE', "%$query%")
         ->orWhere('account_name', 'LIKE', "%$query%")
         ->orWhere('email', 'LIKE', "%$query%")
         ->orWhere('municipality_or_city', 'LIKE', "%$query%")
-        ->orderByDesc('updated_at')
+        ->orderBy('account_name', 'ASC')
         ->paginate(10);
 
-        return view('record_and_report.client_list.index', compact('clients'));
+        return view('record_and_report.client_list.index', compact('clients', 'query'));
     }
 
     public function create(){
