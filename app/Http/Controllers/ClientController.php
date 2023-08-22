@@ -47,7 +47,7 @@ class ClientController extends Controller
             // 'zip_code' => 'required',
             // 'telephone' => 'required',
             'mobile' => 'required',
-            'email' => 'required',
+            // 'email' => 'required',
             'fsr_assigned' => 'required',
             'no_of_microbiology_samples' => 'required',
             'sample_collection_frequency_micro' => 'required',

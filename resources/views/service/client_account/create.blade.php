@@ -228,7 +228,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="email">Email address</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus
                         autocomplete="email">
                     @error('email')
                         <span class="invalid" role="alert">

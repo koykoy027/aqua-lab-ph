@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('province');
             $table->string('telephone')->nullable();
             $table->string('mobile');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('fsr_assigned');
             $table->string('market_segment')->nullable();
             $table->string('market_segment_others')->nullable();
