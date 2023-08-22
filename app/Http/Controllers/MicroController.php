@@ -43,7 +43,7 @@ class MicroController extends Controller
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'MICR2 - Thermotolerant Coliform Test changes has been save']);
+        return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'MICR2 - Thermotolerant Colifom Test changes has been save']);
     }
 
     public function micro3(Request $request, $analysis_id)
@@ -114,6 +114,4 @@ class MicroController extends Controller
 
         return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003) changes has been save']);
     }
-
-
 }

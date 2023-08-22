@@ -42,6 +42,7 @@ class AnalysisRequestController extends Controller
             'chlorinator' => 'required',
             'faucet_condition' => 'required',
             'source_of_water_sample' => 'required',
+            'type_of_water' => 'required',
             'water_purpose' => 'required',
             'test_parameters' => 'required',
         ]);

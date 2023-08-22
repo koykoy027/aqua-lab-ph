@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('faucet_condition');
             $table->string('source_of_water_sample');
             $table->string('source_of_water_sample_others')->nullable();
+            $table->string('type_of_water');
+            $table->string('type_of_water_others')->nullable();
             $table->string('water_purpose');
             $table->string('water_purpose_others')->nullable();
             $table->string('test_parameters');

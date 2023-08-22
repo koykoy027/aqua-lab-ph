@@ -144,6 +144,19 @@ const sourceOfWaterSample = (val) => {
 };
 
 // can be seen in service.add-analysis-request-form
+const typeOfWater = (val) => {
+    var input = document.getElementById("type_of_water_others");
+    if (val === "Others") {
+        // actve readonly
+        input.removeAttribute("readonly");
+    } else {
+        // disable readonly
+        input.setAttribute("readonly", "readonly");
+        input.value = "";
+    }
+};
+
+// can be seen in service.add-analysis-request-form
 const waterPurpose = (val) => {
     var input = document.getElementById("water_purpose_others");
     if (val === "Others") {

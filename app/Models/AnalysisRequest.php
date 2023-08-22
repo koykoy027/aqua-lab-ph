@@ -24,6 +24,8 @@ class AnalysisRequest extends Model
             'faucet_condition',
             'source_of_water_sample',
             'source_of_water_sample_others',
+            'type_of_water',
+            'type_of_water_others',
             'water_purpose',
             'water_purpose_others',
             'test_parameters',

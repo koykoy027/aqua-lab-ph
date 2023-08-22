@@ -290,6 +290,43 @@
 
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
+                    <label for="type_of_water">Type of Water</label>
+                    <select name="type_of_water" id="type_of_water"
+                        value="{{ old('type_of_water') }}" required autofocus
+                        autocomplete="type_of_water" onchange="typeOfWater(this.value)">
+                        <option value="Chlorinated">Chlorinated</option>
+                        <option value="Filtered">Filtered</option>
+                        <option value="Unfiltered">Unfiltered</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Raw Water">Raw Water</option>
+                        <option value="Product Water">Product Water</option>
+                        <option value="Purified Water">Purified Water</option>
+                        <option value="Alkaline Water">Alkaline Water</option>
+                        <option value="Mineral Water">Mineral Water</option>
+                        <option value="Point of Use">Point of Use</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    @error('type_of_water')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="type_of_water_others">Type of Water , if others</label>
+                    <input id="type_of_water_others" type="text" name="type_of_water_others"
+                        value="{{ old('type_of_water_others') }}" required autofocus
+                        autocomplete="type_of_water_others" readonly>
+                    @error('type_of_water_others')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+                <div class="mb-3">
                     <label for="water_purpose">Water Purpose</label>
                     <select name="water_purpose" id="water_purpose" value="{{ old('water_purpose') }}" required
                         autofocus autocomplete="water_purpose" onchange="waterPurpose(this.value)">
