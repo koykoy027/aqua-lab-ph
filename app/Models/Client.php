@@ -13,6 +13,7 @@ class Client extends Model
     protected $table = 'clients';
 
     protected $fillable = [
+        'client_id',
         'account_number',
         'account_name',
         'name_of_owner',

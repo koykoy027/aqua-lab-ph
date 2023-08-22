@@ -7,9 +7,9 @@
         <h1 class="mb-3">General Information</h1>
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
-                <label for="account_number">Client Account ID</label>
-                <input id="account_number" type="text" name="account_number"
-                    value="49SRL0623WSP{{ $clients->account_number }}" required autofocus autocomplete="account_number"
+                <label for="client_id">Client Account ID</label>
+                <input id="client_id" type="text" name="client_id"
+                    value="{{ $clients->client_id }}" required autofocus autocomplete="client_id"
                     readonly>
             </div>
         </div>

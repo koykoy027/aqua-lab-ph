@@ -34,7 +34,7 @@ class ClientController extends Controller
     public function store(Request $request){
         // dd($request->all());
         $request->validate([
-            // 'account_number' => 'required',
+            'client_id' => 'required',
             'account_name' => 'required',
             'name_of_owner' => 'required',
             'type_of_ownership' => 'required',

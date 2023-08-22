@@ -17,9 +17,9 @@
 
                 </div>
                 <div class="mb-3">
-                    <label for="account_number">Client Account ID</label>
-                    <input id="account_number" type="text" name="account_number"
-                        value="49SRL0623WSP{{ $clients->account_number }}" readonly>
+                    <label for="client_id">Client Account ID</label>
+                    <input id="client_id" type="text" name="client_id"
+                        value="{{ $clients->client_id }}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="name_of_owner">Name of owner</label>
@@ -158,15 +158,15 @@
                 <div class="mb-3">
                     <label for="sampling_location_address">Address of Collection Point</label>
                     <div class="flex justify-evenly">
-                        <div class="mr-4 flex items-center">
-                            <input class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500"
+                        <div class="flex items-center mr-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                                 id="sampling_location_address_same" name="sampling_location_address" type="radio"
                                 value="SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
                             <label class="ml-2 text-sm font-medium text-gray-900"
                                 for="sampling_location_address_same">Same with the Account Address</label>
                         </div>
-                        <div class="mr-4 flex items-center">
-                            <input class="h-4 w-4 border-gray-300 bg-gray-100 text-blue-600 focus:ring-blue-500"
+                        <div class="flex items-center mr-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                                 id="remarksConditionallyAccepted" name="sampling_location_address" type="radio"
                                 value="NOT SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="remarksConditionallyAccepted">Not

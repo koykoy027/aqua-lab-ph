@@ -11,11 +11,11 @@
             <input type="hidden" name="type" value="walk in" readonly />
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
-                    <label for="account_number">Client Account ID</label>
-                    <input id="account_number" type="text" name="account_number"
+                    <label for="client_id">Client Account ID</label>
+                    <input id="client_id" type="text" name="client_id"
                         value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus
-                        autocomplete="account_number" disabled>
-                    @error('account_number')
+                        autocomplete="client_id" readonly>
+                    @error('client_id')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>

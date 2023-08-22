@@ -34,7 +34,7 @@
                                 {{ $client->account_name }}
                             </th>
                             <td class="px-6 py-4">
-                                49SRL0623WSP{{ $client->account_number }}
+                                {{ $client->client_id }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ $client->email }}
