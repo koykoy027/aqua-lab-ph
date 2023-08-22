@@ -22,7 +22,6 @@ class ClientFactory extends Factory
         return [
             'account_number' => $this->faker->unique()->randomNumber(4),
             'account_name' => $this->faker->name,
-            'business_tin' => $this->faker->randomNumber(9),
             'name_of_owner' => $this->faker->name,
             'type_of_ownership' => $this->faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),
             'name_of_authorized_person' => $this->faker->name,

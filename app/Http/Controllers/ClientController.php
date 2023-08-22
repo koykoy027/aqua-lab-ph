@@ -42,7 +42,6 @@ class ClientController extends Controller
         $request->validate([
             // 'account_number' => 'required',
             'account_name' => 'required',
-            'business_tin' => 'required',
             'name_of_owner' => 'required',
             'type_of_ownership' => 'required',
             'name_of_authorized_person' => 'required',

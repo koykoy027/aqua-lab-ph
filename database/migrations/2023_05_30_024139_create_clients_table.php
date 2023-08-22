@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->id('account_number');
             $table->string('account_name');
-            $table->string('business_tin');
             $table->string('name_of_owner');
             $table->string('type_of_ownership');
             $table->string('name_of_authorized_person');
@@ -25,7 +24,7 @@ return new class extends Migration
             $table->string('zip_code')->nullable();
             $table->string('region');
             $table->string('province');
-            $table->string('telephone');
+            $table->string('telephone')->nullable();
             $table->string('mobile');
             $table->string('email');
             $table->string('fsr_assigned');

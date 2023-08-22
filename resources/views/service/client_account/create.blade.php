@@ -8,7 +8,6 @@
             <h1 class="mb-3">General Information</h1>
 
             {{-- <input type="hidden" name="account_number" value="0001" readonly/> --}}
-            <input type="hidden" name="business_tin" value="business_tin" readonly />
             <input type="hidden" name="type" value="walk in" readonly />
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
