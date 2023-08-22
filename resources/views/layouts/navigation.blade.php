@@ -5,14 +5,15 @@
         </a>
         <div class="flex items-center md:order-2">
             <!-- User menu button -->
-            <button type="button" class="flex mr-3 text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+            <button type="button" class="flex px-2 py-1 mr-3 text-sm text-white bg-blue-700 rounded-full focus:ring-4 focus:ring-gray-300 md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
+                {{ Auth::user()->name }}
+                {{-- <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo"> --}}
             </button>
             <!-- User dropdown menu -->
             <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow" id="user-dropdown">
                 <div class="px-4 py-3">
-                    <span class="block text-sm text-gray-900">{{ Auth::user()->name }}</span>
+                    <span class="block text-sm text-gray-900">{{ Auth::user()->role }}</span>
                     <span class="block text-sm text-gray-500 truncate">{{ Auth::user()->email }}</span>
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
