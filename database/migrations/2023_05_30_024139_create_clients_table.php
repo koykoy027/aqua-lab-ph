@@ -28,6 +28,12 @@ return new class extends Migration
             $table->string('telephone')->nullable();
             $table->string('mobile');
             $table->string('email')->nullable();
+            $table->string('contact_person1_name')->nullable();
+            $table->string('contact_person1_contact')->nullable();
+            $table->string('contact_person1_email')->nullable();
+            $table->string('contact_person2_name')->nullable();
+            $table->string('contact_person2_contact')->nullable();
+            $table->string('contact_person2_email')->nullable();
             $table->string('fsr_assigned');
             $table->string('market_segment')->nullable();
             $table->string('market_segment_others')->nullable();

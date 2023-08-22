@@ -13,8 +13,8 @@
                 <div class="mb-3">
                     <label for="client_id">Client Account ID</label>
                     <input id="client_id" type="text" name="client_id"
-                        value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus
-                        autocomplete="client_id" {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
+                        value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus autocomplete="client_id"
+                        {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
                     @error('client_id')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -237,7 +237,83 @@
                     @enderror
                 </div>
             </div>
+
+            {{-- contact person --}}
+            <hr>
+            <h1 class="mb-3">Contact person 1</h1>
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+                <div class="mb-3">
+                    <label for="contact_person1_name">Contact Person</label>
+                    <input id="contact_person1_name" name="contact_person1_name"
+                        value="{{ old('contact_person1_name') }}" autofocus autocomplete="contact_person1_name">
+                    @error('contact_person1_name')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person1_contact">Contact details</label>
+                    <input id="contact_person1_contact" name="contact_person1_contact"
+                        value="{{ old('contact_person1_contact') }}" autofocus autocomplete="contact_person1_contact">
+                    @error('contact_person1_contact')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person1_email">Contact Email</label>
+                    <input id="contact_person1_email" type="email" name="contact_person1_email"
+                        value="{{ old('contact_person1_email') }}" autofocus autocomplete="contact_person1_email">
+                    @error('contact_person1_email')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
+            <hr>
+            <h1 class="mb-3">Contact person 2</h1>
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+                <div class="mb-3">
+                    <label for="contact_person2_name">Contact Person</label>
+                    <input id="contact_person2_name" name="contact_person2_name"
+                        value="{{ old('contact_person2_name') }}" autofocus autocomplete="contact_person2_name">
+                    @error('contact_person2_name')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person2_contact">Contact details</label>
+                    <input id="contact_person2_contact" name="contact_person2_contact"
+                        value="{{ old('contact_person2_contact') }}" autofocus autocomplete="contact_person2_contact">
+                    @error('contact_person2_contact')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person2_email">Contact Email</label>
+                    <input id="contact_person2_email" type="email" name="contact_person2_email"
+                        value="{{ old('contact_person2_email') }}" autofocus autocomplete="contact_person2_email">
+                    @error('contact_person2_email')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
         </div>
+
+        <hr>
+
+
 
         <div class="bg-white card">
             <h1 class="mb-3">Classification</h1>
