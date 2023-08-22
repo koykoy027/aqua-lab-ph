@@ -14,7 +14,7 @@
                     <label for="client_id">Client Account ID</label>
                     <input id="client_id" type="text" name="client_id"
                         value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus
-                        autocomplete="client_id" readonly>
+                        autocomplete="client_id" {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
                     @error('client_id')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>

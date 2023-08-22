@@ -16,7 +16,7 @@ class AnalysisRequestController extends Controller
 
         $clients = Client::query()
         ->where('account_name', 'LIKE', "%$query%")
-        ->orWhere('account_number', 'LIKE', "%$query%")
+        ->orWhere('client_id', 'LIKE', "%$query%")
         ->orWhere('email', 'LIKE', "%$query%")
         ->orWhere('municipality_or_city', 'LIKE', "%$query%")
         ->paginate(10);
