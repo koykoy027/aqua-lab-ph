@@ -8,10 +8,19 @@ use Illuminate\Http\Request;
 
 class LabAcceptanceController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $acceptances = LabAcceptance::paginate(10);
-        return view('record_and_report.lab_acceptance.index', compact('acceptances'));
+        $query = $request->input('search');
+
+        $acceptances = LabAcceptance::query()
+        ->where('analysis_id', 'LIKE', "%$query%")
+        ->orWhere('evaluated_by', 'LIKE', "%$query%")
+        ->orWhere('date_evaluated', 'LIKE', "%$query%")
+        ->orWhere('time_evaluated', 'LIKE', "%$query%")
+        ->orWhere('sample_condition', 'LIKE', "%$query%")
+
+        ->paginate(10);
+        return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
     }
 
     public function micro(Request $request)

@@ -3,8 +3,9 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <label>Lab Acceptance Table</label>
-
+        <div class="justify-end lg:flex">
+            @include('components.search')
+        </div>
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -50,16 +51,17 @@
                                 {{ $acceptance->sample_condition }}
                             </td>
                             <td class="px-6 py-4">
-                                <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
-                                    @if($acceptance->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
-                                    @if($acceptance->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
-                                    @if($acceptance->remarks === 'Accepted') text-green-800 bg-green-100 @endif
-                                    @if($acceptance->remarks === 'Rejected') text-red-800 bg-red-100 @endif
-                                    @if($acceptance->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
-                                    @if($acceptance->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
-                                    @if($acceptance->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
-                                    @if($acceptance->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
-                                    @if($acceptance->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+                                <span
+                                    class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if ($acceptance->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if ($acceptance->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                    @if ($acceptance->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if ($acceptance->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if ($acceptance->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if ($acceptance->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if ($acceptance->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if ($acceptance->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if ($acceptance->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
 
                                 ">
                                     {{ $acceptance->remarks }}

@@ -62,10 +62,17 @@ class AnalysisRequestController extends Controller
             ->with(['message' => 'Analysis Request has been created successfully!']);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $requests = AnalysisRequest::paginate(10);
-        return view('record_and_report.analysis_request.index', compact('requests'));
+        $query = $request->input('search');
+        $requests = AnalysisRequest::query()
+        ->where('analysis_id', 'LIKE', "%$query%")
+        ->orWhere('collector_name', 'LIKE', "%$query%")
+        ->orWhere('date_collected', 'LIKE', "%$query%")
+
+
+        ->paginate(10);
+        return view('record_and_report.analysis_request.index', compact('requests', 'query'));
     }
 
     public function details($analysis_id)

@@ -4,8 +4,9 @@
 
 
         <div class="mb-3 bg-white card">
-            <label>Analysis Request Table</label>
-
+            <div class="justify-end lg:flex">
+                @include('components.search')
+            </div>
             <div class="relative overflow-x-auto sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -42,7 +43,7 @@
                                     {{ $request->collector_name }}
                                 </td>
                                 <td class="px-6 py-3">
-                                    {{ \Carbon\Carbon::parse( $request->date_collected)->format('F d, Y') }}
+                                    {{ \Carbon\Carbon::parse($request->date_collected)->format('F d, Y') }}
 
                                 </td>
                                 <td class="px-6 py-4 text-right">
