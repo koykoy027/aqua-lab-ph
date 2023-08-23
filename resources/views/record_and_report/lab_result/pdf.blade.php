@@ -12,9 +12,12 @@
 
     <style>
 
-        /* body {
-            margin-top: 235px;
-        } */
+        body {
+            /* margin-top: 235px; */
+            line-height: 1;
+            font-size: small;
+
+        }
 
         .title {
             text-transform: uppercase;
@@ -126,9 +129,16 @@
         <table style="width: 100%; margin-top: 150px">
             <thead>
                 <tr>
-                    <td style="font-size:  13px; font-weight: 900">
-                        <p >SAPROPRO ICE AND COLD STORAGE COMPANY INC.</p>
-                        <p>MANGAYSAY RD, DAINE I, INDANG CAVITE 4122.</p>
+                    <td>
+                        <p style="font-size:  13px; font-weight: 900">{{ $clients->account_name }}</p>
+                        <p style="font-size:  small; width: 50%">
+                            {{ $clients->unit_no_floor_bldg_name }}
+                            {{ $clients->street_name_or_subdivision }}
+                            {{ $clients->barangay_name }}
+                            {{ $clients->municipality_or_city }}
+                            {{ $clients->province }}
+                            {{ $clients->zip_code }}
+                        </p>
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
@@ -143,7 +153,7 @@
         <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr class="top-information">
-                    <td>Requested By: <span class="main-source">{{ $clients->account_name }}</span></td>
+                    <td>Requested By: <span class="main-source">{{ $clients->name_of_owner }}</span></td>
                 </tr>
 
                 <tr class="top-information">
@@ -157,8 +167,8 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="main-source2">{{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('H:iA') }}</span></td>
-                    <td>Date/Time Received: <span class="main-source4">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('H:iA') }}</span></td>
+                    <td>Date/Time Collected: <span class="main-source2">{{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span></td>
+                    <td>Date/Time Received: <span class="main-source4">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
                 </tr>
 
                 <tr class="top-information">
@@ -166,7 +176,7 @@
                     <td>Date/Time Tested: <span class="main-source5">
                         @foreach ( $rawDatas as $micro_detail)
                             @foreach ($collection_details as $collection_detail)
-                                {{ \Carbon\Carbon::parse($micro_detail->created_at)->format('m/d/Y - H:i A') }}
+                                {{ \Carbon\Carbon::parse($micro_detail->created_at)->format('m/d/Y - g:i A') }}
                             @endforeach
                         @endforeach
                     </span></td>
