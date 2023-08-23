@@ -45,9 +45,9 @@
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
-            text-align: center;
+            text-align: left;
             text-transform: uppercase;
-            font-size:  13px;
+            font-size:  10px;
         }
 
         tbody {
@@ -71,9 +71,23 @@
         }
 
         .main-source {
-            padding-left: 80px;
+            padding-left: 83px;
         }
-
+        .main-source1 {
+            padding-left: 89px;
+        }
+        .main-source2 {
+            padding-left: 47px;
+        }
+        .main-source3 {
+            padding-left: 92px;
+        }
+        .main-source4 {
+            padding-left: 60px;
+        }
+        .main-source5 {
+            padding-left: 73px;
+        }
         .collected-by {
             padding-left: 79px;
         }
@@ -83,14 +97,15 @@
         }
 
         span {
-            margin-left: 20px
+            margin-left: 20px;
+
         }
         .main-source {
             margin-left: 21px;
         }
 
         .collected-by {
-            margin-left: 21px;
+            padding-left: 90px;
         }
 
         .table-fixed-bottom {
@@ -98,7 +113,6 @@
             bottom: 100;
             /* width: 100%; */
         }
-
 
     </style>
 </head>
@@ -130,23 +144,23 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Main Source: <span class="main-source">{{ $details->source_of_water_sample }}</span></td>
-                    <td>Sampling point: <span class="main-source">{{ $details->collection_point }}</td>
+                    <td>Main Source: <span class="main-source1">{{ $details->source_of_water_sample }}</span></td>
+                    <td>Sampling point: <span class="main-source1">{{ $details->collection_point }}</td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="top-information-content">{{ $details->water_purpose }}</span></td>
-                    <td>Type of Water: <span class="top-information-content">{{ $details->water_purpose }}</span></td>
+                    <td>Water Purpose (Use): <span class="main-source2">{{ $details->water_purpose }}</span></td>
+                    <td>Type of Water: <span class="main-source3">{{ $details->water_purpose }}</span></td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="top-information-content">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
-                    <td>Date/Time Received: <span class="top-information-content">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
+                    <td>Date/Time Collected: <span class="main-source2">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Received: <span class="main-source4">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Collected by: <span class="collected-by">{{ $details->collector_name }}</span></td>
-                    <td>Date/Time Tested: <span class="top-information-content">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Tested: <span class="main-source5">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
                 </tr>
 
             </thead>
@@ -425,7 +439,7 @@
                 <tr>
                     <td style="font-size:  13px;">
                         <p style="font-weight: 500;"> CHLOE JOY C. GABAN, RMicro </p>
-                        <p style="margin-top: -3%; margin-left: 10%;"> Senior Microbiologist </p>
+                        <p style="margin-top: -3%; margin-left: 15%;"> Senior Microbiologist </p>
                         <p style="margin-top: -3%; margin-left: 4%;"> PAM Reg. No. 105-00250 RM </p>
                         <p style="margin-top: -3%; margin-left: 1px;"> DOH-RL Cert No. WMLA-18-0698 </p>
                     </td>
@@ -440,5 +454,6 @@
             </tr>
         </thead>
     </table>
+
 </body>
 </html>
