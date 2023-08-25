@@ -7,13 +7,13 @@
         <div class="mb-3 bg-white card">
             <h1 class="mb-3">General Information</h1>
 
-            {{-- <input type="hidden" name="account_number" value="0001" readonly/> --}}
             <input type="hidden" name="type" value="walk in" readonly />
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="client_id">Client Account ID</label>
+                    <input type="hidden" id="currentAccountNumber" value="{{ $currentAccountNumber ?? '1' }}" readonly>
                     <input id="client_id" type="text" name="client_id"
-                        value="49SRL0623WSP{{ $currentAccountNumber ?? '1' }}" required autofocus autocomplete="client_id"
+                        value="" required autofocus autocomplete="client_id"
                         {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
                     @error('client_id')
                         <span class="invalid" role="alert">
@@ -168,7 +168,7 @@
                         <option disabled selected>Select Municipality or City</option>
                     </select>
                     <input id="municipality_or_city" type="hidden" name="municipality_or_city" required autofocus
-                        autocomplete="municipality_or_city">
+                        autocomplete="municipality_or_city" onchange="marketSegment(this.value)">
                     @error('municipality_or_city')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -332,10 +332,10 @@
                     <label for="market_segment">Market Segment</label>
                     <select name="market_segment" id="market_segment" value="{{ old('market_segment') }}" required
                         autofocus autocomplete="market_segment" onchange="marketSegment(this.value)">
+                        <option disabled selected>Select Market Segment</option>
                         <option value="0001 - Water Refilling Station">0001 - Water Refilling Station</option>
                         <option value="002A - Food and Beverages (Service)">002A - Food and Beverages (Service)</option>
-                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)
-                        </option>
+                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)</option>
                         <option value="003 - Hospitality Industry">003 - Hospitality Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
                         <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>
@@ -346,6 +346,7 @@
                         <option value="008 - Industries">008 - Industries</option>
                         <option value="Others">Others</option>
                     </select>
+                    <input type="hidden" id="marketSegmentInput">
 
                     @error('market_segment')
                         <span class="invalid" role="alert">
