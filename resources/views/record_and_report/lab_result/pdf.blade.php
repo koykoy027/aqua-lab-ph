@@ -28,7 +28,7 @@
             font-size: 16px;
             font-weight: 400;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 30px;
         }
 
         .table-container {
@@ -51,7 +51,7 @@
         }
 
         .details {
-            padding-top: 10px;
+            padding-top: 5px;
             padding-left: 10px;
             padding-right: 10px;
             padding-bottom: 10px;
@@ -151,21 +151,25 @@
             margin-left: 21px;
         }
         .e_signature {
+            height: 40px;
             width: 250px;
             margin-left: 3px;
         }
         .e_signature1 {
+            height: 40px;
             width: 250px;
             margin-left: 30px;
         }
 
         .lims {
-            margin-top: -35px;
+            margin-top: -30px;
+            height: 70px;
             width: 350px;
             margin-left: -25px;
         }
         .doh {
-            margin-top: -35px;
+            margin-top: -30px;
+            height: 70px;
             width: 150px;
             margin-left: 230px;
         }
@@ -193,7 +197,7 @@
 
         .table-fixed-bottom {
             position: fixed;
-            bottom: 100;
+            bottom: 75;
             /* width: 100%; */
         }
 
@@ -216,7 +220,7 @@
             </thead>
         </table>
 
-        <table style="width: 100%; margin-top: 15px">
+        <table style="width: 100%; margin-top: 5px">
             <thead>
                 <tr>
                     <td style="font-size:  13px;">
@@ -252,7 +256,7 @@
             </thead>
         </table>
 
-        <table style="width: 100%; margin-top: 30px">
+        <table style="width: 100%; margin-top: 5px">
             <thead>
                 <tr class="top-information">
                     <td>Requested By: <span class="requested">{{ $clients->name_of_owner }}</span></td>
@@ -358,12 +362,20 @@
                                 <p> MICR1 - Heterotrophic Plate Count (HPC) </p>
                                 <p> MICR2 - Thermotolerant Colifom Test </p>
                                 <p> MICR3 - Total Coliform </p>
+                                <p> MICR1 - Heterotrophic Plate Count (HPC) </p>
+                                <p> MICR2 - Thermotolerant Colifom Test </p>
+                                <p> MICR3 - Total Coliform </p>
+                                <p> MICR1 - Heterotrophic Plate Count (HPC) </p>
                             </td>
 
                             <td class="details">
                                 <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
                                 <p> Total Coliform - SMEWW 9221 Multiple Tube Fermentation Technique</p>
                                 <p> Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
+                                <p> Total Coliform - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p> Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
                             </td>
 
                             <td class="details">
@@ -376,12 +388,20 @@
                                 <p class="limit_details">100</p>
                                 <p class="limit_details">100</p>
                                 <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
                             </td>
 
                             <td class="details">
                                 <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
                                 <p class="remarks_details">{{ $micro_detail->micr2_tc_remarks }}</p>
                                 <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
+                                <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
+                                <p class="remarks_details">{{ $micro_detail->micr2_tc_remarks }}</p>
+                                <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
+                                <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
                             </td>
 
                         {{-- chem 1 --}}
@@ -512,7 +532,7 @@
         <thead>
             <tr>
                 <td style="font-size:  13px">Remarks:</td>
-                <td style="padding-left: 200px; padding-right:50px; font-size:  13px">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  13px">
                     <p>
                         Results of examination are specifically related to samples as received
                     </p>
@@ -521,7 +541,7 @@
 
             <tr>
                 <td></td>
-                <td style="padding-left: 200px; padding-right:50px; font-size:  13px">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  13px">
                     <p style="margin-top: -10px; font-weight: 500; text-align: justify;">Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique
                         and was contained and transported in a sterilized container at controlled temperature
                         by Aqualab PH trained personnel.
@@ -531,7 +551,7 @@
 
             <tr>
                 <td></td>
-                <td style="padding-left: 200px; padding-right:50px; font-size:  13px;">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  13px;">
                     <p style="margin-top: -10px; font-weight: 500;">
                         Sample analysis was conducted within eight (8) hours as prescribed by the standards.
                     </p>
@@ -540,7 +560,7 @@
 
             <tr>
                 <td style="font-size:  13px;">Reference/s:</td>
-                <td style="padding-left: 200px; padding-right:50px; font-size:  13px;">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  13px;">
                     <p>
                         Method of Analysis are based on the Standard Methods for the Examination of Water and Wastewater (SMEWW) American Water Works Association, 22nd Edition (2012); Parameters and
                         Limits are based on Philippine National Standards for Drinking Water (2017) Thermotolerant Coliform - also
@@ -562,7 +582,7 @@
 
             <tr >
                 <td style="font-size:  13px;"> Note/s: </td>
-                <td style="padding-left: 200px; font-size:  13px;">
+                <td style="padding-left: 115px; font-size:  13px;">
                     <p>
                         Comma (,) is used in this report to emphasize presentation of decimal separation/s.
                     </p>
