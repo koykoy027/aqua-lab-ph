@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('lab_acceptance', function (Blueprint $table) {
             $table->id();
             $table->string('analysis_id');
-            $table->string('sample_id');
+            $table->string('sample_id')->nullable();
             $table->string('evaluated_by')->nullable();
             $table->string('date_evaluated')->nullable();
             $table->string('time_evaluated')->nullable();
