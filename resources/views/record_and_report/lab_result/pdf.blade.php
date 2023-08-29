@@ -144,7 +144,7 @@
                     <td style="font-size:  13px; padding-right: 40px">
                         <p>Certificate No: </p>
                         <p>Account ID: {{ $clients->client_id }} </p>
-                        <p>Sample ID: {{ $analysisRequests->analysis_id }}</p>
+                        <p>Sample ID: {{ $analysisRequests->analysis_id_ }}</p>
                     </td>
                 </tr>
             </thead>
