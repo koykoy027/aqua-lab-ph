@@ -269,13 +269,19 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="date_time_collecteed">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
-                    <td>Date/Time Received: <span class="date_time_received">{{ $analysisRequests->date_collected }} - {{ $analysisRequests->time_collected }}</span></td>
+                    <td>Date/Time Collected: <span class="date_time_collecteed">{{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span></td>
+                    <td>Date/Time Received: <span class="date_time_received">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
                 </tr>
 
-                <tr class="top-information">
+                <tr class="top-information">                    
                     <td>Collected by: <span class="collected-by">{{ $analysisRequests->collector_name }}</span></td>
-                    <td>Date/Time Tested: <span class="date_time_tested">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Tested: <span class="date_time_tested">
+                        @foreach ( $rawDatas as $micro_detail)
+                            @foreach ($collection_details as $collection_detail)
+                                {{ \Carbon\Carbon::parse($micro_detail->created_at)->format('m/d/Y - g:i A') }}
+                            @endforeach
+                        @endforeach
+                    </span></td>
                 </tr>
 
             </thead>
