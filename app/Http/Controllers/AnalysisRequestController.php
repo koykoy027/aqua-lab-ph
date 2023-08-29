@@ -52,7 +52,7 @@ class AnalysisRequestController extends Controller
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
         // Combine the month pattern and formatted date
-        $result = $monthPattern . $formattedDate;
+        $result = $monthPattern . $formattedDate. $currentAnalysisID;
 
         $request->validate([
             // 'account_number' => 'unique:analysis_requests',
@@ -72,7 +72,7 @@ class AnalysisRequestController extends Controller
 
         $input = $request->all();
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
-        $input['analysis_id_'] = $result . $currentAnalysisID;
+        $input['analysis_id_'] = $result;
 
         $analysisRequest = AnalysisRequest::create($input);
         RawData::create([
