@@ -18,6 +18,10 @@
             font-size: small;
 
         }
+        .p{
+            padding: 0;
+            margin: 0;
+        }
 
         .title {
             text-transform: uppercase;
@@ -216,7 +220,7 @@
             <thead>
                 <tr>
                     <td style="font-size:  13px;">
-                        <p >Aqualab Analytical Services Inc., operating under the name "AQUALAB PH"<br>
+                        <p>Aqualab Analytical Services Inc., operating under the name "AQUALAB PH"<br>
                         Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite<br>
                         Tel. No.: (046) 686 3704 | Mobile No. 0919 087 4880 | Email: info@aqualabph.com</p>
                     </td>
@@ -227,15 +231,22 @@
         <table style="width: 100%; margin-top: 0px">
             <thead>
                 <tr>
-                    <td style="font-size:  13px; font-weight: 900">
-                        <p >SAPROPRO ICE AND COLD STORAGE COMPANY INC.</p>
-                        <p>MANGAYSAY RD, DAINE I, INDANG CAVITE 4122.</p>
+                    <td style="font-size: 13px; text-transform: uppercase">
+                        <p class="p" style="font-weight: 900;">{{ $clients->account_name }}</p>
+                        <p class="p">
+                            {{ $clients->unit_no_floor_bldg_name }}
+                            {{ $clients->street_name_or_subdivision }}
+                            {{ $clients->barangay_name }}
+                            {{ $clients->municipality_or_city }}
+                            {{ $clients->province }}
+                            {{ $clients->zip_code }}
+                        </p>
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
                         <p class="certi">Certificate No: <span class="certi_no"></span></p>
                         <p class="acc">Account ID: <span class="acc_id">{{ $clients->client_id }}</span></p>
-                        <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id }}</span></p>
+                        <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_ }}</span></p>
                     </td>
                 </tr>
             </thead>
@@ -244,8 +255,7 @@
         <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr class="top-information">
-                    {{-- <td>Requested By: <span class="requested">{{ $labAcceptance->evaluated_by }}</span></td> --}}
-                    <td>Requested By: <span class="requested">Lorem ipsum dolor sit amet consectetur.</span></td>
+                    <td>Requested By: <span class="requested">{{ $clients->name_of_owner }}</span></td>
                 </tr>
 
                 <tr class="top-information">
@@ -254,8 +264,8 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="water_purpose">{{ $analysisRequests->water_purpose }}</span></td>
-                    <td>Type of Water: <span class="type_of_water">{{ $analysisRequests->water_purpose }}</span></td>
+                    <td>Water Purpose (Use): <span class="water_purpose">{{ $analysisRequests->water_purpose === 'Others' ? $analysisRequests->water_purpose_others : $analysisRequests->water_purpose }}</span></td>
+                    <td>Type of Water: <span class="type_of_water">{{ $analysisRequests->type_of_water === 'Others' ? $analysisRequests->type_of_water_others : $analysisRequests->type_of_water}}</span></td>
                 </tr>
 
                 <tr class="top-information">
