@@ -209,9 +209,9 @@
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
-                        <p class="certi">Certificate No: <span class="certi_no"></span></p>
-                        <p class="acc">Account ID: <span class="acc_id">49SRL0623WSP{{ $details->account_number }}</span> </p>
-                        <p class="sample">Sample ID: <span class="sample_id">{{ $details->analysis_id }}</span></p>
+                        <p class="certi">Certificate No: </p>
+                        <p class="acc">Account ID: {{ $clients->client_id }} </p>
+                        <p class="sample">Sample ID: {{ $analysisRequests->analysis_id }}</p>
                     </td>
                 </tr>
             </thead>
