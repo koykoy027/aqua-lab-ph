@@ -126,6 +126,7 @@
         @csrf
         <input id="account_number" type="hidden" name="account_number" value="{{ $clients->account_number }}"
             readonly>
+
         <input id="status" type="hidden" name="remarks" value="Pending" readonly>
         <div class="mb-3 bg-white card">
             <h1 class="mb-3">Sample Collection</h1>

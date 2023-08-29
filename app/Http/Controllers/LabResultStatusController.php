@@ -81,7 +81,8 @@ class LabResultStatusController extends Controller
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
             });
         $datas = $queryBuilder->paginate(10);
 

@@ -10,6 +10,7 @@ class AnalysisRequest extends Model
     protected $table = 'analysis_requests';
     protected $primaryKey = 'analysis_id';
     protected $fillable = [
+            'analysis_id_',
             'account_number',
             'collector_name',
             'date_collected',
