@@ -244,7 +244,7 @@
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
-                        <p class="certi">Certificate No: <span class="certi_no"></span></p>
+                        <p class="certi">Certificate No: <span class="certi_no">{{ $certificateNo }}</span></p>
                         <p class="acc">Account ID: <span class="acc_id">{{ $clients->client_id }}</span></p>
                         <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_ }}</span></p>
                     </td>
@@ -273,7 +273,7 @@
                     <td>Date/Time Received: <span class="date_time_received">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
                 </tr>
 
-                <tr class="top-information">                    
+                <tr class="top-information">
                     <td>Collected by: <span class="collected-by">{{ $analysisRequests->collector_name }}</span></td>
                     <td>Date/Time Tested: <span class="date_time_tested">
                         @foreach ( $rawDatas as $micro_detail)
