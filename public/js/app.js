@@ -132,54 +132,6 @@ const marketSegment = (val) => {
 
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-    // const monthNames = [
-    //     "January", "February", "March",
-    //     "April", "May", "June",
-    //     "July", "August", "September",
-    //     "October", "November", "December"
-    // ];
-
-    // // Get the current date
-    // const currentDateA = new Date();
-
-    // // Get the current month's index (0-11)
-    // const currentMonthIndex = currentDateA.getMonth();
-
-    // // Get the current year (last two digits)
-    // const currentYearA = currentDateA.getFullYear() % 100;
-
-    // // Convert month index to corresponding letter
-    // const monthLetter = String.fromCharCode(65 + currentMonthIndex);
-
-    // // Set the values in the text fields
-
-    // Get the current date
-    const currentDate = new Date();
-
-    // Get the month and date components
-    const month = currentDate.getMonth(); // 0-based index (0 = January, 1 = February, ...)
-    const date = currentDate.getDate();   // 1 to 31
-
-    // Convert month to your desired pattern
-    const monthPattern = String.fromCharCode(65 + month); // 'A' corresponds to January, 'B' to February, and so on
-
-    // Format the date to be 2 digits (e.g., 01, 02, ..., 31)
-    const formattedDate = date < 10 ? `0${date}` : `${date}`;
-
-    // Combine the month pattern and formatted date
-    const result = `${monthPattern}${formattedDate}`;
-
-    document.getElementById("analysis_id_").value = result ;
-
-
-
-
-});
-
-
-
-
 // can be seen in service.add-analysis-request-form
 const collectionPoint = (val) => {
     var input = document.getElementById("collection_point_others");
