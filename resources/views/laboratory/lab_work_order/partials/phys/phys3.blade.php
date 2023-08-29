@@ -1,12 +1,12 @@
 <form action="{{ route('laboratory.lab-work-order-form.phys3', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
     @csrf
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         <h1 class="mb-3">PHYS3 - Color, apparent</h1>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys3_concentration_of_comparable_color_standard">Concentration of comparable color standard</label>
-                <select id="phys3_concentration_of_comparable_color_standard" type="number" name="phys3_concentration_of_comparable_color_standard" required autofocus autocomplete="phys3_concentration_of_comparable_color_standard" onchange="phy3()">
+                <select id="phys3_concentration_of_comparable_color_standard" name="phys3_concentration_of_comparable_color_standard" required autofocus autocomplete="phys3_concentration_of_comparable_color_standard" onchange="phy3()">
                     <option value="&lt; 10">&lt; 10</option>
                     <option value="10">10</option>
                     <option value="15">15</option>

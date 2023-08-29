@@ -3,9 +3,8 @@
     <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
             <label for="client_id">Client Account ID</label>
-            <input id="client_id" type="text" name="client_id"
-                value="{{ $clients->client_id }}" required autofocus autocomplete="client_id"
-                readonly>
+            <input id="client_id" type="text" name="client_id" value="{{ $clients->client_id }}" required autofocus
+                autocomplete="client_id" readonly>
         </div>
     </div>
 
@@ -108,6 +107,44 @@
             <label for="email">Email address</label>
             <input id="email" type="email" name="email" value="{{ $clients->email }}" required autofocus
                 autocomplete="email" readonly>
+        </div>
+    </div>
+
+    <h1 class="mt-3 mb-3">Contact Person 1</h1>
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+        <div class="mb-3">
+            <label for="contact_person1_name">Contact Person</label>
+            <input id="contact_person1_name" name="contact_person1_name"
+                value="{{ $clients->contact_person1_name }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="contact_person1_contact">Contact Details</label>
+            <input id="contact_person1_contact" name="contact_person1_contact"
+                value="{{ $clients->contact_person1_contact }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="contact_person1_email">Contact Email</label>
+            <input id="contact_person1_email" name="contact_person1_email"
+                value="{{ $clients->contact_person1_email }}" readonly>
+        </div>
+    </div>
+
+    <h1 class="mt-3 mb-3">Contact Person 2</h1>
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+        <div class="mb-3">
+            <label for="contact_person2_name">Contact Person</label>
+            <input id="contact_person2_name" name="contact_person2_name"
+                value="{{ $clients->contact_person2_name }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="contact_person2_contact">Contact Details</label>
+            <input id="contact_person2_contact" name="contact_person2_contact"
+                value="{{ $clients->contact_person2_contact }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="contact_person2_email">Contact Email</label>
+            <input id="contact_person2_email" name="contact_person2_email"
+                value="{{ $clients->contact_person2_email }}" readonly>
         </div>
     </div>
 </div>

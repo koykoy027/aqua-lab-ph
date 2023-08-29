@@ -38,5 +38,13 @@ class Client extends Model
         'sample_collection_frequency_pchem',
         'assigned_week',
         'type',
+
+        // contact person
+        'contact_person1_name',
+        'contact_person1_contact',
+        'contact_person1_email',
+        'contact_person2_name',
+        'contact_person2_contact',
+        'contact_person2_email',
     ];
 }

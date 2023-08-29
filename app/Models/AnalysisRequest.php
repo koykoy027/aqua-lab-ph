@@ -10,6 +10,7 @@ class AnalysisRequest extends Model
     protected $table = 'analysis_requests';
     protected $primaryKey = 'analysis_id';
     protected $fillable = [
+            'analysis_id_',
             'account_number',
             'collector_name',
             'date_collected',
@@ -21,9 +22,11 @@ class AnalysisRequest extends Model
             'sampling_location_address_others',
             'uvlight',
             'chlorinator',
-            'faucet_condition',
+            // 'faucet_condition',
             'source_of_water_sample',
             'source_of_water_sample_others',
+            'type_of_water',
+            'type_of_water_others',
             'water_purpose',
             'water_purpose_others',
             'test_parameters',

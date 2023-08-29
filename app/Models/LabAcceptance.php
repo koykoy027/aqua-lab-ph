@@ -10,6 +10,7 @@ class LabAcceptance extends Model
     protected $table = 'lab_acceptance';
     // protected $primaryKey = 'analysis_id';
     protected $fillable =[
+        'sample_id',
         'analysis_id',
         'evaluated_by',
         'date_evaluated',

@@ -48,10 +48,10 @@
                 <input id="chlorinator" type="text" name="chlorinator" value="{{ $requests->chlorinator }}" disabled autofocus autocomplete="chlorinator" readonly>
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="faucet_condition">Faucet Condition after Disinfection</label>
                 <input id="faucet_condition" type="text" name="faucet_condition" value="{{ $requests->faucet_condition }}" disabled autofocus autocomplete="faucet_condition">
-            </div>
+            </div> --}}
 
         </div>
     </div>
@@ -68,6 +68,20 @@
             <div class="mb-3">
                 <label for="source_of_water_sample_others">Source of Water Sample , if others</label>
                 <input id="source_of_water_sample_others" type="text" name="source_of_water_sample_others" value="{{ $requests->source_of_water_sample_others }}" disabled autofocus autocomplete="source_of_water_sample_others" readonly>
+            </div>
+        </div>
+
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+            <div class="mb-3">
+                <label for="type_of_water">Type of Water</label>
+                <select name="type_of_water" id="type_of_water" disabled autofocus autocomplete="type_of_water" onchange="sourceOfWaterSample(this.value)">
+                    <option value="{{ $requests->type_of_water }}">{{ $requests->type_of_water }}</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="type_of_water_others">Type of Water , if others</label>
+                <input id="type_of_water_others" type="text" name="type_of_water_others" value="{{ $requests->type_of_water_others }}" disabled autofocus autocomplete="source_of_water_sample_others" readonly>
             </div>
         </div>
 

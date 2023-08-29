@@ -7,7 +7,7 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr1_hpc_plate_a">Plate A Colony Count</label>
-                <input id="micr1_hpc_plate_a" type="number" name="micr1_hpc_plate_a"
+                <input id="micr1_hpc_plate_a" type="number" step="any" name="micr1_hpc_plate_a"
                     value="{{ $rawDataFileValue->micr1_hpc_plate_a }}" required autofocus autocomplete="micr1_hpc_plate_a"
                     onchange="micro1()">
                 @error('micr1_hpc_plate_a')
@@ -19,7 +19,7 @@
 
             <div class="mb-3">
                 <label for="micr1_hpc_plate_b">Plate B Colony Count</label>
-                <input id="micr1_hpc_plate_b" type="number" name="micr1_hpc_plate_b"
+                <input id="micr1_hpc_plate_b" type="number" step="any" name="micr1_hpc_plate_b"
                     value="{{ $rawDataFileValue->micr1_hpc_plate_b }}" required autofocus autocomplete="micr1_hpc_plate_b"
                     onchange="micro1()">
                 @error('micr1_hpc_plate_b')

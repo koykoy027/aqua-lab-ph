@@ -78,12 +78,12 @@
 
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="faucet_condition">Faucet Condition after Disinfection</label>
                 <input id="faucet_condition" type="text" name="faucet_condition" value="{{ $details->faucet_condition }}"
                     readonly autofocus autocomplete="faucet_condition">
 
-            </div>
+            </div> --}}
         </div>
     </div>
 

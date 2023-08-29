@@ -64,9 +64,14 @@
 
 // });
 
+
+
+
+
 // can be seen in service.client.create
 const marketSegment = (val) => {
     var input = document.getElementById("market_segment_others");
+    var marketSegmentInput = document.getElementById("client_id");
 
     if (val === "Others") {
         // actve readonly
@@ -76,6 +81,55 @@ const marketSegment = (val) => {
         input.setAttribute("readonly", "readonly");
         input.value = "";
     }
+
+    let zipCode = document.getElementById('zip_code').value;
+    let areaCode = zipCode.slice(0, 2);
+    let municipalityOrCity = document.getElementById('municipality_or_city').value;
+    let currentAccountNumber = document.getElementById('currentAccountNumber').value;
+    let twoLetterOfTheCity = municipalityOrCity.substr(0, 2);
+    let currentDate = new Date();
+    let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    let currentYear = currentDate.getFullYear().toString().slice(-2);
+
+
+
+    if (val === "0001 - Water Refilling Station") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "WRS0001" + currentAccountNumber;
+    }
+    else if (val === "002A - Food and Beverages (Service)") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "FBS002A" + currentAccountNumber;
+    }
+    else if (val === "002B - Food and Beverages (Manufacturer)") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "FBM002B" + currentAccountNumber;
+    }
+    else if (val === "003 - Hospitality Industry") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HI003" + currentAccountNumber;
+    }
+    else if (val === "004A - Healthcare (Dialysis)") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HD004A" + currentAccountNumber;
+    }
+    else if (val === "004B - Healthcare (Lying-in)") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HL004B" + currentAccountNumber;
+    }
+    else if (val === "004C - Healthcare (Hospital)") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HH004C" + currentAccountNumber;
+    }
+    else if (val === "005 - Water Service Provider") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "WSP005" + currentAccountNumber;
+    }
+    else if (val === "006 - Residential") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "RE006" + currentAccountNumber;
+    }
+    else if (val === "007 - Academe") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "AC007" + currentAccountNumber;
+    }
+    else if (val === "008 - Industries") {
+        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "IN008" + currentAccountNumber;
+    }
+    else {
+        marketSegmentInput.value = "";
+    }
+
 };
 
 // can be seen in service.add-analysis-request-form
@@ -133,6 +187,19 @@ const samplingLocationAddress = (val) => {
 // can be seen in service.add-analysis-request-form
 const sourceOfWaterSample = (val) => {
     var input = document.getElementById("source_of_water_sample_others");
+    if (val === "Others") {
+        // actve readonly
+        input.removeAttribute("readonly");
+    } else {
+        // disable readonly
+        input.setAttribute("readonly", "readonly");
+        input.value = "";
+    }
+};
+
+// can be seen in service.add-analysis-request-form
+const typeOfWater = (val) => {
+    var input = document.getElementById("type_of_water_others");
     if (val === "Others") {
         // actve readonly
         input.removeAttribute("readonly");

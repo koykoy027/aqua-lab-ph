@@ -18,8 +18,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="client_id">Client Account ID</label>
-                    <input id="client_id" type="text" name="client_id"
-                        value="{{ $clients->client_id }}" readonly>
+                    <input id="client_id" type="text" name="client_id" value="{{ $clients->client_id }}" readonly>
                 </div>
                 <div class="mb-3">
                     <label for="name_of_owner">Name of owner</label>
@@ -65,9 +64,9 @@
                     <input id="zip_code" type="text" name="zip_code" value="{{ $clients->zip_code }}" readonly>
                 </div>
             </div>
+
             <h1 class="mt-3 mb-3">Contact information</h1>
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
-
 
                 <div class="mb-3">
                     <label for="telephone">Telephone number</label>
@@ -81,14 +80,53 @@
                     <label for="email">Email address</label>
                     <input id="email" type="email" name="email" value="{{ $clients->email }}" readonly>
                 </div>
+            </div>
 
+            <h1 class="mt-3 mb-3">Contact Person 1</h1>
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+                <div class="mb-3">
+                    <label for="contact_person1_name">Contact Person</label>
+                    <input id="contact_person1_name" name="contact_person1_name"
+                        value="{{ $clients->contact_person1_name }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person1_contact">Contact Details</label>
+                    <input id="contact_person1_contact" name="contact_person1_contact"
+                        value="{{ $clients->contact_person1_contact }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person1_email">Contact Email</label>
+                    <input id="contact_person1_email" name="contact_person1_email"
+                        value="{{ $clients->contact_person1_email }}" readonly>
+                </div>
+            </div>
+
+            <h1 class="mt-3 mb-3">Contact Person 2</h1>
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
+                <div class="mb-3">
+                    <label for="contact_person2_name">Contact Person</label>
+                    <input id="contact_person2_name" name="contact_person2_name"
+                        value="{{ $clients->contact_person2_name }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person2_contact">Contact Details</label>
+                    <input id="contact_person2_contact" name="contact_person2_contact"
+                        value="{{ $clients->contact_person2_contact }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="contact_person2_email">Contact Email</label>
+                    <input id="contact_person2_email" name="contact_person2_email"
+                        value="{{ $clients->contact_person2_email }}" readonly>
+                </div>
             </div>
         </div>
     @endif
 
     <form method="POST" action="{{ route('service.add-analysis-request.store') }}">
         @csrf
-        <input id="account_number" type="hidden" name="account_number" value="{{ $clients->account_number }}" readonly>
+        <input id="account_number" type="hidden" name="account_number" value="{{ $clients->account_number }}"
+            readonly>
+
         <input id="status" type="hidden" name="remarks" value="Pending" readonly>
         <div class="mb-3 bg-white card">
             <h1 class="mb-3">Sample Collection</h1>
@@ -242,7 +280,7 @@
                         @enderror
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="faucet_condition">Faucet Condition after Disinfection</label>
                         <input id="faucet_condition" type="text" name="faucet_condition"
                             value="{{ old('faucet_condition') }}" required autofocus autocomplete="faucet_condition">
@@ -251,7 +289,7 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -288,6 +326,42 @@
                 </div>
             </div>
 
+            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+                <div class="mb-3">
+                    <label for="type_of_water">Type of Water</label>
+                    <select name="type_of_water" id="type_of_water" value="{{ old('type_of_water') }}" required
+                        autofocus autocomplete="type_of_water" onchange="typeOfWater(this.value)">
+                        <option value="Chlorinated">Chlorinated</option>
+                        <option value="Filtered">Filtered</option>
+                        <option value="Unfiltered">Unfiltered</option>
+                        <option value="Ice">Ice</option>
+                        <option value="Raw Water">Raw Water</option>
+                        <option value="Product Water">Product Water</option>
+                        <option value="Purified Water">Purified Water</option>
+                        <option value="Alkaline Water">Alkaline Water</option>
+                        <option value="Mineral Water">Mineral Water</option>
+                        <option value="Point of Use">Point of Use</option>
+                        <option value="Others">Others</option>
+                    </select>
+                    @error('type_of_water')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="mb-3">
+                    <label for="type_of_water_others">Type of Water , if others</label>
+                    <input id="type_of_water_others" type="text" name="type_of_water_others"
+                        value="{{ old('type_of_water_others') }}" required autofocus autocomplete="type_of_water_others"
+                        readonly>
+                    @error('type_of_water_others')
+                        <span class="invalid" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
                     <label for="water_purpose">Water Purpose</label>

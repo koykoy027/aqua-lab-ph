@@ -1,12 +1,12 @@
 <form action="{{ route('laboratory.lab-work-order-form.phys1', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
     @csrf
 
-    <div class="card mb-3 bg-white">
+    <div class="mb-3 bg-white card">
         <h1 class="mb-3">PHYS1 - Appearance</h1>
-        <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+        <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="phys1_observation">Observation</label>
-                <select id="phys1_observation" type="number" name="phys1_observation" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys1_observation" onchange="phy1()">
+                <select id="phys1_observation" type="number" step="any" name="phys1_observation" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys1_observation" onchange="phy1()">
                     <option value="Color without objectionable color">Color without objectionable color</option>
                     <option value="Not clear and with objectionable color">Not clear and with objectionable color</option>
                 </select>

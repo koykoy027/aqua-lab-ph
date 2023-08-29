@@ -9,27 +9,30 @@ use App\Models\RawData;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 class PdfController extends Controller
 {
     public function generateAnalysisPdf($analysis_id)
     {
-        $micro_details = RawData::where('analysis_id', $analysis_id)->get();
+        $currentDateTime = Carbon::now();
+        $rawDatas = RawData::where('analysis_id', $analysis_id)->get();
 
         $clients = Client::find($analysis_id);
-        $details = AnalysisRequest::find($analysis_id);
+        $analysisRequests = AnalysisRequest::find($analysis_id);
         $labAcceptance = LabAcceptance::find($analysis_id);
 
         $collection_details = AnalysisRequest::where('analysis_id', $analysis_id)->get();
 
         $pdf = Pdf::loadView('record_and_report.lab_result.pdf',
         [
-            'details' => $details,
-            'micro_details' => $micro_details,
+            'analysisRequests' => $analysisRequests,
+            'rawDatas' => $rawDatas,
             'collection_details' => $collection_details,
             'clients' => $clients,
             'labAcceptance' => $labAcceptance])
             ->setPaper([0, 0, 612, 1008], 'portrait');
-            return $pdf->stream('analysis-request.pdf');
+            // ->setPaper([0, 0, 594.72, 841.68], 'portrait');
+            return $pdf->stream($currentDateTime->format('Y-m-d-') . $clients->account_name.'.pdf');
         }
 }

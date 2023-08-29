@@ -7,7 +7,7 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr1_hpc_plate_a">Plate A Colony Count</label>
-                <input id="micr1_hpc_plate_a" type="number" name="micr1_hpc_plate_a"
+                <input id="micr1_hpc_plate_a" type="number" step="any" name="micr1_hpc_plate_a"
                     value="{{ $rawDataFileValue->micr1_hpc_plate_a }}" required autofocus autocomplete="micr1_hpc_plate_a"
                     onchange="micro1()">
                 @error('micr1_hpc_plate_a')
@@ -19,7 +19,7 @@
 
             <div class="mb-3">
                 <label for="micr1_hpc_plate_b">Plate B Colony Count</label>
-                <input id="micr1_hpc_plate_b" type="number" name="micr1_hpc_plate_b"
+                <input id="micr1_hpc_plate_b" type="number" step="any" name="micr1_hpc_plate_b"
                     value="{{ $rawDataFileValue->micr1_hpc_plate_b }}" required autofocus autocomplete="micr1_hpc_plate_b"
                     onchange="micro1()">
                 @error('micr1_hpc_plate_b')
@@ -85,7 +85,7 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr2_tc_24">No. of Lauryl Tryptose Broth tube with (+) rxn after 24h</label>
-                <input id="micr2_tc_24" type="number" name="micr2_tc_24" value="{{ $rawDataFileValue->micr2_tc_24 }}" required
+                <input id="micr2_tc_24" type="number" step="any" name="micr2_tc_24" value="{{ $rawDataFileValue->micr2_tc_24 }}" required
                     autofocus autocomplete="micr2_tc_24" onchange="micro2()">
                 @error('micr2_tc_24')
                     <span class="invalid" role="alert">
@@ -96,7 +96,7 @@
 
             <div class="mb-3">
                 <label for="micr2_tc_48">No. of Lauryl Tryptose Broth tube with (+) rxn after 48h</label>
-                <input id="micr2_tc_48" type="number" name="micr2_tc_48" value="{{ $rawDataFileValue->micr2_tc_48 }}" required
+                <input id="micr2_tc_48" type="number" step="any" name="micr2_tc_48" value="{{ $rawDataFileValue->micr2_tc_48 }}" required
                     autofocus autocomplete="micr2_tc_48" onchange="micro2()">
                 @error('micr2_tc_48')
                     <span class="invalid" role="alert">
@@ -135,7 +135,7 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="micr3_lauryl_24">No. of Lauryl Tryptose Broth tube with (+) rxn after 24h</label>
-                <input id="micr3_lauryl_24" type="number" name="micr3_lauryl_24" value="{{ $rawDataFileValue->micr3_lauryl_24 }}" required autofocus
+                <input id="micr3_lauryl_24" type="number" step="any" name="micr3_lauryl_24" value="{{ $rawDataFileValue->micr3_lauryl_24 }}" required autofocus
                     autocomplete="micr3_lauryl_24" onchange="micro3()">
                 @error('micr3_lauryl_24')
                     <span class="invalid" role="alert">
@@ -146,7 +146,7 @@
 
             <div class="mb-3">
                 <label for="micr3_lauryl_48">No. of Lauryl Tryptose Broth tube with (+) rxn after 48h</label>
-                <input id="micr3_lauryl_48" type="number" name="micr3_lauryl_48" value="{{ $rawDataFileValue->micr3_lauryl_48 }}" required
+                <input id="micr3_lauryl_48" type="number" step="any" name="micr3_lauryl_48" value="{{ $rawDataFileValue->micr3_lauryl_48 }}" required
                     autofocus autocomplete="micr3_lauryl_48" onchange="micro3()">
                 @error('micr3_lauryl_48')
                     <span class="invalid" role="alert">
@@ -157,7 +157,7 @@
 
             <div class="mb-3">
                 <label for="micr3_brillant_24">No. of Brillant Green Lauryl Broth tubes with (+) rxn after 24h</label>
-                <input id="micr3_brillant_24" type="number" name="micr3_brillant_24" value="{{ $rawDataFileValue->micr3_brillant_24 }}" required
+                <input id="micr3_brillant_24" type="number" step="any" name="micr3_brillant_24" value="{{ $rawDataFileValue->micr3_brillant_24 }}" required
                     autofocus autocomplete="micr3_brillant_24" >
                 @error('micr3_brillant_24')
                     <span class="invalid" role="alert">
@@ -168,7 +168,7 @@
 
             <div class="mb-3">
                 <label for="micr3_brillant_48">No. of Brillant Green Lauryl Broth tubes with (+) rxn after 48h</label>
-                <input id="micr3_brillant_48" type="number" name="micr3_brillant_48" value="{{ $rawDataFileValue->micr3_brillant_48 }}"
+                <input id="micr3_brillant_48" type="number" step="any" name="micr3_brillant_48" value="{{ $rawDataFileValue->micr3_brillant_48 }}"
                     required autofocus autocomplete="micr3_brillant_48" >
                 @error('micr3_brillant_48')
                     <span class="invalid" role="alert">
