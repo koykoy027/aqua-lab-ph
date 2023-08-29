@@ -24,7 +24,7 @@
             font-size: 16px;
             font-weight: 400;
             text-align: center;
-            margin-top: 80px;
+            margin-top: 40px;
         }
 
         .table-container {
@@ -163,7 +163,7 @@
         .doh {
             margin-top: -35px;
             width: 150px;
-            margin-left: 260px;
+            margin-left: 230px;
         }
         .certi {
             margin-left: 50px;
@@ -183,7 +183,6 @@
         .sample_id {
             padding-left: 71px;
         }
-
         .collected-by {
             /* padding-left: 90px; */
         }
@@ -199,6 +198,31 @@
 <body>
 
     <div>
+        <table style="width: 100%; margin-top: 0px">
+            <thead>
+                <tr>
+                    <td style="font-size:  13px; font-weight: 900">
+                        <img src="{{ public_path('image/branding.png') }}" class="lims" alt="lab-aqua">
+                    </td>
+
+                    <td style="font-size:  13px; padding-right: 10px">
+                        <img src="{{ public_path('image/doh_logo.JPG') }}" class="doh" alt="doh-logo">
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+        <table style="width: 100%; margin-top: 15px">
+            <thead>
+                <tr>
+                    <td style="font-size:  13px;">
+                        <p >Aqualab Analytical Services Inc., operating under the name "AQUALAB PH"<br>
+                        Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite<br>
+                        Tel. No.: (046) 686 3704 | Mobile No. 0919 087 4880 | Email: info@aqualabph.com</p>
+                    </td>
+                </tr>
+            </thead>
+        </table>
 
         <table style="width: 100%; margin-top: 0px">
             <thead>
@@ -209,9 +233,9 @@
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
-                        <p class="certi">Certificate No: </p>
-                        <p class="acc">Account ID: {{ $clients->client_id }} </p>
-                        <p class="sample">Sample ID: {{ $analysisRequests->analysis_id }}</p>
+                        <p class="certi">Certificate No: <span class="certi_no"></span></p>
+                        <p class="acc">Account ID: <span class="acc_id">{{ $clients->client_id }}</span></p>
+                        <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id }}</span></p>
                     </td>
                 </tr>
             </thead>
@@ -225,22 +249,22 @@
                 </tr>
 
                 <tr class="top-information">
-                    <td>Main Source: <span class="main-source">{{ $details->source_of_water_sample }}</span></td>
-                    <td>Sampling point: <span class="sampling_point">{{ $details->collection_point }}</td>
+                    <td>Main Source: <span class="main-source">{{ $analysisRequests->source_of_water_sample }}</span></td>
+                    <td>Sampling point: <span class="sampling_point">{{ $analysisRequests->collection_point }}</td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="water_purpose">{{ $details->water_purpose }}</span></td>
-                    <td>Type of Water: <span class="type_of_water">{{ $details->water_purpose }}</span></td>
+                    <td>Water Purpose (Use): <span class="water_purpose">{{ $analysisRequests->water_purpose }}</span></td>
+                    <td>Type of Water: <span class="type_of_water">{{ $analysisRequests->water_purpose }}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Date/Time Collected: <span class="date_time_collecteed">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
-                    <td>Date/Time Received: <span class="date_time_received">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
+                    <td>Date/Time Received: <span class="date_time_received">{{ $analysisRequests->date_collected }} - {{ $analysisRequests->time_collected }}</span></td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Collected by: <span class="collected-by">{{ $details->collector_name }}</span></td>
+                    <td>Collected by: <span class="collected-by">{{ $analysisRequests->collector_name }}</span></td>
                     <td>Date/Time Tested: <span class="date_time_tested">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
                 </tr>
 
