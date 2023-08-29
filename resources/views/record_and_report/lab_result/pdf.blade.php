@@ -50,6 +50,37 @@
             font-size:  10px;
         }
 
+        .result_details {
+            /* padding-top: 10px; */
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size:  10px;
+        }
+
+        .limit_details {
+            /* padding-top: 10px; */
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size:  10px;
+        }
+
+
+        .remarks_details {
+            /* padding-top: 10px; */
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size:  10px;
+        }
+
         tbody {
             border-bottom: 1px dotted black;
         }
@@ -70,26 +101,32 @@
             font-size:  13px;
         }
 
+        .requested {
+            padding-left: 50px;
+        }
         .main-source {
-            padding-left: 83px;
+            padding-left: 55px;
         }
-        .main-source1 {
-            padding-left: 89px;
+        .sampling_point {
+            padding-left: 88px;
         }
-        .main-source2 {
-            padding-left: 47px;
+        .water_purpose {
+            padding-left: 13px;
         }
-        .main-source3 {
+        .date_time_collecteed {
+            padding-left: 13px;
+        }
+        .type_of_water {
             padding-left: 92px;
         }
-        .main-source4 {
+        .date_time_received {
             padding-left: 60px;
         }
-        .main-source5 {
+        .date_time_tested {
             padding-left: 73px;
         }
         .collected-by {
-            padding-left: 79px;
+            padding-left: 56px;
         }
 
         .top-information {
@@ -103,9 +140,46 @@
         .main-source {
             margin-left: 21px;
         }
+        .e_signature {
+            width: 250px;
+            margin-left: 3px;
+        }
+        .e_signature1 {
+            width: 250px;
+            margin-left: 30px;
+        }
+
+        .lims {
+            margin-top: -35px;
+            width: 350px;
+            margin-left: -25px;
+        }
+        .doh {
+            margin-top: -35px;
+            width: 150px;
+            margin-left: 260px;
+        }
+        .certi {
+            margin-left: 50px;
+        }
+        .certi_no {
+            padding-left: 50px;
+        }
+        .acc {
+            margin-left: 50px;
+        }
+        .acc_id {
+            padding-left: 67px;
+        }
+        .sample {
+            margin-left: 50px;
+        }
+        .sample_id {
+            padding-left: 71px;
+        }
 
         .collected-by {
-            padding-left: 90px;
+            /* padding-left: 90px; */
         }
 
         .table-fixed-bottom {
@@ -120,7 +194,33 @@
 
     <div>
 
-        <table style="width: 100%; margin-top: 200px">
+        <table style="width: 100%; margin-top: 0px">
+            <thead>
+                <tr>
+                    <td style="font-size:  13px; font-weight: 900">
+                        <img src="{{ public_path('image/branding.png') }}" class="lims" alt="lab-aqua">
+                    </td>
+
+                    <td style="font-size:  13px; padding-right: 10px">
+                        <img src="{{ public_path('image/doh_logo.JPG') }}" class="doh" alt="doh-logo">
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+        <table style="width: 100%; margin-top: 20px">
+            <thead>
+                <tr>
+                    <td style="font-size:  13px;">
+                        <p >Aqualab Analytical Services Inc., operating under the name "AQUALAB PH"<br>
+                        Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite<br>
+                        Tel. No.: (046) 686 3704 | Mobile No. 0919 087 4880 | Email: info@aqualabph.com</p>
+                    </td>
+                </tr>
+            </thead>
+        </table>
+
+        <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr>
                     <td style="font-size:  13px; font-weight: 900">
@@ -129,9 +229,9 @@
                     </td>
 
                     <td style="font-size:  13px; padding-right: 40px">
-                        <p>Certificate No: </p>
-                        <p>Account ID: 49SRL0623WSP{{ $details->account_number }} </p>
-                        <p>Sample ID: {{ $details->analysis_id }}</p>
+                        <p class="certi">Certificate No: <span class="certi_no"></span></p>
+                        <p class="acc">Account ID: <span class="acc_id">49SRL0623WSP{{ $details->account_number }}</span> </p>
+                        <p class="sample">Sample ID: <span class="sample_id">{{ $details->analysis_id }}</span></p>
                     </td>
                 </tr>
             </thead>
@@ -140,27 +240,28 @@
         <table style="width: 100%; margin-top: 30px">
             <thead>
                 <tr class="top-information">
-                    <td>Requested By: <span class="main-source">{{ $labAcceptance->evaluated_by }}</span></td>
+                    {{-- <td>Requested By: <span class="requested">{{ $labAcceptance->evaluated_by }}</span></td> --}}
+                    <td>Requested By: <span class="requested">Lorem ipsum dolor sit amet consectetur.</span></td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Main Source: <span class="main-source1">{{ $details->source_of_water_sample }}</span></td>
-                    <td>Sampling point: <span class="main-source1">{{ $details->collection_point }}</td>
+                    <td>Main Source: <span class="main-source">{{ $details->source_of_water_sample }}</span></td>
+                    <td>Sampling point: <span class="sampling_point">{{ $details->collection_point }}</td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="main-source2">{{ $details->water_purpose }}</span></td>
-                    <td>Type of Water: <span class="main-source3">{{ $details->water_purpose }}</span></td>
+                    <td>Water Purpose (Use): <span class="water_purpose">{{ $details->water_purpose }}</span></td>
+                    <td>Type of Water: <span class="type_of_water">{{ $details->water_purpose }}</span></td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="main-source2">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
-                    <td>Date/Time Received: <span class="main-source4">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
+                    <td>Date/Time Collected: <span class="date_time_collecteed">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Received: <span class="date_time_received">{{ $details->date_collected }} - {{ $details->time_collected }}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Collected by: <span class="collected-by">{{ $details->collector_name }}</span></td>
-                    <td>Date/Time Tested: <span class="main-source5">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
+                    <td>Date/Time Tested: <span class="date_time_tested">{{ $labAcceptance->date_evaluated }} {{ $labAcceptance->time_evaluated }}</span></td>
                 </tr>
 
             </thead>
@@ -234,17 +335,21 @@
                             </td>
 
                             <td class="details">
-                                <p>{{ $micro_detail->micr1_hpc_final_result }}</p>
-                                <p>{{ $micro_detail->micr2_tc_final_result }}</p>
-                                <p>{{ $micro_detail->micr3_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr1_hpc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr2_tc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr3_final_result }}</p>
                             </td>
 
-                            <td class="details"></td>
+                            <td class="details">
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
+                            </td>
 
                             <td class="details">
-                                <p>{{ $micro_detail->micr1_hpc_remarks }}</p>
-                                <p>{{ $micro_detail->micr2_tc_remarks }}</p>
-                                <p>{{ $micro_detail->micr3_remarks }}   </p>
+                                <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
+                                <p class="remarks_details">{{ $micro_detail->micr2_tc_remarks }}</p>
+                                <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
                             </td>
 
                         {{-- chem 1 --}}
@@ -438,13 +543,15 @@
             <tr>
                 <tr>
                     <td style="font-size:  13px;">
+                        <img src="{{ public_path('image/e-signature.JPG') }}" class="e_signature" alt="signature">
                         <p style="font-weight: 500;"> CHLOE JOY C. GABAN, RMicro </p>
                         <p style="margin-top: -3%; margin-left: 15%;"> Senior Microbiologist </p>
                         <p style="margin-top: -3%; margin-left: 4%;"> PAM Reg. No. 105-00250 RM </p>
                         <p style="margin-top: -3%; margin-left: 1px;"> DOH-RL Cert No. WMLA-18-0698 </p>
                     </td>
 
-                    <td style="font-size:  13px; padding-left: 200px; margin-top; -200px;">
+                    <td style="font-size:  13px; padding-left: 180px; margin-top; -200px;">
+                        <img src="{{ public_path('image/e-signature.JPG') }}" class="e_signature1" alt="signature">
                         <p style="font-weight: 500;"> PAULO ANTONIO E. CLEMENTE, MD, DPSP </p>
                         <p style="margin-right: 10%; text-align: center;"> Head of Laboratory </p>
                         <p style="margin-right: 10%; text-align: center;"> PRC Reg. No. 0113927 </p>
