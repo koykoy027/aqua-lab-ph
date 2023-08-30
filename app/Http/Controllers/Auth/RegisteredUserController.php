@@ -68,6 +68,6 @@ class RegisteredUserController extends Controller
 
         // return redirect(RouteServiceProvider::HOME);
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Created account successfully');
     }
 }
