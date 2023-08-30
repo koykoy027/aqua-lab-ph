@@ -5,11 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TestParameter extends Model
+class LibraryTestParameter extends Model
 {
     use HasFactory;
-    protected $table = "test_parameters";
+    protected $table = "library_test_parameters";
     protected $fillable = [
+        'type',
         'abbreviation',
         'parameter',
         'method',

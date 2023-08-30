@@ -1,68 +1,18 @@
-// document.addEventListener('DOMContentLoaded', function () {
+const toggleTestParameters = (val) => {
+    var select = document.querySelector('#test_parameters');
+    var micro = document.querySelector('.micro');
+    var pychem = document.querySelector('.pychem');    
 
-//     const region = document.getElementById('api_region');
-//     const municipalityOrCity = document.getElementById('api_municipality_or_city');
-//     const barangay = document.getElementById('api_barangay_name');
-//     // Fetch Regions data from the API
-//     fetch('https://psgc.gitlab.io/api/regions/')
-//         .then(response => response.json())
-//         .then(data => {
-//             const selectElement = document.getElementById('api_region');
-//             // Iterate through the data and create options for the select input
-//             data.forEach(region => {
-//                 const option = document.createElement('option');
-//                 option.value = region.code;
-//                 option.text = region.name;
-//                 selectElement.appendChild(option);
-//             });
-//         })
-//         .catch(error => {
-//             console.error('Error:', error);
-//         });
-//     // Event listener for region selection
-//     region.addEventListener('change', () => {
-//         const selectedRegion = region.value;
-//         // Clear the provinces select input
-//         municipalityOrCity.innerHTML = '<option disabled selected>Select Municipality or City</option>';
-//         // Fetch data for the selected region
-//         fetch(`https://psgc.gitlab.io/api/regions/${selectedRegion}/cities-municipalities/`)
-//             .then(response => response.json())
-//             .then(data => {
-//                 // Populate the provinces select input
-//                 data.forEach(city => {
-//                     const option = document.createElement('option');
-//                     option.value = city.code;
-//                     option.text = city.name;
-//                     municipalityOrCity.appendChild(option);
-//                 });
-//             })
-//             .catch(error => {
-//                 console.error('Error:', error);
-//             });
-//     });
-//     // Event listener for city or municipality selection
-//     municipalityOrCity.addEventListener('change', () => {
-//         const selectedCity = municipalityOrCity.value;
-//         // Clear the provinces select input
-//         barangay.innerHTML = '<option disabled selected>Select Barangay</option>';
-//         // Fetch data for the selected region
-//         fetch(`https://psgc.gitlab.io/api/cities-municipalities/${selectedCity}/barangays/`)
-//             .then(response => response.json())
-//             .then(data => {
-//                 // Populate the provinces select input
-//                 data.forEach(brgy => {
-//                     const option = document.createElement('option');
-//                     option.value = brgy.code;
-//                     option.text = brgy.name;
-//                     barangay.appendChild(option);
-//                 });
-//             })
-//             .catch(error => {
-//                 console.error('Error:', error);
-//             });
-//     });
+    if(val === 'micro'){
+        micro.classList.remove('hidden');
+        pychem.classList.add('hidden');
+    }
 
-// });
+    if(val === 'pychem'){
+        micro.classList.add('hidden');
+        pychem.classList.remove('hidden');
+    }
+}
 
 
 

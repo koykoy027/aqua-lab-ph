@@ -11,8 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('test_parameters', function (Blueprint $table) {
+        Schema::create('library_test_parameters', function (Blueprint $table) {
             $table->id();
+            $table->string('type');
             $table->string('parameter');
             $table->string('abbreviation');
             $table->string('method');
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('test_parameters');
+        Schema::dropIfExists('library_test_parameters');
     }
 };

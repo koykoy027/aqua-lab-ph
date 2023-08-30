@@ -390,20 +390,50 @@
                         </span>
                     @enderror
                 </div>
-            </div>
 
-            <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
+
+
                 <div class="mb-3">
                     <label for="test_parameters">Test Parameters</label>
                     <select name="test_parameters" id="test_parameters" value="{{ old('test_parameters') }}" required
-                        autofocus autocomplete="test_parameters" onchange="toggleTestParameters(this.value)">
+                        onchange="toggleTestParameters(this.value)">
                         <option disabled selected>Select Parameter</option>
                         <option value="micro">Micro</option>
                         <option value="pychem">Pychem</option>
                     </select>
-                    
+                </div>
+
+                <div class="mb-3 micro">
+                    <label>Micro Parameters</label>
+
+                    @foreach ($micro_parameter as $data)
+                        <div class="flex items-center mb-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                                id="micro_test_parameter" name="test_parameter" type="checkbox"
+                                value="{{ $data->id }}">
+                            <label class="ml-2 text-sm font-medium text-gray-900" for="complies_with_the_requirement">
+                                {{ $data->abbreviation }}, {{ $data->limit }}
+                            </label>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="mb-3 pychem hidden">
+                    <label>PyChem Parameters</label>
+
+                    @foreach ($pychem_parameter as $data)
+                        <div class="flex items-center mb-4">
+                            <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                                id="pychem_test_parameter" name="test_parameter" type="checkbox"
+                                value="{{ $data->id }}">
+                            <label class="ml-2 text-sm font-medium text-gray-900" for="complies_with_the_requirement">
+                                {{ $data->abbreviation }}, {{ $data->limit }}
+                            </label>
+                        </div>
+                    @endforeach
                 </div>
             </div>
+
         </div>
         <div class="flex justify-end">
             <button class="btn btn-primary" type="submit">Submit</button>
