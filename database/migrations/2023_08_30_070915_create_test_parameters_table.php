@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('parameter');
             $table->string('abbreviation');
             $table->string('method');
-            $table->string('limit');
+            $table->string('limit')->nullable();
             $table->timestamps();
         });
     }

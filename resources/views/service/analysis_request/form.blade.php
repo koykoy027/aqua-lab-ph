@@ -396,41 +396,12 @@
                 <div class="mb-3">
                     <label for="test_parameters">Test Parameters</label>
                     <select name="test_parameters" id="test_parameters" value="{{ old('test_parameters') }}" required
-                        autofocus autocomplete="test_parameters">
-                        <option value="MICR1 - Heterotrophic Plate Count (HPC)">MICR1 - Heterotrophic Plate Count (HPC)
-                        </option>
-                        <option value="MICR2 - Thermotolerant Colifom Test">MICR2 - Thermotolerant Colifom Test</option>
-                        <option value="MICR3 - Total Coliform">MICR3 - Total Coliform</option>
-                        <option value="MICR4 - E. coli Test">MICR4 - E. coli Test</option>
-                        <option
-                            value="MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)">
-                            MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)</option>
-                        <option value="CHEM1 - pH">CHEM1 - pH</option>
-                        <option value="CHEM2 - Nitrate">CHEM2 - Nitrate</option>
-                        <option value="CHEM3 - Total Dissolved Solids">CHEM3 - Total Dissolved Solids</option>
-                        <option value="CHEM4 - Chlorine (Residual), as free">CHEM4 - Chlorine (Residual), as free</option>
-                        <option value="CHEM5 - Arsenic">CHEM5 - Arsenic</option>
-                        <option value="CHEM6 - Cadmium">CHEM6 - Cadmium</option>
-                        <option value="CHEM7 - Lead">CHEM7 - Lead</option>
-                        <option
-                            value="CHEM8 - All Twenty (20) Mandatory Chemical Parameters (DOH AO 2013-003 Dialysis Water)">
-                            CHEM8 - All Twenty (20) Mandatory Chemical Parameters (DOH AO 2013-003 Dialysis Water)</option>
-                        <option value="CHEM9 - Iron">CHEM9 - Iron</option>
-                        <option value="CHEM10 - Manganese">CHEM10 - Manganese</option>
-                        <option
-                            value="PHCH1 - All Nine (9) Mandatory Physical and Chemical Parameters (PNSDW 2017/DOH AO 2013-003)">
-                            PHCH1 - All Nine (9) Mandatory Physical and Chemical Parameters (PNSDW 2017/DOH AO 2013-003)
-                        </option>
-                        <option value="PHYS1 - Appearance">PHYS1 - Appearance</option>
-                        <option value="PHYS2 - Odor">PHYS2 - Odor</option>
-                        <option value="PHYS3 - Color, apparent">PHYS3 - Color, apparent</option>
-                        <option value="PHYS4 - Turbidity">PHYS4 - Turbidity</option>
+                        autofocus autocomplete="test_parameters" onchange="toggleTestParameters(this.value)">
+                        <option disabled selected>Select Parameter</option>
+                        <option value="micro">Micro</option>
+                        <option value="pychem">Pychem</option>
                     </select>
-                    @error('test_parameters')
-                        <span class="invalid" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    
                 </div>
             </div>
         </div>
