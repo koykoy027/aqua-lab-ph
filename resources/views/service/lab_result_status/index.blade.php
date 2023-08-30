@@ -79,7 +79,7 @@
 
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($data->time_collected)->format('h:i A') }}
+                                {{ \Carbon\Carbon::parse($data->time_collected)->format('g:i A') }}
                             </td>
                             <td class="px-6 py-4">
                                 @if ($data->source_of_water_sample == 'Others')

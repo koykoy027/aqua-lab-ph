@@ -105,7 +105,7 @@
                             </td>
 
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($data->time_collected)->format('H:i A') }}
+                                {{ \Carbon\Carbon::parse($data->time_collected)->format('g:i A') }}
                             </td>
                             <td class="px-6 py-4">
                                 {{ \Carbon\Carbon::parse($data->date_collected)->format('m/d/Y') }}

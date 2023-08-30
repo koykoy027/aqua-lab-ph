@@ -42,7 +42,7 @@
             </div>
             <div class="mb-3">
                 <label for="time_collected">Time Colected</label>
-                <input id="time_collected" type="text" name="time_collected" value="{{ $details->time_collected }}"
+                <input id="time_collected" type="time" name="time_collected" value="{{ $details->time_collected }}"
                     readonly autofocus autocomplete="time_collected">
             </div>
         </div>

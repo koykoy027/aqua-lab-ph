@@ -44,7 +44,7 @@
                             </td>
                             <td class="px-6 py-4">
 
-                                {{ \Carbon\Carbon::parse($acceptance->time_evaluated)->format('h:i A') }}
+                                {{ \Carbon\Carbon::parse($acceptance->time_evaluated)->format('g:i A') }}
 
                             </td>
                             <td class="px-6 py-4">
