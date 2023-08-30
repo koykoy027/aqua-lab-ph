@@ -108,39 +108,51 @@
 
         span {
             padding-left: 40px;
-            font-size:  13px;
+            font-size:  11px;
         }
 
         .requested {
-            padding-left: 50px;
+            padding-left: 51px;
         }
         .main-source {
             padding-left: 55px;
         }
         .sampling_point {
-            padding-left: 88px;
+            padding-left: 45px;
         }
         .water_purpose {
-            padding-left: 13px;
+            padding-left: 20px;
         }
         .date_time_collecteed {
-            padding-left: 13px;
+            padding-left: 20px;
         }
         .type_of_water {
-            padding-left: 92px;
+            padding-left: 48px;
         }
         .date_time_received {
-            padding-left: 60px;
+            padding-left: 20px;
         }
         .date_time_tested {
-            padding-left: 73px;
+            padding-left: 30px;
         }
         .collected-by {
             padding-left: 56px;
         }
 
         .top-information {
-            font-size:  13px;
+            font-size:  11px;
+        }
+        .top_sampling {
+            padding-left: 165px;
+        }
+        .top_water {
+            padding-left: 165px;
+        }
+        .top_received {
+            padding-left: 165px;
+        }
+        .top_tested {
+            padding-left: 165px;
         }
 
         span {
@@ -151,9 +163,9 @@
             margin-left: 21px;
         }
         .e_signature {
-            height: 40px;
+            height: 50px;
             width: 250px;
-            margin-left: 3px;
+            margin-left: 0px;
         }
         .e_signature1 {
             height: 40px;
@@ -164,32 +176,33 @@
         .lims {
             margin-top: -30px;
             height: 70px;
-            width: 350px;
+            width: 300px;
             margin-left: -25px;
         }
         .doh {
             margin-top: -30px;
             height: 70px;
             width: 150px;
-            margin-left: 230px;
+            margin-left: 280px;
         }
         .certi {
             margin-left: 50px;
         }
         .certi_no {
             padding-left: 50px;
+            color: red;
         }
         .acc {
             margin-left: 50px;
         }
         .acc_id {
-            padding-left: 67px;
+            padding-left: 61px;
         }
         .sample {
             margin-left: 50px;
         }
         .sample_id {
-            padding-left: 71px;
+            padding-left: 65px;
         }
         .collected-by {
             /* padding-left: 90px; */
@@ -220,10 +233,10 @@
             </thead>
         </table>
 
-        <table style="width: 100%; margin-top: 5px">
+        <table style="width: 100%; margin-top: 3px">
             <thead>
                 <tr>
-                    <td style="font-size:  13px;">
+                    <td style="font-size:  11px; color:#4b5563;">
                         <p>Aqualab Analytical Services Inc., operating under the name "AQUALAB PH"<br>
                         Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite<br>
                         Tel. No.: (046) 686 3704 | Mobile No. 0919 087 4880 | Email: info@aqualabph.com</p>
@@ -235,7 +248,7 @@
         <table style="width: 100%; margin-top: 0px">
             <thead>
                 <tr>
-                    <td style="font-size: 13px; text-transform: uppercase">
+                    <td style="font-size: 12px; text-transform: uppercase">
                         <p class="p" style="font-weight: 900;">{{ $clients->account_name }}</p>
                         <p class="p">
                             {{ $clients->unit_no_floor_bldg_name }}
@@ -247,7 +260,7 @@
                         </p>
                     </td>
 
-                    <td style="font-size:  13px; padding-right: 40px">
+                    <td style="font-size:  11px; padding-right: 40px">
                         <p class="certi">Certificate No: <span class="certi_no">{{ $certificateNo }}</span></p>
                         <p class="acc">Account ID: <span class="acc_id">{{ $clients->client_id }}</span></p>
                         <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_ }}</span></p>
@@ -264,22 +277,22 @@
 
                 <tr class="top-information">
                     <td>Main Source: <span class="main-source">{{ $analysisRequests->source_of_water_sample }}</span></td>
-                    <td>Sampling point: <span class="sampling_point">{{ $analysisRequests->collection_point }}</td>
+                    <td class="top_sampling">Sampling point: <span class="sampling_point">{{ $analysisRequests->collection_point }}</td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Water Purpose (Use): <span class="water_purpose">{{ $analysisRequests->water_purpose === 'Others' ? $analysisRequests->water_purpose_others : $analysisRequests->water_purpose }}</span></td>
-                    <td>Type of Water: <span class="type_of_water">{{ $analysisRequests->type_of_water === 'Others' ? $analysisRequests->type_of_water_others : $analysisRequests->type_of_water}}</span></td>
+                    <td class="top_water">Type of Water: <span class="type_of_water">{{ $analysisRequests->type_of_water === 'Others' ? $analysisRequests->type_of_water_others : $analysisRequests->type_of_water}}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Date/Time Collected: <span class="date_time_collecteed">{{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span></td>
-                    <td>Date/Time Received: <span class="date_time_received">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
+                    <td class="top_received">Date/Time Received: <span class="date_time_received">{{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
                 </tr>
 
                 <tr class="top-information">
                     <td>Collected by: <span class="collected-by">{{ $analysisRequests->collector_name }}</span></td>
-                    <td>Date/Time Tested: <span class="date_time_tested">
+                    <td class="top_tested">Date/Time Tested: <span class="date_time_tested">
                         @foreach ( $rawDatas as $micro_detail)
                             @foreach ($collection_details as $collection_detail)
                                 {{ \Carbon\Carbon::parse($micro_detail->created_at)->format('m/d/Y - g:i A') }}
@@ -366,6 +379,8 @@
                                 <p> MICR2 - Thermotolerant Colifom Test </p>
                                 <p> MICR3 - Total Coliform </p>
                                 <p> MICR1 - Heterotrophic Plate Count (HPC) </p>
+                                <p> MICR3 - Total Coliform </p>
+                                <p> MICR1 - Heterotrophic Plate Count (HPC) </p>
                             </td>
 
                             <td class="details">
@@ -374,6 +389,8 @@
                                 <p> Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
                                 <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
                                 <p> Total Coliform - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p> Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
+                                <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
                                 <p> Thermotolerant Coliform (E. coli) - SMEWW 9221 Multiple Tube Fermentation Technique</p>
                                 <p> Heterotrophic Plate Count  - SMEWW 9215 B. Pour Plate Method</p>
                             </td>
@@ -382,9 +399,17 @@
                                 <p class="result_details">{{ $micro_detail->micr1_hpc_final_result }}</p>
                                 <p class="result_details">{{ $micro_detail->micr2_tc_final_result }}</p>
                                 <p class="result_details">{{ $micro_detail->micr3_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr1_hpc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr2_tc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr3_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr1_hpc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr2_tc_final_result }}</p>
+                                <p class="result_details">{{ $micro_detail->micr3_final_result }}</p>
                             </td>
 
                             <td class="details">
+                                <p class="limit_details">100</p>
+                                <p class="limit_details">100</p>
                                 <p class="limit_details">100</p>
                                 <p class="limit_details">100</p>
                                 <p class="limit_details">100</p>
@@ -400,6 +425,8 @@
                                 <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
                                 <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
                                 <p class="remarks_details">{{ $micro_detail->micr2_tc_remarks }}</p>
+                                <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
+                                <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
                                 <p class="remarks_details">{{ $micro_detail->micr3_remarks }}   </p>
                                 <p class="remarks_details">{{ $micro_detail->micr1_hpc_remarks }}</p>
                             </td>
@@ -532,7 +559,7 @@
         <thead>
             <tr>
                 <td style="font-size:  13px">Remarks:</td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  13px">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
                     <p>
                         Results of examination are specifically related to samples as received
                     </p>
@@ -541,7 +568,7 @@
 
             <tr>
                 <td></td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  13px">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
                     <p style="margin-top: -10px; font-weight: 500; text-align: justify;">Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique
                         and was contained and transported in a sterilized container at controlled temperature
                         by Aqualab PH trained personnel.
@@ -551,7 +578,7 @@
 
             <tr>
                 <td></td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  13px;">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  11px;">
                     <p style="margin-top: -10px; font-weight: 500;">
                         Sample analysis was conducted within eight (8) hours as prescribed by the standards.
                     </p>
@@ -560,7 +587,7 @@
 
             <tr>
                 <td style="font-size:  13px;">Reference/s:</td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  13px;">
+                <td style="padding-left: 115px; padding-right:50px; font-size:  11px;">
                     <p>
                         Method of Analysis are based on the Standard Methods for the Examination of Water and Wastewater (SMEWW) American Water Works Association, 22nd Edition (2012); Parameters and
                         Limits are based on Philippine National Standards for Drinking Water (2017) Thermotolerant Coliform - also
@@ -582,7 +609,7 @@
 
             <tr >
                 <td style="font-size:  13px;"> Note/s: </td>
-                <td style="padding-left: 115px; font-size:  13px;">
+                <td style="padding-left: 115px; font-size:  11px;">
                     <p>
                         Comma (,) is used in this report to emphasize presentation of decimal separation/s.
                     </p>
@@ -597,7 +624,7 @@
             <tr>
                 <tr>
                     <td style="font-size:  13px;">
-                        <img src="{{ public_path('image/e-signature.JPG') }}" class="e_signature" alt="signature">
+                        <img src="{{ public_path('image/e-signature2.JPG') }}" class="e_signature" alt="signature">
                         <p style="font-weight: 500;"> CHLOE JOY C. GABAN, RMicro </p>
                         <p style="margin-top: -3%; margin-left: 15%;"> Senior Microbiologist </p>
                         <p style="margin-top: -3%; margin-left: 4%;"> PAM Reg. No. 105-00250 RM </p>
