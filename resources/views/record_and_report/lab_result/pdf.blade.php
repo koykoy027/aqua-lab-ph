@@ -21,6 +21,8 @@
         .p{
             padding: 0;
             margin: 0;
+            overflow-wrap: break-word;
+            width: 350px
         }
 
         .title {
@@ -248,7 +250,7 @@
         <table style="width: 100%; margin-top: 0px">
             <thead>
                 <tr>
-                    <td style="font-size: 12px; text-transform: uppercase">
+                    <td style="font-size: 12px; text-transform: uppercase;">
                         <p class="p" style="font-weight: 900;">{{ $clients->account_name }}</p>
                         <p class="p">
                             {{ $clients->unit_no_floor_bldg_name }}
