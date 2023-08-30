@@ -409,9 +409,9 @@
                     @foreach ($micro_parameter as $data)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                                id="micro_test_parameter" name="test_parameter" type="checkbox"
+                                id="{{ $data->id }}" name="test_parameter" type="checkbox"
                                 value="{{ $data->id }}">
-                            <label class="ml-2 text-sm font-medium text-gray-900" for="complies_with_the_requirement">
+                            <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
                                 {{ $data->abbreviation }}, {{ $data->limit }}
                             </label>
                         </div>
@@ -424,9 +424,9 @@
                     @foreach ($pychem_parameter as $data)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                                id="pychem_test_parameter" name="test_parameter" type="checkbox"
+                                id="{{ $data->id }}" name="test_parameter" type="checkbox"
                                 value="{{ $data->id }}">
-                            <label class="ml-2 text-sm font-medium text-gray-900" for="complies_with_the_requirement">
+                            <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
                                 {{ $data->abbreviation }}, {{ $data->limit }}
                             </label>
                         </div>
