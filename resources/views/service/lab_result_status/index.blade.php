@@ -75,7 +75,7 @@
                                 {{ $data->collector_name }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($data->date_collected)->format('F d, Y') }}
+                                {{ \Carbon\Carbon::parse($data->date_collected)->format('m/d/Y') }}
 
                             </td>
                             <td class="px-6 py-4">

@@ -40,7 +40,7 @@
                                 {{ $acceptance->evaluated_by }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($acceptance->date_evaluated)->format('F d, Y') }}
+                                {{ \Carbon\Carbon::parse($acceptance->date_evaluated)->format('m/d/Y') }}
                             </td>
                             <td class="px-6 py-4">
 
