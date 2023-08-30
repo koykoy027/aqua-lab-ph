@@ -29,7 +29,7 @@
                     @foreach ($requests as $request)
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{ $request->analysis_id }}
+                                {{ $request->analysis_id_ }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $request->test_parameters }}

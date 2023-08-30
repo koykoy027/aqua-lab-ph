@@ -6,7 +6,7 @@
 <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
     <div class="mb-3 bg-white card">
         <label for="sampleID">Sample ID</label>
-        <input id="sampleID" type="text" value="{{$rawDataFile->analysis_id}}" readonly>
+        <input id="sampleID" type="text" value="{{$rawDataFile->analysis_id_}}" readonly>
     </div>
 </div>
 

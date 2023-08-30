@@ -29,7 +29,7 @@
                     @foreach ($datas as $data)
                         <tr class="bg-white border-b">
                             <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{ $data->analysis_id }}
+                                {{ $data->analysis_id_ }}
                             </td>
                             <td class="px-6 py-3">
                                 {{ $data->collector_name }}
