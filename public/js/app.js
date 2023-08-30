@@ -64,10 +64,6 @@
 
 // });
 
-
-
-
-
 // can be seen in service.client.create
 const marketSegment = (val) => {
     var input = document.getElementById("market_segment_others");
@@ -82,54 +78,110 @@ const marketSegment = (val) => {
         input.value = "";
     }
 
-    let zipCode = document.getElementById('zip_code').value;
+    let zipCode = document.getElementById("zip_code").value;
     let areaCode = zipCode.slice(0, 2);
-    let municipalityOrCity = document.getElementById('municipality_or_city').value;
-    let currentAccountNumber = document.getElementById('currentAccountNumber').value;
+    let municipalityOrCity = document.getElementById(
+        "municipality_or_city"
+    ).value;
+    let currentAccountNumber = document.getElementById(
+        "currentAccountNumber"
+    ).value;
     let twoLetterOfTheCity = municipalityOrCity.substr(0, 2);
     let currentDate = new Date();
-    let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+    let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
     let currentYear = currentDate.getFullYear().toString().slice(-2);
 
-
-
     if (val === "0001 - Water Refilling Station") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "WRS0001" + currentAccountNumber;
-    }
-    else if (val === "002A - Food and Beverages (Service)") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "FBS002A" + currentAccountNumber;
-    }
-    else if (val === "002B - Food and Beverages (Manufacturer)") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "FBM002B" + currentAccountNumber;
-    }
-    else if (val === "003 - Hospitality Industry") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HI003" + currentAccountNumber;
-    }
-    else if (val === "004A - Healthcare (Dialysis)") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HD004A" + currentAccountNumber;
-    }
-    else if (val === "004B - Healthcare (Lying-in)") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HL004B" + currentAccountNumber;
-    }
-    else if (val === "004C - Healthcare (Hospital)") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "HH004C" + currentAccountNumber;
-    }
-    else if (val === "005 - Water Service Provider") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "WSP005" + currentAccountNumber;
-    }
-    else if (val === "006 - Residential") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "RE006" + currentAccountNumber;
-    }
-    else if (val === "007 - Academe") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "AC007" + currentAccountNumber;
-    }
-    else if (val === "008 - Industries") {
-        marketSegmentInput.value = areaCode + twoLetterOfTheCity + currentMonth + currentYear + "IN008" + currentAccountNumber;
-    }
-    else {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "WRS0001" +
+            currentAccountNumber;
+    } else if (val === "002A - Food and Beverages (Service)") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "FBS002A" +
+            currentAccountNumber;
+    } else if (val === "002B - Food and Beverages (Manufacturer)") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "FBM002B" +
+            currentAccountNumber;
+    } else if (val === "003 - Hospitality Industry") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "HI003" +
+            currentAccountNumber;
+    } else if (val === "004A - Healthcare (Dialysis)") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "HD004A" +
+            currentAccountNumber;
+    } else if (val === "004B - Healthcare (Lying-in)") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "HL004B" +
+            currentAccountNumber;
+    } else if (val === "004C - Healthcare (Hospital)") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "HH004C" +
+            currentAccountNumber;
+    } else if (val === "005 - Water Service Provider") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "WSP005" +
+            currentAccountNumber;
+    } else if (val === "006 - Residential") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "RE006" +
+            currentAccountNumber;
+    } else if (val === "007 - Academe") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "AC007" +
+            currentAccountNumber;
+    } else if (val === "008 - Industries") {
+        marketSegmentInput.value =
+            areaCode +
+            twoLetterOfTheCity +
+            currentMonth +
+            currentYear +
+            "IN008" +
+            currentAccountNumber;
+    } else {
         marketSegmentInput.value = "";
     }
-
 };
 
 // can be seen in service.add-analysis-request-form
@@ -264,16 +316,30 @@ const micro1 = () => {
 
     if (averagecolony >= 100) {
         var roundedNumber = Math.round(averagecolony / 10) * 10;
-        micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+        // micr1_hpc_final_result.value = roundedNumber.toFixed(0);
         micr1_hpc_average.value = roundedNumber.toFixed(0);
+        micr1_hpc_difference.value = microdifference.toFixed(2);
+
+        if (micr1_hpc_average.value >= 500) {
+            micr1_hpc_final_result.value = ">500 est";
+        } else {
+            micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+        }
     } else {
-        micr1_hpc_final_result.value = averagecolony.toFixed(0);
+        // micr1_hpc_final_result.value = averagecolony.toFixed(0);
         micr1_hpc_average.value = averagecolony.toFixed(0);
+        micr1_hpc_difference.value = microdifference.toFixed(0);
+
+        if (micr1_hpc_average.value <= 0) {
+            micr1_hpc_final_result.value = "<1.0";
+        } else {
+            micr1_hpc_final_result.value = averagecolony.toFixed(0);
+        }
     }
 
-    micr1_hpc_difference.value = microdifference.toFixed(2);
-
-    if (parseFloat(micr1_hpc_final_result.value) >= 500) {
+    if (micr1_hpc_final_result.value == ">500 est") {
+        micr1_hpc_remarks.value = "FAIL";
+    } else if (micr1_hpc_final_result.value == "<1.0") {
         micr1_hpc_remarks.value = "FAIL";
     } else {
         micr1_hpc_remarks.value = "PASS";
