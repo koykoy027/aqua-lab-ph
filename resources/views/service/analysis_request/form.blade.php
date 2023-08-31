@@ -394,22 +394,22 @@
 
 
                 <div class="mb-3">
-                    <label for="test_parameters">Test Parameters</label>
-                    <select name="test_parameters" id="test_parameters" value="{{ old('test_parameters') }}" required
+                    <label for="test_parameter">Test Parameters</label>
+                    <select id="test_parameter" value="{{ old('test_parameter') }}" required
                         onchange="toggleTestParameters(this.value)">
-                        <option disabled selected>Select Parameter</option>
+                        <option disabled selected>Select Test Parameters</option>
                         <option value="micro">Micro</option>
                         <option value="pychem">Pychem</option>
                     </select>
                 </div>
 
-                <div class="mb-3 micro">
+                <div class="mb-3 micro hidden">
                     <label>Micro Parameters</label>
 
                     @foreach ($micro_parameter as $data)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                                id="{{ $data->id }}" name="test_parameter" type="checkbox"
+                                id="{{ $data->id }}" name="test_parameters" type="checkbox"
                                 value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
                                 {{ $data->abbreviation }}, {{ $data->limit }}
@@ -424,7 +424,7 @@
                     @foreach ($pychem_parameter as $data)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                                id="{{ $data->id }}" name="test_parameter" type="checkbox"
+                                id="{{ $data->id }}" name="test_parameters" type="checkbox"
                                 value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
                                 {{ $data->abbreviation }}, {{ $data->limit }}
