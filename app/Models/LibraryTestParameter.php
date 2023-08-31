@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class LibraryTestParameter extends Model
 {
@@ -15,5 +16,10 @@ class LibraryTestParameter extends Model
         'parameter',
         'method',
         'limit',
+        'filename',
     ];
+
+    public function testParameter() :BelongsTo {
+        return $this->belongsTo(TestParameter::class);
+    }
 }

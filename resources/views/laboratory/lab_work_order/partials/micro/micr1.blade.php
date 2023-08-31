@@ -1,7 +1,6 @@
 <form action="{{ route ('laboratory.lab-work-order-form.micro1', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
     @csrf
 
-
     <div class="mb-3 bg-white card">
         <h1 class="mb-3">MICR1 - Heterotrophic Plate Count (HPC)</h1>
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
@@ -78,11 +77,11 @@
 
 
         </div>
-        <div class="flex justify-end gap-2">
+        {{-- <div class="flex justify-end gap-2">
             <button class="btn btn-primary" name="remarks" value="Testing on-going">Save</button>
             <button class="btn btn-primary" name="remarks" value="For approval">Save and Exit</button>
             <button class="btn btn-primary" name="remarks" value="For releasing">Save and Submit</button>
-        </div>
+        </div> --}}
     </div>
 
 </form>

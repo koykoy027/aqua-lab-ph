@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('library_test_parameters', function (Blueprint $table) {
+        Schema::create('test_parameters', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('parameter');
-            $table->string('abbreviation');
-            $table->string('method');
-            $table->string('limit')->nullable();
-            $table->string('filename');
+            $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
+            $table->foreignId('test_parameters')->constrained('library_test_parameters');
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('library_test_parameters');
+        Schema::dropIfExists('test_parameters');
     }
 };

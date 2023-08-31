@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\LabAcceptance;
 use App\Models\LibraryTestParameter;
 use App\Models\RawData;
+use App\Models\TestParameter;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -87,6 +88,8 @@ class AnalysisRequestController extends Controller
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
 
+        $selectedParameters = $request->input('rawr', []);
+
         $analysisRequest = AnalysisRequest::create($input);
         RawData::create([
             'analysis_id' => $analysisRequest->analysis_id,
@@ -94,6 +97,13 @@ class AnalysisRequestController extends Controller
         LabAcceptance::create([
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
+
+        foreach ($selectedParameters as $parameterValue) {
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => $parameterValue, // Change to a different attribute name
+            ]);
+        }
 
         return redirect()
             ->back()
