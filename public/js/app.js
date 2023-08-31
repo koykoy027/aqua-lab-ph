@@ -350,23 +350,24 @@ const micro1 = () => {
 const micro2 = () => {
     var micr2_tc_24 = document.querySelector('[name="micr2_tc_24"]').value;
     var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
+    var micr2_ec_24 = document.querySelector('[name="micr2_ec_24"]').value;
     var micr2_tc_final_result = document.querySelector(
         '[name="micr2_tc_final_result"]'
     );
     var micr2_tc_remarks = document.querySelector('[name="micr2_tc_remarks"]');
 
-    if (micr2_tc_24.length > 0 && micr2_tc_48.length > 0) {
-        if (micr2_tc_24 == 0) {
+    if (micr2_ec_24.length > 0 && micr2_ec_24.length > 0) {
+        if (micr2_ec_24 == 0) {
             micr2_tc_final_result.value = "< 1.1";
-        } else if (micr2_tc_24 == 1) {
+        } else if (micr2_ec_24 == 1) {
             micr2_tc_final_result.value = "1.1";
-        } else if (micr2_tc_24 == 2) {
+        } else if (micr2_ec_24 == 2) {
             micr2_tc_final_result.value = "2.6";
-        } else if (micr2_tc_24 == 3) {
+        } else if (micr2_ec_24 == 3) {
             micr2_tc_final_result.value = "4.6";
-        } else if (micr2_tc_24 == 4) {
+        } else if (micr2_ec_24 == 4) {
             micr2_tc_final_result.value = "8.0";
-        } else if (micr2_tc_24 >= 5) {
+        } else if (micr2_ec_24 >= 5) {
             micr2_tc_final_result.value = "> 8.0";
         }
 
@@ -399,10 +400,11 @@ const micro3 = () => {
             micr3_final_result.value = "2.6";
         } else if (micr3_brillant_48 == 3) {
             micr3_final_result.value = "4.6";
-        } else if (micr3_brillant_48 == 4 || micr3_brillant_48 >= 5) {
+        } else if (micr3_brillant_48 == 4) {
             micr3_final_result.value = "8.0";
+        } else if (micr3_brillant_48 >= 5) {
+            micr3_final_result.value = ">8.0";
         }
-
         if (micr3_final_result.value == "<1.1") {
             micr3_remarks.value = "PASSED";
         } else {
