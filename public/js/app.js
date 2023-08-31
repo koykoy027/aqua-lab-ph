@@ -1,11 +1,11 @@
-const toggleTestParameters = (val) => {
-    var select = document.querySelector('#test_parameters');
+const toggleTestParameters = (val) => {    
     var micro = document.querySelector('.micro');
-    var pychem = document.querySelector('.pychem');    
+    var pychem = document.querySelector('.pychem');
+    var pychemCheckBox = document.querySelector('[name="test_parameters"]');
 
     if(val === 'micro'){
         micro.classList.remove('hidden');
-        pychem.classList.add('hidden');
+        pychem.classList.add('hidden');        
     }
 
     if(val === 'pychem'){
