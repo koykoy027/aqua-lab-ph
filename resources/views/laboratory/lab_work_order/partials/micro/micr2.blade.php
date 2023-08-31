@@ -32,7 +32,7 @@
             <div class="mb-3">
                 <label for="micr2_ec_24">No. of EC Broth tubes with (+) rxn after 24h</label>
                 <input id="micr2_ec_24" type="number" step="any" name="micr2_ec_24"
-                    value="{{ $rawDataFileValue->micr2_tc_48 }}" required autofocus autocomplete="micr2_ec_24"
+                    value="{{ $rawDataFileValue->micr2_ec_24 }}" required autofocus autocomplete="micr2_ec_24"
                     onchange="micro2()">
                 @error('micr2_ec_24')
                     <span class="invalid" role="alert">
