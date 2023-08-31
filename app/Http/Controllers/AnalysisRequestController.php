@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
 use App\Models\LabAcceptance;
+use App\Models\LibraryTestParameter;
 use App\Models\RawData;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -26,8 +27,20 @@ class AnalysisRequestController extends Controller
 
     public function form($account_number)
     {
+        $micro_parameter = LibraryTestParameter::query()
+        ->where('type', 'micro')
+        ->get();
+
+        $pychem_parameter = LibraryTestParameter::query()
+        ->where('type', 'pychem')
+        ->get();        
+        
         $clients = Client::find($account_number);
-        return view('service.analysis_request.form', compact('clients'));
+        return view('service.analysis_request.form', compact(
+            'clients',
+            'micro_parameter',
+            'pychem_parameter',
+        ));
     }
 
     public function store(Request $request)
