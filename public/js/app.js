@@ -382,15 +382,6 @@ const micro2 = () => {
 };
 
 const micro3 = () => {
-    var micr3_lauryl_24 = parseFloat(
-        document.querySelector('[name="micr3_lauryl_24"]').value
-    );
-    var micr3_lauryl_48 = parseFloat(
-        document.querySelector('[name="micr3_lauryl_48"]').value
-    );
-    var micr3_brillant_24 = parseFloat(
-        document.querySelector('[name="micr3_brillant_24"]').value
-    );
     var micr3_brillant_48 = parseFloat(
         document.querySelector('[name="micr3_brillant_48"]').value
     );
@@ -399,22 +390,20 @@ const micro3 = () => {
     );
     var micr3_remarks = document.querySelector('[name="micr3_remarks"]');
 
-    if (micr3_lauryl_48 >= 0) {
-        if (micr3_lauryl_48 == 0) {
-            micr3_final_result.value = 1.1;
-        } else if (micr3_lauryl_48 == 1) {
-            micr3_final_result.value = 1.1;
-        } else if (micr3_lauryl_48 == 2) {
-            micr3_final_result.value = 2.6;
-        } else if (micr3_lauryl_48 == 3) {
-            micr3_final_result.value = 4.6;
-        } else if (micr3_lauryl_48 == 4) {
-            micr3_final_result.value = 8.0;
-        } else if (micr3_lauryl_48 >= 5) {
-            micr3_final_result.value = 8.0;
+    if (micr3_brillant_48 >= 0) {
+        if (micr3_brillant_48 == 0) {
+            micr3_final_result.value = "<1.1";
+        } else if (micr3_brillant_48 == 1) {
+            micr3_final_result.value = "1.1";
+        } else if (micr3_brillant_48 == 2) {
+            micr3_final_result.value = "2.6";
+        } else if (micr3_brillant_48 == 3) {
+            micr3_final_result.value = "4.6";
+        } else if (micr3_brillant_48 == 4 || micr3_brillant_48 >= 5) {
+            micr3_final_result.value = "8.0";
         }
 
-        if (micr3_final_result.value <= 1.1) {
+        if (micr3_final_result.value == "<1.1") {
             micr3_remarks.value = "PASSED";
         } else {
             micr3_remarks.value = "FAILED";
