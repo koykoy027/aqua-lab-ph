@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Add User')
 @section('content')
-    <form method="POST" action="{{ route('register') }}" class="card bg-white">
+    <form method="POST" action="{{ route('register') }}" class="card bg-white" onsubmit="return window.confirm('Do you want to register this account?')">
         @csrf
 
         <input type="hidden" name="status" value="0" />

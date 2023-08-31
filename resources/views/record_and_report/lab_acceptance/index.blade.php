@@ -34,17 +34,17 @@
                     @foreach ($acceptances as $acceptance)
                         <tr class="bg-white border-b">
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{ $acceptance->analysis_id }}
+                                {{ $acceptance->sample_id }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $acceptance->evaluated_by }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ \Carbon\Carbon::parse($acceptance->date_evaluated)->format('F d, Y') }}
+                                {{ \Carbon\Carbon::parse($acceptance->date_evaluated)->format('m/d/Y') }}
                             </td>
                             <td class="px-6 py-4">
 
-                                {{ \Carbon\Carbon::parse($acceptance->time_evaluated)->format('h:i A') }}
+                                {{ \Carbon\Carbon::parse($acceptance->time_evaluated)->format('g:i A') }}
 
                             </td>
                             <td class="px-6 py-4">

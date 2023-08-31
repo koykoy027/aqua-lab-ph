@@ -33,5 +33,8 @@ class AnalysisRequest extends Model
             'remarks',
     ];
 
-
+     public function getFormattedIdAttribute()
+    {
+        return str_pad($this->attributes['analysis_id'], 6, '0', STR_PAD_LEFT);
+    }
 }

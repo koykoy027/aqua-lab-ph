@@ -63,7 +63,7 @@
 
                                 @if ($user->status == '0')
                                     <form action="{{ route('user-management.user-lists.setAsActive', $user) }}"
-                                        method="POST">
+                                        method="POST" onsubmit="return window.confirm('Do you want to activate this user`s status?')">
                                         @csrf
                                         @method('PUT')
                                         <button type="submit" class="font-medium text-blue-600 hover:underline">
@@ -72,7 +72,7 @@
                                     </form>
                                 @else
                                     <form action="{{ route('user-management.user-lists.setAsInactive', $user) }}"
-                                        method="POST">
+                                        method="POST" onsubmit="return window.confirm('Do you want to inactive this user`s status?')">
                                         @csrf
                                         @method('PUT')
                                         <button type="submit" class="font-medium text-blue-600 hover:underline">

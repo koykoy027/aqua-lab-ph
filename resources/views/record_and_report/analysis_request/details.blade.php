@@ -19,9 +19,9 @@
 
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
-                <label for="analysis_id">Analysis request ID</label>
-                <input id="analysis_id" type="text" name="analysis_id" value="{{ $details->analysis_id }}" readonly
-                    autofocus autocomplete="analysis_id">
+                <label for="analysis_id_">Analysis request ID</label>
+                <input id="analysis_id_" type="text" name="analysis_id_" value="{{ $details->analysis_id_ }}" readonly
+                    autofocus autocomplete="analysis_id_">
             </div>
 
         </div>
@@ -30,18 +30,19 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
                 <label for="collector_name">Collector name</label>
-                <input id="collector_name" type="text" name="collector_name" value="{{ $details->collector_name }}" readonly
-                    autofocus autocomplete="collector_name">
+                <input id="collector_name" type="text" name="collector_name" value="{{ $details->collector_name }}"
+                    readonly autofocus autocomplete="collector_name">
             </div>
             <div class="mb-3">
                 <label for="date_collected">Date Collected</label>
-                <input id="date_collected" type="text" name="date_collected" value="{{ \Carbon\Carbon::parse($details->date_collected)->format('F d, Y') }}"
-                    readonly autofocus autocomplete="date_collected">
+                <input id="date_collected" type="text" name="date_collected"
+                    value="{{ \Carbon\Carbon::parse($details->date_collected)->format('m/d/Y') }}" readonly autofocus
+                    autocomplete="date_collected">
 
             </div>
             <div class="mb-3">
                 <label for="time_collected">Time Colected</label>
-                <input id="time_collected" type="text" name="time_collected" value="{{ $details->time_collected }}"
+                <input id="time_collected" type="time" name="time_collected" value="{{ $details->time_collected }}"
                     readonly autofocus autocomplete="time_collected">
             </div>
         </div>
@@ -91,12 +92,16 @@
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="source_of_water_sample">Source of Water Sample</label>
-                <input name="source_of_water_sample" id="source_of_water_sample" value="{{ $details->source_of_water_sample === 'Others' ? $details->source_of_water_sample_others : $details->source_of_water_sample}}" readonly autofocus autocomplete="source_of_water_sample">
+                <input name="source_of_water_sample" id="source_of_water_sample"
+                    value="{{ $details->source_of_water_sample === 'Others' ? $details->source_of_water_sample_others : $details->source_of_water_sample }}"
+                    readonly autofocus autocomplete="source_of_water_sample">
             </div>
 
             <div class="mb-3">
                 <label for="water_purpose">Water Purpose</label>
-                <input name="water_purpose" id="water_purpose" value="{{ $details->water_purpose === 'Others' ?  $details->water_purpose_others : $details->water_purpose }}" readonly autofocus autocomplete="water_purpose">
+                <input name="water_purpose" id="water_purpose"
+                    value="{{ $details->water_purpose === 'Others' ? $details->water_purpose_others : $details->water_purpose }}"
+                    readonly autofocus autocomplete="water_purpose">
             </div>
         </div>
 
