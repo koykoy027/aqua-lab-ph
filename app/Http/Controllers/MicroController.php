@@ -42,8 +42,6 @@ class MicroController extends Controller
             $micro->update($request->all());
         }
 
-
-
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'Micro Test parameter has been saved!']);

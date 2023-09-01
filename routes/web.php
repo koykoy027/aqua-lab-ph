@@ -24,6 +24,7 @@ use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PhysController;
+use App\Http\Controllers\PyChemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScheduleAndSampleInformationController;
 
@@ -91,13 +92,9 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         });
 
         Route::post('lab-work-order-form-micro/{analysis_id}', [MicroController::class, 'micro'])->name('laboratory.lab-work-order-form.micro');
-        Route::post('lab-work-order-form-micro2/{analysis_id}', [MicroController::class, 'micro2'])->name('laboratory.lab-work-order-form.micro2');
-        Route::post('lab-work-order-form-micro3/{analysis_id}', [MicroController::class, 'micro3'])->name('laboratory.lab-work-order-form.micro3');
-        Route::post('lab-work-order-form-micro4/{analysis_id}', [MicroController::class, 'micro4'])->name('laboratory.lab-work-order-form.micro4');
-        Route::post('lab-work-order-form-micro5/{analysis_id}', [MicroController::class, 'micro5'])->name('laboratory.lab-work-order-form.micro5');
 
         //chem routes
-        Route::post('lab-work-order-form-chem1/{analysis_id}', [ChemController::class, 'chem1'])->name('laboratory.lab-work-order-form.chem1');
+        Route::post('lab-work-order-form-pychem/{analysis_id}', [PyChemController::class, 'pychem'])->name('laboratory.lab-work-order-form.pychem');
         Route::post('lab-work-order-form-chem2/{analysis_id}', [ChemController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
         Route::post('lab-work-order-form-chem3/{analysis_id}', [ChemController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
         Route::post('lab-work-order-form-chem4/{analysis_id}', [ChemController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');

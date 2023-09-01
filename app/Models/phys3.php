@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class phys3 extends Model
+class Phys3 extends Model
 {
     use HasFactory;
     protected $table = 'phys3s';

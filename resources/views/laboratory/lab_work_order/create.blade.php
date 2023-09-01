@@ -32,6 +32,9 @@
     @endif
 
     @if ($rawDataFile->test_parameters === 'pychem')
+    <form action="{{ route('laboratory.lab-work-order-form.pychem', ['analysis_id' => $requests->analysis_id]) }}"
+            method="POST">
+            @csrf
         @foreach ($test_parameters as $test_parameter)
             @foreach ($library_test_parameters as $library_test_parameter)
                 @if ($test_parameter->test_parameters === $library_test_parameter->id)
@@ -39,6 +42,12 @@
                 @endif
             @endforeach
         @endforeach
+        <div class="flex justify-end gap-2">
+            <button class="btn btn-primary" name="remarks" value="Testing on-going">Save</button>
+            <button class="btn btn-primary" name="remarks" value="For approval">Save and Exit</button>
+            <button class="btn btn-primary" name="remarks" value="For releasing">Save and Submit</button>
+        </div>
+    </form>
     @endif
 
 
