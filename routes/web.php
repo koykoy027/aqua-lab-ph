@@ -23,7 +23,6 @@ use App\Http\Controllers\LabApprovalController;
 use App\Http\Controllers\LabResultStatusController;
 use App\Http\Controllers\MicroController;
 use App\Http\Controllers\PdfController;
-use App\Http\Controllers\PhysController;
 use App\Http\Controllers\PyChemController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScheduleAndSampleInformationController;
@@ -89,26 +88,10 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
             Route::get('micro', [LabAcceptanceController::class, 'micro'])->name('laboratory.lab-lab-work-order.micro');
             Route::get('pychem', [LabAcceptanceController::class, 'pychem'])->name('laboratory.lab-lab-work-order.pychem');
             Route::get('form/{analysis_id}', [CreateRawDataFileController::class, 'create'])->name('laboratory.lab-work-order-form.create');
+
+            Route::post('micro/{analysis_id}', [MicroController::class, 'micro'])->name('laboratory.lab-work-order-form.micro');
+            Route::post('pychem/{analysis_id}', [PyChemController::class, 'pychem'])->name('laboratory.lab-work-order-form.pychem');
         });
-
-        Route::post('lab-work-order-form-micro/{analysis_id}', [MicroController::class, 'micro'])->name('laboratory.lab-work-order-form.micro');
-
-        //chem routes
-        Route::post('lab-work-order-form-pychem/{analysis_id}', [PyChemController::class, 'pychem'])->name('laboratory.lab-work-order-form.pychem');
-        Route::post('lab-work-order-form-chem2/{analysis_id}', [ChemController::class, 'chem2'])->name('laboratory.lab-work-order-form.chem2');
-        Route::post('lab-work-order-form-chem3/{analysis_id}', [ChemController::class, 'chem3'])->name('laboratory.lab-work-order-form.chem3');
-        Route::post('lab-work-order-form-chem4/{analysis_id}', [ChemController::class, 'chem4'])->name('laboratory.lab-work-order-form.chem4');
-        Route::post('lab-work-order-form-chem5/{analysis_id}', [ChemController::class, 'chem5'])->name('laboratory.lab-work-order-form.chem5');
-        Route::post('lab-work-order-form-chem6/{analysis_id}', [ChemController::class, 'chem6'])->name('laboratory.lab-work-order-form.chem6');
-        Route::post('lab-work-order-form-chem7/{analysis_id}', [ChemController::class, 'chem7'])->name('laboratory.lab-work-order-form.chem7');
-        Route::post('lab-work-order-form-chem9/{analysis_id}', [ChemController::class, 'chem9'])->name('laboratory.lab-work-order-form.chem9');
-        Route::post('lab-work-order-form-chem10/{analysis_id}', [ChemController::class, 'chem10'])->name('laboratory.lab-work-order-form.chem10');
-
-        //phys routes
-        Route::post('lab-work-order-form-phys1/{analysis_id}', [PhysController::class, 'phys1'])->name('laboratory.lab-work-order-form.phys1');
-        Route::post('lab-work-order-form-phys2/{analysis_id}', [PhysController::class, 'phys2'])->name('laboratory.lab-work-order-form.phys2');
-        Route::post('lab-work-order-form-phys3/{analysis_id}', [PhysController::class, 'phys3'])->name('laboratory.lab-work-order-form.phys3');
-        Route::post('lab-work-order-form-phys4/{analysis_id}', [PhysController::class, 'phys4'])->name('laboratory.lab-work-order-form.phys4');
 
         Route::get('lab-approval/micro', [LabApprovalController::class, 'micro'])->name('laboratory.lab_approval.micro');
         Route::get('lab-approval/phyChem', [LabApprovalController::class, 'phyChem'])->name('laboratory.lab_approval.phyChem');
