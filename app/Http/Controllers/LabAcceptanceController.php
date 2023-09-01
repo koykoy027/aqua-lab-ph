@@ -27,13 +27,7 @@ class LabAcceptanceController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->whereIn('test_parameters', [
-                'MICR1 - Heterotrophic Plate Count (HPC)',
-                'MICR2 - Thermotolerant Colifom Test',
-                'MICR3 - Total Coliform',
-                'MICR4 - E. coli Test',
-                'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
-            ])
+            ->where('test_parameters', 'micro')
             ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
@@ -50,13 +44,7 @@ class LabAcceptanceController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->whereNotIn('test_parameters', [
-                'MICR1 - Heterotrophic Plate Count (HPC)',
-                'MICR2 - Thermotolerant Colifom Test',
-                'MICR3 - Total Coliform',
-                'MICR4 - E. coli Test',
-                'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
-            ])
+            ->where('test_parameters', 'pychem')
             ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
@@ -112,7 +100,8 @@ class LabAcceptanceController extends Controller
         $lab = LabAcceptance::findOrFail($analysis_id);
         $analysisRequest = AnalysisRequest::find($analysis_id);
         $test_parameters = $analysisRequest->test_parameters; // find value of test parameters
-        $lab->update(['sample_id',
+        $lab->update([
+            'sample_id',
             'sample_id' => $result . $analysis_id,
             'analysis_id' => $request->analysis_id,
             'evaluated_by' => $request->evaluated_by,

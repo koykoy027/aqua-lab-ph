@@ -51,13 +51,7 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
 
         $queryBuilder = AnalysisRequest::query()
-            ->whereIn('test_parameters', [
-                'MICR1 - Heterotrophic Plate Count (HPC)',
-                'MICR2 - Thermotolerant Colifom Test',
-                'MICR3 - Total Coliform',
-                'MICR4 - E. coli Test',
-                'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
-            ])
+            ->where('test_parameters', 'micro')
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
@@ -73,11 +67,7 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
 
         $queryBuilder = AnalysisRequest::query()
-            ->whereNot('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
-            ->whereNot('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
-            ->whereNot('test_parameters', 'MICR3 - Total Coliform')
-            ->whereNot('test_parameters', 'MICR4 - E. coli Test')
-            ->whereNot('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
+            ->where('test_parameters', 'pychem')
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
