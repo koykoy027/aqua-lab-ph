@@ -6,10 +6,12 @@ use App\Models\AnalysisRequest;
 use App\Models\Client;
 use App\Models\LabAcceptance;
 use App\Models\LibraryTestParameter;
+use App\Models\Micro1;
+use App\Models\Micro2;
 use App\Models\RawData;
 use App\Models\TestParameter;
-use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AnalysisRequestController extends Controller
 {
@@ -29,13 +31,13 @@ class AnalysisRequestController extends Controller
     public function form($account_number)
     {
         $micro_parameter = LibraryTestParameter::query()
-        ->where('type', 'micro')
-        ->get();
+            ->where('type', 'micro')
+            ->get();
 
         $pychem_parameter = LibraryTestParameter::query()
-        ->where('type', 'pychem')
-        ->get();        
-        
+            ->where('type', 'pychem')
+            ->get();
+
         $clients = Client::find($account_number);
         return view('service.analysis_request.form', compact(
             'clients',
@@ -66,7 +68,7 @@ class AnalysisRequestController extends Controller
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
         // Combine the month pattern and formatted date
-        $result = $monthPattern . $formattedDate. $currentAnalysisID;
+        $result = $monthPattern . $formattedDate . $currentAnalysisID;
 
         $request->validate([
             // 'account_number' => 'unique:analysis_requests',
@@ -88,7 +90,6 @@ class AnalysisRequestController extends Controller
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
 
-        $selectedParameters = $request->input('rawr', []);
 
         $analysisRequest = AnalysisRequest::create($input);
         RawData::create([
@@ -97,6 +98,40 @@ class AnalysisRequestController extends Controller
         LabAcceptance::create([
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
+
+        $selectedParameters = $request->input('selectedParameters', []);
+
+        if (in_array(1, $selectedParameters)) {
+            Micro1::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 1,
+                'micr1_hpc_plate_a' => NULL,
+                'micr1_hpc_plate_b' => NULL,
+                'micr1_hpc_average' => NULL,
+                'micr1_hpc_difference' => NULL,
+                'micr1_hpc_final_result' => NULL,
+                'micr1_hpc_remarks' => NULL,
+            ]);
+        }
+
+        if (in_array(2, $selectedParameters)) {
+
+            Micro2::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 2,
+                'micr2_tc_24' => NULL,
+                'micr2_tc_48' => NULL,
+                'micr2_tc_final_result' => NULL,
+                'micr2_tc_remarks' => NULL,
+            ]);
+        }
+
+
+
+
+
+
+
 
         foreach ($selectedParameters as $parameterValue) {
             TestParameter::create([

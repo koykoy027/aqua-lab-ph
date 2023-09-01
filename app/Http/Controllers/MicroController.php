@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class MicroController extends Controller
 {
-    
+
     public function micro1(Request $request, $analysis_id)
     {
         $request->validate([
@@ -21,12 +21,8 @@ class MicroController extends Controller
             'micr1_hpc_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
+        $micro = Micro1::findOrFail($analysis_id);
         $micro->update($request->all());
-
-        Micro1::create([
-            'analysis_id' => $analysis_id,
-        ]);
 
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
