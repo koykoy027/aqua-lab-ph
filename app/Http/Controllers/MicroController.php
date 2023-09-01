@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\RawData;
 use App\Models\AnalysisRequest;
+use App\Models\Micro1;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
 {
+    
     public function micro1(Request $request, $analysis_id)
     {
         $request->validate([
@@ -21,6 +23,10 @@ class MicroController extends Controller
 
         $micro = RawData::findOrFail($analysis_id);
         $micro->update($request->all());
+
+        Micro1::create([
+            'analysis_id' => $analysis_id,
+        ]);
 
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);

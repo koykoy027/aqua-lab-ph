@@ -11,13 +11,24 @@
     </div>
 
     @if ($rawDataFile->test_parameters === 'micro')
-        @foreach ($test_parameters as $test_parameter)
-            @foreach ($library_test_parameters as $library_test_parameter)
-                @if ($test_parameter->test_parameters === $library_test_parameter->id)
-                    @include('laboratory.lab_work_order.partials.micro.' . $library_test_parameter->filename)
-                @endif
+        <form action="{{ route('laboratory.lab-work-order-form.micro1', ['analysis_id' => $requests->analysis_id]) }}"
+            method="POST">
+            @csrf
+            @foreach ($test_parameters as $test_parameter)
+                @foreach ($library_test_parameters as $library_test_parameter)
+                    @if ($test_parameter->test_parameters === $library_test_parameter->id)
+                        @include('laboratory.lab_work_order.partials.micro.' . $library_test_parameter->filename)
+                    @endif
+                @endforeach
             @endforeach
-        @endforeach
+
+            <div class="flex justify-end gap-2">
+                <button class="btn btn-primary" name="remarks" value="Testing on-going">Save</button>
+                <button class="btn btn-primary" name="remarks" value="For approval">Save and Exit</button>
+                <button class="btn btn-primary" name="remarks" value="For releasing">Save and Submit</button>
+            </div>
+        </form>
+
     @endif
 
     @if ($rawDataFile->test_parameters === 'pychem')
@@ -30,6 +41,6 @@
         @endforeach
     @endif
 
-    
+
 
 @endsection

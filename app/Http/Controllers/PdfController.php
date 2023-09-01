@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\AnalysisRequest;
 use App\Models\Client;
 use App\Models\LabAcceptance;
+use App\Models\LibraryTestParameter;
 use App\Models\RawData;
+use App\Models\TestParameter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -26,6 +28,12 @@ class PdfController extends Controller
         // certificate no. format
         $currentYear = $currentDateTime->format('y'); // get year
         $formattedID = $analysisRequests->formatted_id; // format id 00001
+
+        $test_parameters = TestParameter::query()
+            ->where('analysis_id', $analysis_id)
+            ->get();
+
+        $library_test_parameters = LibraryTestParameter::all();
 
 
 
@@ -52,6 +60,8 @@ class PdfController extends Controller
             'clients' => $clients,
             'labAcceptance' => $labAcceptance,
             'certificateNo' => $certificateNo,
+            'test_parameters' => $test_parameters,
+            'library_test_parameters' => $library_test_parameters,
 
             ])
             // ->setPaper([0, 0, 612, 1008], 'portrait');

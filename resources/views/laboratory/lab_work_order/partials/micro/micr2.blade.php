@@ -1,5 +1,3 @@
-<form action="{{ route('laboratory.lab-work-order-form.micro2', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
-    @csrf
 
     <div class="mb-3 bg-white card">
         <h1 class="mb-3">MICR2 - Thermotolerant Colifom Test</h1>
@@ -56,4 +54,4 @@
         </div> --}}
 
     </div>
-</form>
+

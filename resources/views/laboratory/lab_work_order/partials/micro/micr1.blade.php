@@ -1,5 +1,5 @@
-<form action="{{ route ('laboratory.lab-work-order-form.micro1', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
-    @csrf
+{{-- <form action="{{ route ('laboratory.lab-work-order-form.micro1', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
+    @csrf --}}
 
     <div class="mb-3 bg-white card">
         <h1 class="mb-3">MICR1 - Heterotrophic Plate Count (HPC)</h1>
@@ -84,4 +84,4 @@
         </div> --}}
     </div>
 
-</form>
+{{-- </form> --}}
