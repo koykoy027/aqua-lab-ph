@@ -24,55 +24,55 @@ class PyChemController extends Controller
     {
 
         if ($request->input('chem1_final_result_remarks') == !NULL) {
-            $pychem = Chem1::findOrFail($analysis_id);
+            $pychem = Chem1::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem2_final_result_remarks') == !NULL) {
-            $pychem = Chem2::findOrFail($analysis_id);
+            $pychem = Chem2::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem3_final_result_remarks') == !NULL) {
-            $pychem = Chem3::findOrFail($analysis_id);
+            $pychem = Chem3::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem4_final_result_remarks') == !NULL) {
-            $pychem = Chem4::findOrFail($analysis_id);
+            $pychem = Chem4::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem5_final_result_remarks') == !NULL) {
-            $pychem = Chem5::findOrFail($analysis_id);
+            $pychem = Chem5::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem6_final_result_remarks') == !NULL) {
-            $pychem = Chem6::findOrFail($analysis_id);
+            $pychem = Chem6::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem7_final_result_remarks') == !NULL) {
-            $pychem = Chem7::findOrFail($analysis_id);
+            $pychem = Chem7::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem9_final_result_remarks') == !NULL) {
-            $pychem = Chem9::findOrFail($analysis_id);
+            $pychem = Chem9::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('chem10_final_result_remarks') == !NULL) {
-            $pychem = Chem10::findOrFail($analysis_id);
+            $pychem = Chem10::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('phys1_final_result_remarks') == !NULL) {
-            $pychem = Phys1::findOrFail($analysis_id);
+            $pychem = Phys1::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('phys2_final_result_remarks') == !NULL) {
-            $pychem = Phys2::findOrFail($analysis_id);
+            $pychem = Phys2::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('phys3_final_result_remarks') == !NULL) {
-            $pychem = Phys3::findOrFail($analysis_id);
+            $pychem = Phys3::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
         if ($request->input('phys4_final_result_remarks') == !NULL) {
-            $pychem = Phys4::findOrFail($analysis_id);
+            $pychem = Phys4::where('analysis_id', $analysis_id)->firstorFail();
             $pychem->update($request->all());
         }
 
