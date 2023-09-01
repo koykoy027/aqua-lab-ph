@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\RawData;
 use App\Models\AnalysisRequest;
 use App\Models\Micro1;
+use App\Models\Micro2;
+use App\Models\Micro3;
+use App\Models\Micro4;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
 {
 
-    public function micro1(Request $request, $analysis_id)
+    public function micro(Request $request, $analysis_id)
     {
         $request->validate([
             'micr1_hpc_plate_a' => 'required',
@@ -21,13 +24,29 @@ class MicroController extends Controller
             'micr1_hpc_remarks' => 'required',
         ]);
 
-        $micro = Micro1::findOrFail($analysis_id);
-        $micro->update($request->all());
+        if ($request->input('micr1_hpc_remarks') == !NULL) {
+            $micro = Micro1::findOrFail($analysis_id);
+            $micro->update($request->all());
+        }
+
+        if ($request->input('micr2_tc_remarks') == !NULL) {
+            $micro = Micro2::findOrFail($analysis_id);
+            $micro->update($request->all());
+        }
+        if ($request->input('micr3_remarks') == !NULL) {
+            $micro = Micro3::findOrFail($analysis_id);
+            $micro->update($request->all());
+        }
+        if ($request->input('micr4_final_result') == !NULL) {
+            $micro = Micro4::findOrFail($analysis_id);
+            $micro->update($request->all());
+        }
+
+
 
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
-
-        return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'MICR1 - Heterotrophic Plate Count (HPC) changes has been save']);
+        return redirect()->route('laboratory.lab-lab-work-order.micro')->with(['message' => 'Micro Test parameter has been saved!']);
     }
 
     public function micro2(Request $request, $analysis_id)
@@ -40,7 +59,7 @@ class MicroController extends Controller
             'micr2_tc_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
+        $micro = Micro2::findOrFail($analysis_id);
         $micro->update($request->all());
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
@@ -60,7 +79,7 @@ class MicroController extends Controller
             'micr3_remarks' => 'required',
         ]);
 
-        $micro = RawData::findOrFail($analysis_id);
+        $micro = Micro3::findOrFail($analysis_id);
         $micro->update($request->all());
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);

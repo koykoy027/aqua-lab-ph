@@ -17,8 +17,8 @@ return new class extends Migration
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
             $table->integer('micr2_tc_24')->nullable();
             $table->integer('micr2_tc_48')->nullable();
-            $table->string('micr2_tc_final_result', 50)->nullable();
-            $table->string('micr2_tc_remarks', 50)->nullable();
+            $table->string('micr2_tc_final_result')->nullable();
+            $table->string('micr2_tc_remarks')->nullable();
             $table->timestamps();
         });
     }

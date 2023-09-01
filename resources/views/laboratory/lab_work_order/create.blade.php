@@ -11,7 +11,7 @@
     </div>
 
     @if ($rawDataFile->test_parameters === 'micro')
-        <form action="{{ route('laboratory.lab-work-order-form.micro1', ['analysis_id' => $requests->analysis_id]) }}"
+        <form action="{{ route('laboratory.lab-work-order-form.micro', ['analysis_id' => $requests->analysis_id]) }}"
             method="POST">
             @csrf
             @foreach ($test_parameters as $test_parameter)

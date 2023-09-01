@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('micro1s', function (Blueprint $table) {
+        Schema::create('micro3s', function (Blueprint $table) {
             $table->id();
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
-            $table->integer('micr1_hpc_plate_a')->nullable();
-            $table->integer('micr1_hpc_plate_b')->nullable();
-            $table->integer('micr1_hpc_average')->nullable();
-            $table->integer('micr1_hpc_difference')->nullable();
-            $table->string('micr1_hpc_final_result')->nullable();
-            $table->string('micr1_hpc_remarks')->nullable();
+            $table->integer('micr3_lauryl_24')->nullable();
+            $table->integer('micr3_lauryl_48')->nullable();
+            $table->integer('micr3_brillant_24')->nullable();
+            $table->integer('micr3_brillant_48')->nullable();
+            $table->string('micr3_final_result')->nullable();
+            $table->string('micr3_remarks')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('micro1s');
+        Schema::dropIfExists('micro3s');
     }
 };

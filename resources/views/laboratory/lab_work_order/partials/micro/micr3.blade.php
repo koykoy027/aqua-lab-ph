@@ -1,5 +1,4 @@
-<form action="{{ route('laboratory.lab-work-order-form.micro3', ['analysis_id' => $requests->analysis_id]) }}" method="POST">
-    @csrf
+
 
     <div class="mb-3 bg-white card">
         <h1 class="mb-3">MICR3 - Total Coliform</h1>
@@ -78,4 +77,4 @@
         </div> --}}
 
     </div>
-</form>
+

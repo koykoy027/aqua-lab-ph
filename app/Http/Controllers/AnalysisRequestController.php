@@ -8,6 +8,8 @@ use App\Models\LabAcceptance;
 use App\Models\LibraryTestParameter;
 use App\Models\Micro1;
 use App\Models\Micro2;
+use App\Models\Micro3;
+use App\Models\Micro4;
 use App\Models\RawData;
 use App\Models\TestParameter;
 use Carbon\Carbon;
@@ -119,19 +121,22 @@ class AnalysisRequestController extends Controller
             Micro2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 2,
-                'micr2_tc_24' => NULL,
-                'micr2_tc_48' => NULL,
-                'micr2_tc_final_result' => NULL,
-                'micr2_tc_remarks' => NULL,
             ]);
         }
+        if (in_array(3, $selectedParameters)) {
 
+            Micro3::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 3,
+            ]);
+        }
+        if (in_array(4, $selectedParameters)) {
 
-
-
-
-
-
+            Micro4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 4,
+            ]);
+        }
 
         foreach ($selectedParameters as $parameterValue) {
             TestParameter::create([
