@@ -31,7 +31,7 @@
         @foreach ($test_parameters as $test_parameter)
             @foreach ($library_test_parameters as $library_test_parameter)
                 @if ($test_parameter->test_parameters === $library_test_parameter->id)
-                    @include('laboratory.lab_approval.partials.chem.' . $library_test_parameter->filename)
+                    @include('laboratory.lab_approval.partials.pychem.' . $library_test_parameter->filename)
                 @endif
             @endforeach
         @endforeach
