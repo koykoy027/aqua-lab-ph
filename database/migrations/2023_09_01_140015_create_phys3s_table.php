@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
             $table->string('phys3_concentration_of_comparable_color_standard')->nullable();
-            $table->integer('phys3_final_result')->nullable();
+            $table->string('phys3_final_result')->nullable();
             $table->string('phys3_final_result_remarks')->nullable();
             $table->timestamps();
         });

@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
-            $table->integer('chem2_instrument_reading_1')->nullable();
-            $table->integer('chem2_instrument_reading_2')->nullable();
-            $table->integer('chem2_instrument_reading_3')->nullable();
-            $table->integer('chem2_average_instrument_reading')->nullable();
-            $table->integer('chem2_final_result')->nullable();
+            $table->string('chem2_instrument_reading_1')->nullable();
+            $table->string('chem2_instrument_reading_2')->nullable();
+            $table->string('chem2_instrument_reading_3')->nullable();
+            $table->string('chem2_average_instrument_reading')->nullable();
+            $table->string('chem2_final_result')->nullable();
             $table->string('chem2_final_result_remarks')->nullable();
             $table->timestamps();
         });
