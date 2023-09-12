@@ -18,6 +18,10 @@ use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
+use App\Models\Phys1;
+use App\Models\Phys2;
+use App\Models\Phys3;
+use App\Models\Phys4;
 use App\Models\RawData;
 use App\Models\TestParameter;
 use Illuminate\Http\Request;
@@ -45,6 +49,11 @@ class CreateRawDataFileController extends Controller
         $chem9 = Chem9::where('analysis_id',$analysis_id)->get();
         $chem10 = Chem10::where('analysis_id',$analysis_id)->get();
 
+        $phys1 = Phys1::where('analysis_id',$analysis_id)->get();
+        $phys2 = Phys2::where('analysis_id',$analysis_id)->get();
+        $phys3 = Phys3::where('analysis_id',$analysis_id)->get();
+        $phys4 = Phys4::where('analysis_id',$analysis_id)->get();
+
         $test_parameters = TestParameter::query()
             ->where('analysis_id', $analysis_id)
             ->get();
@@ -69,7 +78,11 @@ class CreateRawDataFileController extends Controller
             'chem6',
             'chem7',
             'chem9',
-            'chem10'
+            'chem10',
+            'phys1',
+            'phys2',
+            'phys3',
+            'phys4',
         ));
     }
 }
