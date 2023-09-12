@@ -21,24 +21,26 @@
             @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="phys3_final_result">Final Result</label>
-            <input id="phys3_final_result" type="text" name="phys3_final_result" value="{{ $rawDataFileValue->phys3_final_result }}" required autofocus autocomplete="phys3_final_result" readonly>
-            @error('phys3_final_result')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
+        @foreach ($phys3 as $phys3s)
+            <div class="mb-3">
+                <label for="phys3_final_result">Final Result</label>
+                <input id="phys3_final_result" type="text" name="phys3_final_result" value="{{ $phys3s->phys3_final_result }}" required autofocus autocomplete="phys3_final_result" readonly>
+                @error('phys3_final_result')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="phys3_final_result_remarks">Final Result Remarks</label>
-            <input id="phys3_final_result_remarks" type="text" name="phys3_final_result_remarks" value="{{ $rawDataFileValue->phys3_final_result_remarks }}" required autofocus autocomplete="phys3_final_result_remarks" readonly>
-            @error('phys3_final_result_remarks')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
+            <div class="mb-3">
+                <label for="phys3_final_result_remarks">Final Result Remarks</label>
+                <input id="phys3_final_result_remarks" type="text" name="phys3_final_result_remarks" value="{{ $phys3s->phys3_final_result_remarks }}" required autofocus autocomplete="phys3_final_result_remarks" readonly>
+                @error('phys3_final_result_remarks')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        @endforeach
     </div>
 </div>

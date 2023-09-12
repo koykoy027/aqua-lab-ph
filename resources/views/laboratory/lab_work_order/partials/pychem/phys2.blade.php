@@ -14,24 +14,26 @@
             @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="phys2_final_result">Final Result</label>
-            <input id="phys2_final_result" type="text" name="phys2_final_result" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys2_final_result" readonly>
-            @error('phys2_final_result')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
+        @foreach ($phys2 as $phys2s)
+            <div class="mb-3">
+                <label for="phys2_final_result">Final Result</label>
+                <input id="phys2_final_result" type="text" name="phys2_final_result" value="{{ $phys2s->phys1_observation }}" required autofocus autocomplete="phys2_final_result" readonly>
+                @error('phys2_final_result')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
 
-        <div class="mb-3">
-            <label for="phys2_final_result_remarks">Final Result Remarks</label>
-            <input id="phys2_final_result_remarks" type="text" name="phys2_final_result_remarks" value="{{ $rawDataFileValue->phys1_observation }}" required autofocus autocomplete="phys2_final_result_remarks" readonly>
-            @error('phys2_final_result_remarks')
-                <span class="invalid" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-        </div>
+            <div class="mb-3">
+                <label for="phys2_final_result_remarks">Final Result Remarks</label>
+                <input id="phys2_final_result_remarks" type="text" name="phys2_final_result_remarks" value="{{ $phys2s->phys1_observation }}" required autofocus autocomplete="phys2_final_result_remarks" readonly>
+                @error('phys2_final_result_remarks')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        @endforeach
     </div>
 </div>
