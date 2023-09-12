@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
-            $table->integer('micr1_hpc_plate_a')->nullable();
-            $table->integer('micr1_hpc_plate_b')->nullable();
-            $table->integer('micr1_hpc_average')->nullable();
-            $table->integer('micr1_hpc_difference')->nullable();
+            $table->string('micr1_hpc_plate_a')->nullable();
+            $table->string('micr1_hpc_plate_b')->nullable();
+            $table->string('micr1_hpc_average')->nullable();
+            $table->string('micr1_hpc_difference')->nullable();
             $table->string('micr1_hpc_final_result')->nullable();
             $table->string('micr1_hpc_remarks')->nullable();
             $table->timestamps();

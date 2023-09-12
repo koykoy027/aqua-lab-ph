@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
-            $table->integer('chem4_instrument_reading')->nullable();
-            $table->integer('chem4_final_result')->nullable();
+            $table->string('chem4_instrument_reading')->nullable();
+            $table->string('chem4_final_result')->nullable();
             $table->string('chem4_final_result_remarks')->nullable();
             $table->timestamps();
         });
