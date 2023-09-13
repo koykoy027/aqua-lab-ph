@@ -4,7 +4,7 @@
         @foreach ($phys1 as $phys1s)
         <div class="mb-3">
             <label for="phys1_observation">Observation</label>
-            <input id="phys1_observation" type="number" name="phys1_observation" value="{{ $phys1s->phys1_observation }}" readonly autofocus autocomplete="phys1_observation">
+            <input id="phys1_observation" type="text" name="phys1_observation" value="{{ $phys1s->phys1_observation }}" readonly autofocus autocomplete="phys1_observation">
 
         </div>
 
