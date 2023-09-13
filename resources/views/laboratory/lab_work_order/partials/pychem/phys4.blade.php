@@ -54,7 +54,6 @@
 
             <div class="mb-3">
                 <label for="phys4_final_result_remarks">Final Result Remarks</label>
-                {{-- <input id="phys4_final_result_remarks" type="text" name="phys4_final_result_remarks" value="{{ old('phys4_final_result_remarks') }}" required autofocus autocomplete="phys4_final_result_remarks" readonly> --}}
                 <input id="phys4_final_result_remarks" type="text" name="phys4_final_result_remarks" value="{{ $phys4s->phys4_final_result_remarks }}" required autofocus autocomplete="phys4_final_result_remarks" readonly>
                 @error('phys4_final_result_remarks')
                     <span class="invalid" role="alert">
