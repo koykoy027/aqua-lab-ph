@@ -4,17 +4,24 @@
             <div class="mb-3">
                 <label for="phys3_concentration_of_comparable_color_standard">Concentration of comparable color standard</label>
                 <select id="phys3_concentration_of_comparable_color_standard" name="phys3_concentration_of_comparable_color_standard" required autofocus autocomplete="phys3_concentration_of_comparable_color_standard" onchange="phy3()">
+                    {{-- @foreach ($phys3 as $phys3s)
+                        @php
+                            $selected = ($selectedValue === $optionValue) ? 'selected' : '';
+                        @endphp
+                            <option value="{{ $optionValue }}" {{ $selected }}>{{ $optionValue }}</option>
+                    @endforeach --}}
+
                     @foreach ($phys3 as $phys3s)
                     @if ($phys3s->phys3_concentration_of_comparable_color_standard === "&lt; 10")
-                    <option value="&lt; 10" selected>&lt; 10</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                    <option value="25">25</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
+                        <option value="&lt; 10" selected>&lt; 10</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                        <option value="25">25</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
                     @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "10")
                         <option value="&lt; 10">&lt; 10</option>
                         <option value="10" selected>10</option>

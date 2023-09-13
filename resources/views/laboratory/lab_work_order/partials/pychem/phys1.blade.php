@@ -23,7 +23,7 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-         </div>
+        </div>
 
         @foreach ($phys1 as $phys1s)
             <div class="mb-3">
