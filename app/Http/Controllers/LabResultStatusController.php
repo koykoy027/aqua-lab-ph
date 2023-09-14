@@ -120,7 +120,6 @@ class LabResultStatusController extends Controller
 
     public function details($analysis_id)
     {
-
         $analysis = AnalysisRequest::find($analysis_id);
 
         $clients = Client::find($analysis->account_number);

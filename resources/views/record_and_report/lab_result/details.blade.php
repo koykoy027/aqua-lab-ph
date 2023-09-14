@@ -48,16 +48,6 @@
                     @endforeach
                 @endif
 
-                {{-- @if ($analysis->test_parameters === 'pychem')
-                    @foreach ($test_parameters as $test_parameter)
-                        @foreach ($library_test_parameters as $library_test_parameter)
-                            @if ($test_parameter->test_parameters === $library_test_parameter->id)
-                                @include('record_and_report.lab_result.partials.raw_data_partials.phys.' . $library_test_parameter->filename)
-                            @endif
-                        @endforeach
-                    @endforeach
-                @endif --}}
-
                 @if ($analysis->test_parameters === 'pychem')
                     @foreach ($test_parameters as $test_parameter)
                         @foreach ($library_test_parameters as $library_test_parameter)
@@ -67,8 +57,18 @@
                         @endforeach
                     @endforeach
                 @endif
-            </div>
 
+                {{-- @if ($analysis->test_parameters === 'pychem')
+                @foreach ($test_parameters as $test_parameter)
+                    @foreach ($library_test_parameters as $library_test_parameter)
+                        @if ($test_parameter->test_parameters === $library_test_parameter->id)
+                            @include('record_and_report.lab_result.partials.raw_data_partials.phys.' . $library_test_parameter->filename)
+                        @endif
+                    @endforeach
+                @endforeach
+                @endif --}}
+
+            </div>
         </div>
 
 @endsection
