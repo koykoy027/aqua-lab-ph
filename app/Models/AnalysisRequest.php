@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class AnalysisRequest extends Model
 {
@@ -32,6 +33,10 @@ class AnalysisRequest extends Model
             'test_parameters',
             'remarks',
     ];
+
+    public function testParameters() :HasMany {
+        return $this->hasMany(TestParameter::class);
+    }
 
      public function getFormattedIdAttribute()
     {

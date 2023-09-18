@@ -3,9 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
+use App\Models\Chem1;
+use App\Models\Chem10;
+use App\Models\Chem2;
+use App\Models\Chem3;
+use App\Models\Chem4;
+use App\Models\Chem5;
+use App\Models\Chem6;
+use App\Models\Chem7;
+use App\Models\Chem9;
 use App\Models\Client;
 use App\Models\LabAcceptance;
+use App\Models\LibraryTestParameter;
+use App\Models\Micro1;
+use App\Models\Micro2;
+use App\Models\Micro3;
+use App\Models\Micro4;
+use App\Models\Phys1;
+use App\Models\Phys2;
+use App\Models\Phys3;
+use App\Models\Phys4;
 use App\Models\RawData;
+use App\Models\TestParameter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,13 +70,7 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
 
         $queryBuilder = AnalysisRequest::query()
-            ->whereIn('test_parameters', [
-                'MICR1 - Heterotrophic Plate Count (HPC)',
-                'MICR2 - Thermotolerant Colifom Test',
-                'MICR3 - Total Coliform',
-                'MICR4 - E. coli Test',
-                'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
-            ])
+            ->where('test_parameters', 'micro')
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
@@ -73,11 +86,7 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
 
         $queryBuilder = AnalysisRequest::query()
-            ->whereNot('test_parameters', 'MICR1 - Heterotrophic Plate Count (HPC)')
-            ->whereNot('test_parameters', 'MICR2 - Thermotolerant Colifom Test')
-            ->whereNot('test_parameters', 'MICR3 - Total Coliform')
-            ->whereNot('test_parameters', 'MICR4 - E. coli Test')
-            ->whereNot('test_parameters', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
+            ->where('test_parameters', 'pychem')
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
@@ -111,13 +120,61 @@ class LabResultStatusController extends Controller
 
     public function details($analysis_id)
     {
-
         $analysis = AnalysisRequest::find($analysis_id);
 
         $clients = Client::find($analysis->account_number);
-        $acceptance = LabAcceptance::find($analysis->analysis_id);
-        $rawData = RawData::find($analysis->analysis_id);
+        $acceptance = LabAcceptance::find($analysis_id);
+        $rawData = RawData::find($analysis_id);
 
-        return view('record_and_report.lab_result.details', compact('analysis', 'clients', 'acceptance', 'rawData'));
+        $micro1 = Micro1::where('analysis_id',$analysis_id)->get();
+        $micro2 = Micro2::where('analysis_id',$analysis_id)->get();
+        $micro3 = Micro3::where('analysis_id',$analysis_id)->get();
+        $micro4 = Micro4::where('analysis_id',$analysis_id)->get();
+
+        $chem1 = Chem1::where('analysis_id',$analysis_id)->get();
+        $chem2 = Chem2::where('analysis_id',$analysis_id)->get();
+        $chem3 = Chem3::where('analysis_id',$analysis_id)->get();
+        $chem4 = Chem4::where('analysis_id',$analysis_id)->get();
+        $chem5 = Chem5::where('analysis_id',$analysis_id)->get();
+        $chem6 = Chem6::where('analysis_id',$analysis_id)->get();
+        $chem7 = Chem7::where('analysis_id',$analysis_id)->get();
+        $chem9 = Chem9::where('analysis_id',$analysis_id)->get();
+        $chem10 = Chem10::where('analysis_id',$analysis_id)->get();
+
+        $phys1 = Phys1::where('analysis_id',$analysis_id)->get();
+        $phys2 = Phys2::where('analysis_id',$analysis_id)->get();
+        $phys3 = Phys3::where('analysis_id',$analysis_id)->get();
+        $phys4 = Phys4::where('analysis_id',$analysis_id)->get();
+
+        $test_parameters = TestParameter::query()
+        ->where('analysis_id', $analysis_id)
+        ->get();
+
+        $library_test_parameters = LibraryTestParameter::all();
+
+        return view('record_and_report.lab_result.details', compact
+        ('analysis',
+        'clients',
+        'acceptance',
+        'rawData',
+        'test_parameters',
+        'library_test_parameters',
+        'micro1',
+        'micro2',
+        'micro3',
+        'micro4',
+        'chem1',
+        'chem2',
+        'chem3',
+        'chem4',
+        'chem5',
+        'chem6',
+        'chem7',
+        'chem9',
+        'chem10',
+        'phys1',
+        'phys2',
+        'phys3',
+        'phys4'));
     }
 }

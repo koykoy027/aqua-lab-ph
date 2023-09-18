@@ -20,7 +20,8 @@ class ClientFactory extends Factory
     public function definition(): array
     {
         return [
-            'account_number' => $this->faker->unique()->randomNumber(4),
+            // 'account_number' => $this->faker->unique()->randomNumber(4),
+            'client_id' => $this->faker->unique()->randomNumber(4),
             'account_name' => $this->faker->name,
             'name_of_owner' => $this->faker->name,
             'type_of_ownership' => $this->faker->randomElement(['Single Prorietorship', 'Partnership', 'Cooperative', 'Corporation']),

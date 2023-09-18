@@ -3,11 +3,30 @@
 namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
+use App\Models\Chem1;
+use App\Models\Chem10;
+use App\Models\Chem2;
+use App\Models\Chem3;
+use App\Models\Chem4;
+use App\Models\Chem5;
+use App\Models\Chem6;
+use App\Models\Chem7;
+use App\Models\Chem9;
 use App\Models\Client;
 use App\Models\LabAcceptance;
+use App\Models\LibraryTestParameter;
+use App\Models\Micro1;
+use App\Models\Micro2;
+use App\Models\Micro3;
+use App\Models\Micro4;
+use App\Models\Phys1;
+use App\Models\Phys2;
+use App\Models\Phys3;
+use App\Models\Phys4;
 use App\Models\RawData;
-use Illuminate\Http\Request;
+use App\Models\TestParameter;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class AnalysisRequestController extends Controller
 {
@@ -26,8 +45,20 @@ class AnalysisRequestController extends Controller
 
     public function form($account_number)
     {
+        $micro_parameter = LibraryTestParameter::query()
+            ->where('type', 'micro')
+            ->get();
+
+        $pychem_parameter = LibraryTestParameter::query()
+            ->where('type', 'pychem')
+            ->get();
+
         $clients = Client::find($account_number);
-        return view('service.analysis_request.form', compact('clients'));
+        return view('service.analysis_request.form', compact(
+            'clients',
+            'micro_parameter',
+            'pychem_parameter',
+        ));
     }
 
     public function store(Request $request)
@@ -52,7 +83,7 @@ class AnalysisRequestController extends Controller
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
         // Combine the month pattern and formatted date
-        $result = $monthPattern . $formattedDate. $currentAnalysisID;
+        $result = $monthPattern . $formattedDate . $currentAnalysisID;
 
         $request->validate([
             // 'account_number' => 'unique:analysis_requests',
@@ -74,6 +105,7 @@ class AnalysisRequestController extends Controller
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
 
+
         $analysisRequest = AnalysisRequest::create($input);
         RawData::create([
             'analysis_id' => $analysisRequest->analysis_id,
@@ -81,6 +113,141 @@ class AnalysisRequestController extends Controller
         LabAcceptance::create([
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
+
+        $selectedParameters = $request->input('selectedParameters', []);
+
+        if (in_array(1, $selectedParameters)) {
+            Micro1::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 1,
+                'micr1_hpc_plate_a' => NULL,
+                'micr1_hpc_plate_b' => NULL,
+                'micr1_hpc_average' => NULL,
+                'micr1_hpc_difference' => NULL,
+                'micr1_hpc_final_result' => NULL,
+                'micr1_hpc_remarks' => NULL,
+            ]);
+        }
+
+        if (in_array(2, $selectedParameters)) {
+
+            Micro2::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 2,
+            ]);
+        }
+        if (in_array(3, $selectedParameters)) {
+
+            Micro3::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 3,
+            ]);
+        }
+        if (in_array(4, $selectedParameters)) {
+
+            Micro4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 4,
+            ]);
+        }
+        if (in_array(5, $selectedParameters)) {
+
+            Chem1::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 5,
+            ]);
+        }
+        if (in_array(6, $selectedParameters)) {
+
+            Chem2::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 6,
+            ]);
+        }
+        if (in_array(7, $selectedParameters)) {
+
+            Chem3::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 7,
+            ]);
+        }
+        if (in_array(8, $selectedParameters)) {
+
+            Chem4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 8,
+            ]);
+        }
+        if (in_array(9, $selectedParameters)) {
+
+            Chem5::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 9,
+            ]);
+        }
+        if (in_array(10, $selectedParameters)) {
+
+            Chem6::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 10,
+            ]);
+        }
+        if (in_array(11, $selectedParameters)) {
+
+            Chem7::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 11,
+            ]);
+        }
+        if (in_array(12, $selectedParameters)) {
+
+            Chem9::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 12,
+            ]);
+        }
+        if (in_array(13, $selectedParameters)) {
+
+            Chem10::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 13,
+            ]);
+        }
+        if (in_array(14, $selectedParameters)) {
+
+            Phys1::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 14,
+            ]);
+        }
+        if (in_array(15, $selectedParameters)) {
+
+            Phys2::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 15,
+            ]);
+        }
+        if (in_array(16, $selectedParameters)) {
+
+            Phys3::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 16,
+            ]);
+        }
+        if (in_array(17, $selectedParameters)) {
+
+            Phys4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 17,
+            ]);
+        }
+
+        foreach ($selectedParameters as $parameterValue) {
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => $parameterValue, // Change to a different attribute name
+            ]);
+        }
 
         return redirect()
             ->back()
