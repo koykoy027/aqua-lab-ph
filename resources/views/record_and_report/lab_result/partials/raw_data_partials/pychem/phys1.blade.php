@@ -4,8 +4,8 @@
             @foreach ($phys1 as $phys1s)
                 <div class="mb-3">
                     <label for="phys1_observation">Observation</label>
-                    <input id="phys1_observation" type="text" name="phys1_observation" value="{{ $phys1s->phys1_observation }}" required autofocus autocomplete="phys1_observation" readonly>
-                    {{-- <select id="phys1_observation" type="number" name="phys1_observation" required autofocus autocomplete="phys1_observation">
+                    <input id="phys1_observation" type="text" name="phys1_observation" value="{{ $phys1s->phys1_observation }}" readonly autofocus autocomplete="phys1_observation">
+                    {{-- <select id="phys1_observation" type="number" name="phys1_observation" autofocus autocomplete="phys1_observation">
                         <option value="Color without objectionable color">Color without objectionable color</option>
                         <option value="Not clear and with objectionable color">Not clear and with objectionable color</option>
                     </select> --}}
@@ -13,12 +13,12 @@
 
                 <div class="mb-3">
                     <label for="phys1_final_result">Final Result</label>
-                    <input id="phys1_final_result" type="text" name="phys1_final_result" value="{{ $phys1s->phys1_final_result }}" required autofocus autocomplete="phys1_final_result" readonly>
+                    <input id="phys1_final_result" type="text" name="phys1_final_result" value="{{ $phys1s->phys1_final_result }}" readonly autofocus autocomplete="phys1_final_result">
                 </div>
 
                 <div class="mb-3">
                     <label for="phys1_final_result_remarks">Final Result Remarks</label>
-                    <input id="phys1_final_result_remarks" type="text" name="phys1_final_result_remarks" value="{{ $phys1s->phys1_final_result_remarks }}" required autofocus autocomplete="phys1_final_result_remarks" readonly>
+                    <input id="phys1_final_result_remarks" type="text" name="phys1_final_result_remarks" value="{{ $phys1s->phys1_final_result_remarks }}" readonly autofocus autocomplete="phys1_final_result_remarks">
                 </div>
             @endforeach
         </div>

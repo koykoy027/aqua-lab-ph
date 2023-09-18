@@ -4,17 +4,17 @@
         @foreach ($chem4 as $chem4s)
             <div class="mb-3">
                 <label for="chem4_instrument_reading">Instrument Reading</label>
-                <input id="chem4_instrument_reading" type="number" name="chem4_instrument_reading" value="{{ $chem4s->chem4_instrument_reading }}" required autofocus autocomplete="chem4_instrument_reading">
+                <input id="chem4_instrument_reading" type="number" name="chem4_instrument_reading" value="{{ $chem4s->chem4_instrument_reading }}" readonly autofocus autocomplete="chem4_instrument_reading">
             </div>
 
             <div class="mb-3">
                 <label for="chem4_final_result">Final Result</label>
-                <input id="chem4_final_result" type="number" name="chem4_final_result" value="{{ $chem4s->chem4_final_result }}" required autofocus autocomplete="chem4_final_result">
+                <input id="chem4_final_result" type="number" name="chem4_final_result" value="{{ $chem4s->chem4_final_result }}" readonly autofocus autocomplete="chem4_final_result">
             </div>
 
             <div class="mb-3">
                 <label for="chem4_final_result_remarks">Final Result Remarks</label>
-                <input id="chem4_final_result_remarks" type="text" name="chem4_final_result_remarks" value="{{ $chem4s->chem4_final_result_remarks }}" required autofocus autocomplete="chem4_final_result_remarks" readonly>
+                <input id="chem4_final_result_remarks" type="text" name="chem4_final_result_remarks" value="{{ $chem4s->chem4_final_result_remarks }}" readonly autofocus autocomplete="chem4_final_result_remarks">
             </div>
         @endforeach
     </div>
