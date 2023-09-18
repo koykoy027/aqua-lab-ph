@@ -37,7 +37,6 @@
             margin-left: auto;
             margin-right: auto;
             margin-top: 10px;
-            border-collapse: collapse;
             width: 100%;
         }
 
@@ -316,8 +315,8 @@
     </div>
 
     <table class="table-container">
-        <thead>
-            <tr class="head">
+        <thead class="head">
+            <tr>
                 <th class="test">parameter</th>
                 <th class="method">method of analysis</th>
                 <th class="result">result</th>
@@ -363,6 +362,8 @@
 
                         @endif
                     @endforeach
+
+                    <td colspan="5" style="text-align: center;font-size: smaller">**NOTHING FOLLOWS**</td>
                 </tr>
             @endforeach
         </tbody>
