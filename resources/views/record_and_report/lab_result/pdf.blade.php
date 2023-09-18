@@ -308,12 +308,7 @@
     </div>
 
     <div class="title" style="font-size: small">
-        @if ($analysisRequests->test_parameters === 'MICR1 - Heterotrophic Plate Count (HPC)' OR
-            $analysisRequests->test_parameters === 'MICR2 - Thermotolerant Colifom Test' OR
-            $analysisRequests->test_parameters === 'MICR3 - Total Coliform' OR
-            $analysisRequests->test_parameters === 'MICR4 - E. coli Test' OR
-            $analysisRequests->test_parameters === 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
-        )
+        @if ($analysisRequests->test_parameters === 'micro')
         C E R T I F I C A T E O F M I C R O B I O L O G I C A L A N A L Y S I S
         @else
         C E R T I F I C A T E O F P H Y S I C A L A N D C H E M I C A L A N A L Y S I S
