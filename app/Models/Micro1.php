@@ -20,4 +20,8 @@ class Micro1 extends Model
         'micr1_hpc_final_result',
         'micr1_hpc_remarks',
     ];
+
+    public function libraryTestParameter(){
+        return $this->belongsTo(LibraryTestParameter::class, 'test_parameters_id');
+    }
 }

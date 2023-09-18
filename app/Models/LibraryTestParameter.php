@@ -22,4 +22,9 @@ class LibraryTestParameter extends Model
     public function testParameter() :BelongsTo {
         return $this->belongsTo(TestParameter::class);
     }
+
+    public function micro1()
+    {
+        return $this->hasMany(Micro1::class);
+    }
 }
