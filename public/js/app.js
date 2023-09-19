@@ -619,6 +619,8 @@ const chem6 = () => {
 
     if (averageReading <= 0.003) {
         chem6_final_result_remarks.value = "PASS";
+    } else if (averageReading == "0.003") {
+        chem6_final_result_remarks.value = "PASS";
     } else {
         chem6_final_result_remarks.value = "FAIL";
     }
