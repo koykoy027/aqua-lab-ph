@@ -527,12 +527,12 @@ const chem4 = () => {
         '[name="chem4_final_result_remarks"]'
     );
 
-    if (chem4_instrument_reading > 1.5) {
-        chem4_final_result_remarks.value = "FAIL";
-    } else if (chem4_instrument_reading < 0.3) {
-        chem4_final_result_remarks.value = "FAIL";
-    } else {
+    if (chem4_instrument_reading < 1.5) {
         chem4_final_result_remarks.value = "PASS";
+    } else if (chem4_instrument_reading > 0.3) {
+        chem4_final_result_remarks.value = "PASS";
+    } else {
+        chem4_final_result_remarks.value = "FAIL";
     }
 
     chem4_final_result.value = chem4_instrument_reading.toFixed(0);
@@ -797,7 +797,7 @@ const phy3 = () => {
     var finalResultValue = phys3_concentration_of_comparable_color_standard;
 
     phys3_final_result.value = phys3_concentration_of_comparable_color_standard;
-    if (finalResultValue < 10) {
+    if (finalResultValue == 10) {
         phys3_final_result_remarks.value = "PASS";
     } else {
         phys3_final_result_remarks.value = "FAIL";
