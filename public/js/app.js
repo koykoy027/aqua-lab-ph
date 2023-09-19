@@ -1,16 +1,29 @@
 const toggleTestParameters = (val) => {
     var micro = document.querySelector(".micro");
     var pychem = document.querySelector(".pychem");
-    var pychemCheckBox = document.querySelector('[name="test_parameters"]');
 
     if (val === "micro") {
         micro.classList.remove("hidden");
         pychem.classList.add("hidden");
+
+        // Clear PyChem checkboxes
+        var pychemCheckboxes = pychem.querySelectorAll(
+            'input[type="checkbox"]'
+        );
+        pychemCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
     }
 
     if (val === "pychem") {
         micro.classList.add("hidden");
         pychem.classList.remove("hidden");
+
+        // Clear Micro checkboxes
+        var microCheckboxes = micro.querySelectorAll('input[type="checkbox"]');
+        microCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
     }
 };
 
