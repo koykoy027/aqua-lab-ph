@@ -540,12 +540,12 @@ const chem4 = () => {
         '[name="chem4_final_result_remarks"]'
     );
 
-    if (chem4_instrument_reading < 1.5) {
-        chem4_final_result_remarks.value = "PASS";
-    } else if (chem4_instrument_reading > 0.3) {
-        chem4_final_result_remarks.value = "PASS";
-    } else {
+    if (chem4_instrument_reading >= 1.5) {
         chem4_final_result_remarks.value = "FAIL";
+    } else if (chem4_instrument_reading <= 0.3) {
+        chem4_final_result_remarks.value = "FAIL";
+    } else {
+        chem4_final_result_remarks.value = "PASS";
     }
 
     chem4_final_result.value = chem4_instrument_reading.toFixed(0);
