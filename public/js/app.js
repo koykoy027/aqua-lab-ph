@@ -1,18 +1,31 @@
-const toggleTestParameters = (val) => {    
-    var micro = document.querySelector('.micro');
-    var pychem = document.querySelector('.pychem');
-    var pychemCheckBox = document.querySelector('[name="test_parameters"]');
+const toggleTestParameters = (val) => {
+    var micro = document.querySelector(".micro");
+    var pychem = document.querySelector(".pychem");
 
-    if(val === 'micro'){
-        micro.classList.remove('hidden');
-        pychem.classList.add('hidden');        
+    if (val === "micro") {
+        micro.classList.remove("hidden");
+        pychem.classList.add("hidden");
+
+        // Clear PyChem checkboxes
+        var pychemCheckboxes = pychem.querySelectorAll(
+            'input[type="checkbox"]'
+        );
+        pychemCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
     }
 
-    if(val === 'pychem'){
-        micro.classList.add('hidden');
-        pychem.classList.remove('hidden');
+    if (val === "pychem") {
+        micro.classList.add("hidden");
+        pychem.classList.remove("hidden");
+
+        // Clear Micro checkboxes
+        var microCheckboxes = micro.querySelectorAll('input[type="checkbox"]');
+        microCheckboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
     }
-}
+};
 
 // can be seen in service.client.create
 const marketSegment = (val) => {
@@ -298,26 +311,24 @@ const micro1 = () => {
 
 // can be seen in laboratory.lab_work_order-partials
 const micro2 = () => {
-    var micr2_tc_24 = document.querySelector('[name="micr2_tc_24"]').value;
     var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
-    var micr2_ec_24 = document.querySelector('[name="micr2_ec_24"]').value;
     var micr2_tc_final_result = document.querySelector(
         '[name="micr2_tc_final_result"]'
     );
     var micr2_tc_remarks = document.querySelector('[name="micr2_tc_remarks"]');
 
-    if (micr2_ec_24.length > 0 && micr2_ec_24.length > 0) {
-        if (micr2_ec_24 == 0) {
+    if (micr2_tc_48.length > 0 && micr2_tc_48.length > 0) {
+        if (micr2_tc_48 == 0) {
             micr2_tc_final_result.value = "< 1.1";
-        } else if (micr2_ec_24 == 1) {
+        } else if (micr2_tc_48 == 1) {
             micr2_tc_final_result.value = "1.1";
-        } else if (micr2_ec_24 == 2) {
+        } else if (micr2_tc_48 == 2) {
             micr2_tc_final_result.value = "2.6";
-        } else if (micr2_ec_24 == 3) {
+        } else if (micr2_tc_48 == 3) {
             micr2_tc_final_result.value = "4.6";
-        } else if (micr2_ec_24 == 4) {
+        } else if (micr2_tc_48 == 4) {
             micr2_tc_final_result.value = "8.0";
-        } else if (micr2_ec_24 >= 5) {
+        } else if (micr2_tc_48 >= 5) {
             micr2_tc_final_result.value = "> 8.0";
         }
 
@@ -529,9 +540,9 @@ const chem4 = () => {
         '[name="chem4_final_result_remarks"]'
     );
 
-    if (chem4_instrument_reading > 1.5) {
+    if (chem4_instrument_reading >= 1.5) {
         chem4_final_result_remarks.value = "FAIL";
-    } else if (chem4_instrument_reading < 0.3) {
+    } else if (chem4_instrument_reading <= 0.3) {
         chem4_final_result_remarks.value = "FAIL";
     } else {
         chem4_final_result_remarks.value = "PASS";
@@ -607,6 +618,8 @@ const chem6 = () => {
         3;
 
     if (averageReading <= 0.003) {
+        chem6_final_result_remarks.value = "PASS";
+    } else if (averageReading == "0.003") {
         chem6_final_result_remarks.value = "PASS";
     } else {
         chem6_final_result_remarks.value = "FAIL";
@@ -784,6 +797,8 @@ const phy2 = () => {
 
 // phychem3
 
+// update
+
 const phy3 = () => {
     var phys3_concentration_of_comparable_color_standard =
         document.querySelector(
@@ -799,7 +814,7 @@ const phy3 = () => {
     var finalResultValue = phys3_concentration_of_comparable_color_standard;
 
     phys3_final_result.value = phys3_concentration_of_comparable_color_standard;
-    if (finalResultValue < 10) {
+    if (finalResultValue == 10) {
         phys3_final_result_remarks.value = "PASS";
     } else {
         phys3_final_result_remarks.value = "FAIL";
