@@ -23,9 +23,17 @@
 
     <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
         <div class="mb-3">
-            <label for="sample_condition">Sample Condition</label>
-            <input id="sample_condition" type="text" name="sample_condition" value="{{ $acceptance->sample_condition }}"
-                readonly autofocus autocomplete="sample_condition">
+            @foreach ($sampleCondition as $data)
+            <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                @if ($data->name === 'Complies with the requirement') text-orange-800 bg-orange-100 @endif
+                @if ($data->name === 'Leaking of with wet caps') text-violet-800 bg-violet-100 @endif
+                @if ($data->name === 'In another container') text-green-800 bg-green-100 @endif
+                @if ($data->name === 'Below required volume') text-red-800 bg-red-100 @endif
+                @if ($data->name === 'Expired') text-blue-800 bg-blue-100 @endif">
+                {{ $data->name }}
+            </span>
+            @endforeach
+
         </div>
 
         <div class="mb-3">
