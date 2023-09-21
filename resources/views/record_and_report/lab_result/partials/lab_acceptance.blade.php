@@ -23,6 +23,7 @@
 
     <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
         <div class="mb-3">
+            <label>Sample Condition</label>
             @foreach ($sampleCondition as $data)
             <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
                 @if ($data->name === 'Complies with the requirement') text-orange-800 bg-orange-100 @endif
