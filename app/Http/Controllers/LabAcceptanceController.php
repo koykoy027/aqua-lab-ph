@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
 use App\Models\LabAcceptance;
+use App\Models\SampleCondition;
 use Illuminate\Http\Request;
 
 class LabAcceptanceController extends Controller
@@ -17,7 +18,7 @@ class LabAcceptanceController extends Controller
             ->orWhere('evaluated_by', 'LIKE', "%$query%")
             ->orWhere('date_evaluated', 'LIKE', "%$query%")
             ->orWhere('time_evaluated', 'LIKE', "%$query%")
-            ->orWhere('sample_condition', 'LIKE', "%$query%")
+            // ->orWhere('sample_condition', 'LIKE', "%$query%")
 
             ->paginate(10);
         return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
@@ -62,7 +63,10 @@ class LabAcceptanceController extends Controller
         // analysis_id
         $requests = AnalysisRequest::find($analysis_id);
         $acceptance = LabAcceptance::find($requests->analysis_id);
-        return view('laboratory.lab_acceptance.create', compact('requests', 'acceptance'));
+        $sampleCondition = SampleCondition::where('lab_acceptance', $acceptance->id)->get();
+        $sampleConditionList = ["Complies with the requirement", "Leaking of with wet caps", "In another container", "Below required volume", "Expired"];
+
+        return view('laboratory.lab_acceptance.create', compact('requests', 'acceptance', 'sampleCondition', 'sampleConditionList'));
     }
 
     public function store(Request $request, $analysis_id)
@@ -89,7 +93,7 @@ class LabAcceptanceController extends Controller
             'evaluated_by' => 'required',
             'date_evaluated' => 'required',
             'time_evaluated' => 'required',
-            'sample_condition' => 'required',
+            // 'sample_condition' => 'required',
             'remarks' => 'required',
 
         ]);
@@ -107,19 +111,25 @@ class LabAcceptanceController extends Controller
             'evaluated_by' => $request->evaluated_by,
             'date_evaluated' => $request->date_evaluated,
             'time_evaluated' => $request->time_evaluated,
-            'sample_condition' => $request->sample_condition,
+            // 'sample_condition' => $request->sample_condition,
             'remarks' => $request->remarks,
             'if_remarks_are_rejected' => $request->if_remarks_are_rejected,
         ]);
 
+        $selectedSampleCondition = $request->input('sample_condition', []);
+
+        foreach ($selectedSampleCondition as $data) {
+            SampleCondition::create([
+                'lab_acceptance' => $lab->id,
+                'name' => $data,
+            ]);
+        }
+
+
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
         if (
-            $test_parameters === 'MICR1 - Heterotrophic Plate Count (HPC)' or
-            $test_parameters === 'MICR2 - Thermotolerant Colifom Test' or
-            $test_parameters === 'MICR3 - Total Coliform' or
-            $test_parameters === 'MICR4 - E. coli Test' or
-            $test_parameters === 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)'
+            $test_parameters === 'micro'
         ) {
             return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully!']);
         } else {

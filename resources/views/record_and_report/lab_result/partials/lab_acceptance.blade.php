@@ -24,8 +24,8 @@
     <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-3">
         <div class="mb-3">
             <label for="sample_condition">Sample Condition</label>
-            <input id="sample_condition" type="text" name="sample_condition"
-                value="{{ $acceptance->sample_condition }}" readonly autofocus autocomplete="sample_condition">
+            <input id="sample_condition" type="text" name="sample_condition" value="{{ $acceptance->sample_condition }}"
+                readonly autofocus autocomplete="sample_condition">
         </div>
 
         <div class="mb-3">

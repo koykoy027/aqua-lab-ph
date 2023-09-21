@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('evaluated_by')->nullable();
             $table->string('date_evaluated')->nullable();
             $table->string('time_evaluated')->nullable();
-            $table->string('sample_condition')->nullable();
+            // $table->string('sample_condition')->nullable();
             $table->string('remarks')->nullable();
             $table->string('if_remarks_are_rejected')->nullable();
 
