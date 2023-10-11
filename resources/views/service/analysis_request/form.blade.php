@@ -141,27 +141,81 @@
                         </span>
                     @enderror
                 </div>
+
+
                 <div class="mb-3">
                     <label for="date_collected">Date Collected</label>
-                    <input id="date_collected" type="date" name="date_collected" value="{{ old('date_collected') }}"
-                        required autofocus autocomplete="date_collected">
+                    @if (old('date_collected') === null)
+                        <input id="date_collected" type="date" name="date_collected" required autofocus
+                            autocomplete="date_collected">
+                    @else
+                        <input id="date_collected" type="date" value="{{ old('date_collected') }}" required
+                            autofocus>
+                    @endif
                     @error('date_collected')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
+
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        const DateEvaluatedInput = document.getElementById("date_collected");
+
+                        function getCurrentDate() {
+                            const today = new Date();
+                            const year = today.getFullYear();
+                            const month = String(today.getMonth() + 1).padStart(2, '0');
+                            const day = String(today.getDate()).padStart(2, '0');
+
+                            const currentDate = `${year}-${month}-${day}`;
+                            DateEvaluatedInput.value = currentDate;
+                        }
+
+                        if (DateEvaluatedInput) {
+                            getCurrentDate();
+                        }
+                    });
+                </script>
+
+
                 <div class="mb-3">
                     <label for="time_collected">Time Collected</label>
-                    <input id="time_collected" type="time" name="time_collected" value="{{ old('time_collected') }}"
-                        required autofocus autocomplete="time_collected">
+                    @if (old('time_collected') === null)
+                        <input id="time_collected" type="time" name="time_collected"
+                            value="{{ old('time_collected') }}" required autofocus autocomplete="time_collected">
+                    @else
+                        <input type="time" name="time_collected" value="{{ old('time_collected') }}" required
+                            autofocus>
+                    @endif
+
                     @error('time_collected')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
+
             </div>
+
+            <script>
+                // Get the input element by its ID
+                const timeEvaluatedInput = document.getElementById("time_collected");
+
+                // Function to set the current time
+                function setCurrentTime() {
+                    const currentTime = new Date();
+                    const hours = currentTime.getHours().toString().padStart(2, '0');
+                    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                    const currentTimeString = `${hours}:${minutes}`;
+                    timeEvaluatedInput.value = currentTimeString;
+                }
+
+                // Add an event listener to set the time when the page loads
+                window.addEventListener("load", setCurrentTime);
+            </script>
 
             <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
                 <div class="mb-3">
