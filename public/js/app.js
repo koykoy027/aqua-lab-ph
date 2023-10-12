@@ -280,18 +280,18 @@ const micro1 = () => {
     if (averagecolony >= 100) {
         var roundedNumber = Math.round(averagecolony / 10) * 10;
         // micr1_hpc_final_result.value = roundedNumber.toFixed(0);
-        micr1_hpc_average.value = roundedNumber.toFixed(0);
+        micr1_hpc_average.value = roundedNumber.toFixed(2);
         micr1_hpc_difference.value = microdifference.toFixed(2);
 
         if (micr1_hpc_average.value >= 500) {
             micr1_hpc_final_result.value = ">500 est";
         } else {
-            micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+            micr1_hpc_final_result.value = roundedNumber.toFixed(2);
         }
     } else {
         // micr1_hpc_final_result.value = averagecolony.toFixed(0);
-        micr1_hpc_average.value = averagecolony.toFixed(0);
-        micr1_hpc_difference.value = microdifference.toFixed(0);
+        micr1_hpc_average.value = averagecolony.toFixed(2);
+        micr1_hpc_difference.value = microdifference.toFixed(2);
 
         if (micr1_hpc_average.value <= 0) {
             micr1_hpc_final_result.value = "<1.0";
