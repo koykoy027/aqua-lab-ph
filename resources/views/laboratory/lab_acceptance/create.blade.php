@@ -155,7 +155,7 @@
                         <input autocomplete="date_evaluated" id="date_evaluated" name="date_evaluated" required
                             type="date">
                     @else
-                        <input autocomplete="date_evaluated" autofocus required type="date"
+                        <input autocomplete="date_evaluated" autofocus name="date_evaluated" required type="date"
                             value="{{ $acceptance->date_evaluated }}">
                     @endif
                     @error('date_evaluated')
