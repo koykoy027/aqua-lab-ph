@@ -27,7 +27,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="micr3_brillant_24">No. of Brillant Green Lauryl Broth tubes with (+) rxn after 24h</label>
+                <label for="micr3_brillant_24">No. of Brillant Green Lactose Broth tubes with (+) rxn after 24h</label>
                 <input id="micr3_brillant_24" type="number" step="any" name="micr3_brillant_24"
                     value="{{ $micro3s->micr3_brillant_24 }}" required autofocus autocomplete="micr3_brillant_24"
                     onchange="micro3()">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="micr3_brillant_48">No. of Brillant Green Lauryl Broth tubes with (+) rxn after 48h</label>
+                <label for="micr3_brillant_48">No. of Brillant Green Lactose Broth tubes with (+) rxn after 48h</label>
                 <input id="micr3_brillant_48" type="number" step="any" name="micr3_brillant_48"
                     value="{{ $micro3s->micr3_brillant_48 }}" required autofocus autocomplete="micr3_brillant_48"
                     onchange="micro3()">
