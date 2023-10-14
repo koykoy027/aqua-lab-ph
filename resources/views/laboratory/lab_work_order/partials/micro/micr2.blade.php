@@ -25,6 +25,19 @@
                 @enderror
             </div>
 
+
+            <div class="mb-3">
+                <label for="micr2_ec_24">No. of EC Broth tubes with (+) rxn after 24h</label>
+                <input id="micr2_ec_24" type="number" step="any" name="micr2_ec_24"
+                    value="{{ $micro2s->micr2_tc_48 }}" required autofocus autocomplete="micr2_ec_24"
+                    onchange="micro2()">
+                @error('micr2_ec_24')
+                    <span class="invalid" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+
             <div class="mb-3">
                 <label for="micr2_tc_final_result">Final Result</label>
                 <input id="micr2_tc_final_result" type="text" name="micr2_tc_final_result"

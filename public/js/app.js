@@ -312,24 +312,24 @@ const micro1 = () => {
 
 // can be seen in laboratory.lab_work_order-partials
 const micro2 = () => {
-    var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
+    var micr2_ec_24 = document.querySelector('[name="micr2_ec_24"]').value;
     var micr2_tc_final_result = document.querySelector(
         '[name="micr2_tc_final_result"]'
     );
     var micr2_tc_remarks = document.querySelector('[name="micr2_tc_remarks"]');
 
-    if (micr2_tc_48.length > 0 && micr2_tc_48.length > 0) {
-        if (micr2_tc_48 == 0) {
+    if (micr2_ec_24.length > 0 && micr2_ec_24.length > 0) {
+        if (micr2_ec_24 == 0) {
             micr2_tc_final_result.value = "< 1.1";
-        } else if (micr2_tc_48 == 1) {
+        } else if (micr2_ec_24 == 1) {
             micr2_tc_final_result.value = "1.1";
-        } else if (micr2_tc_48 == 2) {
+        } else if (micr2_ec_24 == 2) {
             micr2_tc_final_result.value = "2.6";
-        } else if (micr2_tc_48 == 3) {
+        } else if (micr2_ec_24 == 3) {
             micr2_tc_final_result.value = "4.6";
-        } else if (micr2_tc_48 == 4) {
+        } else if (micr2_ec_24 == 4) {
             micr2_tc_final_result.value = "8.0";
-        } else if (micr2_tc_48 >= 5) {
+        } else if (micr2_ec_24 >= 5) {
             micr2_tc_final_result.value = "> 8.0";
         }
 
