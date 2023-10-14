@@ -274,19 +274,20 @@ const micro1 = () => {
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
 
-    var microdifference =
-        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / averagecolony;
+    var roundedAverage = Math.ceil(averagecolony);
 
-    if (averagecolony >= 100) {
-        var roundedNumber = Math.round(averagecolony / 10) * 10;
-        // micr1_hpc_final_result.value = roundedNumber.toFixed(0);
-        micr1_hpc_average.value = roundedNumber.toFixed(2);
-        micr1_hpc_difference.value = microdifference.toFixed(2);
+    var microdifference =
+        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
+
+    if (roundedAverage >= 100) {
+        var roundedNumber = Math.round(roundedAverage / 10) * 10;
+        micr1_hpc_average.value = roundedAverage;
+        micr1_hpc_difference.value = microdifference.toFixed(3);
 
         if (micr1_hpc_average.value >= 500) {
             micr1_hpc_final_result.value = ">500 est";
         } else {
-            micr1_hpc_final_result.value = roundedNumber.toFixed(2);
+            micr1_hpc_final_result.value = roundedNumber.toFixed(1);
         }
     } else {
         // micr1_hpc_final_result.value = averagecolony.toFixed(0);
