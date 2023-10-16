@@ -14,6 +14,7 @@ class Micro2 extends Model
         'test_parameters_id',
         'micr2_tc_24',
         'micr2_tc_48',
+        'micr2_ec_24',
         'micr2_tc_final_result',
         'micr2_tc_remarks',
     ];
