@@ -274,24 +274,25 @@ const micro1 = () => {
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
 
-    var microdifference =
-        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / averagecolony;
+    var roundedAverage = Math.ceil(averagecolony);
 
-    if (averagecolony >= 100) {
-        var roundedNumber = Math.round(averagecolony / 10) * 10;
-        // micr1_hpc_final_result.value = roundedNumber.toFixed(0);
-        micr1_hpc_average.value = roundedNumber.toFixed(0);
-        micr1_hpc_difference.value = microdifference.toFixed(2);
+    var microdifference =
+        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
+
+    if (roundedAverage >= 100) {
+        var roundedNumber = Math.round(roundedAverage / 10) * 10;
+        micr1_hpc_average.value = roundedAverage;
+        micr1_hpc_difference.value = microdifference.toFixed(3);
 
         if (micr1_hpc_average.value >= 500) {
             micr1_hpc_final_result.value = ">500 est";
         } else {
-            micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+            micr1_hpc_final_result.value = roundedNumber.toFixed(1);
         }
     } else {
         // micr1_hpc_final_result.value = averagecolony.toFixed(0);
-        micr1_hpc_average.value = averagecolony.toFixed(0);
-        micr1_hpc_difference.value = microdifference.toFixed(0);
+        micr1_hpc_average.value = averagecolony.toFixed(2);
+        micr1_hpc_difference.value = microdifference.toFixed(2);
 
         if (micr1_hpc_average.value <= 0) {
             micr1_hpc_final_result.value = "<1.0";
@@ -311,24 +312,24 @@ const micro1 = () => {
 
 // can be seen in laboratory.lab_work_order-partials
 const micro2 = () => {
-    var micr2_tc_48 = document.querySelector('[name="micr2_tc_48"]').value;
+    var micr2_ec_24 = document.querySelector('[name="micr2_ec_24"]').value;
     var micr2_tc_final_result = document.querySelector(
         '[name="micr2_tc_final_result"]'
     );
     var micr2_tc_remarks = document.querySelector('[name="micr2_tc_remarks"]');
 
-    if (micr2_tc_48.length > 0 && micr2_tc_48.length > 0) {
-        if (micr2_tc_48 == 0) {
+    if (micr2_ec_24.length > 0 && micr2_ec_24.length > 0) {
+        if (micr2_ec_24 == 0) {
             micr2_tc_final_result.value = "< 1.1";
-        } else if (micr2_tc_48 == 1) {
+        } else if (micr2_ec_24 == 1) {
             micr2_tc_final_result.value = "1.1";
-        } else if (micr2_tc_48 == 2) {
+        } else if (micr2_ec_24 == 2) {
             micr2_tc_final_result.value = "2.6";
-        } else if (micr2_tc_48 == 3) {
+        } else if (micr2_ec_24 == 3) {
             micr2_tc_final_result.value = "4.6";
-        } else if (micr2_tc_48 == 4) {
+        } else if (micr2_ec_24 == 4) {
             micr2_tc_final_result.value = "8.0";
-        } else if (micr2_tc_48 >= 5) {
+        } else if (micr2_ec_24 >= 5) {
             micr2_tc_final_result.value = "> 8.0";
         }
 
