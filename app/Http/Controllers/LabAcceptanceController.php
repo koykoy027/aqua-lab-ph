@@ -24,6 +24,27 @@ class LabAcceptanceController extends Controller
         return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
     }
 
+    // this is the code for the filtering of the date Start
+
+    public function date(Request $request)
+    {
+        $datefilter = $request->input('date');
+        $query = $request->input('query');
+
+        $requests = AnalysisRequest::query();
+
+        if ($datefilter) {
+            $requests->where('analysis_id', 'LIKE', "%$datefilter%")
+                ->orWhere('created_by', 'LIKE', "%$datefilter%");
+        }
+
+        $requests = $requests->paginate(10);
+
+        return view('record_and_report.lab_acceptance.index', compact('acceptances', 'datefilter'));
+    }
+
+    // this is the code for the filtering of the date End
+
     public function micro(Request $request)
     {
         $query = $request->input('search');
