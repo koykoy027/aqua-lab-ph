@@ -3,8 +3,13 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <div class="justify-end lg:flex">
-            @include('components.search')
+        <div class="flex justify-end gap-2">
+            <div class="justify-end lg:flex">
+                @include('components.datefilter')
+            </div>
+            <div class="justify-end lg:flex">
+                @include('components.search')
+            </div>
         </div>
 
 
