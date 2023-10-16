@@ -3,8 +3,13 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <div class="justify-end lg:flex">
-            @include('components.search')
+        <div class="flex justify-end gap-2">
+            <div class="justify-end lg:flex">
+                @include('components.datefilter')
+            </div>
+            <div class="justify-end lg:flex">
+                @include('components.search')
+            </div>
         </div>
 
         <div class="relative overflow-x-auto sm:rounded-lg">
@@ -35,16 +40,17 @@
                                 {{ $request->test_parameters }}
                             </td>
                             <td class="px-6 py-4">
-                                <span class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
-                                    @if($request->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
-                                    @if($request->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
-                                    @if($request->remarks === 'Accepted') text-green-800 bg-green-100 @endif
-                                    @if($request->remarks === 'Rejected') text-red-800 bg-red-100 @endif
-                                    @if($request->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
-                                    @if($request->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
-                                    @if($request->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
-                                    @if($request->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
-                                    @if($request->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+                                <span
+                                    class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
+                                    @if ($request->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if ($request->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                    @if ($request->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if ($request->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if ($request->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if ($request->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if ($request->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if ($request->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if ($request->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
                                 ">
                                     {{ $request->remarks }}
                                 </span>
