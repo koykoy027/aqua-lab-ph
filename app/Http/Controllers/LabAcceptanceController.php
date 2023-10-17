@@ -39,15 +39,19 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query");
+                    ->orWhere('remarks', 'LIKE', "%$query%")
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->where('test_parameters', 'micro');
             });
         }
+
+        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
 
         $analysisRequest = $queryBuilder->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }
+
 
     public function pychem(Request $request)
     {
