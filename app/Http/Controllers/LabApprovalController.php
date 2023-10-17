@@ -31,22 +31,14 @@ class LabApprovalController extends Controller
     public function micro(Request $request)
     {
         $query = $request->input('search');
-        $start_date = $request->input('start_date');
-        $end_date = $request->input('end_date');
-
-        $queryBuilder = AnalysisRequest::query();
-
-        if ($start_date || $end_date) {
-            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
-        }
-
-        if ($query) {
-            $queryBuilder->where(function ($search) use ($query) {
+        $queryBuilder = AnalysisRequest::query()
+            ->where('test_parameters', 'micro')
+            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
+            ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query");
+                    ->orWhere('remarks', 'LIKE', "%$query%")
+                    ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
-        }
 
         $requests = $queryBuilder->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
