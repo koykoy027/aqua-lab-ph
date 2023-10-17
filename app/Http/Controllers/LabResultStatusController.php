@@ -69,32 +69,56 @@ class LabResultStatusController extends Controller
     public function micro(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->where(function ($search) use ($query) {
-                $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+        $queryBuilder = AnalysisRequest::query();
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
+                $search->where('analysis_id', 'LIKE', "%$query%")
+                    ->orWhere('collector_name', 'LIKE', "$query")
+                    ->orWhere('date_collected', 'LIKE', "%$query");
             });
-        $datas = $queryBuilder->paginate(10);
+        }
 
-        return view('service.lab_result_status.index', compact('datas', 'query'));
+        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
+
+        return view('service.lab_result_status.index', compact(
+            'datas',
+            'query',
+            'start_date',
+            'end_date'
+        ));
     }
 
     public function pychem(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'pychem')
-            ->where(function ($search) use ($query) {
+        $queryBuilder = AnalysisRequest::query();
+
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
                     ->orWhere('analysis_id_', 'LIKE', "%$query%");
             });
-        $datas = $queryBuilder->paginate(10);
+        }
+
+        $datas = $queryBuilder->where('test_parameters', 'pychem')->paginate(10);
 
         return view('service.lab_result_status.index', compact('datas', 'query'));
     }
@@ -106,14 +130,24 @@ class LabResultStatusController extends Controller
     {
 
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        $queryBuilder = AnalysisRequest::query()
-            ->where('remarks', 'Approve')
-            ->where(function ($search) use ($query) {
+        $queryBuilder = AnalysisRequest::query();
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->where('remarks', 'Approve');
             });
+        }
+
         $datas = $queryBuilder->paginate(10);
         return view('record_and_report.lab_result.index', compact('datas', 'query'));
     }

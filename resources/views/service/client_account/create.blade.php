@@ -12,9 +12,8 @@
                 <div class="mb-3">
                     <label for="client_id">Client Account ID</label>
                     <input type="hidden" id="currentAccountNumber" value="{{ $currentAccountNumber ?? '1' }}" readonly>
-                    <input id="client_id" type="text" name="client_id"
-                        value="" required autofocus autocomplete="client_id"
-                        {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
+                    <input id="client_id" type="text" name="client_id" value="" required autofocus
+                        autocomplete="client_id" {{ Auth::user()->role == 'Service Coordinator' ? '' : 'readonly' }}>
                     @error('client_id')
                         <span class="invalid" role="alert">
                             <strong>{{ $message }}</strong>
@@ -335,7 +334,8 @@
                         <option disabled selected>Select Market Segment</option>
                         <option value="0001 - Water Refilling Station">0001 - Water Refilling Station</option>
                         <option value="002A - Food and Beverages (Service)">002A - Food and Beverages (Service)</option>
-                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)</option>
+                        <option value="002B - Food and Beverages (Manufacturer)">002B - Food and Beverages (Manufacturer)
+                        </option>
                         <option value="003 - Hospitality Industry">003 - Hospitality Industry</option>
                         <option value="004A - Healthcare (Dialysis)">004A - Healthcare (Dialysis)</option>
                         <option value="004B - Healthcare (Lying-in)">004B - Healthcare (Lying-in)</option>

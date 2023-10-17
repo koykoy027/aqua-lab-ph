@@ -12,46 +12,87 @@ class LabAcceptanceController extends Controller
     public function index(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        $acceptances = LabAcceptance::query()
-            ->where('analysis_id', 'LIKE', "%$query%")
-            ->orWhere('evaluated_by', 'LIKE', "%$query%")
-            ->orWhere('date_evaluated', 'LIKE', "%$query%")
-            ->orWhere('time_evaluated', 'LIKE', "%$query%")
-            // ->orWhere('sample_condition', 'LIKE', "%$query%")
+        $acceptances = LabAcceptance::query();
 
-            ->paginate(10);
-        return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
+        if ($start_date || $end_date) {
+            $acceptances->whereBetween('date_evaluated', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $acceptances->where(function ($search) use ($query) {
+                $search->where('analysis_id', 'LIKE', "%$query%")
+                    ->orWhere('evaluated_by', 'LIKE', "%$query%")
+                    ->orWhere('date_evaluated', 'LIKE', "%$query%")
+                    ->orWhere('time_evaluated', 'LIKE', "%$query%");
+            });
+        }
+
+        $acceptances = $acceptances->paginate(10); // Paginate the results
+
+        return view('record_and_report.lab_acceptance.index', compact(
+            'acceptances',
+            'query',
+            'start_date',
+            'end_date'
+        ));
     }
+
 
     public function micro(Request $request)
     {
         $query = $request->input('search');
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
-            ->where(function ($search) use ($query) {
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+        $queryBuilder = AnalysisRequest::query();
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->where('test_parameters', 'micro');
             });
+        }
+
+        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
 
         $analysisRequest = $queryBuilder->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }
 
+
     public function pychem(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+
+
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'pychem')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
-            ->where(function ($search) use ($query) {
+            ->where('test_parameters', 'pychem');
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
             });
+        }
 
         $analysisRequest = $queryBuilder->paginate(10);
 

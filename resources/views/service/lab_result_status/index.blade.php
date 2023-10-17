@@ -3,8 +3,13 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <div class="justify-end lg:flex">
-            @include('components.search')
+        <div class="flex justify-between gap-2">
+            <div class="justify-start lg:flex">
+                @include('components.datefilter')
+            </div>
+            <div class="justify-end lg:flex">
+                @include('components.search')
+            </div>
         </div>
 
 
@@ -16,8 +21,8 @@
                             Analysis Request ID
                         </th>
                         {{-- <th scope="col" class="px-6 py-3">
-                            Account Name
-                        </th> --}}
+                        Account Name
+                    </th> --}}
                         <th scope="col" class="px-6 py-3">
                             Remarks
                         </th>
@@ -51,8 +56,8 @@
                                 {{ $data->analysis_id_ }}
                             </th>
                             {{-- <td class="px-6 py-4">
-                                {{ $data->account_name }}
-                            </td> --}}
+                        {{ $data->account_name }}
+                    </td> --}}
                             <td class="px-6 py-4">
 
                                 <span
