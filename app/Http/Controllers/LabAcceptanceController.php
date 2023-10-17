@@ -12,17 +12,34 @@ class LabAcceptanceController extends Controller
     public function index(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
-        $acceptances = LabAcceptance::query()
-            ->where('analysis_id', 'LIKE', "%$query%")
-            ->orWhere('evaluated_by', 'LIKE', "%$query%")
-            ->orWhere('date_evaluated', 'LIKE', "%$query%")
-            ->orWhere('time_evaluated', 'LIKE', "%$query%")
-            // ->orWhere('sample_condition', 'LIKE', "%$query%")
+        $acceptances = LabAcceptance::query();
 
-            ->paginate(10);
-        return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
+        if ($start_date || $end_date) {
+            $acceptances->whereBetween('date_evaluated', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $acceptances->where(function ($search) use ($query) {
+                $search->where('analysis_id', 'LIKE', "%$query%")
+                    ->orWhere('evaluated_by', 'LIKE', "%$query%")
+                    ->orWhere('date_evaluated', 'LIKE', "%$query%")
+                    ->orWhere('time_evaluated', 'LIKE', "%$query%");
+            });
+        }
+
+        $acceptances = $acceptances->paginate(10); // Paginate the results
+
+        return view('record_and_report.lab_acceptance.index', compact(
+            'acceptances',
+            'query',
+            'start_date',
+            'end_date'
+        ));
     }
+
 
     public function micro(Request $request)
     {
