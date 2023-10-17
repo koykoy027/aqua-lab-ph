@@ -86,7 +86,7 @@ class LabResultStatusController extends Controller
             });
         }
 
-        $datas = $queryBuilder->paginate(10);
+        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
 
         return view('service.lab_result_status.index', compact(
             'datas',
