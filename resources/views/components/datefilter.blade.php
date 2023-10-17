@@ -1,5 +1,5 @@
 <form>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 ">
         <div>
             <input type="date" id="start_date" name="start_date" placeholder="Start Date"
                 @if (!empty($start_date)) value="{{ $start_date }}" @endif>
@@ -14,7 +14,7 @@
         </div>
 
         <button class="btn btn-primary" type="submit">
-            Submit
+            Apply
         </button>
     </div>
 </form>
