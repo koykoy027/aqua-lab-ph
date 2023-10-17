@@ -24,38 +24,25 @@ class LabAcceptanceController extends Controller
         return view('record_and_report.lab_acceptance.index', compact('acceptances', 'query'));
     }
 
-    // this is the code for the filtering of the date Start
-
-    public function date(Request $request)
-    {
-        $datefilter = $request->input('date');
-        $query = $request->input('query');
-
-        $requests = AnalysisRequest::query();
-
-        if ($datefilter) {
-            $requests->where('analysis_id', 'LIKE', "%$datefilter%")
-                ->orWhere('created_by', 'LIKE', "%$datefilter%");
-        }
-
-        $requests = $requests->paginate(10);
-
-        return view('record_and_report.lab_acceptance.index', compact('acceptances', 'datefilter'));
-    }
-
-    // this is the code for the filtering of the date End
-
     public function micro(Request $request)
     {
         $query = $request->input('search');
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
-            ->where(function ($search) use ($query) {
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+        $queryBuilder = AnalysisRequest::query();
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('remarks', 'LIKE', "$query")
+                    ->orWhere('test_parameters', 'LIKE', "%$query");
             });
+        }
 
         $analysisRequest = $queryBuilder->paginate(10);
 
