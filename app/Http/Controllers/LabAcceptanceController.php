@@ -52,14 +52,26 @@ class LabAcceptanceController extends Controller
     public function pychem(Request $request)
     {
         $query = $request->input('search');
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+
+
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'pychem')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
-            ->where(function ($search) use ($query) {
+            ->where('test_parameters', 'pychem');
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
             });
+        }
 
         $analysisRequest = $queryBuilder->paginate(10);
 
