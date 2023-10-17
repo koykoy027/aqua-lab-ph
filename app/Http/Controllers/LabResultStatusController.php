@@ -80,13 +80,13 @@ class LabResultStatusController extends Controller
 
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
-                $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query");
+                $search->where('analysis_id', 'LIKE', "%$query%")
+                    ->orWhere('collector_name', 'LIKE', "$query")
+                    ->orWhere('date_collected', 'LIKE', "%$query");
             });
         }
 
-        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
+        $datas = $queryBuilder->paginate(10);
 
         return view('service.lab_result_status.index', compact(
             'datas',
