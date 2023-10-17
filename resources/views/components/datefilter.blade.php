@@ -1,20 +1,20 @@
-<form class="">
-    <div class="grid grid-cols-2 gap-4">
-        <div class="">
-            <div>
-                <input type="date" id="start_date" name="start_date"
-                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="Start Date" @if (!empty($query)) value="{{ $query }}" @endif>
-                <Label class="pl-2">Start</Label>
-            </div>
+<form>
+    <div class="flex items-center gap-2">
+        <div>
+            <input type="date" id="start_date" name="start_date" placeholder="Start Date" @if (!empty($start_date))
+                value="{{ $start_date }}" @endif>
+            {{-- <Label class="pl-2">Start</Label> --}}
         </div>
-        <div class="">
-            <div>
-                <input type="date" id="end_date" name="end_date"
-                    class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:border-blue-500 focus:ring-blue-500"
-                    placeholder="End Date" @if (!empty($query)) value="{{ $query }}" @endif>
-                <Label class="pl-2">End</Label>
-            </div>
+        <h1>To</h1>
+
+        <div>
+            <input type="date" id="end_date" name="end_date" placeholder="End Date" @if (!empty($end_date))
+                value="{{ $end_date }}" @endif>
+            {{-- <Label class="pl-2">End</Label> --}}
         </div>
+
+        <button class="btn btn-primary" type="submit">
+            Submit
+        </button>
     </div>
 </form>
