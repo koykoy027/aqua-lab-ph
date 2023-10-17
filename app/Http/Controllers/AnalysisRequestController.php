@@ -257,13 +257,24 @@ class AnalysisRequestController extends Controller
     public function index(Request $request)
     {
         $query = $request->input('search');
-        $requests = AnalysisRequest::query()
-            ->where('analysis_id', 'LIKE', "%$query%")
-            ->orWhere('collector_name', 'LIKE', "%$query%")
-            ->orWhere('date_collected', 'LIKE', "%$query%")
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
 
+        $queryBuilder = AnalysisRequest::query();
 
-            ->paginate(10);
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
+                $search->where('collector_name', 'LIKE', "%$query%")
+                    ->orWhere('remarks', 'LIKE', "$query")
+                    ->orWhere('test_parameters', 'LIKE', "%$query");
+            });
+        }
+
+        $requests = $queryBuilder->paginate(10);
         return view('record_and_report.analysis_request.index', compact('requests', 'query'));
     }
 
