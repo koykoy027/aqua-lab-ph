@@ -3,7 +3,10 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <div class="flex justify-end gap-2">
+        <div class="flex justify-between gap-2">
+            <div class="justify-start lg:flex">
+                @include('components.datefilter')
+            </div>
             <div class="justify-end lg:flex">
                 @include('components.search')
             </div>
@@ -45,7 +48,7 @@
                                     class="font-medium text-blue-600 hover:underline">View Details</a>
                             </td>
                         </tr>
-                    @endforeach
+                    @endforeach`
 
                 </tbody>
             </table>
