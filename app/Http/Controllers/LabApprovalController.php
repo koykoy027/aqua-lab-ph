@@ -31,14 +31,22 @@ class LabApprovalController extends Controller
     public function micro(Request $request)
     {
         $query = $request->input('search');
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
-            ->where(function ($search) use ($query) {
+        $start_date = $request->input('start_date');
+        $end_date = $request->input('end_date');
+
+        $queryBuilder = AnalysisRequest::query();
+
+        if ($start_date || $end_date) {
+            $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
+        }
+
+        if ($query) {
+            $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
+                    ->orWhere('remarks', 'LIKE', "$query")
+                    ->orWhere('test_parameters', 'LIKE', "%$query");
             });
+        }
 
         $requests = $queryBuilder->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
@@ -67,54 +75,55 @@ class LabApprovalController extends Controller
         $lab_approval = AnalysisRequest::find($analysis_id);
         $rawDataFileValue = RawData::find($analysis_id);
 
-        $micro1 = Micro1::where('analysis_id',$analysis_id)->get();
-        $micro2 = Micro2::where('analysis_id',$analysis_id)->get();
-        $micro3 = Micro3::where('analysis_id',$analysis_id)->get();
-        $micro4 = Micro4::where('analysis_id',$analysis_id)->get();
+        $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
+        $micro2 = Micro2::where('analysis_id', $analysis_id)->get();
+        $micro3 = Micro3::where('analysis_id', $analysis_id)->get();
+        $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
 
-        $chem1 = Chem1::where('analysis_id',$analysis_id)->get();
-        $chem2 = Chem2::where('analysis_id',$analysis_id)->get();
-        $chem3 = Chem3::where('analysis_id',$analysis_id)->get();
-        $chem4 = Chem4::where('analysis_id',$analysis_id)->get();
-        $chem5 = Chem5::where('analysis_id',$analysis_id)->get();
-        $chem6 = Chem6::where('analysis_id',$analysis_id)->get();
-        $chem7 = Chem7::where('analysis_id',$analysis_id)->get();
-        $chem9 = Chem9::where('analysis_id',$analysis_id)->get();
-        $chem10 = Chem10::where('analysis_id',$analysis_id)->get();
+        $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
+        $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
+        $chem3 = Chem3::where('analysis_id', $analysis_id)->get();
+        $chem4 = Chem4::where('analysis_id', $analysis_id)->get();
+        $chem5 = Chem5::where('analysis_id', $analysis_id)->get();
+        $chem6 = Chem6::where('analysis_id', $analysis_id)->get();
+        $chem7 = Chem7::where('analysis_id', $analysis_id)->get();
+        $chem9 = Chem9::where('analysis_id', $analysis_id)->get();
+        $chem10 = Chem10::where('analysis_id', $analysis_id)->get();
 
-        $phys1 = Phys1::where('analysis_id',$analysis_id)->get();
-        $phys2 = Phys2::where('analysis_id',$analysis_id)->get();
-        $phys3 = Phys3::where('analysis_id',$analysis_id)->get();
-        $phys4 = Phys4::where('analysis_id',$analysis_id)->get();
+        $phys1 = Phys1::where('analysis_id', $analysis_id)->get();
+        $phys2 = Phys2::where('analysis_id', $analysis_id)->get();
+        $phys3 = Phys3::where('analysis_id', $analysis_id)->get();
+        $phys4 = Phys4::where('analysis_id', $analysis_id)->get();
 
         $test_parameters = TestParameter::query()
-        ->where('analysis_id', $analysis_id)
-        ->get();
+            ->where('analysis_id', $analysis_id)
+            ->get();
 
         $library_test_parameters = LibraryTestParameter::all();
 
-        return view('laboratory.lab_approval.details', compact('requests',
-        'lab_approval',
-        'test_parameters',
-        'library_test_parameters',
-        'micro1',
-        'micro2',
-        'micro3',
-        'micro4',
-        'chem1',
-        'chem2',
-        'chem3',
-        'chem4',
-        'chem5',
-        'chem6',
-        'chem7',
-        'chem9',
-        'chem10',
-        'phys1',
-        'phys2',
-        'phys3',
-        'phys4'));
-
+        return view('laboratory.lab_approval.details', compact(
+            'requests',
+            'lab_approval',
+            'test_parameters',
+            'library_test_parameters',
+            'micro1',
+            'micro2',
+            'micro3',
+            'micro4',
+            'chem1',
+            'chem2',
+            'chem3',
+            'chem4',
+            'chem5',
+            'chem6',
+            'chem7',
+            'chem9',
+            'chem10',
+            'phys1',
+            'phys2',
+            'phys3',
+            'phys4'
+        ));
     }
 
     public function approval($analysis_id)
