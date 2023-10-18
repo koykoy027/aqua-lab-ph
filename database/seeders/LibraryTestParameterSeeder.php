@@ -46,6 +46,15 @@ class LibraryTestParameterSeeder extends Seeder
             'method' => 'SMEWW 9223 Enzyme Substrate Coliform Test',
             'limit' => '',
         ]);
+
+        LibraryTestParameter::create([
+            'filename' => 'MICRX',
+            'type' => 'micro',
+            'parameter' => 'MICRX',
+            'abbreviation' => 'MICRX',
+            'method' => 'Provide list of parameters here',
+            'limit' => '',
+        ]);
         LibraryTestParameter::create([
             'filename' => 'chem1',
             'type' => 'pychem',
