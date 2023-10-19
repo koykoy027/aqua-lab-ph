@@ -48,7 +48,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
 
         LibraryTestParameter::create([
-            'filename' => 'MICRX',
+            'filename' => 'micr5',
             'type' => 'micro',
             'parameter' => 'MICRX',
             'abbreviation' => 'MICRX',

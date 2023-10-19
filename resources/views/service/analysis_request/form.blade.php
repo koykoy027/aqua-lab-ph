@@ -454,14 +454,14 @@
                         @foreach ($micro_parameter as $data)
                             <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
                                     for="{{ $data->id }}">
-                                    Micro : {{ $data->id }}{{ $data->abbreviation }}, {{ $data->limit }}
+                                    {{ $data->parameter }}, {{ $data->limit }}
                                 </label></option>
                         @endforeach
                         <option value="micro">Micro Multiple Parameter</option>
                         @foreach ($pychem_parameter as $data)
                             <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
                                     for="{{ $data->id }}">
-                                    Pychem : {{ $data->id }}, {{ $data->abbreviation }}, {{ $data->limit }}
+                                    {{ $data->parameter }}, {{ $data->limit }}
                                 </label></option>
                         @endforeach
                     </select>
@@ -474,7 +474,7 @@
                                 id="{{ $data->id }}" name="selectedParameters[]" type="checkbox"
                                 value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                                {{ $data->abbreviation }}, {{ $data->limit }}
+                                {{ $data->parameter }}, {{ $data->limit }}
                             </label>
                         </div>
                     @endforeach
@@ -489,7 +489,7 @@
                                 id="{{ $data->id }}" name="selectedParameters[]" type="checkbox"
                                 value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                                {{ $data->abbreviation }}, {{ $data->limit }}
+                                {{ $data->parameter }}, {{ $data->limit }}
                             </label>
                         </div>
                     @endforeach
