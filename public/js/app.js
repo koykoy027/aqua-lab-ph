@@ -2,7 +2,7 @@ const toggleTestParameters = (val) => {
     var micro = document.querySelector(".micro");
     var pychem = document.querySelector(".pychem");
 
-    if (val === "micro") {
+    if (val === "MICRX,") {
         micro.classList.remove("hidden");
         pychem.classList.add("hidden");
 
