@@ -451,13 +451,14 @@
                     <select id="test_parameter" name="test_parameters" value="{{ old('test_parameter') }}" required
                         onchange="toggleTestParameters(this.value)">
                         <option disabled selected>Select Test Parameters</option>
+                        {{-- using onchange get the value of options --}}
                         @foreach ($micro_parameter as $data)
+                            {{-- i get the value of "5" this laravel option so that we can use it in the javascript "toggleTestParameters" located at app.js --}}
                             <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
                                     for="{{ $data->id }}">
                                     {{ $data->parameter }}, {{ $data->limit }}
                                 </label></option>
                         @endforeach
-                        <option value="micro">Micro Multiple Parameter</option>
                         @foreach ($pychem_parameter as $data)
                             <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
                                     for="{{ $data->id }}">
@@ -467,7 +468,8 @@
                     </select>
                 </div>
 
-                <div class="mb-3 micro hidden">
+                <div class="mb-3 hidden" id="microx">
+                    {{-- i use this div id microx to validate in my condition --}}
                     @foreach ($micro_parameter as $data)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
