@@ -102,6 +102,16 @@ class AnalysisRequestController extends Controller
         ]);
 
         $input = $request->all();
+
+        // If <= 5 all are micro
+        $test_parameters_dropdown =  $input['test_parameters'];
+        if ($test_parameters_dropdown <= 5) {
+            $input['test_parameters'] = 'micro';
+        } else {
+            $input['test_parameters'] = 'pychem';
+        }
+
+
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
 
@@ -114,9 +124,12 @@ class AnalysisRequestController extends Controller
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
 
+
         $selectedParameters = $request->input('selectedParameters', []);
 
-        if (in_array(1, $selectedParameters)) {
+
+
+        if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1) {
             Micro1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 1,
