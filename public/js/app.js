@@ -629,16 +629,17 @@ const chem6 = () => {
             chem6_instrument_reading_3) /
         3;
 
-    if (averageReading <= 0.003) {
-        chem6_final_result_remarks.value = "PASS";
-    } else if (averageReading == "0.003") {
+    chem6_average_instrument_reading.value = averageReading.toFixed(3);
+
+    finalresult = chem6_average_instrument_reading.value;
+
+    chem6_final_result.value = finalresult;
+
+    if (finalresult <= 0.003) {
         chem6_final_result_remarks.value = "PASS";
     } else {
         chem6_final_result_remarks.value = "FAIL";
     }
-
-    chem6_final_result.value = averageReading.toFixed(1);
-    chem6_average_instrument_reading.value = averageReading.toFixed(0);
 };
 
 //   chem 7
@@ -745,14 +746,17 @@ const chem10 = () => {
             chem10_instrument_reading_3) /
         3;
 
-    if (averageReading <= 0.4) {
+    chem10_average_instrument_reading.value = averageReading.toFixed(1);
+
+    finalresult = chem10_average_instrument_reading.value;
+
+    chem10_final_result.value = finalresult;
+
+    if (finalresult <= 0.4) {
         chem10_final_result_remarks.value = "PASS";
     } else {
         chem10_final_result_remarks.value = "FAIL";
     }
-
-    chem10_final_result.value = averageReading.toFixed(1);
-    chem10_average_instrument_reading.value = averageReading.toFixed(0);
 };
 
 // phychem 1
