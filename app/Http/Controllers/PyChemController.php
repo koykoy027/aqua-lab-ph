@@ -78,6 +78,7 @@ class PyChemController extends Controller
 
         $remarks = $request->input('remarks');
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
-        return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PyChem Test parameter has been saved!']);
+        // return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PyChem Test parameter has been saved!']);
+        return redirect()->route('laboratory.lab_approval.details', $analysis_id)->with(['message' => 'PyChem Test parameter has been saved!']);
     }
 }
