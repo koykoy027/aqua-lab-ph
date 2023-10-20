@@ -49,9 +49,9 @@ class LibraryTestParameterSeeder extends Seeder
 
         LibraryTestParameter::create([
             'type' => 'micro',
-            'parameter' =>'MICR5 - MICROX',
-            'abbreviation' => 'MICROX',
-            'method' => 'Provide list of parameters here',
+            'parameter' => 'MICRX',
+            'abbreviation' => 'Multiple Microbiological Parameters (Single Sample)',
+            'method' => 'Provide list of parameters here.',
             'limit' => '',
         ]);
         LibraryTestParameter::create([
@@ -158,6 +158,5 @@ class LibraryTestParameterSeeder extends Seeder
             'method' => 'SMEWW 2130 B. Nephelometric Method',
             'limit' => 'NTU (UNIT)',
         ]);
-            
     }
 }
