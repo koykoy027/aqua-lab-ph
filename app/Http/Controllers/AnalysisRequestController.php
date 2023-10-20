@@ -163,95 +163,95 @@ class AnalysisRequestController extends Controller
                 'test_parameters_id' => 4,
             ]);
         }
-        if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5) {
-
-            Chem1::create([
-                'analysis_id' => $analysisRequest->analysis_id,
-                'test_parameters_id' => 5,
-            ]);
-        }
         if (in_array(6, $selectedParameters) || $test_parameters_dropdown == 6) {
 
-            Chem2::create([
+            Chem1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 6,
             ]);
         }
         if (in_array(7, $selectedParameters) || $test_parameters_dropdown == 7) {
 
-            Chem3::create([
+            Chem2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 7,
             ]);
         }
         if (in_array(8, $selectedParameters) || $test_parameters_dropdown == 8) {
 
-            Chem4::create([
+            Chem3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 8,
             ]);
         }
         if (in_array(9, $selectedParameters) || $test_parameters_dropdown == 9) {
 
-            Chem5::create([
+            Chem4::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 9,
             ]);
         }
         if (in_array(10, $selectedParameters) || $test_parameters_dropdown == 10) {
 
-            Chem6::create([
+            Chem5::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 10,
             ]);
         }
         if (in_array(11, $selectedParameters) || $test_parameters_dropdown == 11) {
 
-            Chem7::create([
+            Chem6::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 11,
             ]);
         }
         if (in_array(12, $selectedParameters) || $test_parameters_dropdown == 12) {
 
-            Chem9::create([
+            Chem7::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 12,
             ]);
         }
         if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
 
-            Chem10::create([
+            Chem9::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 13,
             ]);
         }
         if (in_array(14, $selectedParameters) || $test_parameters_dropdown == 14) {
 
-            Phys1::create([
+            Chem10::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 14,
             ]);
         }
         if (in_array(15, $selectedParameters) || $test_parameters_dropdown == 15) {
 
-            Phys2::create([
+            Phys1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 15,
             ]);
         }
         if (in_array(16, $selectedParameters) || $test_parameters_dropdown == 16) {
 
-            Phys3::create([
+            Phys2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 16,
             ]);
         }
         if (in_array(17, $selectedParameters) || $test_parameters_dropdown == 17) {
 
-            Phys4::create([
+            Phys3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 17,
+            ]);
+        }
+        if (in_array(18, $selectedParameters) || $test_parameters_dropdown == 18) {
+
+            Phys4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 18,
             ]);
         }
 
