@@ -1,31 +1,42 @@
-const toggleTestParameters = (val) => {
-    var micro = document.querySelector(".micro");
-    var pychem = document.querySelector(".pychem");
+// const toggleTestParameters = (val) => {
+//     var micro = document.querySelector(".micro");
+//     var pychem = document.querySelector(".pychem");
 
-    if (val === "micro") {
-        micro.classList.remove("hidden");
-        pychem.classList.add("hidden");
+//     if (val === "micro") {
+//         micro.classList.remove("hidden");
+//         pychem.classList.add("hidden");
 
-        // Clear PyChem checkboxes
-        var pychemCheckboxes = pychem.querySelectorAll(
-            'input[type="checkbox"]'
-        );
-        pychemCheckboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        });
+//         // Clear PyChem checkboxes
+//         var pychemCheckboxes = pychem.querySelectorAll(
+//             'input[type="checkbox"]'
+//         );
+//         pychemCheckboxes.forEach(function (checkbox) {
+//             checkbox.checked = false;
+//         });
+//     }
+
+//     if (val === "pychem") {
+//         micro.classList.add("hidden");
+//         pychem.classList.remove("hidden");
+
+//         // Clear Micro checkboxes
+//         var microCheckboxes = micro.querySelectorAll('input[type="checkbox"]');
+//         microCheckboxes.forEach(function (checkbox) {
+//             checkbox.checked = false;
+//         });
+//     }
+// };
+
+function toggleTestParameters(selectedValue) {
+    var divToUnhide = document.getElementById("microx");
+    // i create a variable that get the element id of my div in form located at service/analysis_request/form
+
+    if (selectedValue == "5") {
+        divToUnhide.classList.remove("hidden");
+    } else {
+        divToUnhide.classList.add("hidden");
     }
-
-    if (val === "pychem") {
-        micro.classList.add("hidden");
-        pychem.classList.remove("hidden");
-
-        // Clear Micro checkboxes
-        var microCheckboxes = micro.querySelectorAll('input[type="checkbox"]');
-        microCheckboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        });
-    }
-};
+}
 
 // can be seen in service.client.create
 const marketSegment = (val) => {

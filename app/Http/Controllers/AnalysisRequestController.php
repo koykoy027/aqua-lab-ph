@@ -102,6 +102,16 @@ class AnalysisRequestController extends Controller
         ]);
 
         $input = $request->all();
+
+        // If <= 5 all are micro
+        $test_parameters_dropdown =  $input['test_parameters'];
+        if ($test_parameters_dropdown <= 5) {
+            $input['test_parameters'] = 'micro';
+        } else {
+            $input['test_parameters'] = 'pychem';
+        }
+
+
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
 
@@ -114,9 +124,12 @@ class AnalysisRequestController extends Controller
             'analysis_id' => $analysisRequest->analysis_id,
         ]);
 
+
         $selectedParameters = $request->input('selectedParameters', []);
 
-        if (in_array(1, $selectedParameters)) {
+
+
+        if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1) {
             Micro1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 1,
@@ -129,118 +142,119 @@ class AnalysisRequestController extends Controller
             ]);
         }
 
-        if (in_array(2, $selectedParameters)) {
+        if (in_array(2, $selectedParameters) || $test_parameters_dropdown == 2) {
 
             Micro2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 2,
             ]);
         }
-        if (in_array(3, $selectedParameters)) {
+        if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3) {
 
             Micro3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 3,
             ]);
         }
-        if (in_array(4, $selectedParameters)) {
+        if (in_array(4, $selectedParameters) || $test_parameters_dropdown == 4) {
 
             Micro4::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 4,
             ]);
         }
-        if (in_array(5, $selectedParameters)) {
+        if (in_array(6, $selectedParameters) || $test_parameters_dropdown == 6) {
 
             Chem1::create([
-                'analysis_id' => $analysisRequest->analysis_id,
-                'test_parameters_id' => 5,
-            ]);
-        }
-        if (in_array(6, $selectedParameters)) {
-
-            Chem2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 6,
             ]);
         }
-        if (in_array(7, $selectedParameters)) {
+        if (in_array(7, $selectedParameters) || $test_parameters_dropdown == 7) {
 
-            Chem3::create([
+            Chem2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 7,
             ]);
         }
-        if (in_array(8, $selectedParameters)) {
+        if (in_array(8, $selectedParameters) || $test_parameters_dropdown == 8) {
 
-            Chem4::create([
+            Chem3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 8,
             ]);
         }
-        if (in_array(9, $selectedParameters)) {
+        if (in_array(9, $selectedParameters) || $test_parameters_dropdown == 9) {
 
-            Chem5::create([
+            Chem4::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 9,
             ]);
         }
-        if (in_array(10, $selectedParameters)) {
+        if (in_array(10, $selectedParameters) || $test_parameters_dropdown == 10) {
 
-            Chem6::create([
+            Chem5::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 10,
             ]);
         }
-        if (in_array(11, $selectedParameters)) {
+        if (in_array(11, $selectedParameters) || $test_parameters_dropdown == 11) {
 
-            Chem7::create([
+            Chem6::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 11,
             ]);
         }
-        if (in_array(12, $selectedParameters)) {
+        if (in_array(12, $selectedParameters) || $test_parameters_dropdown == 12) {
 
-            Chem9::create([
+            Chem7::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 12,
             ]);
         }
-        if (in_array(13, $selectedParameters)) {
+        if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
 
-            Chem10::create([
+            Chem9::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 13,
             ]);
         }
-        if (in_array(14, $selectedParameters)) {
+        if (in_array(14, $selectedParameters) || $test_parameters_dropdown == 14) {
 
-            Phys1::create([
+            Chem10::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 14,
             ]);
         }
-        if (in_array(15, $selectedParameters)) {
+        if (in_array(15, $selectedParameters) || $test_parameters_dropdown == 15) {
 
-            Phys2::create([
+            Phys1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 15,
             ]);
         }
-        if (in_array(16, $selectedParameters)) {
+        if (in_array(16, $selectedParameters) || $test_parameters_dropdown == 16) {
 
-            Phys3::create([
+            Phys2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 16,
             ]);
         }
-        if (in_array(17, $selectedParameters)) {
+        if (in_array(17, $selectedParameters) || $test_parameters_dropdown == 17) {
 
-            Phys4::create([
+            Phys3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 17,
             ]);
         }
+        if (in_array(18, $selectedParameters) || $test_parameters_dropdown == 18) {
+
+            Phys4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 18,
+            ]);
+        }
+
 
         foreach ($selectedParameters as $parameterValue) {
             TestParameter::create([
@@ -248,6 +262,15 @@ class AnalysisRequestController extends Controller
                 'test_parameters' => $parameterValue, // Change to a different attribute name
             ]);
         }
+
+        if ($test_parameters_dropdown != 5) {
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => $test_parameters_dropdown,
+            ]);
+        }
+
+
 
         return redirect()
             ->back()

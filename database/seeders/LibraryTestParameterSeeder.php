@@ -46,6 +46,14 @@ class LibraryTestParameterSeeder extends Seeder
             'method' => 'SMEWW 9223 Enzyme Substrate Coliform Test',
             'limit' => '',
         ]);
+
+        LibraryTestParameter::create([
+            'type' => 'micro',
+            'parameter' => 'MICRX',
+            'abbreviation' => 'Multiple Microbiological Parameters (Single Sample)',
+            'method' => 'Provide list of parameters here.',
+            'limit' => '',
+        ]);
         LibraryTestParameter::create([
             'filename' => 'chem1',
             'type' => 'pychem',
@@ -150,6 +158,5 @@ class LibraryTestParameterSeeder extends Seeder
             'method' => 'SMEWW 2130 B. Nephelometric Method',
             'limit' => 'NTU (UNIT)',
         ]);
-            
     }
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('abbreviation');
             $table->string('method');
             $table->string('limit')->nullable();
-            $table->string('filename');
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }

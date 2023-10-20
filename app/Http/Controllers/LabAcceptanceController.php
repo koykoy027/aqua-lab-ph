@@ -169,12 +169,14 @@ class LabAcceptanceController extends Controller
 
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
 
-        if (
-            $test_parameters === 'micro'
-        ) {
-            return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully!']);
-        } else {
-            return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully!']);
-        }
+        // if (
+        //     $test_parameters === 'micro'
+        // ) {
+        //     return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully!']);
+        // } else {
+        //     return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully!']);
+        // }
+
+        return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully!']);
     }
 }
