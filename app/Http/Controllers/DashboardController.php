@@ -41,54 +41,46 @@ class DashboardController extends Controller
 
         // per region
         $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
-        ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
-        ->groupBy('municipality_or_city')
-        ->get();
+            ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
+            ->groupBy('municipality_or_city')
+            ->get();
 
         $microSamplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
-        ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
-        ->where('test_parameters', '=', 'MICR1 - Heterotrophic Plate Count (HPC)')
-        ->orWhere('test_parameters', '=', 'MICR2 - Thermotolerant Colifom Test')
-        ->orWhere('test_parameters', '=', 'MICR3 - Total Coliform')
-        ->orWhere('test_parameters', '=', 'MICR4 - E. coli Test')
-        ->orWhere('test_parameters', '=', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
-        ->groupBy('municipality_or_city')
-        ->get();
+            ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
+            ->where('test_parameters', '=', 'micro')
+            ->groupBy('municipality_or_city')
+            ->get();
 
         $phyChemSamplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
-        ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
-        ->whereNot('test_parameters', '=', 'MICR1 - Heterotrophic Plate Count (HPC)')
-        ->whereNot('test_parameters', '=', 'MICR2 - Thermotolerant Colifom Test')
-        ->whereNot('test_parameters', '=', 'MICR3 - Total Coliform')
-        ->whereNot('test_parameters', '=', 'MICR4 - E. coli Test')
-        ->whereNot('test_parameters', '=', 'MICR5 - All three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)')
-        ->groupBy('municipality_or_city')
-        ->get();
+            ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
+            ->where('test_parameters', '=', 'pychem')
+            ->groupBy('municipality_or_city')
+            ->get();
 
         return view('dashboard.index', compact(
             'recentClients',
-        'totalClient',
-        'totalLabAccepted',
-        'totalLabRejected',
-        'totalReleaseStatus',
-        'totalPending',
-        'totalConditionallyAccepted',
-        'totalDisapprove',
-        'total0001',
-        'total002A',
-        'total002B',
-        'total003',
-        'total004A',
-        'total004B',
-        'total004C',
-        'total005',
-        'total006',
-        'total007',
-        'total008',
-        'totalOthers',
-        'samplesPerCityMunicipality',
-        'microSamplesPerCityMunicipality',
-        'phyChemSamplesPerCityMunicipality',
-                ));
+            'totalClient',
+            'totalLabAccepted',
+            'totalLabRejected',
+            'totalReleaseStatus',
+            'totalPending',
+            'totalConditionallyAccepted',
+            'totalDisapprove',
+            'total0001',
+            'total002A',
+            'total002B',
+            'total003',
+            'total004A',
+            'total004B',
+            'total004C',
+            'total005',
+            'total006',
+            'total007',
+            'total008',
+            'totalOthers',
+            'samplesPerCityMunicipality',
+            'microSamplesPerCityMunicipality',
+            'phyChemSamplesPerCityMunicipality',
+        ));
     }
 }
