@@ -142,7 +142,7 @@ class AnalysisRequestController extends Controller
             ]);
         }
 
-        if (in_array(2, $selectedParameters)) {
+        if (in_array(2, $selectedParameters) || $test_parameters_dropdown == 2) {
 
             Micro2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
@@ -255,12 +255,22 @@ class AnalysisRequestController extends Controller
             ]);
         }
 
+
         foreach ($selectedParameters as $parameterValue) {
             TestParameter::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters' => $parameterValue, // Change to a different attribute name
             ]);
         }
+
+        if ($test_parameters_dropdown != 5) {
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => $test_parameters_dropdown,
+            ]);
+        }
+
+
 
         return redirect()
             ->back()
