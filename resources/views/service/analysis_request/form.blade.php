@@ -471,14 +471,17 @@
                 <div class="mb-3 hidden" id="microx">
                     {{-- i use this div id microx to validate in my condition --}}
                     @foreach ($micro_parameter as $data)
-                        <div class="flex items-center mb-4">
-                            <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
-                                id="{{ $data->id }}" name="selectedParameters[]" type="checkbox"
-                                value="{{ $data->id }}">
-                            <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                                {{ $data->parameter }}, {{ $data->limit }}
-                            </label>
-                        </div>
+                        @if ($data->filename != null)
+                            <div class="flex items-center mb-4">
+                                <input
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                                    id="{{ $data->id }}" name="selectedParameters[]" type="checkbox"
+                                    value="{{ $data->id }}">
+                                <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
+                                    {{ $data->parameter }}, {{ $data->limit }}
+                                </label>
+                            </div>
+                        @endif
                     @endforeach
                 </div>
 
