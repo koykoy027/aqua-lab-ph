@@ -4,18 +4,30 @@
         @foreach ($micro4 as $micro4s)
             <div class="mb-3">
                 <label for="micr4_color_of_the_sample">Color of the sample</label>
-                <input id="micr4_color_of_the_sample" type="text" name="micr4_color_of_the_sample" value="{{ $micro4s->micr4_color_of_the_sample }}" required autofocus autocomplete="micr4_color_of_the_sample" readonly />
+                <input id="micr4_color_of_the_sample" type="text" name="micr4_color_of_the_sample"
+                    value="{{ $micro4s->micr4_color_of_the_sample }}" required autofocus
+                    autocomplete="micr4_color_of_the_sample" readonly />
 
             </div>
 
             <div class="mb-3">
                 <label for="micr4_fluorescence">Fluorescence</label>
-                <input id="micr4_fluorescence" type="text" name="micr4_fluorescence" value="{{ $micro4s->micr4_fluorescence }}" required autofocus autocomplete="micr4_fluorescence" readonly />
+                <input id="micr4_fluorescence" type="text" name="micr4_fluorescence"
+                    value="{{ $micro4s->micr4_fluorescence }}" required autofocus autocomplete="micr4_fluorescence"
+                    readonly />
             </div>
 
             <div class="mb-3">
                 <label for="micr4_final_result">Final Result</label>
-                <input id="micr4_final_result" type="text" name="micr4_final_result" value="{{ $micro4s->micr4_final_result }}" required autofocus autocomplete="micr4_final_result" readonly />
+                <input id="micr4_final_result" type="text" name="micr4_final_result"
+                    value="{{ $micro4s->micr4_final_result }}" required autofocus autocomplete="micr4_final_result"
+                    readonly />
+            </div>
+            <div class="mb-3">
+                <label for="micr4_final_result_remark">Final Result</label>
+                <input id="micr4_final_result_remark" type="text" name="micr4_final_result_remark"
+                    value="{{ $micro4s->micr4_final_result_remark }}" required autofocus
+                    autocomplete="micr4_final_result_remark" readonly />
             </div>
         @endforeach
     </div>
