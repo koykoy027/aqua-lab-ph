@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('library_test_parameters', function (Blueprint $table) {
             $table->id();
-            $table->string('type');
-            $table->string('parameter');
-            $table->string('abbreviation');
-            $table->string('method');
+            $table->string('type')->nullable();
+            $table->string('parameter')->nullable();
+            $table->string('abbreviation')->nullable();
+            $table->string('method')->nullable();
             $table->string('limit')->nullable();
             $table->string('filename')->nullable();
             $table->timestamps();
