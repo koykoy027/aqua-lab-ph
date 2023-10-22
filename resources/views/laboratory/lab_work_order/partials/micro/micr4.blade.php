@@ -75,13 +75,13 @@
         <div class="mb-3">
             <label for="micr4_final_result_remark">Final Result Remarks</label>
             <input id="micr4_final_result_remark" readonly type="text" step="any"
-                name="micr4_final_result_remark" value="" required autofocus
+                name="micr4_final_result_remark" value="{{ $micro4s->micr4_final_result_remark }}" required autofocus
                 autocomplete="micr4_final_result_remark">
-            {{-- @error('micr1_hpc_plate_a')
+            @error('micr4_final_result_remark')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror --}}
+            @enderror
         </div>
     </div>
 </div>
