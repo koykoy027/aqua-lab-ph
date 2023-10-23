@@ -389,6 +389,31 @@ const micro3 = () => {
     }
 };
 
+// micro 4
+
+const micro4 = () => {
+    var micr4_color_of_the_sample = parseFloat(
+        document.querySelector('[name="micr4_color_of_the_sample"]').value
+    );
+    var micr4_fluorescence = parseFloat(
+        document.querySelector('[name="micr4_fluorescence"]').value // Changed to "micr4_fluorescence"
+    );
+    var micr4_final_result = document.querySelector(
+        '[name="micr4_final_result"]'
+    );
+    var micr4_final_result_remark = document.querySelector(
+        '[name="micr4_final_result_remark"]'
+    );
+
+    var mir4 = micr4_final_result.value; // Added "var" before "mir4"
+
+    if (mir4 == "Absent") {
+        micr4_final_result_remark.value = "PASS";
+    } else {
+        micr4_final_result_remark.value = "FAIL";
+    }
+};
+
 // can be seen in laboratory.lab_work_order-partials
 
 // chem1
