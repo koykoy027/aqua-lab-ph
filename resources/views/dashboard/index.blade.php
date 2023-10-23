@@ -50,6 +50,105 @@
             );
         };
 
+        // chart2
+
+        const samplesTotalMicroSamplespersegment = () => {
+            const labels = [
+                "0001 - Water Refilling Station",
+                "002A - Food and Beverages (Service)",
+                "002B - Food and Beverages (Manufacturer)",
+                "003 - Hospitality Industry",
+                "004A - Healthcare (Dialysis)",
+                "004B - Healthcare (Lying-in)",
+                "004C - Healthcare (Hospital)",
+                "005 - Water Service Provider",
+                "006 - Residential",
+                "007 - Academe",
+                "008 - Industries",
+                "Others",
+            ];
+            const data = {
+                labels: labels,
+                datasets: [{
+                        backgroundColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
+                            "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
+                        ],
+                        borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
+                            "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
+                        ],
+                        data: [{{ $total0001 }}, {{ $total002A }}, {{ $total002B }},
+                            {{ $total003 }}, {{ $total004A }}, {{ $total004B }},
+                            {{ $total004C }}, {{ $total005 }}, {{ $total006 }},
+                            {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}
+                        ],
+                        fill: true,
+                    },
+
+                ],
+            };
+
+            const configLineChart = {
+                type: "pie",
+                data,
+                options: {},
+            };
+
+            var chartLine = new Chart(
+                document.getElementById("samplesTotalMicroSamplespersegment"),
+                configLineChart
+            );
+        };
+
+        // chart 3
+        const samplesTotalPychemSamplespersegment = () => {
+            const labels = [
+                "0001 - Water Refilling Station",
+                "002A - Food and Beverages (Service)",
+                "002B - Food and Beverages (Manufacturer)",
+                "003 - Hospitality Industry",
+                "004A - Healthcare (Dialysis)",
+                "004B - Healthcare (Lying-in)",
+                "004C - Healthcare (Hospital)",
+                "005 - Water Service Provider",
+                "006 - Residential",
+                "007 - Academe",
+                "008 - Industries",
+                "Others",
+            ];
+            const data = {
+                labels: labels,
+                datasets: [{
+                        backgroundColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
+                            "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
+                        ],
+                        borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
+                            "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
+                        ],
+                        data: [{{ $total0001 }}, {{ $total002A }}, {{ $total002B }},
+                            {{ $total003 }}, {{ $total004A }}, {{ $total004B }},
+                            {{ $total004C }}, {{ $total005 }}, {{ $total006 }},
+                            {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}
+                        ],
+                        fill: true,
+                    },
+
+                ],
+            };
+
+            const configLineChart = {
+                type: "pie",
+                data,
+                options: {},
+            };
+
+            var chartLine = new Chart(
+                document.getElementById("samplesTotalPychemSamplespersegment"),
+                configLineChart
+            );
+        };
+
+        // end charts
+
         const perRegion = () => {
             const labels = [
                 "Region I – Ilocos Region",
@@ -171,10 +270,38 @@
     <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
         <div class="w-full rounded sm:w-auto">
             <div class="bg-white">
-                <div class="rounded-lg shadow-md">
+                <div class="grid mx-5 py-5 gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
+                    <select class="lg:col-start-3 sm:col-start-1" onchange="handleSelectChange(this.value)">
+                        <option value="Total Samples Per segment">Total Samples Per segment</option>
+                        <option value="Total Micro Samples per segment">Total Micro Samples per segment</option>
+                        <option value="Total Pychem Samples per segment">Total Pychem Samples per segment</option>
+                    </select>
+                </div>
+                <div id="TotalSamplesPersegment" class="rounded-lg shadow-md">
+                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                        Total Samples Per segment
+                    </h1>
                     <canvas class="w-full p-2" id="samplesPerMarketSegment"></canvas>
                     <script>
                         samplesPerMarketSegment();
+                    </script>
+                </div>
+                <div id="TotalMicroSamplespersegment" class="rounded-lg shadow-md hidden">
+                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                        Total Micro Samples per segment
+                    </h1>
+                    <canvas class="w-full p-2" id="samplesTotalMicroSamplespersegment"></canvas>
+                    <script>
+                        samplesTotalMicroSamplespersegment();
+                    </script>
+                </div>
+                <div id="TotalPychemSamplespersegment" class="rounded-lg shadow-md hidden">
+                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                        Total Pychem Samples per segment
+                    </h1>
+                    <canvas class="w-full p-2" id="samplesTotalPychemSamplespersegment"></canvas>
+                    <script>
+                        samplesTotalPychemSamplespersegment();
                     </script>
                 </div>
             </div>
@@ -314,7 +441,8 @@
         </div>
 
         <div id="phyChemSamplesPerCityMunicipality" class="hidden">
-            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Phy-Chem Samples per City/Municipality</h1>
+            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Phy-Chem Samples per City/Municipality
+            </h1>
             <hr>
             <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
                 <table class="w-full text-sm text-left text-gray-500">

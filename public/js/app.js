@@ -1009,3 +1009,24 @@ const widgetsPerCityMunicipality = (val) => {
         failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
     }
 };
+
+function handleSelectChange(value) {
+    // Hide all the div elements initially
+    document.getElementById("TotalSamplesPersegment").style.display = "none";
+    document.getElementById("TotalMicroSamplespersegment").style.display =
+        "none";
+    document.getElementById("TotalPychemSamplespersegment").style.display =
+        "none";
+
+    // Show the selected div based on the value
+    if (value === "Total Samples Per segment") {
+        document.getElementById("TotalSamplesPersegment").style.display =
+            "block";
+    } else if (value === "Total Micro Samples per segment") {
+        document.getElementById("TotalMicroSamplespersegment").style.display =
+            "block";
+    } else if (value === "Total Pychem Samples per segment") {
+        document.getElementById("TotalPychemSamplespersegment").style.display =
+            "block";
+    }
+}
