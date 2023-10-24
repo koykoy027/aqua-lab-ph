@@ -144,6 +144,7 @@ class AnalysisRequestController extends Controller
         ]);
         LabAcceptance::create([
             'analysis_id' => $analysisRequest->analysis_id,
+            'remarks' => 'Pending',
         ]);
 
 
