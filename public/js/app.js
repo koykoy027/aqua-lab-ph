@@ -284,6 +284,8 @@ const micro1 = () => {
         '[name="micr1_hpc_remarks"]'
     );
 
+    watersample = water_purpose.value;
+
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
 
@@ -292,34 +294,66 @@ const micro1 = () => {
     var microdifference =
         Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
 
-    if (roundedAverage >= 100) {
-        var roundedNumber = Math.round(roundedAverage / 10) * 10;
-        micr1_hpc_average.value = roundedAverage;
-        micr1_hpc_difference.value = microdifference.toFixed(3);
+    if (watersample === "Drinking") {
+        if (roundedAverage >= 100) {
+            var roundedNumber = Math.round(roundedAverage / 10) * 10;
+            micr1_hpc_average.value = roundedAverage;
+            micr1_hpc_difference.value = microdifference.toFixed(3);
 
-        if (micr1_hpc_average.value >= 500) {
-            micr1_hpc_final_result.value = ">500 est";
+            if (micr1_hpc_average.value >= 500) {
+                micr1_hpc_final_result.value = ">500 est";
+            } else {
+                micr1_hpc_final_result.value = roundedNumber.toFixed(1);
+            }
         } else {
-            micr1_hpc_final_result.value = roundedNumber.toFixed(1);
-        }
-    } else {
-        // micr1_hpc_final_result.value = averagecolony.toFixed(0);
-        micr1_hpc_average.value = averagecolony.toFixed(2);
-        micr1_hpc_difference.value = microdifference.toFixed(2);
+            // micr1_hpc_final_result.value = averagecolony.toFixed(0);
+            micr1_hpc_average.value = averagecolony.toFixed(2);
+            micr1_hpc_difference.value = microdifference.toFixed(2);
 
-        if (micr1_hpc_average.value <= 0) {
-            micr1_hpc_final_result.value = "<1.0";
+            if (micr1_hpc_average.value <= 0) {
+                micr1_hpc_final_result.value = "<1.0";
+            } else {
+                micr1_hpc_final_result.value = averagecolony.toFixed(0);
+            }
+        }
+
+        if (micr1_hpc_final_result.value == ">500 est") {
+            micr1_hpc_remarks.value = "FAIL";
+        } else if (micr1_hpc_final_result.value == "<1.0") {
+            micr1_hpc_remarks.value = "FAIL";
         } else {
-            micr1_hpc_final_result.value = averagecolony.toFixed(0);
+            micr1_hpc_remarks.value = "PASS";
         }
-    }
+    } else if (watersample === "Dialysis") {
+        if (roundedAverage >= 100) {
+            var roundedNumber = Math.round(roundedAverage / 10) * 10;
+            micr1_hpc_average.value = roundedAverage;
+            micr1_hpc_difference.value = microdifference.toFixed(3);
 
-    if (micr1_hpc_final_result.value == ">500 est") {
-        micr1_hpc_remarks.value = "FAIL";
-    } else if (micr1_hpc_final_result.value == "<1.0") {
-        micr1_hpc_remarks.value = "FAIL";
-    } else {
-        micr1_hpc_remarks.value = "PASS";
+            if (micr1_hpc_average.value >= 200) {
+                micr1_hpc_final_result.value = ">200 est";
+            } else {
+                micr1_hpc_final_result.value = roundedNumber.toFixed(1);
+            }
+        } else {
+            // micr1_hpc_final_result.value = averagecolony.toFixed(0);
+            micr1_hpc_average.value = averagecolony.toFixed(2);
+            micr1_hpc_difference.value = microdifference.toFixed(2);
+
+            if (micr1_hpc_average.value <= 0) {
+                micr1_hpc_final_result.value = "<1.0";
+            } else {
+                micr1_hpc_final_result.value = averagecolony.toFixed(0);
+            }
+        }
+
+        if (micr1_hpc_final_result.value == ">200 est") {
+            micr1_hpc_remarks.value = "FAIL";
+        } else if (micr1_hpc_final_result.value == "<1.0") {
+            micr1_hpc_remarks.value = "FAIL";
+        } else {
+            micr1_hpc_remarks.value = "PASS";
+        }
     }
 };
 
