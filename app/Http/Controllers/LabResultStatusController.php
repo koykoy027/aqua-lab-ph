@@ -118,13 +118,13 @@ class LabResultStatusController extends Controller
             });
         }
 
-        $datas = $queryBuilder->where('test_parameters', 'pychem')->paginate(10);
+        $datas = $queryBuilder
+            ->where('test_parameters', 'chem')
+            ->orWhere('test_parameters', 'phys')
+            ->paginate(10);
 
         return view('service.lab_result_status.index', compact('datas', 'query'));
     }
-
-
-
 
     public function table(Request $request)
     {

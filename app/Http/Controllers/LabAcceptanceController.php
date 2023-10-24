@@ -79,7 +79,8 @@ class LabAcceptanceController extends Controller
 
 
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'pychem');
+            ->where('test_parameters', 'chem')
+            ->orWhere('test_parameters', 'phys');
 
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);

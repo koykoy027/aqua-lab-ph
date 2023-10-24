@@ -45,19 +45,28 @@ class AnalysisRequestController extends Controller
 
     public function form($account_number)
     {
+
+        $library_test_parameter = LibraryTestParameter::where('type', '!=', '') // pansamantala
+            ->get();
         $micro_parameter = LibraryTestParameter::query()
             ->where('type', 'micro')
             ->get();
 
-        $pychem_parameter = LibraryTestParameter::query()
-            ->where('type', 'pychem')
+        $chem_parameter = LibraryTestParameter::query()
+            ->where('type', 'chem')
+            ->get();
+
+        $phys_parameter = LibraryTestParameter::query()
+            ->where('type', 'phys')
             ->get();
 
         $clients = Client::find($account_number);
         return view('service.analysis_request.form', compact(
             'clients',
+            'library_test_parameter',
             'micro_parameter',
-            'pychem_parameter',
+            'chem_parameter',
+            'phys_parameter',
         ));
     }
 
@@ -102,18 +111,29 @@ class AnalysisRequestController extends Controller
         ]);
 
         $input = $request->all();
+        $libraryTestParameter = LibraryTestParameter::all(); // fetch all parameters
+
+        foreach ($libraryTestParameter as $data) {
+            $test_parameters_dropdown =  $input['test_parameters']; // get the value of selected parameters in dropdown
+
+            if ($test_parameters_dropdown == $data->id) {
+                $selected = $data->type;
+            }
+        }
+
 
         // If <= 5 all are micro
-        $test_parameters_dropdown =  $input['test_parameters'];
-        if ($test_parameters_dropdown <= 5) {
-            $input['test_parameters'] = 'micro';
-        } else {
-            $input['test_parameters'] = 'pychem';
-        }
+        // $test_parameters_dropdown =  $input['test_parameters'];
+        // if ($test_parameters_dropdown <= 12) {
+        //     $input['test_parameters'] = 'micro';
+        // } elseif ($test_parameters_dropdown <= 12) {
+        //     $input['test_parameters'] = 'pychem';
+        // }
 
 
         $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
         $input['analysis_id_'] = $result;
+        $input['test_parameters'] = $selected;
 
 
         $analysisRequest = AnalysisRequest::create($input);

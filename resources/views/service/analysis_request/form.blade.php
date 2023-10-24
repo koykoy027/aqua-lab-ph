@@ -447,21 +447,13 @@ Auth::user()->role === 'FSR')
                 <select id="test_parameter" name="test_parameters" value="{{ old('test_parameter') }}" required
                     onchange="toggleTestParameters(this.value)">
                     <option disabled selected>Select Test Parameters</option>
-                    {{-- using onchange get the value of options --}}
-                    @foreach ($micro_parameter as $data)
-                    {{-- i get the value of "5" this laravel option so that we can use it in the javascript
-                    "toggleTestParameters" located at app.js --}}
-                    <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
-                            for="{{ $data->id }}">
-                            {{ $data->parameter }}, {{ $data->limit }}
-                        </label></option>
+
+                    @foreach ($library_test_parameter as $data)
+                    <option value="{{ $data->id }}">
+                        {{ $data->parameter }} - {{ $data->service }}
+                    </option>
                     @endforeach
-                    @foreach ($pychem_parameter as $data)
-                    <option value="{{ $data->id }}"> <label class="ml-2 text-sm font-medium text-gray-900"
-                            for="{{ $data->id }}">
-                            {{ $data->parameter }}, {{ $data->limit }}
-                        </label></option>
-                    @endforeach
+
                 </select>
             </div>
 
@@ -473,7 +465,7 @@ Auth::user()->role === 'FSR')
                     <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                         id="{{ $data->id }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
                     <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                        {{ $data->parameter }}, {{ $data->limit }}
+                        {{ $data->parameter }} - {{ $data->service }}
                     </label>
                 </div>
                 @endif
@@ -481,14 +473,13 @@ Auth::user()->role === 'FSR')
             </div>
 
             <div class="hidden mb-3 pychem">
-                <label>PyChem Parameters</label>
-
-                @foreach ($pychem_parameter as $data)
+                <label>Chem Parameters</label>
+                @foreach ($chem_parameter as $data)
                 <div class="flex items-center mb-4">
                     <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                         id="{{ $data->id }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
                     <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                        {{ $data->parameter }}, {{ $data->limit }}
+                        {{ $data->parameter }} - {{ $data->service }}
                     </label>
                 </div>
                 @endforeach

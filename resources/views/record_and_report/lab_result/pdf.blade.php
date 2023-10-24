@@ -1166,7 +1166,7 @@
 
                 @if ($test_parameter->test_parameters === $library_test_parameter->id)
             <tr>
-                <td class="details">{{ $library_test_parameter->abbreviation }}, {{ $library_test_parameter->limit }}
+                <td class="details">{{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}
                 </td>
                 <td class="details">{{ $library_test_parameter->method }}</td>
 
