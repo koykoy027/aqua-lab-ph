@@ -24,7 +24,7 @@
 @endif
 
 {{-- pychem --}}
-@if ($lab_approval->test_parameters === 'pychem')
+@if ($lab_approval->test_parameters === 'pychem' || $lab_approval->test_parameters === 'chem' || $lab_approval->test_parameters === 'phys')
     <form action="{{ route('laboratory.lab_approval.details', ['analysis_id' => $lab_approval->analysis_id]) }}"
             method="POST">
             @csrf

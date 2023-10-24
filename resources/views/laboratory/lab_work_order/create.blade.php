@@ -31,7 +31,7 @@
 
     @endif
 
-    @if ($rawDataFile->test_parameters == 'pychem')
+    @if ($rawDataFile->test_parameters == 'pychem' || $rawDataFile->test_parameters == 'chem' || $rawDataFile->test_parameters == 'phys')
     <form action="{{ route('laboratory.lab-work-order-form.pychem', ['analysis_id' => $requests->analysis_id]) }}"
             method="POST">
             @csrf

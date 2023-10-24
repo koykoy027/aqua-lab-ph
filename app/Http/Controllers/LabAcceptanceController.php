@@ -62,9 +62,12 @@ class LabAcceptanceController extends Controller
             });
         }
 
-        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
-
-        $analysisRequest = $queryBuilder->paginate(10);
+        $analysisRequest = $queryBuilder
+            ->where('test_parameters', 'micro')
+            ->whereHas('labAcceptance', function($query){
+                $query->whereNotIn('remarks' ,['Pending', 'Rejected', 'Disapprove']);
+            })
+            ->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }
@@ -78,9 +81,7 @@ class LabAcceptanceController extends Controller
 
 
 
-        $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'chem')
-            ->orWhere('test_parameters', 'phys');
+        $queryBuilder = AnalysisRequest::query();
 
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
@@ -95,7 +96,12 @@ class LabAcceptanceController extends Controller
             });
         }
 
-        $analysisRequest = $queryBuilder->paginate(10);
+        $analysisRequest = $queryBuilder
+            ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
+            })
+            ->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }

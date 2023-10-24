@@ -53,17 +53,17 @@
                             <td class="px-6 py-4">
                                 <span
                                     class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
-                                    @if ($analysisRequests->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
-                                    @if ($analysisRequests->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
-                                    @if ($analysisRequests->remarks === 'Accepted') text-green-800 bg-green-100 @endif
-                                    @if ($analysisRequests->remarks === 'Rejected') text-red-800 bg-red-100 @endif
-                                    @if ($analysisRequests->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
-                                    @if ($analysisRequests->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
-                                    @if ($analysisRequests->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
-                                    @if ($analysisRequests->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
-                                    @if ($analysisRequests->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Accepted') text-green-800 bg-green-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Rejected') text-red-800 bg-red-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
+                                    @if ($analysisRequests->labAcceptance->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
                                 ">
-                                    {{ $analysisRequests->remarks }}
+                                    {{ $analysisRequests->labAcceptance->remarks }}
                                 </span>
 
                             </td>

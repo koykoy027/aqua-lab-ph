@@ -32,15 +32,18 @@ class LabApprovalController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
-        $requests = $queryBuilder->paginate(10);
+        $requests = $queryBuilder
+            ->whereIn('test_parameters', ['micro'])
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
+            })
+            ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 
@@ -48,16 +51,19 @@ class LabApprovalController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'chem')
-            ->orWhere('test_parameters', 'phys')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
-        $requests = $queryBuilder->paginate(10);
+        $requests = $queryBuilder
+            ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
+
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
+            })
+            ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 
@@ -128,7 +134,7 @@ class LabApprovalController extends Controller
         $analysis = AnalysisRequest::findOrFail($analysis_id);
         $analysis->update(['remarks' => 'Approve']);
 
-        return redirect()->back()->with(['message' => 'Approve']);
+        return redirect()->back()->with(['message' => 'Testing has been successfully Approve']);
     }
 
     public function disapprove($analysis_id)
@@ -140,6 +146,6 @@ class LabApprovalController extends Controller
         $analysis = AnalysisRequest::findOrFail($analysis_id);
         $analysis->update(['remarks' => 'Disapprove']);
 
-        return redirect()->back()->with(['message' => 'Disapprove']);
+        return redirect()->back()->with(['message' => 'Testing has been successfully Disapprove']);
     }
 }

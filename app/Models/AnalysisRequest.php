@@ -42,4 +42,9 @@ class AnalysisRequest extends Model
     {
         return str_pad($this->attributes['analysis_id'], 6, '0', STR_PAD_LEFT);
     }
+
+    public function labAcceptance()
+    {
+        return $this->hasOne(LabAcceptance::class, 'analysis_id');
+    }
 }

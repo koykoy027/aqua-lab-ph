@@ -472,9 +472,10 @@ Auth::user()->role === 'FSR')
                 @endforeach
             </div>
 
-            <div class="hidden mb-3 pychem">
+            <div class="hidden mb-3" id="chemx">
                 <label>Chem Parameters</label>
                 @foreach ($chem_parameter as $data)
+                @if ($data->filename != null)
                 <div class="flex items-center mb-4">
                     <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                         id="{{ $data->id }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
@@ -482,6 +483,22 @@ Auth::user()->role === 'FSR')
                         {{ $data->parameter }} - {{ $data->service }}
                     </label>
                 </div>
+                @endif
+                @endforeach
+            </div>
+
+            <div class="hidden mb-3" id="phch">
+                <label>PyChem Parameters</label>
+                @foreach ($phys_parameter as $data)
+                @if ($data->filename != null)
+                <div class="flex items-center mb-4">
+                    <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
+                        id="{{ $data->parameter }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
+                    <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->parameter }}">
+                        {{ $data->parameter }} - {{ $data->service }}
+                    </label>
+                </div>
+                @endif
                 @endforeach
             </div>
         </div>

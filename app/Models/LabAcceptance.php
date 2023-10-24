@@ -20,4 +20,8 @@ class LabAcceptance extends Model
         'if_remarks_are_rejected',
 
     ];
+
+    public function analysisRequest() {
+        return $this->belongsTo(AnalysisRequest::class, 'analysis_id', 'id');
+    }
 }
