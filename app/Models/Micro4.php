@@ -15,5 +15,6 @@ class Micro4 extends Model
         'micr4_color_of_the_sample',
         'micr4_fluorescence',
         'micr4_final_result',
+        'micr4_final_result_remark',
     ];
 }

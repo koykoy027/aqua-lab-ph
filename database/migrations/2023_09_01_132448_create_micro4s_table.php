@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('micr4_color_of_the_sample')->nullable();
             $table->string('micr4_fluorescence')->nullable();
             $table->string('micr4_final_result')->nullable();
+            $table->string('micr4_final_result_remark')->nullable();
             $table->timestamps();
         });
     }

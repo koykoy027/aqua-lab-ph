@@ -389,6 +389,31 @@ const micro3 = () => {
     }
 };
 
+// micro 4
+
+const micro4 = () => {
+    var micr4_color_of_the_sample = parseFloat(
+        document.querySelector('[name="micr4_color_of_the_sample"]').value
+    );
+    var micr4_fluorescence = parseFloat(
+        document.querySelector('[name="micr4_fluorescence"]').value // Changed to "micr4_fluorescence"
+    );
+    var micr4_final_result = document.querySelector(
+        '[name="micr4_final_result"]'
+    );
+    var micr4_final_result_remark = document.querySelector(
+        '[name="micr4_final_result_remark"]'
+    );
+
+    var mir4 = micr4_final_result.value; // Added "var" before "mir4"
+
+    if (mir4 == "Absent") {
+        micr4_final_result_remark.value = "PASS";
+    } else {
+        micr4_final_result_remark.value = "FAIL";
+    }
+};
+
 // can be seen in laboratory.lab_work_order-partials
 
 // chem1
@@ -629,16 +654,17 @@ const chem6 = () => {
             chem6_instrument_reading_3) /
         3;
 
-    if (averageReading <= 0.003) {
-        chem6_final_result_remarks.value = "PASS";
-    } else if (averageReading == "0.003") {
+    chem6_average_instrument_reading.value = averageReading.toFixed(3);
+
+    finalresult = chem6_average_instrument_reading.value;
+
+    chem6_final_result.value = finalresult;
+
+    if (finalresult <= 0.003) {
         chem6_final_result_remarks.value = "PASS";
     } else {
         chem6_final_result_remarks.value = "FAIL";
     }
-
-    chem6_final_result.value = averageReading.toFixed(1);
-    chem6_average_instrument_reading.value = averageReading.toFixed(0);
 };
 
 //   chem 7
@@ -745,14 +771,17 @@ const chem10 = () => {
             chem10_instrument_reading_3) /
         3;
 
-    if (averageReading <= 0.4) {
+    chem10_average_instrument_reading.value = averageReading.toFixed(1);
+
+    finalresult = chem10_average_instrument_reading.value;
+
+    chem10_final_result.value = finalresult;
+
+    if (finalresult <= 0.4) {
         chem10_final_result_remarks.value = "PASS";
     } else {
         chem10_final_result_remarks.value = "FAIL";
     }
-
-    chem10_final_result.value = averageReading.toFixed(1);
-    chem10_average_instrument_reading.value = averageReading.toFixed(0);
 };
 
 // phychem 1
