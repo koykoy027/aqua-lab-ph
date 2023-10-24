@@ -51,6 +51,22 @@ function toggleTestParameters(selectedValue) {
         divChemx.classList.add("hidden");
         divPhch.classList.add("hidden");
     }
+
+    // Clear Micro checkboxes
+    var microCheckboxes = divMicrox.querySelectorAll('input[type="checkbox"]');
+    microCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+    });
+
+    var microCheckboxes = divChemx.querySelectorAll('input[type="checkbox"]');
+    microCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+    });
+
+    var microCheckboxes = divPhch.querySelectorAll('input[type="checkbox"]');
+    microCheckboxes.forEach(function (checkbox) {
+        checkbox.checked = false;
+    });
 }
 
 // can be seen in service.client.create
