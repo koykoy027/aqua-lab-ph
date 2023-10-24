@@ -129,7 +129,14 @@ class LabAcceptanceController extends Controller
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
         // Combine the month pattern and formatted date
-        $result = $monthPattern . $formattedDate;
+
+        $AnalysisRequest = AnalysisRequest::find($analysis_id);
+
+        if ($AnalysisRequest->test_parameters == "chem" || $AnalysisRequest->test_parameters == "phys") {
+            $result = $monthPattern . $formattedDate . "PC";
+        } else {
+            $result = $monthPattern . $formattedDate;
+        }
 
         $request->validate([
             'evaluated_by' => 'required',
