@@ -263,6 +263,8 @@ const test = (val) => {
 
 // can be seen in laboratory.lab_work_order-partials
 const micro1 = () => {
+    var water_purpose = document.querySelector('[name="water_purpose"]');
+
     var micr1_hpc_plate_a = parseFloat(
         document.querySelector('[name="micr1_hpc_plate_a"]').value
     );
