@@ -149,18 +149,10 @@ class AnalysisRequestController extends Controller
 
         $selectedParameters = $request->input('selectedParameters', []);
 
-
-
         if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1) {
             Micro1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 1,
-                'micr1_hpc_plate_a' => NULL,
-                'micr1_hpc_plate_b' => NULL,
-                'micr1_hpc_average' => NULL,
-                'micr1_hpc_difference' => NULL,
-                'micr1_hpc_final_result' => NULL,
-                'micr1_hpc_remarks' => NULL,
             ]);
         }
 
