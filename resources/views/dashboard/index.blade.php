@@ -269,8 +269,8 @@
 
     <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
         <div class="w-full rounded sm:w-auto">
-            <div class="bg-white">
-                <div class="grid mx-5 py-5 gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
+            <div class="bg-white rounded">
+                <div class="grid py-5 mx-5 gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
                     <select class="lg:col-start-3 sm:col-start-1" onchange="MarketSegmenthandleSelectChange(this.value)">
                         <option value="Total Samples Per segment">Total Samples Per segment</option>
                         <option value="Total Micro Samples per segment">Total Micro Samples per segment</option>
