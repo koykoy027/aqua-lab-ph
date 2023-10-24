@@ -62,9 +62,9 @@ class LabAcceptanceController extends Controller
             });
         }
 
-        $datas = $queryBuilder->where('test_parameters', 'micro')->paginate(10);
-
-        $analysisRequest = $queryBuilder->paginate(10);
+        $analysisRequest = $queryBuilder
+            ->where('test_parameters', 'micro')
+            ->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
     }

@@ -128,7 +128,7 @@ class LabApprovalController extends Controller
         $analysis = AnalysisRequest::findOrFail($analysis_id);
         $analysis->update(['remarks' => 'Approve']);
 
-        return redirect()->back()->with(['message' => 'Approve']);
+        return redirect()->back()->with(['message' => 'Testing has been successfully Approve']);
     }
 
     public function disapprove($analysis_id)
@@ -140,6 +140,6 @@ class LabApprovalController extends Controller
         $analysis = AnalysisRequest::findOrFail($analysis_id);
         $analysis->update(['remarks' => 'Disapprove']);
 
-        return redirect()->back()->with(['message' => 'Disapprove']);
+        return redirect()->back()->with(['message' => 'Testing has been successfully Disapprove']);
     }
 }
