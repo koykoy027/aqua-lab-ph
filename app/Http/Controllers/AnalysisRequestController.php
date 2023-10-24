@@ -180,6 +180,13 @@ class AnalysisRequestController extends Controller
                 'test_parameters_id' => 4,
             ]);
         }
+        if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5) {
+
+            Micro4::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters_id' => 5,
+            ]);
+        }
         if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
 
             Chem1::create([
