@@ -478,7 +478,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'chem',
             'parameter' => 'CHEMX',
             'service' => 'Chemical Parameters (Single Sample)',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
@@ -506,7 +506,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'phys',
             'parameter' => 'PHCHX',
             'service' => 'Multiple Physical and Chemical Parameters (Single Sample)',
             'method' => '',
