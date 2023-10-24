@@ -28,13 +28,28 @@
 // };
 
 function toggleTestParameters(selectedValue) {
-    var divToUnhide = document.getElementById("microx");
-    // i create a variable that get the element id of my div in form located at service/analysis_request/form
+    var divMicrox = document.getElementById("microx");
+    var divChemx = document.getElementById("chemx");
+    var divPhch = document.getElementById("phch");
 
-    if (selectedValue == "12") {
-        divToUnhide.classList.remove("hidden");
+    // Check the selected value and toggle the visibility of each div accordingly.
+    if (selectedValue === "12") {
+        divMicrox.classList.remove("hidden");
+        divChemx.classList.add("hidden");
+        divPhch.classList.add("hidden");
+    } else if (selectedValue === "58") {
+        divMicrox.classList.add("hidden");
+        divChemx.classList.remove("hidden");
+        divPhch.classList.add("hidden");
+    } else if (selectedValue === "61") {
+        divMicrox.classList.add("hidden");
+        divChemx.classList.add("hidden");
+        divPhch.classList.remove("hidden");
     } else {
-        divToUnhide.classList.add("hidden");
+        // If the selectedValue is something else, hide all divs.
+        divMicrox.classList.add("hidden");
+        divChemx.classList.add("hidden");
+        divPhch.classList.add("hidden");
     }
 }
 

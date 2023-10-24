@@ -57,8 +57,10 @@ class AnalysisRequestController extends Controller
             ->get();
 
         $phys_parameter = LibraryTestParameter::query()
-            ->where('type', 'phys')
+            ->where('type', 'chem')
+            ->orWhere('type', 'phys')
             ->get();
+
 
         $clients = Client::find($account_number);
         return view('service.analysis_request.form', compact(
@@ -275,7 +277,6 @@ class AnalysisRequestController extends Controller
             ]);
         }
 
-
         foreach ($selectedParameters as $parameterValue) {
             TestParameter::create([
                 'analysis_id' => $analysisRequest->analysis_id,
@@ -289,6 +290,7 @@ class AnalysisRequestController extends Controller
                 'test_parameters' => $test_parameters_dropdown,
             ]);
         }
+
 
 
 
