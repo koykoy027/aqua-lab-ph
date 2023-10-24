@@ -12,6 +12,7 @@ use App\Models\Chem5;
 use App\Models\Chem6;
 use App\Models\Chem7;
 use App\Models\Chem9;
+use App\Models\LabAcceptance;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -77,7 +78,7 @@ class PyChemController extends Controller
         }
 
         $remarks = $request->input('remarks');
-        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+        LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         // return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PyChem Test parameter has been saved!']);
         return redirect()->route('laboratory.lab_approval.details', $analysis_id)->with(['message' => 'PyChem Test parameter has been saved!']);
     }
