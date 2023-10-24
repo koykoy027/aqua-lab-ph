@@ -1010,7 +1010,9 @@ const widgetsPerCityMunicipality = (val) => {
     }
 };
 
-function handleSelectChange(value) {
+// Market segment
+
+function MarketSegmenthandleSelectChange(value) {
     // Hide all the div elements initially
     document.getElementById("TotalSamplesPersegment").style.display = "none";
     document.getElementById("TotalMicroSamplespersegment").style.display =
