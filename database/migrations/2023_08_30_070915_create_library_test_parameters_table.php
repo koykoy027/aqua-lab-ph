@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('type')->nullable();
             $table->string('parameter')->nullable();
-            $table->string('abbreviation')->nullable();
+            $table->string('service')->nullable();
             $table->string('method')->nullable();
             $table->string('limit')->nullable();
             $table->string('filename')->nullable();

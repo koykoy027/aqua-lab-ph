@@ -31,7 +31,7 @@ function toggleTestParameters(selectedValue) {
     var divToUnhide = document.getElementById("microx");
     // i create a variable that get the element id of my div in form located at service/analysis_request/form
 
-    if (selectedValue == "5") {
+    if (selectedValue == "12") {
         divToUnhide.classList.remove("hidden");
     } else {
         divToUnhide.classList.add("hidden");

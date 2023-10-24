@@ -48,7 +48,8 @@ class LabApprovalController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'pychem')
+            ->where('test_parameters', 'chem')
+            ->orWhere('test_parameters', 'phys')
             ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")

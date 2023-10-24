@@ -12,14 +12,15 @@ class LibraryTestParameter extends Model
     protected $table = "library_test_parameters";
     protected $fillable = [
         'type',
-        'abbreviation',
+        'service',
         'parameter',
         'method',
         'limit',
         'filename',
     ];
 
-    public function testParameter() :BelongsTo {
+    public function testParameter(): BelongsTo
+    {
         return $this->belongsTo(TestParameter::class);
     }
 
