@@ -118,7 +118,7 @@ class LibraryTestParameterSeeder extends Seeder
         // CHEM START
         LibraryTestParameter::create([
             'filename' => 'chem1',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM1',
             'service' => 'pH',
             'method' => 'SMEWW 4500-H+ B. Electrometric Method',
@@ -126,7 +126,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem2',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM2',
             'service' => 'Nitrate',
             'method' => 'SMEWW 4500-NO3- E. Cadmium Reduction Method',
@@ -150,7 +150,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem3',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM3',
             'service' => 'Total Dissolved Solids',
             'method' => 'SMEWW 2540 C. Total Dissolved Solids Dried at 180°C',
@@ -158,7 +158,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem4',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM4',
             'service' => 'Chlorine (Residual), as free',
             'method' => 'DPD Colorimetric Method',
@@ -166,7 +166,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem5',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM5',
             'service' => 'Arsenic',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
@@ -174,7 +174,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem6',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM6',
             'service' => 'Cadmium',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
@@ -182,7 +182,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem7',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM7',
             'service' => 'Lead',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
@@ -198,7 +198,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem9',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM9',
             'service' => 'Iron',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
@@ -206,7 +206,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem10',
-            'type' => 'pychem',
+            'type' => 'chem',
             'parameter' => 'CHEM10',
             'service' => 'Manganese',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
@@ -518,7 +518,7 @@ class LibraryTestParameterSeeder extends Seeder
         // PHYS START
         LibraryTestParameter::create([
             'filename' => 'phys1',
-            'type' => 'pychem',
+            'type' => 'phys',
             'parameter' => 'PHYS1',
             'service' => 'Appearance',
             'method' => 'Sensory Evaluation Technique',
@@ -526,7 +526,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys2',
-            'type' => 'pychem',
+            'type' => 'phys',
             'parameter' => 'PHYS2',
             'service' => 'Odor',
             'method' => 'Sensory Evaluation Technique',
@@ -534,7 +534,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys3',
-            'type' => 'pychem',
+            'type' => 'phys',
             'parameter' => 'PHYS3',
             'service' => 'Color, apparent',
             'method' => 'SMEWW 2120 B. Visual Comparison Method',
@@ -542,7 +542,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys4',
-            'type' => 'pychem',
+            'type' => 'phys',
             'parameter' => 'PHYS4',
             'service' => 'Turbidity',
             'method' => 'SMEWW 2130 B. Nephelometric Method',
