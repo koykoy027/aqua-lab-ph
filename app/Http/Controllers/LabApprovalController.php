@@ -32,15 +32,18 @@ class LabApprovalController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'micro')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
-        $requests = $queryBuilder->paginate(10);
+        $requests = $queryBuilder
+            ->whereIn('test_parameters', ['micro'])
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereIn('remarks', ['Testing on-going', 'For Approval', 'For Releasing']);
+            })
+            ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 
@@ -48,16 +51,19 @@ class LabApprovalController extends Controller
     {
         $query = $request->input('search');
         $queryBuilder = AnalysisRequest::query()
-            ->where('test_parameters', 'chem')
-            ->orWhere('test_parameters', 'phys')
-            ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove'])
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
-        $requests = $queryBuilder->paginate(10);
+        $requests = $queryBuilder
+            ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
+
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereIn('remarks', ['Testing on-going', 'For Approval', 'For Releasing']);
+            })
+            ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 

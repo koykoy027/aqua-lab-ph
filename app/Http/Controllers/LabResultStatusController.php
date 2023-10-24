@@ -148,7 +148,11 @@ class LabResultStatusController extends Controller
             });
         }
 
-        $datas = $queryBuilder->paginate(10);
+        $datas = $queryBuilder
+            ->whereHas('labAcceptance', function ($query) {
+                $query->where('remarks', 'Approve');
+            })
+            ->paginate(10);
         return view('record_and_report.lab_result.index', compact('datas', 'query'));
     }
 
