@@ -285,7 +285,6 @@ const micro1 = () => {
     );
 
     watersample = water_purpose.value;
-    console.log(watersample);
 
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
