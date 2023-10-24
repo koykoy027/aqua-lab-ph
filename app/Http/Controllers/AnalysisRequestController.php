@@ -93,8 +93,7 @@ class AnalysisRequestController extends Controller
         // Format the date to be 2 digits (e.g., 01, 02, ..., 31)
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
-        // Combine the month pattern and formatted date
-        $result = $monthPattern . $formattedDate . $currentAnalysisID;
+
 
         $request->validate([
             // 'account_number' => 'unique:analysis_requests',
@@ -115,12 +114,22 @@ class AnalysisRequestController extends Controller
         $input = $request->all();
         $libraryTestParameter = LibraryTestParameter::all(); // fetch all parameters
 
+        // Combine the month pattern and formatted date
+
+
+
         foreach ($libraryTestParameter as $data) {
             $test_parameters_dropdown =  $input['test_parameters']; // get the value of selected parameters in dropdown
 
             if ($test_parameters_dropdown == $data->id) {
                 $selected = $data->type;
             }
+        }
+
+        if ($selected == "chem" || $selected == "phys") {
+            $result = $monthPattern . $formattedDate . $currentAnalysisID . "PC";
+        } else {
+            $result = $monthPattern . $formattedDate . $currentAnalysisID;
         }
 
 
@@ -169,13 +178,6 @@ class AnalysisRequestController extends Controller
             Micro3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 4,
-            ]);
-        }
-        if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5) {
-
-            Micro4::create([
-                'analysis_id' => $analysisRequest->analysis_id,
-                'test_parameters_id' => 5,
             ]);
         }
         if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
