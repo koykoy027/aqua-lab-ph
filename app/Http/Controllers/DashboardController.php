@@ -85,7 +85,6 @@ class DashboardController extends Controller
             'samplesPerCityMunicipality',
             'microSamplesPerCityMunicipality',
             'phyChemSamplesPerCityMunicipality',
-            'totalMicro',
         ));
     }
 }

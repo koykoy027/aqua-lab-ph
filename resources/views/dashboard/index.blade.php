@@ -76,8 +76,10 @@
                         borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
                             "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
                         ],
-                        data: [{{ $totalClient }}, {{ $totalMicro }}, {{ $totalLabRejected }},
-
+                        data: [{{ $total0001 }}, {{ $total002A }}, {{ $total002B }},
+                            {{ $total003 }}, {{ $total004A }}, {{ $total004B }},
+                            {{ $total004C }}, {{ $total005 }}, {{ $total006 }},
+                            {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}
                         ],
                         fill: true,
                     },
