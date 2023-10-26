@@ -25,6 +25,10 @@ class DashboardController extends Controller
         $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
 
 
+        // trying this data
+        // $totalMicro = AnalysisRequest::where('test_parameters', 'micro')->count();
+
+
         // market segment
         $total0001 = Client::where('market_segment', '0001 - Water Refilling Station')->count();
         $total002A = Client::where('market_segment', '002A - Food and Beverages (Service)')->count();
@@ -81,6 +85,7 @@ class DashboardController extends Controller
             'samplesPerCityMunicipality',
             'microSamplesPerCityMunicipality',
             'phyChemSamplesPerCityMunicipality',
+            'totalMicro',
         ));
     }
 }
