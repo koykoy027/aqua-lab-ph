@@ -128,10 +128,10 @@ class LabApprovalController extends Controller
     public function approval($analysis_id)
     {
 
-        $lab = AnalysisRequest::findOrFail($analysis_id);
+        $lab = LabAcceptance::findOrFail($analysis_id);
         $lab->update(['remarks' => 'Approve']);
 
-        $analysis = AnalysisRequest::findOrFail($analysis_id);
+        $analysis = LabAcceptance::findOrFail($analysis_id);
         $analysis->update(['remarks' => 'Approve']);
 
         return redirect()->back()->with(['message' => 'Testing has been successfully Approve']);
@@ -140,7 +140,7 @@ class LabApprovalController extends Controller
     public function disapprove($analysis_id)
     {
 
-        $lab = AnalysisRequest::findOrFail($analysis_id);
+        $lab = LabAcceptance::findOrFail($analysis_id);
         $lab->update(['remarks' => 'Disapprove']);
 
         $analysis = AnalysisRequest::findOrFail($analysis_id);
