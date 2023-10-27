@@ -43,6 +43,34 @@ class DashboardController extends Controller
         $total008 = Client::where('market_segment', '008 - Industries')->count();
         $totalOthers = Client::where('market_segment', 'Others')->count();
 
+        // market segment micro
+
+        $total0001Micro = Client::where('market_segment', '0001 - Water Refilling Station')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total002AMicro = Client::where('market_segment', '002A - Food and Beverages (Service)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total002BMicro = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total003Micro = Client::where('market_segment', '003 - Hospitality Industry')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004AMicro = Client::where('market_segment', '004A - Healthcare (Dialysis)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004BMicro = Client::where('market_segment', '004B - Healthcare (Lying-in)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004CMicro = Client::where('market_segment', '004C - Healthcare (Hospital)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total005Micro = Client::where('market_segment', '005 - Water Service Provider')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total006Micro = Client::where('market_segment', '006 - Residential')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total007Micro = Client::where('market_segment', '007 - Academe')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total008Micro = Client::where('market_segment', '008 - Industries')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $totalOthersMicro = Client::where('market_segment', 'Others')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+
+
         // per region
         $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
             ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
@@ -85,6 +113,20 @@ class DashboardController extends Controller
             'samplesPerCityMunicipality',
             'microSamplesPerCityMunicipality',
             'phyChemSamplesPerCityMunicipality',
+            'total0001Micro',
+            'total002AMicro',
+            'total002BMicro',
+            'total003Micro',
+            'total004AMicro',
+            'total004BMicro',
+            'total004CMicro',
+            'total005Micro',
+            'total006Micro',
+            'total007Micro',
+            'total008Micro',
+            'totalOthersMicro',
+
+
         ));
     }
 }

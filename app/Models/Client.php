@@ -47,4 +47,9 @@ class Client extends Model
         'contact_person2_contact',
         'contact_person2_email',
     ];
+
+    public function analysisRequest()
+    {
+        return $this->hasMany(AnalysisRequest::class, 'account_number');
+    }
 }
