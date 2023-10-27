@@ -70,6 +70,69 @@ class DashboardController extends Controller
         $totalOthersMicro = Client::where('market_segment', 'Others')
             ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
 
+        // pht
+
+        $total0001Pychem = Client::where('market_segment', '0001 - Water Refilling Station')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total002APychem = Client::where('market_segment', '002A - Food and Beverages (Service)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total002BPychem = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total003Pychem = Client::where('market_segment', '003 - Hospitality Industry')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004APychem = Client::where('market_segment', '004A - Healthcare (Dialysis)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004BPychem = Client::where('market_segment', '004B - Healthcare (Lying-in)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004CPychem = Client::where('market_segment', '004C - Healthcare (Hospital)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total005Pychem = Client::where('market_segment', '005 - Water Service Provider')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total006Pychem = Client::where('market_segment', '006 - Residential')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total007Pychem = Client::where('market_segment', '007 - Academe')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total008Pychem = Client::where('market_segment', '008 - Industries')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $totalOthersPychem = Client::where('market_segment', 'Others')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+
 
         // per region
         $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
@@ -125,6 +188,18 @@ class DashboardController extends Controller
             'total007Micro',
             'total008Micro',
             'totalOthersMicro',
+            'total0001Pychem',
+            'total002APychem',
+            'total002BPychem',
+            'total003Pychem',
+            'total004APychem',
+            'total004BPychem',
+            'total004CPychem',
+            'total005Pychem',
+            'total006Pychem',
+            'total007Pychem',
+            'total008Pychem',
+            'totalOthersPychem',
 
 
         ));
