@@ -24,6 +24,17 @@ class DashboardController extends Controller
         $totalConditionallyAccepted = AnalysisRequest::where('remarks', 'Conditionally Accepted')->count();
         $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
 
+        $totalRequest = AnalysisRequest::count();
+        $totalMicroRequest = AnalysisRequest::where('test_parameters', 'micro')->count();
+        $totalPyChemRequest = AnalysisRequest::where('test_parameters', ['pychem', 'chem', 'phys'])->count();
+
+        if ($totalMicroRequest && $totalPyChemRequest) {
+            $percentageMicroRequest = ($totalMicroRequest / $totalRequest) * 100;
+            $percentagePyChemRequest = ($totalPyChemRequest / $totalRequest) * 100;
+        }
+
+
+
 
         // trying this data
         // $totalMicro = AnalysisRequest::where('test_parameters', 'micro')->count();
@@ -200,6 +211,11 @@ class DashboardController extends Controller
             'total007Pychem',
             'total008Pychem',
             'totalOthersPychem',
+            'totalRequest',
+            'totalMicroRequest',
+            'totalPyChemRequest',
+            'percentageMicroRequest',
+            'percentagePyChemRequest',
 
 
         ));
