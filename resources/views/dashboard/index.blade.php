@@ -2,8 +2,8 @@
 @section('title', 'Dashboard')
 @section('content')
 
-    <script>
-        const samplesPerMarketSegment = () => {
+<script>
+    const samplesPerMarketSegment = () => {
             const labels = [
                 "0001 - Water Refilling Station",
                 "002A - Food and Beverages (Service)",
@@ -227,256 +227,276 @@
                 configLineChart
             );
         };
-    </script>
+</script>
 
-    <div class="grid mb-3 uppercase md:grid-cols-2 sm:gap-2 lg:grid-cols-4 lg:gap-4">
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalClient }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Clients</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalLabAccepted }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Lab accepted</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalLabRejected }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Lab rejected</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total released result</p>
-        </div>
-
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalPending }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Pending</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalConditionallyAccepted }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Conditionally Accepted</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalDisapprove }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total Disapprove</p>
-        </div>
-        <div class="bg-white card">
-            <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
-            <p class="text-sm font-semibold text-slate-400">Total released result</p>
-        </div>
+<div class="grid mb-3 uppercase md:grid-cols-2 sm:gap-2 lg:grid-cols-4 lg:gap-4">
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalClient }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Clients</p>
     </div>
-
-    {{-- chart  --}}
-
-    <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
-        <div class="w-full rounded sm:w-auto">
-            <div class="bg-white rounded">
-                <div class="grid py-5 mx-5 gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
-                    <select class="lg:col-start-3 sm:col-start-1" onchange="MarketSegmenthandleSelectChange(this.value)">
-                        <option value="Total Samples Per segment">Total Samples Per segment</option>
-                        <option value="Total Micro Samples per segment">Total Micro Samples per segment</option>
-                        <option value="Total Pychem Samples per segment">Total Pychem Samples per segment</option>
-                    </select>
-                </div>
-                <div id="TotalSamplesPersegment" class="rounded-lg shadow-md">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
-                        Total Samples Per segment
-                    </h1>
-                    <canvas class="w-full p-2" id="samplesPerMarketSegment"></canvas>
-                    <script>
-                        samplesPerMarketSegment();
-                    </script>
-                </div>
-                <div id="TotalMicroSamplespersegment" class="rounded-lg shadow-md hidden">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
-                        Total Micro Samples per segment
-                    </h1>
-                    <canvas class="w-full p-2" id="samplesTotalMicroSamplespersegment"></canvas>
-                    <script>
-                        samplesTotalMicroSamplespersegment();
-                    </script>
-                </div>
-                <div id="TotalPychemSamplespersegment" class="rounded-lg shadow-md hidden">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
-                        Total Pychem Samples per segment
-                    </h1>
-                    <canvas class="w-full p-2" id="samplesTotalPychemSamplespersegment"></canvas>
-                    <script>
-                        samplesTotalPychemSamplespersegment();
-                    </script>
-                </div>
-            </div>
-        </div>
-
-        <div class="bg-white card">
-            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">Recent clients</h1>
-            <hr>
-
-            <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Account name
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Type of ownership
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($recentClients as $recentClient)
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $recentClient->account_name }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    @if ($recentClient->type_of_ownership === 'Single Prorietorship')
-                                        <span
-                                            class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
-                                            {{ $recentClient->type_of_ownership }}
-                                        </span>
-                                    @endif
-
-                                    @if ($recentClient->type_of_ownership === 'Partnership')
-                                        <span
-                                            class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
-                                            {{ $recentClient->type_of_ownership }}
-                                        </span>
-                                    @endif
-                                    @if ($recentClient->type_of_ownership === 'Cooperative')
-                                        <span
-                                            class="mr-2 rounded bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800">
-                                            {{ $recentClient->type_of_ownership }}
-                                        </span>
-                                    @endif
-                                    @if ($recentClient->type_of_ownership === 'Corporation')
-                                        <span
-                                            class="mr-2 rounded bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-800">
-                                            {{ $recentClient->type_of_ownership }}
-                                        </span>
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalLabAccepted }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Lab accepted</p>
+    </div>
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalLabRejected }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Lab rejected</p>
+    </div>
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total released result</p>
     </div>
 
     <div class="bg-white card">
-        <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-3 lg:gap-4">
-            <select class="lg:col-start-3 sm:col-start-1" onchange="widgetsPerCityMunicipality(this.value)">
-                <option value="No. of Samples per City/Municipality">No. of Samples per City/Municipality</option>
-                <option value="No. of Micro Samples per City/Municipality">No. of Micro Samples per City/Municipality
-                </option>
-                <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality
-                </option>
-                {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per City/Municipality</option>
-            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform Samples per City/Municipality</option>
-            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform Samples per City/Municipality</option> --}}
-            </select>
+        <h1 class="text-2xl bold text-slate-500">{{ $totalPending }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Pending</p>
+    </div>
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalConditionallyAccepted }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Conditionally Accepted</p>
+    </div>
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalDisapprove }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Disapprove</p>
+    </div>
+    <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total released result</p>
+    </div>
+</div>
+
+<div class="grid grid-cols-3 mb-3 uppercase bg-white card">
+    <div class="p-2 border-l-2 border-blue-300 rounded-xl">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalRequest }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Request</p>
+    </div>
+    <div class="grid grid-cols-1 p-2 border-l-2 border-red-300 rounded-xl">
+        <div>
+            <h1 class="text-2xl bold text-slate-500">{{ $totalMicroRequest }}</h1>
+            <p class="text-sm font-semibold text-slate-400">Total Micro</p>
         </div>
-        <div id="samplesPerCityMunicipality">
-            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Samples per City/Municipality</h1>
-            <hr>
-            <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                City/Municipality
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                No. of Samples
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($samplesPerCityMunicipality as $data)
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $data->municipality_or_city }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ $data->total_analysis_requests }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        <p>{{ $percentageMicroRequest }}%</p>
+    </div>
+    <div class="grid grid-cols-1 p-2 border-l-2 border-green-300 rounded-xl">
+        <div>
+            <h1 class="text-2xl bold text-slate-500">{{ $totalPyChemRequest }}</h1>
+            <p class="text-sm font-semibold text-slate-400">Total Pychem</p>
+        </div>
+        <p>{{ $percentagePyChemRequest }}%</p>
+    </div>
+</div>
+
+{{-- chart --}}
+
+<div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
+    <div class="w-full rounded sm:w-auto">
+        <div class="bg-white rounded">
+            <div class="grid gap-2 py-5 mx-5 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
+                <select class="lg:col-start-3 sm:col-start-1" onchange="MarketSegmenthandleSelectChange(this.value)">
+                    <option value="Total Samples Per segment">Total Samples Per segment</option>
+                    <option value="Total Micro Samples per segment">Total Micro Samples per segment</option>
+                    <option value="Total Pychem Samples per segment">Total Pychem Samples per segment</option>
+                </select>
+            </div>
+            <div id="TotalSamplesPersegment" class="rounded-lg shadow-md">
+                <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
+                    Total Samples Per segment
+                </h1>
+                <canvas class="w-full p-2" id="samplesPerMarketSegment"></canvas>
+                <script>
+                    samplesPerMarketSegment();
+                </script>
+            </div>
+            <div id="TotalMicroSamplespersegment" class="hidden rounded-lg shadow-md">
+                <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
+                    Total Micro Samples per segment
+                </h1>
+                <canvas class="w-full p-2" id="samplesTotalMicroSamplespersegment"></canvas>
+                <script>
+                    samplesTotalMicroSamplespersegment();
+                </script>
+            </div>
+            <div id="TotalPychemSamplespersegment" class="hidden rounded-lg shadow-md">
+                <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
+                    Total Pychem Samples per segment
+                </h1>
+                <canvas class="w-full p-2" id="samplesTotalPychemSamplespersegment"></canvas>
+                <script>
+                    samplesTotalPychemSamplespersegment();
+                </script>
             </div>
         </div>
-
-        <div id="microSamplesPerCityMunicipality" class="hidden">
-            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Micro Samples per City/Municipality</h1>
-            <hr>
-            <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                City/Municipality
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                No. of Micro Samples
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($microSamplesPerCityMunicipality as $data)
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $data->municipality_or_city }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ $data->total_analysis_requests }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <div id="phyChemSamplesPerCityMunicipality" class="hidden">
-            <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Phy-Chem Samples per City/Municipality
-            </h1>
-            <hr>
-            <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
-                <table class="w-full text-sm text-left text-gray-500">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                City/Municipality
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                No. of Phy-Chem Samples
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($phyChemSamplesPerCityMunicipality as $data)
-                            <tr class="bg-white border-b">
-                                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $data->municipality_or_city }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ $data->total_analysis_requests }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-
-
     </div>
 
-    {{-- <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4">
+    <div class="bg-white card">
+        <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">Recent clients</h1>
+        <hr>
+
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            Account name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Type of ownership
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($recentClients as $recentClient)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $recentClient->account_name }}
+                        </th>
+                        <td class="px-6 py-4">
+                            @if ($recentClient->type_of_ownership === 'Single Prorietorship')
+                            <span class="mr-2 rounded bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800">
+                                {{ $recentClient->type_of_ownership }}
+                            </span>
+                            @endif
+
+                            @if ($recentClient->type_of_ownership === 'Partnership')
+                            <span class="mr-2 rounded bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800">
+                                {{ $recentClient->type_of_ownership }}
+                            </span>
+                            @endif
+                            @if ($recentClient->type_of_ownership === 'Cooperative')
+                            <span class="mr-2 rounded bg-orange-100 px-2.5 py-0.5 text-xs font-medium text-orange-800">
+                                {{ $recentClient->type_of_ownership }}
+                            </span>
+                            @endif
+                            @if ($recentClient->type_of_ownership === 'Corporation')
+                            <span class="mr-2 rounded bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-800">
+                                {{ $recentClient->type_of_ownership }}
+                            </span>
+                            @endif
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<div class="bg-white card">
+    <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-3 lg:gap-4">
+        <select class="lg:col-start-3 sm:col-start-1" onchange="widgetsPerCityMunicipality(this.value)">
+            <option value="No. of Samples per City/Municipality">No. of Samples per City/Municipality</option>
+            <option value="No. of Micro Samples per City/Municipality">No. of Micro Samples per City/Municipality
+            </option>
+            <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality
+            </option>
+            {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per
+                City/Municipality</option>
+            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform
+                Samples per City/Municipality</option>
+            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform
+                Samples per City/Municipality</option> --}}
+        </select>
+    </div>
+    <div id="samplesPerCityMunicipality">
+        <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Samples per City/Municipality</h1>
+        <hr>
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            City/Municipality
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            No. of Samples
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($samplesPerCityMunicipality as $data)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $data->municipality_or_city }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $data->total_analysis_requests }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="microSamplesPerCityMunicipality" class="hidden">
+        <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Micro Samples per City/Municipality</h1>
+        <hr>
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            City/Municipality
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            No. of Micro Samples
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($microSamplesPerCityMunicipality as $data)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $data->municipality_or_city }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $data->total_analysis_requests }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="phyChemSamplesPerCityMunicipality" class="hidden">
+        <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Phy-Chem Samples per City/Municipality
+        </h1>
+        <hr>
+        <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            City/Municipality
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            No. of Phy-Chem Samples
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($phyChemSamplesPerCityMunicipality as $data)
+                    <tr class="bg-white border-b">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{ $data->municipality_or_city }}
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $data->total_analysis_requests }}
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+</div>
+
+{{-- <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-1 lg:gap-4">
     <div class="w-full rounded sm:w-auto">
         <div class="bg-white">
             <div class="rounded-lg shadow-md">
