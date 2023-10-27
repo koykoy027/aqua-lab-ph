@@ -1,18 +1,18 @@
 <form>
     <div class="flex items-center gap-2">
         <div>
-            <input type="date" id="start_date" name="start_date" placeholder="Start Date"
-                @if (!empty($start_date)) value="{{ $start_date }}" @endif required>
+            <input type="date" id="start_date" name="start_date" placeholder="Start Date" @if (!empty($start_date))
+                value="{{ $start_date }}" @endif required>
         </div>
         <h1>To</h1>
         <div>
-            <input type="date" id="end_date" name="end_date" placeholder="End Date"
-                @if (!empty($end_date)) value="{{ $end_date }}" @endif required>
+            <input type="date" id="end_date" name="end_date" placeholder="End Date" @if (!empty($end_date))
+                value="{{ $end_date }}" @endif required>
         </div>
         <button class="btn btn-primary" type="submit">
             Apply
         </button>
-        <div class="flex items-center p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50 hidden" role="alert"
+        <div class="flex items-center hidden p-4 mb-4 text-sm text-yellow-800 rounded-lg bg-yellow-50" role="alert"
             id="alert">
             <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor" viewBox="0 0 20 20">
@@ -21,7 +21,8 @@
             </svg>
             <span class="sr-only">Info</span>
             <div>
-                <span class="font-medium">Warning alert!</span> Change a few things up End Date not Match.
+                <span class="font-medium">Invalid Format!</span> Start dates should not overlap with end dates
+                versa.
             </div>
         </div>
     </div>
