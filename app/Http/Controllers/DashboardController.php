@@ -26,7 +26,7 @@ class DashboardController extends Controller
 
         $totalRequest = AnalysisRequest::count();
         $totalMicroRequest = AnalysisRequest::where('test_parameters', 'micro')->count();
-        $totalPyChemRequest = AnalysisRequest::where('test_parameters', ['pychem', 'chem', 'phys'])->count();
+        $totalPyChemRequest = AnalysisRequest::whereNot('test_parameters', 'micro')->count();
 
         if ($totalRequest) {
             $percentageMicroRequest = ($totalMicroRequest / $totalRequest) * 100;
