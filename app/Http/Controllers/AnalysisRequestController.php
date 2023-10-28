@@ -363,7 +363,8 @@ class AnalysisRequestController extends Controller
 
         return redirect()
             ->back()
-            ->with(['message' => 'Analysis Request has been created successfully!']);
+            ->with(['message' => 'Analysis Request has been created successfully!'])
+            ->withInput();
     }
 
     public function index(Request $request)

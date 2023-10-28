@@ -215,11 +215,17 @@ Auth::user()->role === 'FSR')
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
                 <label for="collection_point">Collection point</label>
-                <select name="collection_point" id="collection_point" value="{{ old('collection_point') }}" required
-                    autofocus autocomplete="collection_point" onchange="collectionPoint(this.value)">
-                    <option value="Faucet">Faucet</option>
-                    <option value="Pump">Pump</option>
-                    <option value="Others">Others</option>
+                <select name="collection_point" id="collection_point" required autofocus autocomplete="collection_point"
+                    onchange="collectionPoint(this.value)">
+                    <option value="Faucet" {{ old('collection_point')=="Faucet" ? 'selected' : '' }}>
+                        Faucet
+                    </option>
+                    <option value="Pump" {{ old('collection_point')=="Pump" ? 'selected' : '' }}>
+                        Pump
+                    </option>
+                    <option value="Others" {{ old('collection_point')=="Others" ? 'selected' : '' }}>
+                        Others
+                    </option>
                 </select>
                 @error('collection_point')
                 <span class="invalid" role="alert">
@@ -248,14 +254,16 @@ Auth::user()->role === 'FSR')
                     <div class="flex items-center mr-4">
                         <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                             id="sampling_location_address_same" name="sampling_location_address" type="radio"
-                            value="SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
+                            value="SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)" {{
+                            old('sampling_location_address')=='SAME AS ADDRESS' ? 'checked' : '' }}>
                         <label class="ml-2 text-sm font-medium text-gray-900" for="sampling_location_address_same">Same
                             with the Account Address</label>
                     </div>
                     <div class="flex items-center mr-4">
                         <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
                             id="remarksConditionallyAccepted" name="sampling_location_address" type="radio"
-                            value="NOT SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)">
+                            value="NOT SAME AS ADDRESS" onchange="samplingLocationAddress(this.value)" {{
+                            old('sampling_location_address')=='NOT SAME AS ADDRESS' ? 'checked' : '' }}>
                         <label class="ml-2 text-sm font-medium text-gray-900" for="remarksConditionallyAccepted">Not
                             same with the Account Address</label>
                     </div>
@@ -268,8 +276,8 @@ Auth::user()->role === 'FSR')
                 <div class="my-3">
                     <label for="sampling_location_address_others">Address of Collection Point, if others</label>
                     <textarea id="sampling_location_address_others" rows="4" name="sampling_location_address_others"
-                        value="{{ old('sampling_location_address_others') }}" required autofocus
-                        autocomplete="sampling_location_address_others" readonly></textarea>
+                        required autofocus autocomplete="sampling_location_address_others"
+                        readonly>{{ old('sampling_location_address_others') }}</textarea>
                     @error('sampling_location_address_others')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
@@ -283,17 +291,20 @@ Auth::user()->role === 'FSR')
                 <div class="flex justify-evenly">
                     <div class="flex items-center mr-4">
                         <input id="uvlightNA" type="radio" value="N/A" name="uvlight"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                            old('uvlight')=="N/A" ? 'checked' : '' }}>
                         <label for="uvlightNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
                     </div>
                     <div class="flex items-center mr-4">
                         <input id="uvlightON" type="radio" value="ON" name="uvlight"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                            old('uvlight')=="ON" ? 'checked' : '' }}>
                         <label for="uvlightON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
                     </div>
                     <div class="flex items-center mr-4">
                         <input id="uvlightOFF" type="radio" value="OFF" name="uvlight"
-                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                            old('uvlight')=="OFF" ? 'checked' : '' }}>
                         <label for="uvlightOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
                     </div>
                 </div>
@@ -308,21 +319,24 @@ Auth::user()->role === 'FSR')
                     <div class="flex justify-evenly">
                         <div class="flex items-center mr-4">
                             <input id="chlorinatorNA" type="radio" value="N/A" name="chlorinator"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                                old('chlorinator')=="N/A" ? 'checked' : '' }}>
                             <label for="chlorinatorNA" class="ml-2 text-sm font-medium text-gray-900">N/A</label>
                         </div>
                         <div class="flex items-center mr-4">
                             <input id="chlorinatorON" type="radio" value="ON" name="chlorinator"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                                old('chlorinator')=="ON" ? 'checked' : '' }}>
                             <label for="chlorinatorON" class="ml-2 text-sm font-medium text-gray-900">ON</label>
                         </div>
                         <div class="flex items-center mr-4">
                             <input id="chlorinatorOFF" type="radio" value="OFF" name="chlorinator"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500">
+                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500" {{
+                                old('chlorinator')=="OFF" ? 'checked' : '' }}>
                             <label for="chlorinatorOFF" class="ml-2 text-sm font-medium text-gray-900">OFF</label>
                         </div>
                     </div>
-                    @error('uvlight')
+                    @error('chlorinator')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
