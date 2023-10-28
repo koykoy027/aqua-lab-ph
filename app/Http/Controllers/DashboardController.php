@@ -162,7 +162,7 @@ class DashboardController extends Controller
 
         $phyChemSamplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
             ->leftJoin('analysis_requests', 'clients.account_number', '=', 'analysis_requests.account_number')
-            ->where('test_parameters', '=', 'pychem')
+            ->whereNot('test_parameters', '=', 'micro')
             ->groupBy('municipality_or_city')
             ->get();
 
