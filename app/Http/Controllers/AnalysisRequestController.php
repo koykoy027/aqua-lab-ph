@@ -159,28 +159,28 @@ class AnalysisRequestController extends Controller
 
         $selectedParameters = $request->input('selectedParameters', []);
 
-        if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1) {
+        if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7) {
             Micro1::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 1,
             ]);
         }
 
-        if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3) {
+        if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 10) {
 
             Micro2::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 3,
             ]);
         }
-        if (in_array(4, $selectedParameters) || $test_parameters_dropdown == 4) {
+        if (in_array(4, $selectedParameters) || $test_parameters_dropdown == 4 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 9 || $test_parameters_dropdown == 10) {
 
             Micro3::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters_id' => 4,
             ]);
         }
-        if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5) {
+        if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 9) {
 
             Micro4::create([
                 'analysis_id' => $analysisRequest->analysis_id,
@@ -286,8 +286,75 @@ class AnalysisRequestController extends Controller
             ]);
         }
 
+
+        if ($test_parameters_dropdown == 6) { // if dropdown = MICRO5
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 1,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 3,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 4,
+            ]);
+        } else if ($test_parameters_dropdown == 7) { // if dropdown = MICRO5B,
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 1,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 3,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 5,
+            ]);
+        } else if ($test_parameters_dropdown == 8) { // if dropdown = MICRO5C,
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 3,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 4,
+            ]);
+        } else if ($test_parameters_dropdown == 9) { // if dropdown = MICR5D,
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 4,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 5,
+            ]);
+        } else if ($test_parameters_dropdown == 10) { // if dropdown = MICR6,
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 3,
+            ]);
+            TestParameter::create([
+                'analysis_id' => $analysisRequest->analysis_id,
+                'test_parameters' => 4,
+            ]);
+        }
+
         // 12 = MICROX, 58 = CHEMX, 61 = PHYSX
-        if ($test_parameters_dropdown != 12 && $test_parameters_dropdown != 58 && $test_parameters_dropdown != 61) {
+        // 6 = MICRO5
+        // 7 = MICRO5B
+        if (
+            $test_parameters_dropdown != 12 &&
+            $test_parameters_dropdown != 58 &&
+            $test_parameters_dropdown != 61 &&
+            $test_parameters_dropdown != 6 &&
+            $test_parameters_dropdown != 7 &&
+            $test_parameters_dropdown != 8 &&
+            $test_parameters_dropdown != 9 &&
+            $test_parameters_dropdown != 10
+        ) {
             TestParameter::create([
                 'analysis_id' => $analysisRequest->analysis_id,
                 'test_parameters' => $test_parameters_dropdown,

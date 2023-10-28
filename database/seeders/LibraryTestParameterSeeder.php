@@ -58,7 +58,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'micro',
             'parameter' => 'MICR5',
             'service' => 'All Three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)',
             'method' => '',
@@ -66,7 +66,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'micro',
             'parameter' => 'MICR5B',
             'service' => 'All Three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)',
             'method' => '',
@@ -74,7 +74,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'micro',
             'parameter' => 'MICR5C',
             'service' => 'Microbiological Test',
             'method' => '',
@@ -82,7 +82,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'micro',
             'parameter' => 'MICR5D',
             'service' => 'Microbiological Test',
             'method' => '',
@@ -90,7 +90,7 @@ class LibraryTestParameterSeeder extends Seeder
         ]);
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'micro',
             'parameter' => 'MICR6',
             'service' => 'Legionella pneumophila',
             'method' => '',
