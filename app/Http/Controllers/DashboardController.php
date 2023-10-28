@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AnalysisRequest;
 use App\Models\Client;
+use App\Models\LabAcceptance;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,12 +18,12 @@ class DashboardController extends Controller
             ->get();
 
         $totalClient = Client::count();
-        $totalLabAccepted = AnalysisRequest::where('remarks', 'Accepted')->count();
-        $totalLabRejected = AnalysisRequest::where('remarks', 'Rejected')->count();
-        $totalReleaseStatus = AnalysisRequest::where('remarks', 'Approve')->count();
-        $totalPending = AnalysisRequest::where('remarks', 'Pending')->count();
-        $totalConditionallyAccepted = AnalysisRequest::where('remarks', 'Conditionally Accepted')->count();
-        $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
+        $totalLabAccepted = LabAcceptance::where('remarks', 'Accepted')->count();
+        $totalLabRejected = LabAcceptance::where('remarks', 'Rejected')->count();
+        $totalApprove = LabAcceptance::where('remarks', 'Approve')->count();
+        $totalPending = LabAcceptance::where('remarks', 'Pending')->count();
+        $totalConditionallyAccepted = LabAcceptance::where('remarks', 'Conditionally Accepted')->count();
+        $totalDisapprove = LabAcceptance::where('remarks', 'Disapprove')->count();
 
         $totalRequest = AnalysisRequest::count();
         $totalMicroRequest = AnalysisRequest::where('test_parameters', 'micro')->count();
@@ -171,7 +172,7 @@ class DashboardController extends Controller
             'totalClient',
             'totalLabAccepted',
             'totalLabRejected',
-            'totalReleaseStatus',
+            'totalApprove',
             'totalPending',
             'totalConditionallyAccepted',
             'totalDisapprove',

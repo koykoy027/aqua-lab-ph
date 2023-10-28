@@ -235,6 +235,10 @@
         <p class="text-sm font-semibold text-slate-400">Total Clients</p>
     </div>
     <div class="bg-white card">
+        <h1 class="text-2xl bold text-slate-500">{{ $totalPending }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Pending</p>
+    </div>
+    <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalLabAccepted }}</h1>
         <p class="text-sm font-semibold text-slate-400">Total Lab accepted</p>
     </div>
@@ -243,26 +247,19 @@
         <p class="text-sm font-semibold text-slate-400">Total Lab rejected</p>
     </div>
     <div class="bg-white card">
-        <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total released result</p>
-    </div>
-
-    <div class="bg-white card">
-        <h1 class="text-2xl bold text-slate-500">{{ $totalPending }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total Pending</p>
-    </div>
-    <div class="bg-white card">
-        <h1 class="text-2xl bold text-slate-500">{{ $totalConditionallyAccepted }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total Conditionally Accepted</p>
+        <h1 class="text-2xl bold text-slate-500">{{ $totalApprove }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Approve</p>
     </div>
     <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalDisapprove }}</h1>
         <p class="text-sm font-semibold text-slate-400">Total Disapprove</p>
     </div>
+
     <div class="bg-white card">
-        <h1 class="text-2xl bold text-slate-500">{{ $totalReleaseStatus }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total released result</p>
+        <h1 class="text-2xl bold text-slate-500">{{ $totalConditionallyAccepted }}</h1>
+        <p class="text-sm font-semibold text-slate-400">Total Conditionally Accepted</p>
     </div>
+
 </div>
 
 <div class="grid grid-cols-3 mb-3 uppercase bg-white card">
