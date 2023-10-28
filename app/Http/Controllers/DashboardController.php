@@ -24,6 +24,24 @@ class DashboardController extends Controller
         $totalConditionallyAccepted = AnalysisRequest::where('remarks', 'Conditionally Accepted')->count();
         $totalDisapprove = AnalysisRequest::where('remarks', 'Disapprove')->count();
 
+        $totalRequest = AnalysisRequest::count();
+        $totalMicroRequest = AnalysisRequest::where('test_parameters', 'micro')->count();
+        $totalPyChemRequest = AnalysisRequest::where('test_parameters', ['pychem', 'chem', 'phys'])->count();
+
+        if ($totalRequest) {
+            $percentageMicroRequest = ($totalMicroRequest / $totalRequest) * 100;
+            $percentagePyChemRequest = ($totalPyChemRequest / $totalRequest) * 100;
+        } else {
+            $percentageMicroRequest = null;
+            $percentagePyChemRequest = null;
+        }
+
+
+
+
+        // trying this data
+        // $totalMicro = AnalysisRequest::where('test_parameters', 'micro')->count();
+
 
         // market segment
         $total0001 = Client::where('market_segment', '0001 - Water Refilling Station')->count();
@@ -38,6 +56,97 @@ class DashboardController extends Controller
         $total007 = Client::where('market_segment', '007 - Academe')->count();
         $total008 = Client::where('market_segment', '008 - Industries')->count();
         $totalOthers = Client::where('market_segment', 'Others')->count();
+
+        // market segment micro
+
+        $total0001Micro = Client::where('market_segment', '0001 - Water Refilling Station')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total002AMicro = Client::where('market_segment', '002A - Food and Beverages (Service)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total002BMicro = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total003Micro = Client::where('market_segment', '003 - Hospitality Industry')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004AMicro = Client::where('market_segment', '004A - Healthcare (Dialysis)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004BMicro = Client::where('market_segment', '004B - Healthcare (Lying-in)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total004CMicro = Client::where('market_segment', '004C - Healthcare (Hospital)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total005Micro = Client::where('market_segment', '005 - Water Service Provider')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total006Micro = Client::where('market_segment', '006 - Residential')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total007Micro = Client::where('market_segment', '007 - Academe')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $total008Micro = Client::where('market_segment', '008 - Industries')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+        $totalOthersMicro = Client::where('market_segment', 'Others')
+            ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
+
+        // pht
+
+        $total0001Pychem = Client::where('market_segment', '0001 - Water Refilling Station')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total002APychem = Client::where('market_segment', '002A - Food and Beverages (Service)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total002BPychem = Client::where('market_segment', '002B - Food and Beverages (Manufacturer)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total003Pychem = Client::where('market_segment', '003 - Hospitality Industry')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004APychem = Client::where('market_segment', '004A - Healthcare (Dialysis)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004BPychem = Client::where('market_segment', '004B - Healthcare (Lying-in)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total004CPychem = Client::where('market_segment', '004C - Healthcare (Hospital)')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total005Pychem = Client::where('market_segment', '005 - Water Service Provider')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total006Pychem = Client::where('market_segment', '006 - Residential')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total007Pychem = Client::where('market_segment', '007 - Academe')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $total008Pychem = Client::where('market_segment', '008 - Industries')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+        $totalOthersPychem = Client::where('market_segment', 'Others')
+            ->whereRelation('analysisRequest', 'test_parameters', 'pychem')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'phys')
+            ->orWhereRelation('analysisRequest', 'test_parameters', 'chem')
+            ->count();
+
 
         // per region
         $samplesPerCityMunicipality = Client::select('municipality_or_city', DB::raw('COUNT(analysis_requests.analysis_id) as total_analysis_requests'))
@@ -81,6 +190,37 @@ class DashboardController extends Controller
             'samplesPerCityMunicipality',
             'microSamplesPerCityMunicipality',
             'phyChemSamplesPerCityMunicipality',
+            'total0001Micro',
+            'total002AMicro',
+            'total002BMicro',
+            'total003Micro',
+            'total004AMicro',
+            'total004BMicro',
+            'total004CMicro',
+            'total005Micro',
+            'total006Micro',
+            'total007Micro',
+            'total008Micro',
+            'totalOthersMicro',
+            'total0001Pychem',
+            'total002APychem',
+            'total002BPychem',
+            'total003Pychem',
+            'total004APychem',
+            'total004BPychem',
+            'total004CPychem',
+            'total005Pychem',
+            'total006Pychem',
+            'total007Pychem',
+            'total008Pychem',
+            'totalOthersPychem',
+            'totalRequest',
+            'totalMicroRequest',
+            'totalPyChemRequest',
+            'percentageMicroRequest',
+            'percentagePyChemRequest',
+
+
         ));
     }
 }

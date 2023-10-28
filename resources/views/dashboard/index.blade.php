@@ -76,10 +76,10 @@
                         borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
                             "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
                         ],
-                        data: [{{ $total0001 }}, {{ $total002A }}, {{ $total002B }},
-                            {{ $total003 }}, {{ $total004A }}, {{ $total004B }},
-                            {{ $total004C }}, {{ $total005 }}, {{ $total006 }},
-                            {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}
+                        data: [{{ $total0001Micro }}, {{ $total002AMicro }}, {{ $total002BMicro }},
+                            {{ $total003Micro }}, {{ $total004AMicro }}, {{ $total004BMicro }},
+                            {{ $total004CMicro }}, {{ $total005Micro }}, {{ $total006Micro }},
+                            {{ $total007Micro }}, {{ $total008Micro }}, {{ $totalOthersMicro }}
                         ],
                         fill: true,
                     },
@@ -124,10 +124,10 @@
                         borderColor: ["#ed64a6", "#9f7aea", "#667eea", "#cbd5e0", "#a0aec0", "#718096",
                             "#6bffc6", "#9b684a", "#be2ccc", "##0de11d", "#098666", "#fc755b"
                         ],
-                        data: [{{ $total0001 }}, {{ $total002A }}, {{ $total002B }},
-                            {{ $total003 }}, {{ $total004A }}, {{ $total004B }},
-                            {{ $total004C }}, {{ $total005 }}, {{ $total006 }},
-                            {{ $total007 }}, {{ $total008 }}, {{ $totalOthers }}
+                        data: [{{ $total0001Pychem }}, {{ $total002APychem }}, {{ $total002BPychem }},
+                            {{ $total003Pychem }}, {{ $total004APychem }}, {{ $total004BPychem }},
+                            {{ $total004CPychem }}, {{ $total005Pychem }}, {{ $total006Pychem }},
+                            {{ $total007Pychem }}, {{ $total008Pychem }}, {{ $totalOthersPychem }}
                         ],
                         fill: true,
                     },
@@ -265,12 +265,33 @@
         </div>
     </div>
 
-    {{-- chart  --}}
+    <div class="grid grid-cols-3 mb-3 uppercase bg-white card">
+        <div class="p-2 border-l-2 border-blue-300 rounded-xl">
+            <h1 class="text-2xl bold text-slate-500">{{ $totalRequest }}</h1>
+            <p class="text-sm font-semibold text-slate-400">Total Request</p>
+        </div>
+        <div class="grid grid-cols-1 p-2 gap-5 border-l-2 border-red-300 rounded-xl">
+            <div>
+                <h1 class="text-2xl bold text-slate-500">{{ $totalMicroRequest }}</h1>
+                <p class="text-sm font-semibold text-slate-400">Total Micro</p>
+            </div>
+            <p>{{ $percentageMicroRequest }}%</p>
+        </div>
+        <div class="grid grid-cols-1 p-2 gap-5 border-l-2 border-green-300 rounded-xl">
+            <div>
+                <h1 class="text-2xl bold text-slate-500">{{ $totalPyChemRequest }}</h1>
+                <p class="text-sm font-semibold text-slate-400">Total Pychem</p>
+            </div>
+            <p>{{ $percentagePyChemRequest }}%</p>
+        </div>
+    </div>
+
+    {{-- chart --}}
 
     <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
         <div class="w-full rounded sm:w-auto">
             <div class="bg-white rounded">
-                <div class="grid py-5 mx-5 gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
+                <div class="grid gap-2 py-5 mx-5 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-2 lg:gap-4">
                     <select class="lg:col-start-3 sm:col-start-1" onchange="MarketSegmenthandleSelectChange(this.value)">
                         <option value="Total Samples Per segment">Total Samples Per segment</option>
                         <option value="Total Micro Samples per segment">Total Micro Samples per segment</option>
@@ -278,7 +299,7 @@
                     </select>
                 </div>
                 <div id="TotalSamplesPersegment" class="rounded-lg shadow-md">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                    <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
                         Total Samples Per segment
                     </h1>
                     <canvas class="w-full p-2" id="samplesPerMarketSegment"></canvas>
@@ -286,8 +307,8 @@
                         samplesPerMarketSegment();
                     </script>
                 </div>
-                <div id="TotalMicroSamplespersegment" class="rounded-lg shadow-md hidden">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                <div id="TotalMicroSamplespersegment" class="hidden rounded-lg shadow-md">
+                    <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
                         Total Micro Samples per segment
                     </h1>
                     <canvas class="w-full p-2" id="samplesTotalMicroSamplespersegment"></canvas>
@@ -295,8 +316,8 @@
                         samplesTotalMicroSamplespersegment();
                     </script>
                 </div>
-                <div id="TotalPychemSamplespersegment" class="rounded-lg shadow-md hidden">
-                    <h1 class="mb-3 px-5 text-lg font-semibold uppercase text-slate-500">
+                <div id="TotalPychemSamplespersegment" class="hidden rounded-lg shadow-md">
+                    <h1 class="px-5 mb-3 text-lg font-semibold uppercase text-slate-500">
                         Total Pychem Samples per segment
                     </h1>
                     <canvas class="w-full p-2" id="samplesTotalPychemSamplespersegment"></canvas>
@@ -373,9 +394,12 @@
                 </option>
                 <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality
                 </option>
-                {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per City/Municipality</option>
-            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform Samples per City/Municipality</option>
-            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform Samples per City/Municipality</option> --}}
+                {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per
+                City/Municipality</option>
+            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform
+                Samples per City/Municipality</option>
+            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform
+                Samples per City/Municipality</option> --}}
             </select>
         </div>
         <div id="samplesPerCityMunicipality">
