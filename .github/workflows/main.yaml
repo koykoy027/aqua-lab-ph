@@ -14,8 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Copy .env
+        run: cp .env.example .env
+
       - name: Install Composer dependencies
         run: composer install --no-interaction --optimize-autoloader
+
+      - name: Generate key
+        run: php artisan key:generate
 
       - name: Run tests
         run: php artisan test
