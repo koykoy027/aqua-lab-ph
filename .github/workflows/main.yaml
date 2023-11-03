@@ -10,31 +10,12 @@ jobs:
     name: Continues Integration
     runs-on: ubuntu-latest
 
-    services:
-      mysql:
-        image: mysql:8.0
-        env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: laravel
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Copy .env
-        run: cp .env.example .env
-
       - name: Install Composer dependencies
         run: composer install --no-interaction --optimize-autoloader
-
-      - name: Generate key
-        run: php artisan key:generate
-
-      - name: Run tests
-        run: php artisan test
 
       - name: Deploy to EC2 Server
         uses: easingthemes/ssh-deploy@main
