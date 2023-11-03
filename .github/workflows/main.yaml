@@ -14,6 +14,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --optimize-autoloader
+
+      - name: Run tests
+        run: php artisan test
 
       - name: Deploy to EC2 Server
         uses: easingthemes/ssh-deploy@main
@@ -24,8 +29,4 @@ jobs:
           TARGET: ${{ secrets.TARGET_DIR }}
           
 
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --optimize-autoloader
 
-      - name: Run tests
-        run: php artisan test
