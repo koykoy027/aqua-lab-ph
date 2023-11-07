@@ -141,7 +141,7 @@
                     <option disabled selected>Select Region</option>
                 </select>
 
-                <input id="region" type="text" name="region" required autofocus autocomplete="region">
+                <input id="region" type="hidden" name="region" required autofocus autocomplete="region">
                 @error('region')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
@@ -156,7 +156,7 @@
                     <option disabled selected>Select Province</option>
                 </select>
 
-                <input id="province" type="text" name="province" required autofocus autocomplete="province">
+                <input id="province" type="hidden" name="province" required autofocus autocomplete="province">
                 @error('province')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
@@ -169,7 +169,7 @@
                 <select id="api_city" type="text" name="api_city" required autofocus autocomplete="api_city">
                     <option disabled selected>Select City</option>
                 </select>
-                <input id="municipality_or_city" type="text" name="municipality_or_city" required autofocus
+                <input id="municipality_or_city" type="hidden" name="municipality_or_city" required autofocus
                     autocomplete="municipality_or_city" onchange="marketSegment(this.value)">
                 @error('municipality_or_city')
                 <span class="invalid" role="alert">
@@ -184,7 +184,7 @@
                     autocomplete="api_barangay">
                     <option disabled selected>Select Barangay</option>
                 </select>
-                <input id="barangay_name" type="text" name="barangay_name" required autofocus
+                <input id="barangay_name" type="hidden" name="barangay_name" required autofocus
                     autocomplete="barangay_name">
                 @error('barangay_name')
                 <span class="invalid" role="alert">
