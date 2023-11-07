@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Helpers\Helpers;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
@@ -48,6 +49,13 @@ Route::get('403', function () {
 
 
 Route::middleware('auth', 'status', 'verified')->group(function () {
+
+    Route::get('/regions', [AddressController::class, 'regions']);
+    Route::get('/provinces/{region_code}', [AddressController::class, 'provinces']);
+    Route::get('/cities/{province_code}', [AddressController::class, 'cities']);
+    Route::get('/barangays/{city_code}', [AddressController::class, 'barangays']);
+
+
 
     Route::get('profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -91,7 +91,7 @@ const marketSegment = (val) => {
     let currentAccountNumber = document.getElementById(
         "currentAccountNumber"
     ).value;
-    let twoLetterOfTheCity = municipalityOrCity.substr(0, 2);
+    let twoLetterOfTheCity = municipalityOrCity.substr(0, 2).toUpperCase();
     let currentDate = new Date();
     let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
     let currentYear = currentDate.getFullYear().toString().slice(-2);
