@@ -9,7 +9,7 @@ class AddressController extends Controller
 {
     public function regions()
     {
-        $regions = json_decode(Storage::get('philippine-addresses/region.json'), true);
+        $regions = json_decode(Storage::get('philippine-addresses/regions.json'), true);
 
         // Custom sorting function to sort by region name in ascending order
         usort($regions, function ($a, $b) {
@@ -22,7 +22,7 @@ class AddressController extends Controller
 
     public function provinces($regionCode)
     {
-        $provinces = json_decode(Storage::get('philippine-addresses/province.json'), true);
+        $provinces = json_decode(Storage::get('philippine-addresses/provinces.json'), true);
 
         // Filter the provinces based on the selected region_code
         $filteredProvinces = array_filter($provinces, function ($province) use ($regionCode) {
@@ -41,7 +41,7 @@ class AddressController extends Controller
 
     public function cities($provinceCode)
     {
-        $cities = json_decode(Storage::get('philippine-addresses/city.json'), true);
+        $cities = json_decode(Storage::get('philippine-addresses/cities.json'), true);
 
         // Filter the cities based on the selected province_code
         $filteredCities = array_filter($cities, function ($city) use ($provinceCode) {
@@ -60,7 +60,7 @@ class AddressController extends Controller
 
     public function barangays($cityCode)
     {
-        $barangays = json_decode(Storage::get('philippine-addresses/barangay.json'), true);
+        $barangays = json_decode(Storage::get('philippine-addresses/barangays.json'), true);
 
         // Filter the barangays based on the selected city_code
         $filteredBarangays = array_filter($barangays, function ($barangay) use ($cityCode) {

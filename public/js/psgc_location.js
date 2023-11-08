@@ -26,11 +26,13 @@ $(document).ready(function () {
                 $("#api_city").empty();
                 $("#api_barangay").empty();
                 $("#api_province").append(
-                    '<option value="">Select Province</option>'
+                    '<option value="" disabled selected>Select Province</option>'
                 );
-                $("#api_city").append('<option value="">Select City</option>');
+                $("#api_city").append(
+                    '<option value="" disabled selected>Select City</option>'
+                );
                 $("#api_barangay").append(
-                    '<option value="">Select Barangay</option>'
+                    '<option value="" disabled selected>Select Barangay</option>'
                 );
 
                 $.each(data, function (key, value) {
@@ -56,9 +58,11 @@ $(document).ready(function () {
             $.get("/cities/" + provinceCode, function (data) {
                 $("#api_city").empty();
                 $("#api_barangay").empty();
-                $("#api_city").append('<option value="">Select City</option>');
+                $("#api_city").append(
+                    '<option value="" disabled selected>Select City</option>'
+                );
                 $("#api_barangay").append(
-                    '<option value="">Select Barangay</option>'
+                    '<option value="" selected>Select Barangay</option>'
                 );
                 $.each(data, function (key, value) {
                     $("#api_city").append(
@@ -82,7 +86,7 @@ $(document).ready(function () {
             $.get("/barangays/" + cityCode, function (data) {
                 $("#api_barangay").empty();
                 $("#api_barangay").append(
-                    '<option value="">Select Barangay</option>'
+                    '<option value="" disabled selected>Select Barangay</option>'
                 );
                 $.each(data, function (key, value) {
                     $("#api_barangay").append(
