@@ -8,7 +8,7 @@
 
         <!-- Email Address -->
         <div class="mb-3">
-            <label for="email">Email</label>
+            <label for="email">Emails</label>
             <input type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username">
             @error('email')
                 <span class="invalid" role="alert">
