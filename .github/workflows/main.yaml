@@ -1,4 +1,4 @@
-name: EC2 Laravel CI/CD
+name: AWS EC2 CI/CD
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
 
 jobs:
   laravel:
-    name: Continues Integration
-    runs-on: ubuntu-latest
+    name: Continuous Integration
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -17,13 +17,17 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --optimize-autoloader
 
-      - name: Deploy to EC2 Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          TARGET: ${{ secrets.TARGET_DIR }}
-          
+      - name: Run PHP Test
+        run: php artisan test
 
+      - name: Deploy to EC2
+        run: |
+            sudo mkdir -p /var/www/html/laravel/ 
+            sudo cp -r * /var/www/html/laravel/
 
+      - name: Give permission
+        run: |
+          sudo chown -R www-data:www-data /var/www/html/laravel
+          sudo chmod -R 775 /var/www/html/laravel
+          sudo chmod -R 775 /var/www/html/laravel/storage
+          sudo chmod -R 775 /var/www/html/laravel/bootstrap/cache
