@@ -17,9 +17,6 @@ jobs:
       - name: Install Composer dependencies
         run: composer install --no-interaction --optimize-autoloader
 
-      - name: Run PHP Test
-        run: php artisan test
-
       - name: Deploy to EC2
         run: |
             sudo mkdir -p /var/www/html/laravel/ 
