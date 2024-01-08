@@ -3,7 +3,7 @@ name: AWS EC2 CI/CD
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   laravel:
