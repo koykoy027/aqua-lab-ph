@@ -232,7 +232,7 @@
 <div class="grid mb-3 uppercase md:grid-cols-2 sm:gap-2 lg:grid-cols-4 lg:gap-4">
     <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalClient }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total Clients</p>
+        <p class="text-sm font-semibold text-slate-400">Total Client</p>
     </div>
     <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalPending }}</h1>
