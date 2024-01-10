@@ -64,8 +64,8 @@ class LabAcceptanceController extends Controller
 
         $analysisRequest = $queryBuilder
             ->where('test_parameters', 'micro')
-            ->whereHas('labAcceptance', function($query){
-                $query->whereNotIn('remarks' ,['Pending', 'Rejected', 'Disapprove']);
+            ->whereHas('labAcceptance', function ($query) {
+                $query->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
             })
             ->paginate(10);
 
@@ -191,6 +191,10 @@ class LabAcceptanceController extends Controller
         //     return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully!']);
         // }
 
-        return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully!']);
+        if ($remarks == "Rejected") {
+            return redirect()->back()->with(['error' => 'Lab acceptance has been rejected']);
+        } else {
+            return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully!']);
+        }
     }
 }
