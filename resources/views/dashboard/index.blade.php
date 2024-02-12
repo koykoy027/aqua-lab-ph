@@ -248,11 +248,11 @@
     </div>
     <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalApprove }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total Approve</p>
+        <p class="text-sm font-semibold text-slate-400">Total Approved</p>
     </div>
     <div class="bg-white card">
         <h1 class="text-2xl bold text-slate-500">{{ $totalDisapprove }}</h1>
-        <p class="text-sm font-semibold text-slate-400">Total Disapprove</p>
+        <p class="text-sm font-semibold text-slate-400">Total Disapproved</p>
     </div>
 
     <div class="bg-white card">
@@ -267,14 +267,14 @@
         <h1 class="text-2xl bold text-slate-500">{{ $totalRequest }}</h1>
         <p class="text-sm font-semibold text-slate-400">Total Request</p>
     </div>
-    <div class="grid grid-cols-1 p-2 gap-5 border-l-2 border-red-300 rounded-xl">
+    <div class="grid grid-cols-1 gap-5 p-2 border-l-2 border-red-300 rounded-xl">
         <div>
             <h1 class="text-2xl bold text-slate-500">{{ $totalMicroRequest }}</h1>
             <p class="text-sm font-semibold text-slate-400">Total Micro</p>
         </div>
         <p class="text-sm font-semibold text-slate-400">{{ $percentageMicroRequest }}%</p>
     </div>
-    <div class="grid grid-cols-1 p-2 gap-5 border-l-2 border-green-300 rounded-xl">
+    <div class="grid grid-cols-1 gap-5 p-2 border-l-2 border-green-300 rounded-xl">
         <div>
             <h1 class="text-2xl bold text-slate-500">{{ $totalPyChemRequest }}</h1>
             <p class="text-sm font-semibold text-slate-400">Total Pychem</p>
