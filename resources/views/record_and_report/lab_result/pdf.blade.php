@@ -1355,10 +1355,8 @@
             <tr>
                 <td></td>
                 <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
-                    <p style="margin-top: -10px; font-weight: 500; text-align: justify;">Pursuant to PNSDW 2017, sample
-                        was collected according to prescribed aseptic technique
-                        and was contained and transported in a sterilized container at controlled temperature
-                        by Aqualab PH trained personnel.
+                    <p style="margin-top: -10px; font-weight: 500; text-align: justify;">
+                        Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was contained and transported in a sterilized container at controlled temperature by Aqualab PH trained personnel.
                     </p>
                 </td>
             </tr>
