@@ -382,22 +382,29 @@
 <div class="bg-white card">
     <div class="grid gap-2 mb-3 uppercase sm:grid-cols-1 sm:gap-3 lg:grid-cols-3 lg:gap-4">
         <select class="lg:col-start-3 sm:col-start-1" onchange="widgetsPerCityMunicipality(this.value)">
-            <option value="No. of Samples per City/Municipality">No. of Samples per City/Municipality</option>
-            <option value="No. of Micro Samples per City/Municipality">No. of Micro Samples per City/Municipality
+            <option value="No. of Samples per City/Municipality">
+                No. of Samples per City/Municipality
             </option>
-            <option value="No. of Phy-Chem Samples per City/Municipality">No. of Phy-Chem Samples per City/Municipality
+            <option value="No. of Micro Samples per City/Municipality">
+                No. of Micro Samples per City/Municipality
             </option>
-            {{-- <option value="No. of Failed HPC Samples per City/Municipality">No. of Failed HPC Samples per
-                City/Municipality</option>
-            <option value="No. of Failed Total Coliform Samples per City/Municipality">No. of Failed Total Coliform
-                Samples per City/Municipality</option>
-            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">No. of Failed Fecal Coliform
-                Samples per City/Municipality</option> --}}
+            <option value="No. of Phy-Chem Samples per City/Municipality">
+                No. of Phy-Chem Samples per City/Municipality
+            </option>
+            {{-- <option value="No. of Failed HPC Samples per City/Municipality">
+                No. of Failed HPC Samples per City/Municipality
+            </option>
+            <option value="No. of Failed Total Coliform Samples per City/Municipality">
+                No. of Failed Total Coliform Samples per City/Municipality</option>
+            <option value="No. of Failed Fecal Coliform Samples per City/Municipality">
+                No. of Failed Fecal Coliform Samples per City/Municipality
+            </option> --}}
         </select>
     </div>
+
     <div id="samplesPerCityMunicipality">
         <h1 class="mb-3 text-lg font-semibold uppercase text-slate-500">No. of Samples per City/Municipality</h1>
-        <hr>
+        <hr />
         <div class="relative mt-3 overflow-x-auto rounded sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
