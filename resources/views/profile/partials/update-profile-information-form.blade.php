@@ -39,7 +39,7 @@
         <div>
             <label for="email">Email</label>
             <input id="email" name="email" type="email" value="{{ old('email', $user->email) }}" required
-                autocomplete="username" />
+                autocomplete="username" readonly/>
             {{-- <x-input-error class="mt-2" :messages="$errors->get('email')" /> --}}
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
@@ -48,7 +48,7 @@
                         {{ __('Your email address is unverified.') }}
 
                         <button form="send-verification"
-                            class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+                            class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
