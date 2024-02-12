@@ -33,8 +33,8 @@ class DashboardController extends Controller
             $percentageMicroRequest = ($totalMicroRequest / $totalRequest) * 100;
             $percentagePyChemRequest = ($totalPyChemRequest / $totalRequest) * 100;
         } else {
-            $percentageMicroRequest = null;
-            $percentagePyChemRequest = null;
+            $percentageMicroRequest = 0;
+            $percentagePyChemRequest = 0;
         }
 
 
