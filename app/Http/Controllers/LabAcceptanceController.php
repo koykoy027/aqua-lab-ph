@@ -186,15 +186,15 @@ class LabAcceptanceController extends Controller
         // if (
         //     $test_parameters === 'micro'
         // ) {
-        //     return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully!']);
+        //     return redirect()->route('service.lab-result-status.micro')->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
         // } else {
-        //     return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully!']);
+        //     return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
         // }
 
         if ($remarks == "Rejected") {
             return redirect()->back()->with(['error' => 'Lab acceptance has been rejected']);
         } else {
-            return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully!']);
+            return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
         }
     }
 }
