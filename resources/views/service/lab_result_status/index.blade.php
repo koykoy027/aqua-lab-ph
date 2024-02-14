@@ -17,12 +17,12 @@
             <table class="w-full text-sm text-left text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
-                        <th scope="col" class="px-6 py-3">
-                            Analysis Request ID
-                        </th>
                         {{-- <th scope="col" class="px-6 py-3">
-                        Account Name
-                    </th> --}}
+                            Sample ID
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Account Name
+                        </th> --}}
                         <th scope="col" class="px-6 py-3">
                             Remarks
                         </th>
@@ -52,13 +52,13 @@
                 <tbody>
                     @foreach ($datas as $data)
                         <tr class="bg-white border-b">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                            {{-- <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                 {{ $data->analysis_id_ }}
                             </th>
-                            {{-- <td class="px-6 py-4">
-                        {{ $data->account_name }}
-                    </td> --}}
                             <td class="px-6 py-4">
+                                {{ $data->account_name }}
+                            </td> --}}
+                            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
 
                                 <span
                                     class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-center

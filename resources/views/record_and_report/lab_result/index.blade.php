@@ -17,7 +17,7 @@
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
                         <th scope="col" class="px-6 py-3">
-                            Analysis Request ID
+                            Sample ID
                         </th>
                         <th scope="col" class="px-6 py-3">
                             Collector name

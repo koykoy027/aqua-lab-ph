@@ -19,7 +19,7 @@
 
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
             <div class="mb-3">
-                <label for="analysis_id_">Analysis request ID</label>
+                <label for="analysis_id_">Sample ID</label>
                 <input id="analysis_id_" type="text" name="analysis_id_" value="{{ $details->analysis_id_ }}" readonly
                     autofocus autocomplete="analysis_id_">
             </div>
