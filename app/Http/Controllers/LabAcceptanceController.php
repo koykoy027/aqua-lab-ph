@@ -192,7 +192,7 @@ class LabAcceptanceController extends Controller
                 ]);
         } else {
 
-            $routeName = ($AnalysisRequest->test_parameters == 'micro' ? 'service.lab-result-status.micro' : 'service.lab-result-status.pychem');
+            $routeName = ($analysisRequest->test_parameters == 'micro' ? 'service.lab-result-status.micro' : 'service.lab-result-status.pychem');
             return redirect()
                 ->route($routeName)
                 ->with([

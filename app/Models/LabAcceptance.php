@@ -22,6 +22,6 @@ class LabAcceptance extends Model
     ];
 
     public function analysisRequest() {
-        return $this->belongsTo(AnalysisRequest::class, 'analysis_id', 'id');
+        return $this->belongsTo(AnalysisRequest::class, 'analysis_id', 'analysis_id');
     }
 }

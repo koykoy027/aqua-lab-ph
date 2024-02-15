@@ -48,7 +48,7 @@
                                 {{ \Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $analysisRequests->test_parameters }}
+                                {{ $analysisRequests->test_parameters_type }}
                             </td>
                             <td class="px-6 py-4">
                                 <span
