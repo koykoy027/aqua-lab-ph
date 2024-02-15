@@ -33,8 +33,8 @@ return new class extends Migration
             $table->string('type_of_water_others')->nullable();
             $table->string('water_purpose');
             $table->string('water_purpose_others')->nullable();
-            $table->string('test_parameters');
-            $table->string('test_parameters_type');
+            $table->string('test_parameters')->comment('micro | phy | chem');
+            $table->string('test_parameters_type')->comment('specific test parameters');
             $table->string('remarks');
             $table->timestamps();
         });

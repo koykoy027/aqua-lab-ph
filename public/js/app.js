@@ -27,7 +27,14 @@
 //     }
 // };
 
-function toggleTestParameters(selectedValue) {
+function toggleTestParameters(selectedValue, selectElement) {
+    
+    // get text instead of value in dropdown
+    var test_parameters_type = document.getElementById("test_parameters_type");
+    var selectedText = selectElement.options[selectElement.selectedIndex].text;
+    test_parameters_type.value = selectedText;
+
+    
     var divMicrox = document.getElementById("microx");
     var divChemx = document.getElementById("chemx");
     var divPhch = document.getElementById("phch");

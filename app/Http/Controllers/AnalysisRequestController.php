@@ -74,6 +74,7 @@ class AnalysisRequestController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->test_parameters_type);
         if (AnalysisRequest::count() === 0) {
             $currentAnalysisID = 1;
         } else {

@@ -102,7 +102,7 @@
 
                             </td>
                             <td class="px-6 py-4">
-                                {{ $data->test_parameters }}
+                                {{ $data->test_parameters_type }}
                             </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="{{ route('laboratory.lab-acceptance.create', ['analysis_id' => $data->analysis_id]) }}"
