@@ -34,6 +34,7 @@ return new class extends Migration
             $table->string('water_purpose');
             $table->string('water_purpose_others')->nullable();
             $table->string('test_parameters');
+            $table->string('test_parameters_type');
             $table->string('remarks');
             $table->timestamps();
         });
