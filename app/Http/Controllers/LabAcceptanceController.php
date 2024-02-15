@@ -182,6 +182,23 @@ class LabAcceptanceController extends Controller
 
 
         AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+        $pendingFromLabAcceptance = LabAcceptance::where('remarks', 'Pending')->first();
+
+        if ($pendingFromLabAcceptance) {
+            return redirect()
+                ->route('laboratory.lab-acceptance.create', $pendingFromLabAcceptance->analysis_id)
+                ->with([
+                    'message' => 'Lab acceptance has been created successfully! Redirect to next Pending acceptance'
+                ]);
+        } else {
+
+            $routeName = ($AnalysisRequest->test_parameters == 'micro' ? 'service.lab-result-status.micro' : 'service.lab-result-status.pychem');
+            return redirect()
+                ->route($routeName)
+                ->with([
+                    'message' => 'Lab acceptance has been created successfully! No more Pending acceptance'
+                ]);
+        }
 
         // if (
         //     $test_parameters === 'micro'
@@ -191,10 +208,12 @@ class LabAcceptanceController extends Controller
         //     return redirect()->route('service.lab-result-status.pychem')->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
         // }
 
-        if ($remarks == "Rejected") {
-            return redirect()->back()->with(['error' => 'Lab acceptance has been rejected']);
-        } else {
-            return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
-        }
+        // if ($remarks == "Rejected") {
+        //     return redirect()->back()->with(['error' => 'Lab acceptance has been rejected']);
+        // } else {
+        //     return redirect()->route('laboratory.lab-work-order-form.create', $analysis_id)->with(['message' => 'Lab acceptance has been created successfully! Redirect to Raw Data File']);
+        // }
+
+
     }
 }
