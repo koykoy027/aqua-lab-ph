@@ -134,14 +134,17 @@
                                             @if (Auth::user()->role !== 'Pchem Manager' && Auth::user()->role !== 'Pchem Analyst')
                                                 <li>
                                                     <a href="{{ route('service.lab-result-status.micro') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Micro Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                             @if (Auth::user()->role !== 'Micro Manager' && Auth::user()->role !== 'Micro Analyst')
                                                 <li>
                                                     <a href="{{ route('service.lab-result-status.pychem') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM
-                                                        Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Phy-Chem Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                         </ul>
@@ -165,14 +168,17 @@
                                             @if (Auth::user()->role !== 'Pchem Manager' && Auth::user()->role !== 'Pchem Analyst')
                                                 <li>
                                                     <a href="{{ route('laboratory.lab-lab-work-order.micro') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Micro Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                             @if (Auth::user()->role !== 'Micro Manager' && Auth::user()->role !== 'Micro Analyst')
                                                 <li>
                                                     <a href="{{ route('laboratory.lab-lab-work-order.pychem') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM
-                                                        Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Phy-Chem Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                         </ul>
@@ -196,14 +202,17 @@
                                             @if (Auth::user()->role !== 'Pchem Manager' && Auth::user()->role !== 'Pchem Analyst')
                                                 <li>
                                                     <a href="{{ route('laboratory.lab_approval.micro') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">Micro Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Micro Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                             @if (Auth::user()->role !== 'Micro Manager' && Auth::user()->role !== 'Micro Analyst')
                                                 <li>
                                                     <a href="{{ route('laboratory.lab_approval.phyChem') }}"
-                                                        class="block px-4 py-2 hover:bg-gray-100">PHY-CHEM
-                                                        Parameters</a>
+                                                        class="block px-4 py-2 hover:bg-gray-100">
+                                                        Phy-Chem Parameters
+                                                    </a>
                                                 </li>
                                             @endif
                                         </ul>
@@ -278,8 +287,8 @@
                                         class="block px-4 py-2 hover:bg-gray-100">User Lists</a>
                                 </li>
                                 {{-- <li>
-                                <a href="{{ route('user-management.role-lists.index') }}" class="block px-4 py-2 hover:bg-gray-100">Roles</a>
-                            </li> --}}
+                                    <a href="{{ route('user-management.role-lists.index') }}" class="block px-4 py-2 hover:bg-gray-100">Roles</a>
+                                </li> --}}
                             </ul>
                         </div>
                     </li>
