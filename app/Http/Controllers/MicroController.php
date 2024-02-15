@@ -33,7 +33,6 @@ class MicroController extends Controller
             $micro = Micro4::where('analysis_id', $analysis_id)->firstOrFail();
             $micro->update($request->all());
         }
-        $analysisRequest = AnalysisRequest::find($analysis_id);
         $remarks = $request->input('remarks');
         LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         
@@ -51,14 +50,13 @@ class MicroController extends Controller
             return redirect()
                 ->route('laboratory.lab-work-order-form.create', $acceptedAndConditionallyAcceptedFromLabAcceptance->analysis_id)
                 ->with([
-                    'message' => 'Micro Test parameter has been saved! Redirect to Sample ID: ' . $acceptedAndConditionallyAcceptedFromLabAcceptance->sample_id,
+                    'message' => 'Test parameter has been saved! Redirect to Sample ID: ' . $acceptedAndConditionallyAcceptedFromLabAcceptance->sample_id,
                 ]);
         } else {
-            $routeName = ($analysisRequest->test_parameters == 'micro' ? 'laboratory.lab-lab-work-order.micro' : 'laboratory.lab-lab-work-order.pychem');
             return redirect()
-                ->route($routeName)
+                ->route('laboratory.lab-lab-work-order.micro')
                 ->with([
-                    'message' => 'Micro Test parameter has been saved! No more Pending samples'
+                    'message' => 'Test parameter has been saved! No more Pending samples for Micro'
                 ]);
         }
 

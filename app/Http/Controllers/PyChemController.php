@@ -77,9 +77,37 @@ class PyChemController extends Controller
             $pychem->update($request->all());
         }
 
+        $analysisRequest = AnalysisRequest::find($analysis_id);
         $remarks = $request->input('remarks');
         LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
+
+        $acceptedAndConditionallyAcceptedFromLabAcceptance = LabAcceptance::query()
+            ->whereHas('analysisRequest', function ($queryBuilder){
+                $queryBuilder->where('test_parameters', 'chem')
+                    ->orWhere('test_parameters', 'phys');
+            })
+            ->where('remarks', 'Accepted')
+            ->orWhere('remarks', 'Conditionally Accepted')
+            ->first();
+
+        if ($acceptedAndConditionallyAcceptedFromLabAcceptance) {
+            return redirect()
+                ->route('laboratory.lab-work-order-form.create', $acceptedAndConditionallyAcceptedFromLabAcceptance->analysis_id)
+                ->with([
+                    'message' => 'Test parameter has been saved! Redirect to Sample ID: ' . $acceptedAndConditionallyAcceptedFromLabAcceptance->sample_id,
+                ]);
+        } else {
+            return redirect()
+                ->route('laboratory.lab-lab-work-order.pychem')
+                ->with([
+                    'message' => 'Test parameter has been saved! No more Pending samples for Pychem'
+                ]);
+        }
+
+
         // return redirect()->route('laboratory.lab-lab-work-order.pychem')->with(['message' => 'PyChem Test parameter has been saved! Redirect to Lab Approval']);
-        return redirect()->route('laboratory.lab_approval.details', $analysis_id)->with(['message' => 'PyChem Test parameter has been saved! Redirect to Lab Approval']);
+        // return redirect()->route('laboratory.lab_approval.details', $analysis_id)->with(['message' => 'PyChem Test parameter has been saved! Redirect to Lab Approval']);
+
+        
     }
 }
