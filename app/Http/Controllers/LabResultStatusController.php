@@ -142,15 +142,14 @@ class LabResultStatusController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->where('remarks', 'Approve');
+                    ->orWhere('test_parameters_type', 'LIKE', "%$query%")
+                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
             });
         }
 
         $datas = $queryBuilder
-            ->whereHas('labAcceptance', function ($query) {
-                $query->where('remarks', 'Approve');
+            ->whereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                $queryBuilder->where('remarks', 'Approve');
             })
             ->paginate(10);
         return view('record_and_report.lab_result.index', compact('datas', 'query'));

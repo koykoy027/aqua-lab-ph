@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class LabAcceptanceController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request) // record and reports
     {
         $query = $request->input('search');
         $start_date = $request->input('start_date');
@@ -23,14 +23,14 @@ class LabAcceptanceController extends Controller
 
         if ($query) {
             $acceptances->where(function ($search) use ($query) {
-                $search->where('analysis_id', 'LIKE', "%$query%")
+                $search->where('sample_id', 'LIKE', "%$query%")
                     ->orWhere('evaluated_by', 'LIKE', "%$query%")
                     ->orWhere('date_evaluated', 'LIKE', "%$query%")
                     ->orWhere('time_evaluated', 'LIKE', "%$query%");
             });
         }
 
-        $acceptances = $acceptances->paginate(10); // Paginate the results
+        $acceptances = $acceptances->paginate(10);
 
         return view('record_and_report.lab_acceptance.index', compact(
             'acceptances',
@@ -63,6 +63,7 @@ class LabAcceptanceController extends Controller
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->orWhere('analysis_id_', 'LIKE', "%$query%")
                     ->where('test_parameters', 'micro');
             });
         }
@@ -95,9 +96,8 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
+                    ->orWhere('analysis_id_', 'LIKE', "%$query%")
+                    ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
         }
 
