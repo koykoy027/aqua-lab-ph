@@ -32,7 +32,7 @@ class AnalysisRequest extends Model
         'water_purpose_others',
         'test_parameters',
         'test_parameters_type',
-        'remarks',
+        // 'remarks',
     ];
 
     public function testParameters(): HasMany

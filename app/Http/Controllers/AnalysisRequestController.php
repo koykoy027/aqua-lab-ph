@@ -149,9 +149,6 @@ class AnalysisRequestController extends Controller
 
 
         $analysisRequest = AnalysisRequest::create($input);
-        RawData::create([
-            'analysis_id' => $analysisRequest->analysis_id,
-        ]);
         LabAcceptance::create([
             'analysis_id' => $analysisRequest->analysis_id,
             'remarks' => 'Pending',
@@ -383,7 +380,6 @@ class AnalysisRequestController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
                     ->orWhere('test_parameters', 'LIKE', "%$query");
             });
         }

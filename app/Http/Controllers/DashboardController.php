@@ -85,7 +85,7 @@ class DashboardController extends Controller
         $totalOthersMicro = Client::where('market_segment', 'Others')
             ->whereRelation('analysisRequest', 'test_parameters', 'micro')->count();
 
-        // pht
+        // phys
 
         $total0001Pychem = Client::where('market_segment', '0001 - Water Refilling Station')
             ->whereRelation('analysisRequest', 'test_parameters', 'pychem')

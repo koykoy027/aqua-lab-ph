@@ -62,7 +62,6 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
                     ->where('test_parameters', 'micro');
             });

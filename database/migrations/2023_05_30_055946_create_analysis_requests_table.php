@@ -35,7 +35,7 @@ return new class extends Migration
             $table->string('water_purpose_others')->nullable();
             $table->string('test_parameters')->comment('micro | phy | chem');
             $table->string('test_parameters_type')->comment('specific test parameters');
-            $table->string('remarks');
+            // $table->string('remarks');
             $table->timestamps();
         });
     }

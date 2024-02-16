@@ -16,7 +16,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AnalysisRequestController;
-use App\Http\Controllers\ChemController;
 use App\Http\Controllers\CreateRawDataFileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LabAcceptanceController;
