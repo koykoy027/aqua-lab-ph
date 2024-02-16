@@ -1084,10 +1084,15 @@
                     </td>
 
                     <td style="font-size:  11px; padding-right: 40px">
-                        <p class="certi">Certificate No: <span class="certi_no">{{ $certificateNo }}</span></p>
-                        <p class="acc">Account ID: <span class="acc_id">{{ $clients->client_id }}</span></p>
-                        <p class="sample">Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_
-                                }}</span></p>
+                        <p class="certi">
+                            Certificate No: <span class="certi_no">{{ $certificateNo }}</span>
+                        </p>
+                        <p class="acc">
+                            Account ID: <span class="acc_id">{{ $clients->client_id }}</span>
+                        </p>
+                        <p class="sample">
+                            Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_ }}</span>
+                        </p>
                     </td>
                 </tr>
             </thead>
@@ -1096,44 +1101,51 @@
         <table style="width: 100%; margin-top: 5px">
             <thead>
                 <tr class="top-information">
-                    <td>Requested By: <span class="uppercase requested">{{ $clients->name_of_owner }}</span></td>
+                    <td>
+                        Requested By: <span class="uppercase requested">{{ $clients->name_of_owner }}</span>
+                    </td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Main Source: <span class="uppercase main-source">{{ $analysisRequests->source_of_water_sample
-                            }}</span></td>
-                    <td class="top_sampling">Sampling point: <span class="uppercase sampling_point">{{
-                            $analysisRequests->collection_point }}</td>
+                    <td>
+                        Main Source: <span class="uppercase main-source">{{ $analysisRequests->source_of_water_sample }}</span>
+                    </td>
+
+                    <td class="top_sampling">
+                        Sampling point: <span class="uppercase sampling_point">{{ $analysisRequests->collection_point }}
+                    </td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="uppercase water_purpose">{{ $analysisRequests->water_purpose
-                            == 'Others' ? $analysisRequests->water_purpose_others : $analysisRequests->water_purpose
-                            }}</span></td>
-                    <td class="top_water">Type of Water: <span class="uppercase type_of_water">{{
-                            $analysisRequests->type_of_water == 'Others' ? $analysisRequests->type_of_water_others :
-                            $analysisRequests->type_of_water}}</span></td>
+                    <td>Water Purpose (Use): <span class="uppercase water_purpose">
+                        {{ $analysisRequests->water_purpose == 'Others' ? $analysisRequests->water_purpose_others : $analysisRequests->water_purpose }}</span>
+                    </td>
+                    <td class="top_water">Type of Water: <span class="uppercase type_of_water">
+                        {{ $analysisRequests->type_of_water == 'Others' ? $analysisRequests->type_of_water_others : $analysisRequests->type_of_water}}</span>
+                    </td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Date/Time Collected: <span class="date_time_collecteed">{{
-                            Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - {{
-                            Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span></td>
-                    <td class="top_received">Date/Time Received: <span class="date_time_received">{{
-                            Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - {{
-                            Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span></td>
+                    <td>
+                        Date/Time Collected: <span class="date_time_collecteed">
+                        {{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - 
+                        {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span>
+                    </td>
+
+                    <td class="top_received">Date/Time Received: <span class="date_time_received">
+                        {{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - 
+                        {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span>
+                    </td>
                 </tr>
 
                 <tr class="top-information">
-                    <td>Collected by: <span class="uppercase collected-by">{{ $analysisRequests->collector_name
-                            }}</span></td>
+                    <td>
+                        Collected by: <span class="uppercase collected-by">
+                        {{ $analysisRequests->collector_name }}</span>
+                    </td>
                     <td class="top_tested">Date/Time Tested: <span class="date_time_tested">
-                            @foreach ( $rawDatas as $micro_detail)
-                            @foreach ($collection_details as $collection_detail)
-                            {{ \Carbon\Carbon::parse($micro_detail->created_at)->format('m/d/Y - g:i A') }}
-                            @endforeach
-                            @endforeach
-                        </span></td>
+                        {{ \Carbon\Carbon::parse($labAcceptance->created_at)->format('m/d/Y - g:i A') }} </span>
+                    </td>
                 </tr>
 
             </thead>
@@ -1142,9 +1154,9 @@
 
     <div class="title" style="font-size: small">
         @if ($analysisRequests->test_parameters == 'micro')
-        C E R T I F I C A T E O F M I C R O B I O L O G I C A L A N A L Y S I S
+            C E R T I F I C A T E O F M I C R O B I O L O G I C A L A N A L Y S I S
         @else
-        C E R T I F I C A T E O F P H Y S I C A L A N D C H E M I C A L A N A L Y S I S
+            C E R T I F I C A T E O F P H Y S I C A L A N D C H E M I C A L A N A L Y S I S
         @endif
     </div>
 
@@ -1160,179 +1172,177 @@
         </thead>
         <tbody>
 
-            @foreach ($rawDatas as $micro_detail)
-                <tr>
-                    @foreach ($collection_details as $collection_detail)
-                        @foreach ($test_parameters as $test_parameter)
-                            @foreach ($library_test_parameters as $library_test_parameter)
+            <tr>
+                @foreach ($collection_details as $collection_detail)
+                @foreach ($test_parameters as $test_parameter)
+                @foreach ($library_test_parameters as $library_test_parameter)
 
-                                @if ($test_parameter->test_parameters == $library_test_parameter->id)
-                                    <tr>
-                                        <td class="details">{{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}</td>
-                                        <td class="details">{{ $library_test_parameter->method }}</td>
+                @if ($test_parameter->test_parameters == $library_test_parameter->id)
+            <tr>
+                <td class="details">{{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}</td>
+                <td class="details">{{ $library_test_parameter->method }}</td>
 
-                                        @if ($library_test_parameter->id == 1)
-                                            @foreach ($micro1 as $data)
-                                                <td class="result_details">{{ $data->micr1_hpc_final_result }}</td>
-                                                <td class="result_details">
-                                                    @if($data->micr1_hpc_final_result >= 500)
-                                                        &gt; 500
-                                                    @else
-                                                        &lt; 500
-                                                    @endif
-                                                </td>
-                                                <td class="result_details">{{ $data->micr1_hpc_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 1)
+                @foreach ($micro1 as $data)
+                <td class="result_details">{{ $data->micr1_hpc_final_result }}</td>
+                <td class="result_details">
+                    @if($data->micr1_hpc_final_result >= 500)
+                    &gt; 500
+                    @else
+                    &lt; 500
+                    @endif
+                </td>
+                <td class="result_details">{{ $data->micr1_hpc_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 3)
-                                            @foreach ($micro2 as $data)
-                                                <td class="result_details">{{ $data->micr2_tc_final_result }}</td>
-                                                <td class="result_details">
-                                                    @if($data->micr2_tc_final_result >= 500)
-                                                        &gt; 500
-                                                    @else
-                                                        &lt; 500
-                                                    @endif
-                                                </td>
-                                                <td class="result_details">{{ $data->micr2_tc_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 3)
+                @foreach ($micro2 as $data)
+                <td class="result_details">{{ $data->micr2_tc_final_result }}</td>
+                <td class="result_details">
+                    @if($data->micr2_tc_final_result >= 500)
+                    &gt; 500
+                    @else
+                    &lt; 500
+                    @endif
+                </td>
+                <td class="result_details">{{ $data->micr2_tc_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 4)
-                                            @foreach ($micro3 as $data)
-                                                <td class="result_details">{{ $data->micr3_final_result }}</td>
-                                                <td class="result_details">
-                                                    @if($data->micr3_final_result >= 500)
-                                                        &gt; 500
-                                                    @else
-                                                        &lt; 500
-                                                    @endif
-                                                </td>
-                                                <td class="result_details">{{ $data->micr3_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 4)
+                @foreach ($micro3 as $data)
+                <td class="result_details">{{ $data->micr3_final_result }}</td>
+                <td class="result_details">
+                    @if($data->micr3_final_result >= 500)
+                    &gt; 500
+                    @else
+                    &lt; 500
+                    @endif
+                </td>
+                <td class="result_details">{{ $data->micr3_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 5)
-                                            @foreach ($micro4 as $data)
-                                                <td class="result_details">{{ $data->micr4_color_of_the_sample }}</td>
-                                                <td class="result_details">{{ $data->micr4_fluorescence }}</td>
-                                                <td class="result_details">{{ $data->micr4_final_result }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 5)
+                @foreach ($micro4 as $data)
+                <td class="result_details">{{ $data->micr4_color_of_the_sample }}</td>
+                <td class="result_details">{{ $data->micr4_fluorescence }}</td>
+                <td class="result_details">{{ $data->micr4_final_result }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 13)
-                                            @foreach ($chem1 as $data)
-                                                <td class="result_details">{{ $data->chem1_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem1_average_instrument_reading }}</td>
-                                                <td class="result_details">{{ $data->chem1_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 13)
+                @foreach ($chem1 as $data)
+                <td class="result_details">{{ $data->chem1_final_result }}</td>
+                <td class="result_details">{{ $data->chem1_average_instrument_reading }}</td>
+                <td class="result_details">{{ $data->chem1_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 14)
-                                            @foreach ($chem2 as $data)
-                                                <td class="result_details">{{ $data->chem2_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem2_average_instrument_reading }}</td>
-                                                <td class="result_details">{{ $data->chem2_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 14)
+                @foreach ($chem2 as $data)
+                <td class="result_details">{{ $data->chem2_final_result }}</td>
+                <td class="result_details">{{ $data->chem2_average_instrument_reading }}</td>
+                <td class="result_details">{{ $data->chem2_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 17)
-                                            @foreach ($chem3 as $data)
-                                                <td class="result_details">{{ $data->chem3_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem3_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem3_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 17)
+                @foreach ($chem3 as $data)
+                <td class="result_details">{{ $data->chem3_final_result }}</td>
+                <td class="result_details">{{ $data->chem3_final_result }}</td>
+                <td class="result_details">{{ $data->chem3_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 18)
-                                            @foreach ($chem4 as $data)
-                                                <td class="result_details">{{ $data->chem4_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem4_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem4_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 18)
+                @foreach ($chem4 as $data)
+                <td class="result_details">{{ $data->chem4_final_result }}</td>
+                <td class="result_details">{{ $data->chem4_final_result }}</td>
+                <td class="result_details">{{ $data->chem4_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 19)
-                                            @foreach ($chem5 as $data)
-                                                <td class="result_details">{{ $data->chem5_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem5_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem5_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 19)
+                @foreach ($chem5 as $data)
+                <td class="result_details">{{ $data->chem5_final_result }}</td>
+                <td class="result_details">{{ $data->chem5_final_result }}</td>
+                <td class="result_details">{{ $data->chem5_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 20)
-                                            @foreach ($chem6 as $data)
-                                                <td class="result_details">{{ $data->chem6_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem6_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem6_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 20)
+                @foreach ($chem6 as $data)
+                <td class="result_details">{{ $data->chem6_final_result }}</td>
+                <td class="result_details">{{ $data->chem6_final_result }}</td>
+                <td class="result_details">{{ $data->chem6_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 21)
-                                            @foreach ($chem7 as $data)
-                                                <td class="result_details">{{ $data->chem7_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem7_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem7_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 21)
+                @foreach ($chem7 as $data)
+                <td class="result_details">{{ $data->chem7_final_result }}</td>
+                <td class="result_details">{{ $data->chem7_final_result }}</td>
+                <td class="result_details">{{ $data->chem7_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 23)
-                                            @foreach ($chem9 as $data)
-                                                <td class="result_details">{{ $data->chem9_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem9_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem9_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 23)
+                @foreach ($chem9 as $data)
+                <td class="result_details">{{ $data->chem9_final_result }}</td>
+                <td class="result_details">{{ $data->chem9_final_result }}</td>
+                <td class="result_details">{{ $data->chem9_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 24)
-                                            @foreach ($chem10 as $data)
-                                                <td class="result_details">{{ $data->chem10_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem10_final_result }}</td>
-                                                <td class="result_details">{{ $data->chem10_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 24)
+                @foreach ($chem10 as $data)
+                <td class="result_details">{{ $data->chem10_final_result }}</td>
+                <td class="result_details">{{ $data->chem10_final_result }}</td>
+                <td class="result_details">{{ $data->chem10_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 62)
-                                            @foreach ($phys1 as $data)
-                                                <td class="result_details">{{ $data->phys1_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys1_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys1_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 62)
+                @foreach ($phys1 as $data)
+                <td class="result_details">{{ $data->phys1_final_result }}</td>
+                <td class="result_details">{{ $data->phys1_final_result }}</td>
+                <td class="result_details">{{ $data->phys1_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 63)
-                                            @foreach ($phys2 as $data)
-                                                <td class="result_details">{{ $data->phys2_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys2_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys2_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 63)
+                @foreach ($phys2 as $data)
+                <td class="result_details">{{ $data->phys2_final_result }}</td>
+                <td class="result_details">{{ $data->phys2_final_result }}</td>
+                <td class="result_details">{{ $data->phys2_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 64)
-                                            @foreach ($phys3 as $data)
-                                                <td class="result_details">{{ $data->phys3_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys3_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys3_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 64)
+                @foreach ($phys3 as $data)
+                <td class="result_details">{{ $data->phys3_final_result }}</td>
+                <td class="result_details">{{ $data->phys3_final_result }}</td>
+                <td class="result_details">{{ $data->phys3_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                        @if ($library_test_parameter->id == 65)
-                                            @foreach ($phys4 as $data)
-                                                <td class="result_details">{{ $data->phys4_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys4_final_result }}</td>
-                                                <td class="result_details">{{ $data->phys4_final_result_remarks }}</td>
-                                            @endforeach
-                                        @endif
+                @if ($library_test_parameter->id == 65)
+                @foreach ($phys4 as $data)
+                <td class="result_details">{{ $data->phys4_final_result }}</td>
+                <td class="result_details">{{ $data->phys4_final_result }}</td>
+                <td class="result_details">{{ $data->phys4_final_result_remarks }}</td>
+                @endforeach
+                @endif
 
-                                    </tr>
-                                @endif
+            </tr>
+            @endif
 
-                            @endforeach
-                        @endforeach
-                    @endforeach
-                </tr>
             @endforeach
+            @endforeach
+            @endforeach
+            </tr>
 
             <tr>
                 <td colspan="5" style="text-align: center;font-size: smaller">**NOTHING FOLLOWS**</td>
@@ -1356,7 +1366,9 @@
                 <td></td>
                 <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
                     <p style="margin-top: -10px; font-weight: 500; text-align: justify;">
-                        Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was contained and transported in a sterilized container at controlled temperature by Aqualab PH trained personnel.
+                        Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was
+                        contained and transported in a sterilized container at controlled temperature by Aqualab PH
+                        trained personnel.
                     </p>
                 </td>
             </tr>

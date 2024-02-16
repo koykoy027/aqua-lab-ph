@@ -23,10 +23,7 @@ use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
 use App\Models\Phys4;
-use App\Models\RawData;
 use App\Models\TestParameter;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 
@@ -36,7 +33,6 @@ class PdfController extends Controller
     {
         $currentDateTime = Carbon::now();
         $analysisRequests = AnalysisRequest::find($analysis_id);
-        $rawDatas = RawData::where('analysis_id', $analysis_id)->get();
         $account_number = $analysisRequests->account_number;
         $clients = Client::find($account_number);
         $labAcceptance = LabAcceptance::find($analysis_id);
@@ -89,7 +85,6 @@ class PdfController extends Controller
             'record_and_report.lab_result.pdf',
             [
                 'analysisRequests' => $analysisRequests,
-                'rawDatas' => $rawDatas,
                 'collection_details' => $collection_details,
                 'clients' => $clients,
                 'labAcceptance' => $labAcceptance,

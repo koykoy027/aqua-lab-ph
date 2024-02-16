@@ -22,9 +22,7 @@ use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
 use App\Models\Phys4;
-use App\Models\RawData;
 use App\Models\TestParameter;
-use Illuminate\Http\Request;
 
 class CreateRawDataFileController extends Controller
 {
@@ -32,7 +30,6 @@ class CreateRawDataFileController extends Controller
     {
         $requests = LabAcceptance::find($analysis_id);
         $rawDataFile = AnalysisRequest::find($requests->analysis_id);
-        $rawDataFileValue = RawData::find($requests->analysis_id);
 
         $micro1 = Micro1::where('analysis_id',$analysis_id)->get();
         $micro2 = Micro2::where('analysis_id',$analysis_id)->get();
@@ -63,7 +60,6 @@ class CreateRawDataFileController extends Controller
         return view('laboratory.lab_work_order.create', compact(
             'requests',
             'rawDataFile',
-            'rawDataFileValue',
             'test_parameters',
             'library_test_parameters',
             'micro1',

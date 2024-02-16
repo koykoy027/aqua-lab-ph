@@ -185,11 +185,7 @@ class LabAcceptanceController extends Controller
             ]);
         }
 
-
-        AnalysisRequest::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         $pendingFromLabAcceptance = LabAcceptance::query()
-
-
             ->whereHas('analysisRequest', function ($queryBuilder) use ($test_parameters) {
                 if ($test_parameters == 'micro') {
                     $queryBuilder->where('test_parameters', 'micro');

@@ -114,7 +114,7 @@
             </div>
             <div class="mb-3">
                 <label for="remarks">Remarks</label>
-                <input name="remarks" id="remarks" value="{{ $details->remarks }}" readonly
+                <input name="remarks" id="remarks" value="{{ $details->labAcceptance->remarks }}" readonly
                     autofocus autocomplete="remarks">
             </div>
         </div>

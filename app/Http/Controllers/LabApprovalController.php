@@ -34,7 +34,6 @@ class LabApprovalController extends Controller
         $queryBuilder = AnalysisRequest::query()
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
@@ -53,13 +52,12 @@ class LabApprovalController extends Controller
         $queryBuilder = AnalysisRequest::query()
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "%$query%")
+                    // ->orWhere('remarks', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
         $requests = $queryBuilder
             ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
-
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
             })
@@ -72,7 +70,6 @@ class LabApprovalController extends Controller
 
         $requests = LabAcceptance::find($analysis_id);
         $lab_approval = AnalysisRequest::find($analysis_id);
-        $rawDataFileValue = RawData::find($analysis_id);
 
         $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
         $micro2 = Micro2::where('analysis_id', $analysis_id)->get();

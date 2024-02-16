@@ -163,7 +163,6 @@ class LabResultStatusController extends Controller
 
         $clients = Client::find($analysis->account_number);
         $acceptance = LabAcceptance::find($analysis_id);
-        $rawData = RawData::find($analysis_id);
         $sampleCondition = SampleCondition::where('lab_acceptance', $acceptance->id)->get();
 
         $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
@@ -196,7 +195,6 @@ class LabResultStatusController extends Controller
             'analysis',
             'clients',
             'acceptance',
-            'rawData',
             'test_parameters',
             'library_test_parameters',
             'micro1',
