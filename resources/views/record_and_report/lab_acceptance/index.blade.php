@@ -1,12 +1,20 @@
 @extends('layouts.app')
-@section('title', 'Lab Acceptance')
+@section('title', 'Lab acceptance')
 @section('content')
 
+    <div class="mb-3 justify-end lg:flex">
+        <div class="bg-white card">
+            @include('components.datefilter')
+        </div>
+    </div>
+
     <div class="mb-3 bg-white card">
-        <div class="flex justify-between gap-2">
-            <div class="justify-start lg:flex">
-                @include('components.datefilter')
+        <div class="flex justify-between items-center gap-2">
+            <div class="ml-1 text-sm font-medium text-gray-500 md:ml-2s">
+                <h1 class="uppercase">@yield('title')</h1>
+                <p class="text-xs">List of all Samples</p>
             </div>
+
             <div class="justify-end lg:flex">
                 @include('components.search')
             </div>
@@ -29,10 +37,13 @@
                             Time
                         </th>
                         {{-- <th scope="col" class="px-6 py-3">
-                        Sample Condition
-                    </th> --}}
+                            Sample Condition
+                        </th> --}}
                         <th scope="col" class="px-6 py-3">
                             Remarks
+                        </th>
+                        <th scope="col" class="sr-only">
+                            Actions
                         </th>
                     </tr>
                 </thead>
@@ -54,8 +65,8 @@
 
                             </td>
                             {{-- <td class="px-6 py-4">
-                        {{ $acceptance->sample_condition }}
-                    </td> --}}
+                                {{ $acceptance->sample_condition }}
+                            </td> --}}
                             <td class="px-6 py-4">
                                 <span
                                     class="mr-2 rounded  px-2.5 py-0.5 text-xs font-medium
@@ -72,6 +83,10 @@
                                 ">
                                     {{ $acceptance->remarks }}
                                 </span>
+                            </td>
+                            <td class="px-6 py-4 text-right">
+                                <a href="{{ route('record-and-report.lab-acceptance.details', ['analysis_id' => $acceptance->analysis_id]) }}"
+                                    class="font-medium text-blue-600 hover:underline">View all details</a>
                             </td>
                         </tr>
                     @endforeach

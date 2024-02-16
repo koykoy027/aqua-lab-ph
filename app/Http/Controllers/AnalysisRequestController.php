@@ -392,9 +392,5 @@ class AnalysisRequestController extends Controller
         return view('record_and_report.analysis_request.index', compact('requests', 'query'));
     }
 
-    public function details($analysis_id)
-    {
-        $details = AnalysisRequest::find($analysis_id);
-        return view('record_and_report.analysis_request.details', compact('details'));
-    }
+    
 }

@@ -2,14 +2,19 @@
 @section('title', 'Lab Acceptance table')
 @section('content')
 
+    <div class="mb-3 justify-end lg:flex">
+        <div class="bg-white card">
+            @include('components.datefilter')
+        </div>
+    </div>
+
     <div class="mb-3 bg-white card">
-        <div class="flex justify-between gap-2">
-            <div class="justify-start lg:flex">
-                @include('components.datefilter')
+        <div class="flex justify-between items-center gap-2">
+            <div class="ml-1 text-sm font-medium text-gray-500 md:ml-2s">
+                <h1 class="uppercase">@yield('title')</h1>
+                <p class="text-xs">List of all Analysis Request</p>
             </div>
-            <div class="justify-end lg:flex">
-                @include('components.search')
-            </div>
+            @include('components.search')
         </div>
 
 

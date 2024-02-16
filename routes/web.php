@@ -111,8 +111,9 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
     Route::prefix('record-and-report')->group(function () {
 
         Route::get('lab-acceptance', [LabAcceptanceController::class, 'index'])->name('record-and-report.lab-acceptance.index');
+        Route::get('lab-acceptance/{analysis_id}', [LabAcceptanceController::class, 'details'])->name('record-and-report.lab-acceptance.details');
+
         Route::get('analysis-request', [AnalysisRequestController::class, 'index'])->name('record-and-report.analysis-request.index');
-        Route::get('analysis-request/{analysis_id}', [AnalysisRequestController::class, 'details'])->name('record-and-report.analysis-request.details');
 
         Route::get('facility', function () {
             return view('record_and_report.facility.index');

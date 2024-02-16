@@ -40,6 +40,12 @@ class LabAcceptanceController extends Controller
         ));
     }
 
+    public function details($analysis_id) // record and reports
+    {
+        $details = AnalysisRequest::find($analysis_id);
+        return view('record_and_report.lab_acceptance.details', compact('details'));
+    }
+
 
     public function micro(Request $request)
     {

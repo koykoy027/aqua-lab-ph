@@ -3,10 +3,12 @@
 @section('content')
 
     <div class="mb-3 bg-white card">
-        <div class="flex justify-end gap-2">
-            <div class="justify-end lg:flex">
-                @include('components.search')
+        <div class="flex justify-between items-center gap-2">
+            <div class="ml-1 text-sm font-medium text-gray-500 md:ml-2s">
+                <h1 class="uppercase">@yield('title')</h1>
+                <p class="text-xs">List of Clients</p>
             </div>
+            @include('components.search')
         </div>
 
         <div class="relative overflow-x-auto sm:rounded-lg">

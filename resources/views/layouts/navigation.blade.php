@@ -242,10 +242,10 @@
                         <div id="dropdownNavbar"
                             class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
-                                <li>
+                                {{-- <li>
                                     <a href="{{ route('record-and-report.analysis-request.index') }}"
                                         class="block px-4 py-2 hover:bg-gray-100">Analysis Request</a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{ route('record-and-report.lab-acceptance.index') }}"
                                         class="block px-4 py-2 hover:bg-gray-100">Lab Acceptance</a>

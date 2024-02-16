@@ -24,11 +24,15 @@ class ScheduleAndSampleInformationController extends Controller
 
 
     public function show($account_number){
+        $clients = Client::find($account_number);
         $analysisRequest = AnalysisRequest::query()
         ->where('account_number', $account_number)
 
         ->paginate(10);
 
-        return view('service.schedule_and_sample_information.profile_table', compact('analysisRequest'));
+        return view('service.schedule_and_sample_information.profile_table', compact(
+            'analysisRequest',
+            'clients',
+        ));
     }
 }
