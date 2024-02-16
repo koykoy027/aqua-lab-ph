@@ -125,27 +125,35 @@ class LabApprovalController extends Controller
         ));
     }
 
-    public function approval($analysis_id)
+    public function approveOrDisapprove(Request $request, $analysis_id)
     {
+        $btnApproveOrDisapprove = $request->btnApproveOrDisapprove;
 
-        $lab = LabAcceptance::findOrFail($analysis_id);
-        $lab->update(['remarks' => 'Approve']);
+        $labAcceptance = LabAcceptance::findOrFail($analysis_id);
+        $labAcceptance->update(['remarks' => $btnApproveOrDisapprove]);
 
-        $analysis = LabAcceptance::findOrFail($analysis_id);
-        $analysis->update(['remarks' => 'Approve']);
 
-        return redirect()->back()->with(['message' => 'Item has been successfully Approved!']);
-    }
+        $findPendingInLabAcceptance = LabAcceptance::query()
+            ->whereHas('analysisRequest', function ($queryBuilder) use ($labAcceptance) {
 
-    public function disapprove($analysis_id)
-    {
+                if ($labAcceptance->analysisRequest->test_parameters == 'micro') {
+                    $queryBuilder->where('test_parameters', 'micro');
+                } else {
+                    $queryBuilder->whereIn('test_parameters', ['phys', 'chem']);
+                }
+            })
+            ->whereIn('remarks', ['Testing on-going', 'For approval', 'For releasing'])
+            ->first();
 
-        $lab = LabAcceptance::findOrFail($analysis_id);
-        $lab->update(['remarks' => 'Disapprove']);
-
-        $analysis = AnalysisRequest::findOrFail($analysis_id);
-        $analysis->update(['remarks' => 'Disapprove']);
-
-        return redirect()->back()->with(['error' => 'Item has been Disapproved']);
+        if ($findPendingInLabAcceptance) {
+            return redirect()
+                ->route('laboratory.lab_approval.details', $findPendingInLabAcceptance->id)
+                ->with(['message' => 'Sample ID: ' . $labAcceptance->sample_id . ' has been ' . $btnApproveOrDisapprove . '. Redirect to Sample ID: ' . $findPendingInLabAcceptance->sample_id]);
+        } else {
+            $routeName = $labAcceptance->analysisRequest->test_parameters == 'micro' ? 'laboratory.lab_approval.micro' : 'laboratory.lab_approval.phyChem';
+            return redirect()
+                ->route($routeName)
+                ->with(['message' => 'No more Pending Samples.']);
+        }
     }
 }

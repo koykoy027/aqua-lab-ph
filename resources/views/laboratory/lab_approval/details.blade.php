@@ -39,16 +39,12 @@
  @endif
 
 <div class="flex justify-end gap-4">
-    <form action="{{ route('laboratory.lab_approval.approval', ['analysis_id' => $lab_approval->analysis_id]) }}" method="POST">
+    <form action="{{ route('laboratory.lab_approval.approveOrDisapprove', ['analysis_id' => $lab_approval->analysis_id]) }}" method="POST">
         @csrf
         <div class="flex justify-end">
-            <button class="btn btn-primary">Approve</button>
+            <input class="btn btn-primary" name="btnApproveOrDisapprove" type="submit" value="Approve"/>
+            <input class="btn btn-primary" name="btnApproveOrDisapprove" type="submit" value="Disapprove"/>
         </div>
-    </form>
-
-    <form action="{{ route('laboratory.lab_approval.disapprove', ['analysis_id' => $lab_approval->analysis_id]) }}" method="POST">
-        @csrf
-        <button class="btn btn-danger">Disapprove</button>
     </form>
 </div>
 

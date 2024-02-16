@@ -105,8 +105,7 @@ Route::middleware('auth', 'status', 'verified')->group(function () {
         Route::get('lab-approval/phyChem', [LabApprovalController::class, 'phyChem'])->name('laboratory.lab_approval.phyChem');
         Route::get('lab-approval/details/{analysis_id}', [LabApprovalController::class, 'details'])->name('laboratory.lab_approval.details');
 
-        Route::post('lab-approval/details/{analysis_id}/approve', [LabApprovalController::class, 'approval'])->name('laboratory.lab_approval.approval');
-        Route::post('lab-approval/details/{analysis_id}/disapprove', [LabApprovalController::class, 'disapprove'])->name('laboratory.lab_approval.disapprove');
+        Route::post('lab-approval/details/{analysis_id}/approveOrDisapprove', [LabApprovalController::class, 'approveOrDisapprove'])->name('laboratory.lab_approval.approveOrDisapprove');
     });
 
     Route::prefix('record-and-report')->group(function () {
