@@ -34,7 +34,7 @@
                                 {{ $request->analysis_id_ }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $request->test_parameters }}
+                                {{ $request->test_parameters_type }}
                             </td>
                             <td class="px-6 py-4">
                                 <span

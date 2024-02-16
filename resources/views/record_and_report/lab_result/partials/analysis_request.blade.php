@@ -96,9 +96,9 @@
 
     <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
-            <label for="test_parameters">Test Parameters</label>
-            <input name="test_parameters" id="test_parameters" value="{{ $analysis->test_parameters }}" readonly
-                autofocus autocomplete="test_parameters">
+            <label for="test_parameters_type">Test Parameters</label>
+            <input name="test_parameters_type" id="test_parameters_type" value="{{ $analysis->test_parameters_type }}" readonly
+                autofocus autocomplete="test_parameters_type">
         </div>
     </div>
 </div>
