@@ -530,23 +530,17 @@ const chem3 = () => {
 // chem4
 
 const chem4 = () => {
-    var chem4_instrument_reading = parseFloat(
-        document.querySelector('[name="chem4_instrument_reading"]').value
-    );
-    var chem4_final_result = document.querySelector(
-        '[name="chem4_final_result"]'
-    );
-    var chem4_final_result_remarks = document.querySelector(
-        '[name="chem4_final_result_remarks"]'
-    );
+    var chem4_instrument_reading = parseFloat(document.querySelector('[name="chem4_instrument_reading"]').value);
+    var chem4_final_result = document.querySelector('[name="chem4_final_result"]');
+    var chem4_final_result_remarks = document.querySelector('[name="chem4_final_result_remarks"]');
 
-    if (chem4_instrument_reading >= 1.5) {
-        chem4_final_result_remarks.value = "FAIL";
-    } else if (chem4_instrument_reading <= 0.3) {
-        chem4_final_result_remarks.value = "FAIL";
-    } else {
-        chem4_final_result_remarks.value = "PASS";
-    }
+    // if (chem4_instrument_reading >= 1.5) {
+    //     chem4_final_result_remarks.value = "FAIL";
+    // } else if (chem4_instrument_reading <= 0.3) {
+    //     chem4_final_result_remarks.value = "FAIL";
+    // } else {
+    //     chem4_final_result_remarks.value = "PASS";
+    // }
 
     chem4_final_result.value = chem4_instrument_reading.toFixed(0);
 };

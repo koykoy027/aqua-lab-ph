@@ -26,7 +26,7 @@
 
             <div class="mb-3">
                 <label for="chem4_final_result_remarks">Final Result Remarks</label>
-                <input id="chem4_final_result_remarks" type="text" name="chem4_final_result_remarks" value="{{ $chem4s->chem4_final_result_remarks }}" required autofocus autocomplete="chem4_final_result_remarks" readonly>
+                <input id="chem4_final_result_remarks" type="text" name="chem4_final_result_remarks" value="{{ $chem4s->chem4_final_result_remarks }}" required autofocus autocomplete="chem4_final_result_remarks">
                 @error('chem4_final_result_remarks')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>
