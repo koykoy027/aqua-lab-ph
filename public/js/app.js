@@ -413,32 +413,18 @@ const micro3 = () => {
 // micro 4
 
 const micro4 = () => {
-    var micr4_color_of_the_sample = parseFloat(
-        document.querySelector('[name="micr4_color_of_the_sample"]').value
-    );
-    var micr4_fluorescence = parseFloat(
-        document.querySelector('[name="micr4_fluorescence"]').value // Changed to "micr4_fluorescence"
-    );
-    var micr4_final_result = document.querySelector(
-        '[name="micr4_final_result"]'
-    );
-    var micr4_final_result_remark = document.querySelector(
-        '[name="micr4_final_result_remark"]'
-    );
+    var micr4_color_of_the_sample = document.querySelector('[name="micr4_color_of_the_sample"]');
+    var micr4_fluorescence = document.querySelector('[name="micr4_fluorescence"]').value;
+    var micr4_final_result = document.querySelector('[name="micr4_final_result"]');
+    var micr4_final_result_remark = document.querySelector('[name="micr4_final_result_remark"]');
 
-    var mir4 = micr4_final_result.value; // Added "var" before "mir4"
-
-    if (mir4 == "Absent") {
-        micr4_final_result_remark.value = "PASS";
-    } else {
-        micr4_final_result_remark.value = "FAIL";
-    }
+    // if Fluorescence = NON-FLUORESCENT = ABSENT = PASS
+    micr4_final_result.value = micr4_fluorescence == 'Non-Fluorescence' ? 'Absent' : 'Present';
+    micr4_final_result_remark.value = micr4_final_result.value == 'Absent' ? 'Pass' : 'Fail';
 };
 
 // can be seen in laboratory.lab_work_order-partials
-
 // chem1
-
 const chem1 = () => {
     var chem1_instrument_reading_1 = document.querySelector(
         '[name="chem1_instrument_reading_1"]'
