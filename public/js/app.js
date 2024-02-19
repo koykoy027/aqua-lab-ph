@@ -2,7 +2,7 @@
 //     var micro = document.querySelector(".micro");
 //     var pychem = document.querySelector(".pychem");
 
-//     if (val === "micro") {
+//     if (val == "micro") {
 //         micro.classList.remove("hidden");
 //         pychem.classList.add("hidden");
 
@@ -15,7 +15,7 @@
 //         });
 //     }
 
-//     if (val === "pychem") {
+//     if (val == "pychem") {
 //         micro.classList.add("hidden");
 //         pychem.classList.remove("hidden");
 
@@ -40,15 +40,15 @@ function toggleTestParameters(selectedValue, selectElement) {
     var divPhch = document.getElementById("phch");
 
     // Check the selected value and toggle the visibility of each div accordingly.
-    if (selectedValue === "12") {
+    if (selectedValue == "12") {
         divMicrox.classList.remove("hidden");
         divChemx.classList.add("hidden");
         divPhch.classList.add("hidden");
-    } else if (selectedValue === "58") {
+    } else if (selectedValue == "58") {
         divMicrox.classList.add("hidden");
         divChemx.classList.remove("hidden");
         divPhch.classList.add("hidden");
-    } else if (selectedValue === "61") {
+    } else if (selectedValue == "61") {
         divMicrox.classList.add("hidden");
         divChemx.classList.add("hidden");
         divPhch.classList.remove("hidden");
@@ -81,7 +81,7 @@ const marketSegment = (val) => {
     var input = document.getElementById("market_segment_others");
     var marketSegmentInput = document.getElementById("client_id");
 
-    if (val === "Others") {
+    if (val == "Others") {
         // actve readonly
         input.removeAttribute("readonly");
     } else {
@@ -103,7 +103,7 @@ const marketSegment = (val) => {
     let currentMonth = (currentDate.getMonth() + 1).toString().padStart(2, "0");
     let currentYear = currentDate.getFullYear().toString().slice(-2);
 
-    if (val === "0001 - Water Refilling Station") {
+    if (val == "0001 - Water Refilling Station") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -111,7 +111,7 @@ const marketSegment = (val) => {
             currentYear +
             "WRS0001" +
             currentAccountNumber;
-    } else if (val === "002A - Food and Beverages (Service)") {
+    } else if (val == "002A - Food and Beverages (Service)") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -119,7 +119,7 @@ const marketSegment = (val) => {
             currentYear +
             "FBS002A" +
             currentAccountNumber;
-    } else if (val === "002B - Food and Beverages (Manufacturer)") {
+    } else if (val == "002B - Food and Beverages (Manufacturer)") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -127,7 +127,7 @@ const marketSegment = (val) => {
             currentYear +
             "FBM002B" +
             currentAccountNumber;
-    } else if (val === "003 - Hospitality Industry") {
+    } else if (val == "003 - Hospitality Industry") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -135,7 +135,7 @@ const marketSegment = (val) => {
             currentYear +
             "HI003" +
             currentAccountNumber;
-    } else if (val === "004A - Healthcare (Dialysis)") {
+    } else if (val == "004A - Healthcare (Dialysis)") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -143,7 +143,7 @@ const marketSegment = (val) => {
             currentYear +
             "HD004A" +
             currentAccountNumber;
-    } else if (val === "004B - Healthcare (Lying-in)") {
+    } else if (val == "004B - Healthcare (Lying-in)") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -151,7 +151,7 @@ const marketSegment = (val) => {
             currentYear +
             "HL004B" +
             currentAccountNumber;
-    } else if (val === "004C - Healthcare (Hospital)") {
+    } else if (val == "004C - Healthcare (Hospital)") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -159,7 +159,7 @@ const marketSegment = (val) => {
             currentYear +
             "HH004C" +
             currentAccountNumber;
-    } else if (val === "005 - Water Service Provider") {
+    } else if (val == "005 - Water Service Provider") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -167,7 +167,7 @@ const marketSegment = (val) => {
             currentYear +
             "WSP005" +
             currentAccountNumber;
-    } else if (val === "006 - Residential") {
+    } else if (val == "006 - Residential") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -175,7 +175,7 @@ const marketSegment = (val) => {
             currentYear +
             "RE006" +
             currentAccountNumber;
-    } else if (val === "007 - Academe") {
+    } else if (val == "007 - Academe") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -183,7 +183,7 @@ const marketSegment = (val) => {
             currentYear +
             "AC007" +
             currentAccountNumber;
-    } else if (val === "008 - Industries") {
+    } else if (val == "008 - Industries") {
         marketSegmentInput.value =
             areaCode +
             twoLetterOfTheCity +
@@ -199,7 +199,7 @@ const marketSegment = (val) => {
 // can be seen in service.add-analysis-request-form
 const collectionPoint = (val) => {
     var input = document.getElementById("collection_point_others");
-    if (val === "Others") {
+    if (val == "Others") {
         // actve readonly
 
         input.removeAttribute("readonly");
@@ -226,7 +226,7 @@ const samplingLocationAddress = (val) => {
     var barangay_name = document.getElementById("barangay_name").value;
     var zip_code = document.getElementById("zip_code").value;
 
-    if (val === "SAME AS ADDRESS") {
+    if (val == "SAME AS ADDRESS") {
         input.setAttribute("readonly", "readonly");
         input.value =
             unit_no_floor_bldg_name +
@@ -251,7 +251,7 @@ const samplingLocationAddress = (val) => {
 // can be seen in service.add-analysis-request-form
 const sourceOfWaterSample = (val) => {
     var input = document.getElementById("source_of_water_sample_others");
-    if (val === "Others") {
+    if (val == "Others") {
         // actve readonly
         input.removeAttribute("readonly");
     } else {
@@ -264,7 +264,7 @@ const sourceOfWaterSample = (val) => {
 // can be seen in service.add-analysis-request-form
 const typeOfWater = (val) => {
     var input = document.getElementById("type_of_water_others");
-    if (val === "Others") {
+    if (val == "Others") {
         // actve readonly
         input.removeAttribute("readonly");
     } else {
@@ -277,7 +277,7 @@ const typeOfWater = (val) => {
 // can be seen in service.add-analysis-request-form
 const waterPurpose = (val) => {
     var input = document.getElementById("water_purpose_others");
-    if (val === "Others") {
+    if (val == "Others") {
         // actve readonly
         input.removeAttribute("readonly");
     } else {
@@ -291,7 +291,7 @@ const waterPurpose = (val) => {
 const test = (val) => {
     var inputFields = document.querySelector("#if_remarks_are_rejected");
 
-    if (val === "Rejected") {
+    if (val == "Rejected") {
         inputFields.removeAttribute("readonly");
     } else {
         inputFields.setAttribute("readonly", true);
@@ -301,98 +301,45 @@ const test = (val) => {
 
 // can be seen in laboratory.lab_work_order-partials
 const micro1 = () => {
+
+    // variables
     var water_purpose = document.querySelector('[name="water_purpose"]');
+    var micr1_hpc_plate_a = parseFloat(document.querySelector('[name="micr1_hpc_plate_a"]').value);
+    var micr1_hpc_plate_b = parseFloat(document.querySelector('[name="micr1_hpc_plate_b"]').value);
+    var micr1_hpc_average = document.querySelector('[name="micr1_hpc_average"]');
+    var micr1_hpc_difference = document.querySelector('[name="micr1_hpc_difference"]');
+    var micr1_hpc_final_result = document.querySelector('[name="micr1_hpc_final_result"]');
+    var micr1_hpc_remarks = document.querySelector('[name="micr1_hpc_remarks"]');
 
-    var micr1_hpc_plate_a = parseFloat(
-        document.querySelector('[name="micr1_hpc_plate_a"]').value
-    );
-    var micr1_hpc_plate_b = parseFloat(
-        document.querySelector('[name="micr1_hpc_plate_b"]').value
-    );
-    var micr1_hpc_average = document.querySelector(
-        '[name="micr1_hpc_average"]'
-    );
-    var micr1_hpc_difference = document.querySelector(
-        '[name="micr1_hpc_difference"]'
-    );
-    var micr1_hpc_final_result = document.querySelector(
-        '[name="micr1_hpc_final_result"]'
-    );
-    var micr1_hpc_remarks = document.querySelector(
-        '[name="micr1_hpc_remarks"]'
-    );
+    watersample = water_purpose.value; // Drinking | Dialysis | Others
 
-    watersample = water_purpose.value;
-
+    // computation
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
     var averagecolony = microvalues / 2;
-
     var roundedAverage = Math.ceil(averagecolony);
+    var microdifference = Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
+    var roundedNumber = Math.round(roundedAverage / 10) * 10;
 
-    var microdifference =
-        Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
-
-    if (watersample === "Drinking") {
-        if (roundedAverage >= 100) {
-            var roundedNumber = Math.round(roundedAverage / 10) * 10;
-            micr1_hpc_average.value = roundedAverage;
-            micr1_hpc_difference.value = microdifference.toFixed(3);
-
-            if (micr1_hpc_average.value >= 500) {
-                micr1_hpc_final_result.value = ">500 est";
-            } else {
-                micr1_hpc_final_result.value = roundedNumber.toFixed(0);
-            }
-        } else {
-            // micr1_hpc_final_result.value = averagecolony.toFixed(0);
-            micr1_hpc_average.value = averagecolony.toFixed(2);
-            micr1_hpc_difference.value = microdifference.toFixed(2);
-
-            if (micr1_hpc_average.value <= 0) {
-                micr1_hpc_final_result.value = "<1.0";
-            } else {
-                micr1_hpc_final_result.value = averagecolony.toFixed(0);
-            }
-        }
-
-        if (micr1_hpc_final_result.value == ">500 est") {
-            micr1_hpc_remarks.value = "FAIL";
-        } else if (micr1_hpc_final_result.value == "<1.0") {
-            micr1_hpc_remarks.value = "FAIL";
-        } else {
-            micr1_hpc_remarks.value = "PASS";
-        }
-    } else if (watersample === "Dialysis") {
-        if (roundedAverage >= 100) {
-            var roundedNumber = Math.round(roundedAverage / 10) * 10;
-            micr1_hpc_average.value = roundedAverage;
-            micr1_hpc_difference.value = microdifference.toFixed(3);
-
-            if (micr1_hpc_average.value >= 200) {
-                micr1_hpc_final_result.value = ">200 est";
-            } else {
-                micr1_hpc_final_result.value = roundedNumber.toFixed(0);
-            }
-        } else {
-            // micr1_hpc_final_result.value = averagecolony.toFixed(0);
-            micr1_hpc_average.value = averagecolony.toFixed(2);
-            micr1_hpc_difference.value = microdifference.toFixed(2);
-
-            if (micr1_hpc_average.value <= 0) {
-                micr1_hpc_final_result.value = "<1.0";
-            } else {
-                micr1_hpc_final_result.value = averagecolony.toFixed(0);
-            }
-        }
-
-        if (micr1_hpc_final_result.value == ">200 est") {
-            micr1_hpc_remarks.value = "FAIL";
-        } else if (micr1_hpc_final_result.value == "<1.0") {
-            micr1_hpc_remarks.value = "FAIL";
-        } else {
-            micr1_hpc_remarks.value = "PASS";
-        }
+    if (watersample == "Dialysis"){ // DIALYSIS - IF THE roundedAverage IS >200 REMARKS WILL STILL BE "FAIL"
+        micr1_hpc_remarks.value = roundedAverage >= 200 ? 'FAIL' : 'PASS';
+    } else { // IF [Final Result] >= 500, [Final Result Remarks] = FAIL
+        micr1_hpc_remarks.value = roundedAverage >= 500 ? 'FAIL' : 'PASS';
     }
+
+    // global
+    micr1_hpc_average.value = roundedAverage;
+    micr1_hpc_difference.value = microdifference.toFixed(3);
+
+    if (micr1_hpc_average.value >= 500) {
+        micr1_hpc_final_result.value = ">500 est";
+    }
+    else if (micr1_hpc_average.value <= 0) {
+        micr1_hpc_final_result.value = "<1.0";
+    }
+    else {
+        micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+    }
+    
 };
 
 // can be seen in laboratory.lab_work_order-partials
@@ -871,9 +818,9 @@ const phy1 = () => {
         '[name="phys1_final_result_remarks"]'
     );
 
-    if (phys1_observation === "Color without objectionable color") {
+    if (phys1_observation == "Color without objectionable color") {
         phys1_final_result.value = phys1_observation;
-        if (phys1_final_result.value === "Color without objectionable color") {
+        if (phys1_final_result.value == "Color without objectionable color") {
             phys1_final_result_remarks.value = "PASS";
         } else {
             phys1_final_result_remarks.value = "FAIL";
@@ -897,9 +844,9 @@ const phy2 = () => {
         '[name="phys2_final_result_remarks"]'
     );
 
-    if (phys2_observation === "No without objectionable color") {
+    if (phys2_observation == "No without objectionable color") {
         phys2_final_result.value = phys2_observation;
-        if (phys2_final_result.value === "No without objectionable color") {
+        if (phys2_final_result.value == "No without objectionable color") {
             phys2_final_result_remarks.value = "PASS";
         } else {
             phys2_final_result_remarks.value = "FAIL";
@@ -1058,7 +1005,7 @@ const widgetsPerCityMunicipality = (val) => {
         "#failedFecalColiformSamplesPerCityMunicipality"
     );
 
-    if (val === "No. of Samples per City/Municipality") {
+    if (val == "No. of Samples per City/Municipality") {
         console.log(val);
         samplesPerCityMunicipality.classList.remove("hidden");
         microSamplesPerCityMunicipality.classList.add("hidden");
@@ -1067,7 +1014,7 @@ const widgetsPerCityMunicipality = (val) => {
         failedHPCSamplesPerCityMunicipality.classList.add("hidden");
         totalColiformSamplesPerCityMunicipality.classList.add("hidden");
         failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
-    } else if (val === "No. of Micro Samples per City/Municipality") {
+    } else if (val == "No. of Micro Samples per City/Municipality") {
         console.log(val);
         samplesPerCityMunicipality.classList.add("hidden");
         microSamplesPerCityMunicipality.classList.remove("hidden");
@@ -1076,7 +1023,7 @@ const widgetsPerCityMunicipality = (val) => {
         failedHPCSamplesPerCityMunicipality.classList.add("hidden");
         totalColiformSamplesPerCityMunicipality.classList.add("hidden");
         failedFecalColiformSamplesPerCityMunicipality.classList.add("hidden");
-    } else if (val === "No. of Phy-Chem Samples per City/Municipality") {
+    } else if (val == "No. of Phy-Chem Samples per City/Municipality") {
         console.log(val);
         samplesPerCityMunicipality.classList.add("hidden");
         microSamplesPerCityMunicipality.classList.add("hidden");
@@ -1099,13 +1046,13 @@ function MarketSegmenthandleSelectChange(value) {
         "none";
 
     // Show the selected div based on the value
-    if (value === "Total Samples Per segment") {
+    if (value == "Total Samples Per segment") {
         document.getElementById("TotalSamplesPersegment").style.display =
             "block";
-    } else if (value === "Total Micro Samples per segment") {
+    } else if (value == "Total Micro Samples per segment") {
         document.getElementById("TotalMicroSamplespersegment").style.display =
             "block";
-    } else if (value === "Total Pychem Samples per segment") {
+    } else if (value == "Total Pychem Samples per segment") {
         document.getElementById("TotalPychemSamplespersegment").style.display =
             "block";
     }
