@@ -34,7 +34,7 @@
 
             <div class="mb-3">
                 <label for="chem2_average_instrument_reading">Average Instrument Reading</label>
-                <input id="chem2_average_instrument_reading" type="text" name="chem2_average_instrument_reading" value="{{ $chem2s->chem2_average_instrument_reading }}" required autofocus autocomplete="chem2_average_instrument_reading" readonly>
+                <input id="chem2_average_instrument_reading" type="text" name="chem2_average_instrument_reading" value="{{ $chem2s->chem2_average_instrument_reading }}" readonly required autofocus autocomplete="chem2_average_instrument_reading" readonly>
                 @error('chem2_average_instrument_reading')
                     <span class="invalid" role="alert">
                         <strong>{{ $message }}</strong>

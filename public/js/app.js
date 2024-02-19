@@ -426,24 +426,12 @@ const micro4 = () => {
 // can be seen in laboratory.lab_work_order-partials
 // chem1
 const chem1 = () => {
-    var chem1_instrument_reading_1 = document.querySelector(
-        '[name="chem1_instrument_reading_1"]'
-    ).value;
-    var chem1_instrument_reading_2 = document.querySelector(
-        '[name="chem1_instrument_reading_2"]'
-    ).value;
-    var chem1_instrument_reading_3 = document.querySelector(
-        '[name="chem1_instrument_reading_3"]'
-    ).value;
-    var chem1_average_instrument_reading = document.querySelector(
-        '[name="chem1_average_instrument_reading"]'
-    );
-    var chem1_final_result = document.querySelector(
-        '[name="chem1_final_result"]'
-    );
-    var chem1_final_result_remarks = document.querySelector(
-        '[name="chem1_final_result_remarks"]'
-    );
+    var chem1_instrument_reading_1 = document.querySelector('[name="chem1_instrument_reading_1"]').value;
+    var chem1_instrument_reading_2 = document.querySelector('[name="chem1_instrument_reading_2"]').value;
+    var chem1_instrument_reading_3 = document.querySelector('[name="chem1_instrument_reading_3"]').value;
+    var chem1_average_instrument_reading = document.querySelector('[name="chem1_average_instrument_reading"]');
+    var chem1_final_result = document.querySelector('[name="chem1_final_result"]');
+    var chem1_final_result_remarks = document.querySelector('[name="chem1_final_result_remarks"]');
 
     var reading1 = parseFloat(chem1_instrument_reading_1);
     var reading2 = parseFloat(chem1_instrument_reading_2);
@@ -451,73 +439,41 @@ const chem1 = () => {
 
     var averageReading = (reading1 + reading2 + reading3) / 3;
 
-    if (averageReading.toFixed(0) < 6.5 || averageReading.toFixed(0) > 8.5) {
+    if (averageReading < 6.5 || averageReading > 8.5) {
         chem1_final_result_remarks.value = "FAIL";
     } else {
         chem1_final_result_remarks.value = "PASS";
     }
 
-    if (averageReading < 1.1) {
-        chem1_final_result.value = averageReading.toFixed(1);
-        chem1_average_instrument_reading.value = averageReading.toFixed(1);
-    } else if (averageReading < 2.6) {
-        chem1_final_result.value = averageReading.toFixed(1);
-        chem1_average_instrument_reading.value = averageReading.toFixed(1);
-    } else if (averageReading < 4.6) {
-        chem1_final_result.value = averageReading.toFixed(1);
-        chem1_average_instrument_reading.value = averageReading.toFixed(1);
-    } else if (averageReading < 8.0) {
-        chem1_final_result.value = averageReading.toFixed(1);
-        chem1_average_instrument_reading.value = averageReading.toFixed(1);
-    } else {
-        chem1_final_result.value = averageReading.toFixed(1);
-        chem1_average_instrument_reading.value = averageReading.toFixed(1);
-    }
+    chem1_average_instrument_reading.value = averageReading.toFixed(2); // eg. 5.33
+    chem1_final_result.value = Math.round(averageReading); // eg. 5
 };
 
 // chem2
 
 const chem2 = () => {
-    var chem2_instrument_reading_1 = parseFloat(
-        document.querySelector('[name="chem2_instrument_reading_1"]').value
-    );
-    var chem2_instrument_reading_2 = parseFloat(
-        document.querySelector('[name="chem2_instrument_reading_2"]').value
-    );
-    var chem2_instrument_reading_3 = parseFloat(
-        document.querySelector('[name="chem2_instrument_reading_3"]').value
-    );
-    var chem2_average_instrument_reading = document.querySelector(
-        '[name="chem2_average_instrument_reading"]'
-    );
-    var chem2_final_result = document.querySelector(
-        '[name="chem2_final_result"]'
-    );
-    var chem2_final_result_remarks = document.querySelector(
-        '[name="chem2_final_result_remarks"]'
-    );
+    var chem2_instrument_reading_1 = parseFloat(document.querySelector('[name="chem2_instrument_reading_1"]').value);
+    var chem2_instrument_reading_2 = parseFloat(document.querySelector('[name="chem2_instrument_reading_2"]').value);
+    var chem2_instrument_reading_3 = parseFloat(document.querySelector('[name="chem2_instrument_reading_3"]').value);
+    var chem2_average_instrument_reading = document.querySelector('[name="chem2_average_instrument_reading"]');
+    var chem2_final_result = document.querySelector('[name="chem2_final_result"]');
+    var chem2_final_result_remarks = document.querySelector('[name="chem2_final_result_remarks"]');
 
-    var averageReading2 =
-        (chem2_instrument_reading_1 +
-            chem2_instrument_reading_2 +
-            chem2_instrument_reading_3) /
-        3;
+    var averageReading2 = (chem2_instrument_reading_1 + chem2_instrument_reading_2 + chem2_instrument_reading_3) / 3;
 
     if (averageReading2 <= 50.0) {
         chem2_final_result_remarks.value = "PASS";
     } else {
         chem2_final_result_remarks.value = "FAIL";
     }
-
-    chem2_final_result.value = averageReading2.toFixed(1);
-    chem2_average_instrument_reading.value = averageReading2.toFixed(0);
+    chem2_average_instrument_reading.value = averageReading2.toFixed(2);
+    chem2_final_result.value = averageReading2.toFixed(0);
 };
 
 // chem3
 
 const chem3 = () => {
-    var chem3_initial_wt_of_evaporating_dish_replicate_1 = parseFloat(
-        document.querySelector(
+    var chem3_initial_wt_of_evaporating_dish_replicate_1 = parseFloat(document.querySelector(
             '[name="chem3_initial_wt_of_evaporating_dish_replicate_1"]'
         ).value
     );
@@ -567,8 +523,8 @@ const chem3 = () => {
         chem3_final_result_remarks.value = "FAIL";
     }
 
-    chem3_final_result.value = averageReading3.toFixed(1);
-    chem3_average_wt_of_residue.value = averageReading3.toFixed(0);
+    chem3_average_wt_of_residue.value = averageReading3.toFixed(2);
+    chem3_final_result.value = averageReading3.toFixed(0);
 };
 
 // chem4
