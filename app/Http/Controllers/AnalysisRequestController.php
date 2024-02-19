@@ -126,10 +126,13 @@ class AnalysisRequestController extends Controller
                 ->orWhere('test_parameters', 'phys')
                 ->count();
 
+            $totalMicroFormatted = str_pad($totalMicro, 2, '0', STR_PAD_LEFT);
+            $totalPyChemFormatted = str_pad($totalPyChem, 2, '0', STR_PAD_LEFT);
+
             if ($selected == "chem" || $selected == "phys") {
-                $result = $monthPattern . $formattedDate . $totalPyChem + 1 . "PC";
+                $result = $monthPattern . $formattedDate . $totalPyChemFormatted + 1 . "PC";
             } else {
-                $result = $monthPattern . $formattedDate . $totalMicro + 1;
+                $result = $monthPattern . $formattedDate . $totalMicroFormatted + 1;
             }
 
             $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
