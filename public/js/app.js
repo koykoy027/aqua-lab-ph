@@ -341,7 +341,7 @@ const micro1 = () => {
             if (micr1_hpc_average.value >= 500) {
                 micr1_hpc_final_result.value = ">500 est";
             } else {
-                micr1_hpc_final_result.value = roundedNumber.toFixed(1);
+                micr1_hpc_final_result.value = roundedNumber.toFixed(0);
             }
         } else {
             // micr1_hpc_final_result.value = averagecolony.toFixed(0);
@@ -371,7 +371,7 @@ const micro1 = () => {
             if (micr1_hpc_average.value >= 200) {
                 micr1_hpc_final_result.value = ">200 est";
             } else {
-                micr1_hpc_final_result.value = roundedNumber.toFixed(1);
+                micr1_hpc_final_result.value = roundedNumber.toFixed(0);
             }
         } else {
             // micr1_hpc_final_result.value = averagecolony.toFixed(0);
