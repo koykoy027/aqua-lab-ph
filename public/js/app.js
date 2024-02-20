@@ -423,48 +423,6 @@ const micro4 = () => {
     micr4_final_result_remark.value = micr4_final_result.value == 'Absent' ? 'Pass' : 'Fail';
 };
 
-const micro5b = () => {
-
-    // variables
-    var water_purpose = document.querySelector('[name="water_purpose"]');
-    var micr5b_hpc_plate_a = parseFloat(document.querySelector('[name="micr5b_hpc_plate_a"]').value);
-    var micr5b_hpc_plate_b = parseFloat(document.querySelector('[name="micr5b_hpc_plate_b"]').value);
-    var micr5b_hpc_average = document.querySelector('[name="micr5b_hpc_average"]');
-    var micr5b_hpc_difference = document.querySelector('[name="micr5b_hpc_difference"]');
-    var micr5b_hpc_final_result = document.querySelector('[name="micr5b_hpc_final_result"]');
-    var micr5b_hpc_remarks = document.querySelector('[name="micr5b_hpc_remarks"]');
-
-    watersample = water_purpose.value; // Drinking | Dialysis | Others
-
-    // computation
-    var microvalues = micr5b_hpc_plate_a + micr5b_hpc_plate_b;
-    var averagecolony = microvalues / 2;
-    var roundedAverage = Math.ceil(averagecolony);
-    var microdifference = Math.abs(micr5b_hpc_plate_a - micr5b_hpc_plate_b) / microvalues / 2;
-    var roundedNumber = Math.round(roundedAverage / 10) * 10;
-
-    if (watersample == "Dialysis"){ // DIALYSIS - IF THE roundedAverage IS >200 REMARKS WILL STILL BE "FAIL"
-        micr5b_hpc_remarks.value = roundedAverage >= 200 ? 'FAIL' : 'PASS';
-    } else { // IF [Final Result] >= 500, [Final Result Remarks] = FAIL
-        micr5b_hpc_remarks.value = roundedAverage >= 500 ? 'FAIL' : 'PASS';
-    }
-
-    // global
-    micr5b_hpc_average.value = roundedAverage;
-    micr5b_hpc_difference.value = microdifference.toFixed(3);
-
-    if (micr5b_hpc_average.value >= 500) {
-        micr5b_hpc_final_result.value = ">500 est";
-    }
-    else if (micr5b_hpc_average.value <= 0) {
-        micr5b_hpc_final_result.value = "<1.0";
-    }
-    else {
-        micr5b_hpc_final_result.value = roundedNumber.toFixed(0);
-    }
-    
-};
-
 // can be seen in laboratory.lab_work_order-partials
 // chem1
 const chem1 = () => {

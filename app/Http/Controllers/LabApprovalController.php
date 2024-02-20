@@ -18,7 +18,6 @@ use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
-use App\Models\Micro5B;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -78,7 +77,6 @@ class LabApprovalController extends Controller
         $micro2 = Micro2::where('analysis_id', $analysis_id)->get();
         $micro3 = Micro3::where('analysis_id', $analysis_id)->get();
         $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
-        $micro5b = Micro5B::where('analysis_id', $analysis_id)->first();
 
         $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
         $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
@@ -110,7 +108,6 @@ class LabApprovalController extends Controller
             'micro2',
             'micro3',
             'micro4',
-            'micro5b',
             'chem1',
             'chem2',
             'chem3',

@@ -19,7 +19,6 @@ use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
-use App\Models\Micro5B;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -150,14 +149,14 @@ class AnalysisRequestController extends Controller
 
             $selectedParameters = $request->input('selectedParameters', []);
 
-            if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6) {
+            if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7) {
                 Micro1::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 1,
                 ]);
             }
 
-            if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 10) {
+            if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 10) {
 
                 Micro2::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -171,18 +170,11 @@ class AnalysisRequestController extends Controller
                     'test_parameters_id' => 4,
                 ]);
             }
-            if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5 || $test_parameters_dropdown == 9) {
+            if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 9) {
 
                 Micro4::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 5,
-                ]);
-            }
-            if (in_array(7, $selectedParameters) || $test_parameters_dropdown == 7) {
-
-                Micro5B::create([
-                    'analysis_id' => $analysisRequest->analysis_id,
-                    'test_parameters_id' => 7,
                 ]);
             }
             if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
@@ -298,22 +290,20 @@ class AnalysisRequestController extends Controller
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters' => 4,
                 ]);
-            }
-            // else if ($test_parameters_dropdown == 7) { // if dropdown = MICRO5B,
-            //     TestParameter::create([
-            //         'analysis_id' => $analysisRequest->analysis_id,
-            //         'test_parameters' => 1,
-            //     ]);
-            //     TestParameter::create([
-            //         'analysis_id' => $analysisRequest->analysis_id,
-            //         'test_parameters' => 3,
-            //     ]);
-            //     TestParameter::create([
-            //         'analysis_id' => $analysisRequest->analysis_id,
-            //         'test_parameters' => 5,
-            //     ]);
-            // }
-            else if ($test_parameters_dropdown == 8) { // if dropdown = MICRO5C,
+            } else if ($test_parameters_dropdown == 7) { // if dropdown = MICRO5B,
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 1,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 3,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 5,
+                ]);
+            } else if ($test_parameters_dropdown == 8) { // if dropdown = MICRO5C,
                 TestParameter::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters' => 3,
@@ -342,9 +332,7 @@ class AnalysisRequestController extends Controller
                 ]);
             }
 
-            // 12 = MICROX
-            // 58 = CHEMX
-            // 61 = PHYSX
+            // 12 = MICROX, 58 = CHEMX, 61 = PHYSX
             // 6 = MICRO5
             // 7 = MICRO5B
             if (
@@ -352,7 +340,7 @@ class AnalysisRequestController extends Controller
                 $test_parameters_dropdown != 58 &&
                 $test_parameters_dropdown != 61 &&
                 $test_parameters_dropdown != 6 &&
-                // $test_parameters_dropdown != 7 &&
+                $test_parameters_dropdown != 7 &&
                 $test_parameters_dropdown != 8 &&
                 $test_parameters_dropdown != 9 &&
                 $test_parameters_dropdown != 10
