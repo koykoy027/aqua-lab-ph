@@ -18,6 +18,7 @@ use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
+use App\Models\Micro5B;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -31,25 +32,25 @@ class CreateRawDataFileController extends Controller
         $requests = LabAcceptance::find($analysis_id);
         $rawDataFile = AnalysisRequest::find($requests->analysis_id);
 
-        $micro1 = Micro1::where('analysis_id',$analysis_id)->get();
-        $micro2 = Micro2::where('analysis_id',$analysis_id)->get();
-        $micro3 = Micro3::where('analysis_id',$analysis_id)->get();
-        $micro4 = Micro4::where('analysis_id',$analysis_id)->get();
+        $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
+        $micro2 = Micro2::where('analysis_id', $analysis_id)->get();
+        $micro3 = Micro3::where('analysis_id', $analysis_id)->get();
+        $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
+        $micro5b = Micro5B::where('analysis_id', $analysis_id)->first();
+        $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
+        $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
+        $chem3 = Chem3::where('analysis_id', $analysis_id)->get();
+        $chem4 = Chem4::where('analysis_id', $analysis_id)->get();
+        $chem5 = Chem5::where('analysis_id', $analysis_id)->get();
+        $chem6 = Chem6::where('analysis_id', $analysis_id)->get();
+        $chem7 = Chem7::where('analysis_id', $analysis_id)->get();
+        $chem9 = Chem9::where('analysis_id', $analysis_id)->get();
+        $chem10 = Chem10::where('analysis_id', $analysis_id)->get();
 
-        $chem1 = Chem1::where('analysis_id',$analysis_id)->get();
-        $chem2 = Chem2::where('analysis_id',$analysis_id)->get();
-        $chem3 = Chem3::where('analysis_id',$analysis_id)->get();
-        $chem4 = Chem4::where('analysis_id',$analysis_id)->get();
-        $chem5 = Chem5::where('analysis_id',$analysis_id)->get();
-        $chem6 = Chem6::where('analysis_id',$analysis_id)->get();
-        $chem7 = Chem7::where('analysis_id',$analysis_id)->get();
-        $chem9 = Chem9::where('analysis_id',$analysis_id)->get();
-        $chem10 = Chem10::where('analysis_id',$analysis_id)->get();
-
-        $phys1 = Phys1::where('analysis_id',$analysis_id)->get();
-        $phys2 = Phys2::where('analysis_id',$analysis_id)->get();
-        $phys3 = Phys3::where('analysis_id',$analysis_id)->get();
-        $phys4 = Phys4::where('analysis_id',$analysis_id)->get();
+        $phys1 = Phys1::where('analysis_id', $analysis_id)->get();
+        $phys2 = Phys2::where('analysis_id', $analysis_id)->get();
+        $phys3 = Phys3::where('analysis_id', $analysis_id)->get();
+        $phys4 = Phys4::where('analysis_id', $analysis_id)->get();
 
         $test_parameters = TestParameter::query()
             ->where('analysis_id', $analysis_id)
@@ -66,6 +67,7 @@ class CreateRawDataFileController extends Controller
             'micro2',
             'micro3',
             'micro4',
+            'micro5b',
             'chem1',
             'chem2',
             'chem3',

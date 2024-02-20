@@ -8,6 +8,7 @@ use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
 use App\Models\Micro4;
+use App\Models\Micro5B;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
@@ -31,6 +32,11 @@ class MicroController extends Controller
         }
         if ($request->input('micr4_final_result') == !NULL) {
             $micro = Micro4::where('analysis_id', $analysis_id)->firstOrFail();
+            $micro->update($request->all());
+        }
+
+        if ($request->input('micr5b_hpc_plate_a') == !NULL) {
+            $micro = Micro5B::where('analysis_id', $analysis_id)->firstOrFail();
             $micro->update($request->all());
         }
         $remarks = $request->input('remarks');

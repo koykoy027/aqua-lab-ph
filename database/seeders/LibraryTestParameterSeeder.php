@@ -65,7 +65,7 @@ class LibraryTestParameterSeeder extends Seeder
             'limit' => '',
         ]);
         LibraryTestParameter::create([
-            'filename' => '',
+            'filename' => 'micr5b',
             'type' => 'micro',
             'parameter' => 'MICR5B',
             'service' => 'All Three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)',
