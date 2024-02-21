@@ -41,7 +41,7 @@
             <label for="micro6a_hpc_final_result">Final Result</label>
             <input id="micro6a_hpc_final_result" type="text" name="micro6a_hpc_final_result"
                 value="{{ $micro6a->micro6a_hpc_final_result }}" required autofocus
-                autocomplete="micro6a_hpc_final_result" readonly>
+                autocomplete="micro6a_hpc_final_result" onchange="micro6a()">
             @error('micro6a_hpc_final_result')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
