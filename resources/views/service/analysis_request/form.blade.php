@@ -476,12 +476,19 @@
             <div class="hidden mb-3" id="microx">
                 {{-- i use this div id microx to validate in my condition --}}
                 @foreach ($micro_parameter as $data)
-                    @if ($data->filename != null)
+                    {{-- 
+                        library_test_parameters table
+                        3	micro	MICR2	Thermotolerant Colifom Test	SMEWW 9221 Multiple Tube Fermentation Technique	MPN Index/100mL	micr2	2024-02-21 07:00:01	2024-02-21 07:00:01	3	1
+                        4	micro	MICR3	Total Coliform	SMEWW 9221 Multiple Tube Fermentation Technique	MPN Index/100mL	micr3	2024-02-21 07:00:01	2024-02-21 07:00:01	4	1
+                        69	micro	MICR3	Total Coliform	SMEWW 9223 B. Enzyme Substrate Method	MPN/100ml	micr3-9223b	2024-02-21 07:00:09	2024-02-21 07:00:09	5	0
+                        70	micro	MICR4	E. coli	SMEWW 9223 B. Enzyme Substrate Method	MPN/100ml	micr4-9223b	2024-02-21 07:00:09	2024-02-21 07:00:09	7	0
+                    --}}
+                    @if ($data->id == 3 || $data->id == 4 || $data->id == 69 || $data->id == 70)
                         <div class="flex items-center mb-4">
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                                 id="{{ $data->id }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                                {{ $data->parameter }} - {{ $data->service }}
+                                {{ $data->parameter }} {{ $data->service }} - {{ $data->method }}
                             </label>
                         </div>
                     @endif
@@ -496,7 +503,7 @@
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                                 id="{{ $data->id }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->id }}">
-                                {{ $data->parameter }} - {{ $data->service }}
+                                {{ $data->parameter }} {{ $data->service }} - {{ $data->method }}
                             </label>
                         </div>
                     @endif
@@ -511,7 +518,7 @@
                             <input class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500"
                                 id="{{ $data->parameter }}" name="selectedParameters[]" type="checkbox" value="{{ $data->id }}">
                             <label class="ml-2 text-sm font-medium text-gray-900" for="{{ $data->parameter }}">
-                                {{ $data->parameter }} - {{ $data->service }}
+                                {{ $data->parameter }} {{ $data->service }} - {{ $data->method }}
                             </label>
                         </div>
                     @endif

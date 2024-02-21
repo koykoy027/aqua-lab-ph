@@ -715,7 +715,7 @@ class LibraryTestParameterSeeder extends Seeder
         LibraryTestParameter::create([
             'filename' => 'micr3-9223b',
             'type' => 'micro',
-            'parameter' => 'MICR3',
+            'parameter' => '',
             'service' => 'Total Coliform',
             'method' => 'SMEWW 9223 B. Enzyme Substrate Method',
             'limit' => 'MPN/100ml',
@@ -726,7 +726,7 @@ class LibraryTestParameterSeeder extends Seeder
         LibraryTestParameter::create([
             'filename' => 'micr4-9223b',
             'type' => 'micro',
-            'parameter' => 'MICR4',
+            'parameter' => '',
             'service' => 'E. coli',
             'method' => 'SMEWW 9223 B. Enzyme Substrate Method',
             'limit' => 'MPN/100ml',
