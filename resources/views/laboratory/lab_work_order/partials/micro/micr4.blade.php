@@ -1,6 +1,6 @@
-<div class="card mb-3 bg-white">
+<div class="mb-3 bg-white card">
     <h1 class="mb-3">MICR4 - E. coli Test</h1>
-    <div class="sm:gid-cols-1 grid gap-4 lg:grid-cols-2">
+    <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
         <div class="mb-3">
             <label for="micr4_color_of_the_sample">Color of the sample</label>
             <select id="micr4_color_of_the_sample" value="" name="micr4_color_of_the_sample" required autofocus
@@ -56,32 +56,34 @@
             @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="micr4_final_result">Final Result</label>
-            <input id="micr4_final_result" value="{{ $micro4s->micr4_final_result }}" name="micr4_final_result" required autofocus readonly required
-                autocomplete="micr4_final_result" />
+        @foreach ($micro4 as $micro4s)
+            <div class="mb-3">
+                <label for="micr4_final_result">Final Result</label>
+                <input id="micr4_final_result" value="{{ $micro4s->micr4_final_result }}" name="micr4_final_result" required autofocus readonly required
+                    autocomplete="micr4_final_result" />
 
-            {{-- <select id="micr4_final_result" name="micr4_final_result" required autofocus
-                autocomplete="micr4_final_result">
-                @foreach ($micro4 as $micro4s)
-                    @if ($micro4s->micr4_final_result === 'Present')
-                        <option value="Present" selected>Present</option>
-                        <option value="Absent">Absent</option>
-                    @elseif($micro4s->micr4_final_result === 'Absent')
-                        <option value="Present">Present</option>
-                        <option value="Absent" selected>Absent</option>
-                    @else
-                        <option value="Present">Present</option>
-                        <option value="Absent">Absent</option>
-                    @endif
-                @endforeach
-            </select> --}}
-            @error('micr4_final_result')
-            <span class="invalid" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-            @enderror
-        </div>
+                {{-- <select id="micr4_final_result" name="micr4_final_result" required autofocus
+                    autocomplete="micr4_final_result">
+                    @foreach ($micro4 as $micro4s)
+                        @if ($micro4s->micr4_final_result === 'Present')
+                            <option value="Present" selected>Present</option>
+                            <option value="Absent">Absent</option>
+                        @elseif($micro4s->micr4_final_result === 'Absent')
+                            <option value="Present">Present</option>
+                            <option value="Absent" selected>Absent</option>
+                        @else
+                            <option value="Present">Present</option>
+                            <option value="Absent">Absent</option>
+                        @endif
+                    @endforeach
+                </select> --}}
+                @error('micr4_final_result')
+                <span class="invalid" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        @endforeach
         <div class="mb-3">
             <label for="micr4_final_result_remark">Final Result Remarks</label>
             @foreach ($micro4 as $micro4s)

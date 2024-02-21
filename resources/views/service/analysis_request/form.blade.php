@@ -464,7 +464,7 @@
 
                     @foreach ($library_test_parameter as $data)
                         <option value="{{ $data->id }}">
-                            {{ $data->parameter }} - {{ $data->service }}
+                            {{ $data->parameter }} {{ $data->service }} - {{ $data->method }}
                         </option>
                     @endforeach
 

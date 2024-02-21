@@ -7,7 +7,9 @@ use App\Models\LabAcceptance;
 use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
+use App\Models\Micro3_9223B;
 use App\Models\Micro4;
+use App\Models\Micro4_9223B;
 use Illuminate\Http\Request;
 
 class MicroController extends Controller
@@ -29,10 +31,20 @@ class MicroController extends Controller
             $micro = Micro3::where('analysis_id', $analysis_id)->firstOrFail();
             $micro->update($request->all());
         }
+        if ($request->input('micr3_9223b_no_of_yellow_wells_rxn_after_18h') == !NULL) {
+            $micro = Micro3_9223B::where('analysis_id', $analysis_id)->firstOrFail();
+            $micro->update($request->all());
+        }
         if ($request->input('micr4_final_result') == !NULL) {
             $micro = Micro4::where('analysis_id', $analysis_id)->firstOrFail();
             $micro->update($request->all());
         }
+
+        if ($request->input('micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h') == !NULL) {
+            $micro = Micro4_9223B::where('analysis_id', $analysis_id)->firstOrFail();
+            $micro->update($request->all());
+        }
+
         $remarks = $request->input('remarks');
         LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
         

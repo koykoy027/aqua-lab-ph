@@ -18,7 +18,9 @@ use App\Models\LibraryTestParameter;
 use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
+use App\Models\Micro3_9223B;
 use App\Models\Micro4;
+use App\Models\Micro4_9223B;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -47,7 +49,8 @@ class AnalysisRequestController extends Controller
     public function form($account_number)
     {
 
-        $library_test_parameter = LibraryTestParameter::where('type', '!=', '') // pansamantala
+        $library_test_parameter = LibraryTestParameter::where('is_show', true) // pansamantala
+            ->orderBy('sequence', 'asc')
             ->get();
         $micro_parameter = LibraryTestParameter::query()
             ->where('type', 'micro')
@@ -156,7 +159,7 @@ class AnalysisRequestController extends Controller
                 ]);
             }
 
-            if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 10) {
+            if (in_array(3, $selectedParameters) || $test_parameters_dropdown == 3 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 8 || $test_parameters_dropdown == 10) {
 
                 Micro2::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -170,11 +173,26 @@ class AnalysisRequestController extends Controller
                     'test_parameters_id' => 4,
                 ]);
             }
-            if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5 || $test_parameters_dropdown == 7 || $test_parameters_dropdown == 9) {
+
+            if (in_array(69, $selectedParameters) || $test_parameters_dropdown == 69 || $test_parameters_dropdown == 7) {
+
+                Micro3_9223B::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters_id' => 69,
+                ]);
+            }
+            if (in_array(5, $selectedParameters) || $test_parameters_dropdown == 5 || $test_parameters_dropdown == 9) {
 
                 Micro4::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 5,
+                ]);
+            }
+            if (in_array(70, $selectedParameters) || $test_parameters_dropdown == 70 || $test_parameters_dropdown == 7) {
+
+                Micro4_9223B::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters_id' => 70,
                 ]);
             }
             if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
@@ -297,11 +315,11 @@ class AnalysisRequestController extends Controller
                 ]);
                 TestParameter::create([
                     'analysis_id' => $analysisRequest->analysis_id,
-                    'test_parameters' => 3,
+                    'test_parameters' => 69,
                 ]);
                 TestParameter::create([
                     'analysis_id' => $analysisRequest->analysis_id,
-                    'test_parameters' => 5,
+                    'test_parameters' => 70,
                 ]);
             } else if ($test_parameters_dropdown == 8) { // if dropdown = MICRO5C,
                 TestParameter::create([
@@ -332,7 +350,9 @@ class AnalysisRequestController extends Controller
                 ]);
             }
 
-            // 12 = MICROX, 58 = CHEMX, 61 = PHYSX
+            // 12 = MICROX,
+            // 58 = CHEMX
+            // 61 = PHYSX
             // 6 = MICRO5
             // 7 = MICRO5B
             if (
@@ -359,7 +379,7 @@ class AnalysisRequestController extends Controller
                 ->withInput();
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->with('error', 'Ooops Something went wrong... Please try again' . $e);
+            return redirect()->back()->with('error', 'Ooops Something went wrong... Please try again');
         }
     }
 

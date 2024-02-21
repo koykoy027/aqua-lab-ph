@@ -22,6 +22,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Heterotrophic Plate Count',
             'method' => 'SMEWW 9215 B. Pour Plate Method',
             'limit' => 'cfu/mL',
+            'sequence' => '1',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -30,6 +32,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Heterotrophic Plate Count',
             'method' => 'SMEWW 9215 B. Pour Plate Method (Colony Count Only)',
             'limit' => '',
+            'sequence' => '2',
+            'is_show' => false,
         ]);
 
         LibraryTestParameter::create([
@@ -39,6 +43,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Thermotolerant Colifom Test',
             'method' => 'SMEWW 9221 Multiple Tube Fermentation Technique',
             'limit' => 'MPN Index/100mL',
+            'sequence' => '3',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'micr3',
@@ -47,14 +53,19 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Total Coliform',
             'method' => 'SMEWW 9221 Multiple Tube Fermentation Technique',
             'limit' => 'MPN Index/100mL',
+            'sequence' => '4',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'micr4',
             'type' => 'micro',
             'parameter' => 'MICR4',
-            'service' => 'E. coli Confirmatory Test',
+            'service' => 'E. coli Test',
             'method' => 'SMEWW 9223 Enzyme Substrate Coliform Test',
             'limit' => '',
+            'sequence' => '6',
+            'is_show' => true,
+
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -63,6 +74,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'All Three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)',
             'method' => '',
             'limit' => '',
+            'sequence' => '8',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -71,6 +84,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'All Three (3) Mandatory Microbiological Parameters (PNSDW 2017/DOH AO 2013-003)',
             'method' => '',
             'limit' => '',
+            'sequence' => '9',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -79,6 +94,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Microbiological Test',
             'method' => '',
             'limit' => '',
+            'sequence' => '10',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -87,6 +104,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Microbiological Test',
             'method' => '',
             'limit' => '',
+            'sequence' => '11',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -95,6 +114,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Legionella pneumophila',
             'method' => '',
             'limit' => '',
+            'sequence' => '12',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -103,6 +124,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Legionella pneumophila',
             'method' => 'SMEWW 9260 J. Spread Plate Method',
             'limit' => '',
+            'sequence' => '13',
+            'is_show' => true,
         ]);
 
         LibraryTestParameter::create([
@@ -111,6 +134,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Multiple Microbiological Parameters (Single Sample)',
             'method' => '',
             'limit' => '',
+            'sequence' => '14',
+            'is_show' => true,
         ]);
 
         // MICRO END
@@ -123,6 +148,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'pH',
             'method' => 'SMEWW 4500-H+ B. Electrometric Method',
             'limit' => '',
+            'sequence' => '15',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem2',
@@ -131,6 +158,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nitrate',
             'method' => 'SMEWW 4500-NO3- E. Cadmium Reduction Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '16',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -139,6 +168,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nitrate',
             'method' => 'SMEWW 4500-NO3- D. Nitrate Electrode Method',
             'limit' => '',
+            'sequence' => '7',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -147,6 +178,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nitrate',
             'method' => 'SMEWW 4110 B. Ion Chromatography with Chemical Supression of Eluent Conductivity',
             'limit' => '',
+            'sequence' => '18',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem3',
@@ -155,6 +188,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Total Dissolved Solids',
             'method' => 'SMEWW 2540 C. Total Dissolved Solids Dried at 180°C',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '19',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem4',
@@ -163,6 +198,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chlorine (Residual), as free',
             'method' => 'DPD Colorimetric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '20',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem5',
@@ -171,6 +208,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Arsenic',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '21',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem6',
@@ -179,6 +218,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Cadmium',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '22',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem7',
@@ -187,6 +228,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Lead',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '23',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -195,6 +238,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'All Twenty (20) Mandatory Chemical Parameters (DOH AO 2013-003 Dialysis Water / Administrative Order No. 2012-0001)',
             'method' => '',
             'limit' => '',
+            'sequence' => '24',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem9',
@@ -203,6 +248,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Iron',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '25',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'chem10',
@@ -211,6 +258,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Manganese',
             'method' => 'SMEWW 3113 B. Elelctrothermal Atomic Absorption Spectrometric Method',
             'limit' => 'mg/L (UNIT)',
+            'sequence' => '26',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -219,6 +268,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Mercury',
             'method' => 'SMEWW 3112 B. Cold-Vapor Atomic Absorption Spectrometric Method',
             'limit' => '',
+            'sequence' => '27',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -227,6 +278,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Mercury',
             'method' => 'SMEWW 3112 B. Cold-Vapor Atomic Absorption Spectrometric Method',
             'limit' => '',
+            'sequence' => '28',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -235,6 +288,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Boron',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '29',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -243,6 +298,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Barium',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '30',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -251,6 +308,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Calcium',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '31',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -259,6 +318,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Calcium',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '32',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -267,6 +328,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Copper',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '33',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -275,6 +338,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Copper',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '34',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -283,6 +348,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Magnesium',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '35',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -291,6 +358,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Magnesium',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '36',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -299,6 +368,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Alkalinity',
             'method' => 'SMEWW 2320 B. Titration Method',
             'limit' => '',
+            'sequence' => '37',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -307,6 +378,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nickel',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '38',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -315,6 +388,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nickel',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '39',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -323,6 +398,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chloride',
             'method' => 'SMEWW 4500-Cl B. Argentometric Method',
             'limit' => '',
+            'sequence' => '40',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -331,6 +408,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chloride',
             'method' => 'SMEWW 4110 B. Ion Chromatography with Chemical Supression of Eluent Conductivity',
             'limit' => '',
+            'sequence' => '41',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -339,6 +418,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Silica',
             'method' => 'SMEWW 4500-SiO2 C. Molybdosilicate Method',
             'limit' => '',
+            'sequence' => '42',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -347,6 +428,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Total Hardness',
             'method' => 'SMEWW 2340 B. Hardness by Calculation',
             'limit' => '',
+            'sequence' => '43',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -355,6 +438,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Calcium Hardness',
             'method' => 'SMEWW 2340 B. Hardness by Calculation',
             'limit' => '',
+            'sequence' => '44',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -363,6 +448,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Acidity',
             'method' => 'SMEWW 2340 B. Hardness by Calculation',
             'limit' => '',
+            'sequence' => '45',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -371,6 +458,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Benzene',
             'method' => 'Gas Chromatographic Method',
             'limit' => '',
+            'sequence' => '46',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -379,6 +468,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Hydrogen Sulfide',
             'method' => 'SMEWW 4500 S2. Methylene Blue Method',
             'limit' => '',
+            'sequence' => '47',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -387,6 +478,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Sulfide',
             'method' => 'SMEWW 4500 S2. Methylene Blue Method',
             'limit' => '',
+            'sequence' => '48',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -395,6 +488,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Gross Alpha and Beta Activity',
             'method' => 'Liquid Scintillation Counting',
             'limit' => '',
+            'sequence' => '49',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -403,6 +498,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nitrite',
             'method' => 'SMEWW 4500-NO2 B. Colorimetric Method',
             'limit' => '',
+            'sequence' => '50',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -411,6 +508,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Nitrite',
             'method' => 'SMEWW 4110 B. Ion Chromatography with Chemical Supression of Eluent Conductivity',
             'limit' => '',
+            'sequence' => '51',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -419,6 +518,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Sulfate',
             'method' => 'SMEWW 4110 B. Ion Chromatography with Chemical Supression of Eluent Conductivity',
             'limit' => '',
+            'sequence' => '52',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -427,6 +528,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Sulfate',
             'method' => 'SMEWW 4500-SO4 E. Turbidimetric Method',
             'limit' => '',
+            'sequence' => '53',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -435,6 +538,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Zinc',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '54',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -443,6 +548,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Zinc',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '55',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -451,6 +558,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Conductivity',
             'method' => 'SMEWW 2510 B. Laboratory Method',
             'limit' => '',
+            'sequence' => '56',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -459,6 +568,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Antimony',
             'method' => 'SMEWW 3113 B. Electrothermal Atomic Absorption Spectrometric Method',
             'limit' => '',
+            'sequence' => '57',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -467,6 +578,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chromium',
             'method' => 'SMEWW 3111 B. Direct Air-Acetylene Flame Method',
             'limit' => '',
+            'sequence' => '58',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -475,6 +588,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chromium',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '59',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -483,6 +598,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Chemical Parameters (Single Sample)',
             'method' => 'SMEWW 3120 B. Inductively Coupled Plasma (ICP) Method',
             'limit' => '',
+            'sequence' => '60',
+            'is_show' => true,
         ]);
 
         // CHEM END
@@ -495,6 +612,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'All Nine (9) Mandatory Physical and Chemical Parameters (PNSDW 2017)',
             'method' => '',
             'limit' => '',
+            'sequence' => '61',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -503,6 +622,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Sixteen Selected Physical and Chemical Parameters (PNSDW 2017)',
             'method' => '',
             'limit' => '',
+            'sequence' => '62',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -511,6 +632,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Multiple Physical and Chemical Parameters (Single Sample)',
             'method' => '',
             'limit' => '',
+            'sequence' => '63',
+            'is_show' => false,
         ]);
 
         // PHCH END
@@ -523,6 +646,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Appearance',
             'method' => 'Sensory Evaluation Technique',
             'limit' => '',
+            'sequence' => '64',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys2',
@@ -531,6 +656,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Odor',
             'method' => 'Sensory Evaluation Technique',
             'limit' => '',
+            'sequence' => '65',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys3',
@@ -539,6 +666,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Color, apparent',
             'method' => 'SMEWW 2120 B. Visual Comparison Method',
             'limit' => 'CU (UNIT)',
+            'sequence' => '66',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => 'phys4',
@@ -547,6 +676,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Turbidity',
             'method' => 'SMEWW 2130 B. Nephelometric Method',
             'limit' => 'NTU (UNIT)',
+            'sequence' => '67',
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -555,6 +686,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Total Suspended Solids',
             'method' => 'SMEWW 2540 B. Total Solids at 103 to 105 C',
             'limit' => '',
+            'sequence' => '68',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -563,6 +696,8 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Total Solids',
             'method' => 'SMEWW 2540 B. Total Solids at 103 to 105 C',
             'limit' => '',
+            'sequence' => '69',
+            'is_show' => false,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
@@ -571,8 +706,32 @@ class LibraryTestParameterSeeder extends Seeder
             'service' => 'Taste',
             'method' => '',
             'limit' => '',
+            'sequence' => '70',
+            'is_show' => false,
         ]);
 
         // PHYS END
+
+        LibraryTestParameter::create([
+            'filename' => 'micr3-9223b',
+            'type' => 'micro',
+            'parameter' => 'MICR3',
+            'service' => 'Total Coliform',
+            'method' => 'SMEWW 9223 B. Enzyme Substrate Method',
+            'limit' => 'MPN/100ml',
+            'sequence' => '5',
+            'is_show' => false,
+        ]);
+
+        LibraryTestParameter::create([
+            'filename' => 'micr4-9223b',
+            'type' => 'micro',
+            'parameter' => 'MICR4',
+            'service' => 'E. coli',
+            'method' => 'SMEWW 9223 B. Enzyme Substrate Method',
+            'limit' => 'MPN/100ml',
+            'sequence' => '7',
+            'is_show' => false,
+        ]);
     }
 }

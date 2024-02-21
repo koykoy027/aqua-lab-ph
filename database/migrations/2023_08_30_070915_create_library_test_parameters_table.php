@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('method')->nullable();
             $table->string('limit')->nullable();
             $table->string('filename')->nullable();
+            $table->integer('sequence')->nullable();
+            $table->boolean('is_show')->nullable()->comment('if show in analysis request dropdown');
             $table->timestamps();
         });
     }

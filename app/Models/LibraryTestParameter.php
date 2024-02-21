@@ -17,6 +17,8 @@ class LibraryTestParameter extends Model
         'method',
         'limit',
         'filename',
+        'sequence',
+        'is_show',
     ];
 
     public function testParameter(): BelongsTo

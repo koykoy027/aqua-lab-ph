@@ -18,7 +18,9 @@ use App\Models\LibraryTestParameter;
 use App\Models\Micro1;
 use App\Models\Micro2;
 use App\Models\Micro3;
+use App\Models\Micro3_9223B;
 use App\Models\Micro4;
+use App\Models\Micro4_9223B;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -49,7 +51,9 @@ class PdfController extends Controller
         $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
         $micro2 = Micro2::where('analysis_id', $analysis_id)->get();
         $micro3 = Micro3::where('analysis_id', $analysis_id)->get();
+        $micr3_9223B = Micro3_9223B::where('analysis_id', $analysis_id)->first();
         $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
+        $micr4_9223B = Micro4_9223B::where('analysis_id',$analysis_id)->first();
         $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
         $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
         $chem3 = Chem3::where('analysis_id', $analysis_id)->get();
@@ -94,7 +98,9 @@ class PdfController extends Controller
                 'micro1' => $micro1,
                 'micro2' => $micro2,
                 'micro3' => $micro3,
+                'micr3_9223B' => $micr3_9223B,
                 'micro4' => $micro4,
+                'micr4_9223B' => $micr4_9223B,
                 'chem1' => $chem1,
                 'chem2' => $chem2,
                 'chem3' => $chem3,
