@@ -21,6 +21,7 @@ use App\Models\Micro3;
 use App\Models\Micro3_9223B;
 use App\Models\Micro4;
 use App\Models\Micro4_9223B;
+use App\Models\Micro6A;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -172,6 +173,7 @@ class LabResultStatusController extends Controller
         $micr3_9223B = Micro3_9223B::where('analysis_id',$analysis_id)->first();
         $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
         $micr4_9223B = Micro4_9223B::where('analysis_id',$analysis_id)->first();
+        $micro6a = Micro6A::where('analysis_id',$analysis_id)->first();
 
         $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
         $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
@@ -206,6 +208,7 @@ class LabResultStatusController extends Controller
             'micr3_9223B',
             'micro4',
             'micr4_9223B',
+            'micro6a',
             'chem1',
             'chem2',
             'chem3',

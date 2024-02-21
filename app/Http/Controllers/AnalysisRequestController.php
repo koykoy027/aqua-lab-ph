@@ -21,6 +21,7 @@ use App\Models\Micro3;
 use App\Models\Micro3_9223B;
 use App\Models\Micro4;
 use App\Models\Micro4_9223B;
+use App\Models\Micro6A;
 use App\Models\Phys1;
 use App\Models\Phys2;
 use App\Models\Phys3;
@@ -193,6 +194,13 @@ class AnalysisRequestController extends Controller
                 Micro4_9223B::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 70,
+                ]);
+            }
+            if (in_array(11, $selectedParameters) || $test_parameters_dropdown == 11) {
+
+                Micro6A::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters_id' => 11,
                 ]);
             }
             if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {

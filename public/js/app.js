@@ -423,6 +423,39 @@ const micro4 = () => {
     micr4_final_result_remark.value = micr4_final_result.value == 'Absent' ? 'Pass' : 'Fail';
 };
 
+const micro6a = () => {
+
+    // variables
+    var micro6a_hpc_plate_a = parseFloat(document.querySelector('[name="micro6a_hpc_plate_a"]').value);
+    var micro6a_hpc_plate_b = parseFloat(document.querySelector('[name="micro6a_hpc_plate_b"]').value);
+    var micro6a_hpc_average = document.querySelector('[name="micro6a_hpc_average"]');
+    var micro6a_hpc_final_result = document.querySelector('[name="micro6a_hpc_final_result"]');
+    var micro6a_hpc_remarks = document.querySelector('[name="micro6a_hpc_remarks"]');
+
+
+    // computation
+    var microvalues = micro6a_hpc_plate_a + micro6a_hpc_plate_b;
+    var averagecolony = microvalues / 2;
+    var roundedAverage = Math.ceil(averagecolony);
+    var roundedNumber = Math.round(roundedAverage / 10) * 10;
+
+    // global
+    micro6a_hpc_average.value = roundedAverage;
+
+    if (micro6a_hpc_average.value >= 500) {
+        micro6a_hpc_final_result.value = ">500 est";
+    }
+    else if (micro6a_hpc_average.value <= 0) {
+        micro6a_hpc_final_result.value = "<1.0";
+    }
+    else {
+        micro6a_hpc_final_result.value = roundedNumber.toFixed(0);
+    }
+
+    micro6a_hpc_remarks.value = micro6a_hpc_final_result.value >= 10 ? 'FAIL' : 'PASS'; // IF FINAL RESULT IS <10, REMARKS = PASS IF RESULT IS >10, REMARKS FAIL
+    
+};
+
 // can be seen in laboratory.lab_work_order-partials
 // chem1
 const chem1 = () => {

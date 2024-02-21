@@ -118,12 +118,12 @@ class LibraryTestParameterSeeder extends Seeder
             'is_show' => false,
         ]);
         LibraryTestParameter::create([
-            'filename' => '',
-            'type' => '',
-            'parameter' => 'MICR6A',
+            'filename' => 'micro6a',
+            'type' => 'micro',
+            'parameter' => 'micro6a',
             'service' => 'Legionella pneumophila',
             'method' => 'SMEWW 9260 J. Spread Plate Method',
-            'limit' => '',
+            'limit' => 'CFU/mL',
             'sequence' => '13',
             'is_show' => true,
         ]);

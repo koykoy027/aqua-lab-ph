@@ -1251,6 +1251,18 @@
                                         @endforeach
                                     @endif
 
+                                    @if ($library_test_parameter->id == 11)
+                                        <td class="result_details">{{ $micro6a->micro6a_hpc_final_result }}</td>
+                                        <td class="result_details">
+                                            @if($micro6a->micro6a_hpc_final_result >= 500)
+                                                &gt; 500
+                                            @else
+                                                &lt; 500
+                                            @endif
+                                        </td>
+                                        <td class="result_details">{{ $micro6a->micro6a_hpc_remarks }}</td>
+                                    @endif
+
                                     @if ($library_test_parameter->id == 13)
                                         @foreach ($chem1 as $data)
                                             <td class="result_details">{{ $data->chem1_final_result }}</td>
