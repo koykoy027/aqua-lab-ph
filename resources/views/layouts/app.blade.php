@@ -30,6 +30,7 @@
 </head>
 
 <body class="font-sans antialiased">
+    
     <div class="min-h-screen bg-gray-100">
         @include('layouts.tailwindcss')
         @include('layouts.navigation')
@@ -74,6 +75,7 @@
         <!-- Page Content -->
         <main class="py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
             @include('components.alert')
+            @include('components.alert-for-validation')
             @yield('content')
         </main>
     </div>
