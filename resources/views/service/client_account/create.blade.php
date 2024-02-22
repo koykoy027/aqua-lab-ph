@@ -115,7 +115,7 @@
             <div class="mb-3">
                 <label for="unit_no_floor_bldg_name">Unit no. Floor Blg</label>
                 <input id="unit_no_floor_bldg_name" type="text" name="unit_no_floor_bldg_name"
-                    value="{{ old('unit_no_floor_bldg_name') }}" required autofocus
+                    value="{{ old('unit_no_floor_bldg_name') }}" autofocus
                     autocomplete="unit_no_floor_bldg_name">
                 @error('unit_no_floor_bldg_name')
                 <span class="invalid" role="alert">
@@ -126,7 +126,7 @@
             <div class="mb-3">
                 <label for="street_name_or_subdivision">Street or Subdivision</label>
                 <input id="street_name_or_subdivision" type="text" name="street_name_or_subdivision"
-                    value="{{ old('street_name_or_subdivision') }}" required autofocus
+                    value="{{ old('street_name_or_subdivision') }}" autofocus
                     autocomplete="street_name_or_subdivision">
                 @error('street_name_or_subdivision')
                 <span class="invalid" role="alert">
@@ -372,7 +372,7 @@
             <div class="mb-3">
                 <label for="no_of_microbiology_samples">Microbiological Samples</label>
                 <input id="no_of_microbiology_samples" type="text" name="no_of_microbiology_samples"
-                    value="{{ old('no_of_microbiology_samples') }}" required autofocus
+                    value="{{ old('no_of_microbiology_samples') }}" autofocus
                     autocomplete="no_of_microbiology_samples">
                 @error('no_of_microbiology_samples')
                 <span class="invalid" role="alert">
@@ -402,7 +402,7 @@
             <div class="mb-3">
                 <label for="no_of_physico_chemical_samples">Number of Physico Chemical Samples</label>
                 <input id="no_of_physico_chemical_samples" type="text" name="no_of_physico_chemical_samples"
-                    value="{{ old('no_of_physico_chemical_samples') }}" required autofocus
+                    value="{{ old('no_of_physico_chemical_samples') }}" autofocus
                     autocomplete="no_of_physico_chemical_samples">
                 @error('no_of_physico_chemical_samples')
                 <span class="invalid" role="alert">
