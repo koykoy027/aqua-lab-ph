@@ -4,7 +4,7 @@
         @foreach ($micro3 as $micro3s)
             <div class="mb-3">
                 <label for="micr3_lauryl_24">No. of Lauryl Tryptose Broth tube with (+) rxn after 24h</label>
-                <input id="micr3_lauryl_24" type="number" step="any" name="micr3_lauryl_24"
+                <input id="micr3_lauryl_24" type="number" step="any" min="0" max="5" name="micr3_lauryl_24"
                     value="{{ $micro3s->micr3_lauryl_24 }}" required autofocus autocomplete="micr3_lauryl_24"
                     onchange="micro3()">
                 @error('micr3_lauryl_24')
@@ -16,7 +16,7 @@
 
             <div class="mb-3">
                 <label for="micr3_lauryl_48">No. of Lauryl Tryptose Broth tube with (+) rxn after 48h</label>
-                <input id="micr3_lauryl_48" type="number" step="any" name="micr3_lauryl_48"
+                <input id="micr3_lauryl_48" type="number" step="any" min="0" max="5" name="micr3_lauryl_48"
                     value="{{ $micro3s->micr3_lauryl_48 }}" required autofocus autocomplete="micr3_lauryl_48"
                     onchange="micro3()">
                 @error('micr3_lauryl_48')
