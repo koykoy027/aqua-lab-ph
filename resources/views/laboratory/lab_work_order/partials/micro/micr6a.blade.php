@@ -52,8 +52,7 @@
         <div class="mb-3">
             <label for="micro6a_hpc_remarks">Remarks</label>
             <input id="micro6a_hpc_remarks" type="text" name="micro6a_hpc_remarks"
-                value="{{ $micro6a->micro6a_hpc_remarks }}" required autofocus autocomplete="micro6a_hpc_remarks"
-                readonly>
+                value="{{ $micro6a->micro6a_hpc_remarks }}" required autofocus autocomplete="micro6a_hpc_remarks">
             @error('micro6a_hpc_remarks')
                 <span class="invalid" role="alert">
                     <strong>{{ $message }}</strong>
