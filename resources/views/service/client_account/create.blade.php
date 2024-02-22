@@ -370,7 +370,7 @@
         </div>
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
-                <label for="no_of_microbiology_samples">Microbiological Samples</label>
+                <label for="no_of_microbiology_samples">Number of Microbiological Samples</label>
                 <input id="no_of_microbiology_samples" type="text" name="no_of_microbiology_samples"
                     value="{{ old('no_of_microbiology_samples') }}" autofocus
                     autocomplete="no_of_microbiology_samples">
