@@ -73,6 +73,7 @@ class LabAcceptanceController extends Controller
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
             })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));
@@ -106,6 +107,7 @@ class LabAcceptanceController extends Controller
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereNotIn('remarks', ['Pending', 'Rejected', 'Disapprove']);
             })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('laboratory.lab_work_order.index', compact('analysisRequest', 'query'));

@@ -46,6 +46,7 @@ class LabApprovalController extends Controller
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
             })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
@@ -66,6 +67,7 @@ class LabApprovalController extends Controller
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
             })
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
