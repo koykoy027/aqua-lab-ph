@@ -1091,7 +1091,7 @@
                             Account ID: <span class="acc_id">{{ $clients->client_id }}</span>
                         </p>
                         <p class="sample">
-                            Sample ID: <span class="sample_id">{{ $analysisRequests->analysis_id_ }}</span>
+                            Sample ID: <span class="sample_id">{{ $analysisRequests->labAcceptance->sample_id }}</span>
                         </p>
                     </td>
                 </tr>

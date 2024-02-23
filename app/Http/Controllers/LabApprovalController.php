@@ -37,8 +37,7 @@ class LabApprovalController extends Controller
         $queryBuilder = AnalysisRequest::query()
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
 
         $requests = $queryBuilder
@@ -57,8 +56,7 @@ class LabApprovalController extends Controller
         $queryBuilder = AnalysisRequest::query()
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%");
 
             });
 

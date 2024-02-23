@@ -58,7 +58,7 @@
                     @foreach ($datas as $data)
                         <tr class="bg-white border-b">
                             {{-- <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                {{ $data->analysis_id_ }}
+                                {{ $data->labAcceptance->sample_id }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $data->account_name }}
@@ -67,18 +67,23 @@
 
                                 <span
                                     class="mr-2 rounded px-2.5 py-0.5 text-xs font-medium text-center
-                                    @if ($data->labAcceptance->remarks === 'Pending') text-orange-800 bg-orange-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Accepted') text-green-800 bg-green-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Rejected') text-red-800 bg-red-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Approve') text-blue-800 bg-blue-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Disapprove') text-yellow-800 bg-yellow-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'Testing on-going') text-slate-800 bg-slate-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'For approval') text-pink-800 bg-pink-100 @endif
-                                    @if ($data->labAcceptance->remarks === 'For releasing') text-cyan-800 bg-cyan-100 @endif
+
+                                    @if ($data->labAcceptance)
+                                        @if ($data->labAcceptance->remarks == 'Pending') text-orange-800 bg-orange-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Conditionally Accepted') text-violet-800 bg-violet-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Accepted') text-green-800 bg-green-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Rejected') text-red-800 bg-red-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Approve') text-blue-800 bg-blue-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Disapprove') text-yellow-800 bg-yellow-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'Testing on-going') text-slate-800 bg-slate-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'For approval') text-pink-800 bg-pink-100 @endif
+                                        @if ($data->labAcceptance->remarks == 'For releasing') text-cyan-800 bg-cyan-100 @endif
+                                    @else
+                                        'Pending') text-orange-800 bg-orange-100
+                                    @endif
 
                                 ">
-                                    {{ $data->labAcceptance->remarks }}
+                                    {{ $data->labAcceptance->remarks ?? 'Pending'}}
                                 </span>
                             </td>
                             <td class="px-6 py-4">

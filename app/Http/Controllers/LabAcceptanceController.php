@@ -63,7 +63,6 @@ class LabAcceptanceController extends Controller
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%")
                     ->where('test_parameters', 'micro');
             });
         }
@@ -97,7 +96,6 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
         }
@@ -117,7 +115,7 @@ class LabAcceptanceController extends Controller
     {
         // analysis_id
         $requests = AnalysisRequest::find($analysis_id);
-        $acceptance = LabAcceptance::find($requests->analysis_id);
+        $acceptance = LabAcceptance::where('analysis_id', $requests->analysis_id)->first();
         $sampleCondition = SampleCondition::where('lab_acceptance', $acceptance->id)->get();
         $sampleConditionList = ["Complies with the requirement", "Leaking of with wet caps", "In another container", "Below required volume", "Expired"];
 
@@ -141,11 +139,10 @@ class LabAcceptanceController extends Controller
         // Format the date to be 2 digits (e.g., 01, 02, ..., 31)
         $formattedDate = str_pad($date, 2, '0', STR_PAD_LEFT);
 
-        // Combine the month pattern and formatted date
 
-        $AnalysisRequest = AnalysisRequest::find($analysis_id);
+        $analysisRequest = AnalysisRequest::find($analysis_id);
 
-        if ($AnalysisRequest->test_parameters == "chem" || $AnalysisRequest->test_parameters == "phys") {
+        if ($analysisRequest->test_parameters == "chem" || $analysisRequest->test_parameters == "phys") {
             $result = $monthPattern . $formattedDate . "PC";
         } else {
             $result = $monthPattern . $formattedDate;
@@ -161,7 +158,6 @@ class LabAcceptanceController extends Controller
         ]);
 
 
-        $remarks = $request->remarks;
 
         $lab = LabAcceptance::findOrFail($analysis_id);
         $analysisRequest = AnalysisRequest::find($analysis_id);

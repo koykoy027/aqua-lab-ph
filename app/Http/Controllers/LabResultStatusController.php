@@ -118,8 +118,7 @@ class LabResultStatusController extends Controller
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters', 'LIKE', "%$query%");
             });
         }
 
@@ -148,8 +147,7 @@ class LabResultStatusController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters_type', 'LIKE', "%$query%")
-                    ->orWhere('analysis_id_', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters_type', 'LIKE', "%$query%");
             });
         }
 

@@ -46,7 +46,7 @@
                         @foreach ($requests as $request)
                             <tr class="bg-white border-b">
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ $request->analysis_id_ }}
+                                    {{ $request->labAcceptance->sample_id }}
                                 </td>
                                 {{-- <td class="px-6 py-3">
                                     {{ $request->account_name }}

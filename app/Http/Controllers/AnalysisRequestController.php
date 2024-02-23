@@ -140,7 +140,6 @@ class AnalysisRequestController extends Controller
             }
 
             $input['date_next_schedule'] = Carbon::parse($input['date_collected'])->addDays(31);
-            $input['analysis_id_'] = $result;
             $input['test_parameters'] = $selected;
 
 
@@ -387,6 +386,7 @@ class AnalysisRequestController extends Controller
                 ->withInput();
         } catch (\Exception $error) {
             DB::rollBack();
+            dd($error);
             return redirect()->back()->with('error', 'Ooops Something went wrong... Please try again');
         }
     }

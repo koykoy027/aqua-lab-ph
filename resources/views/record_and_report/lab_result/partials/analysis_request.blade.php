@@ -2,9 +2,9 @@
     <h1 class="mb-3">Sample Collection</h1>
     <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-3">
         <div class="mb-3">
-            <label for="analysis_id_">Sample ID</label>
-            <input id="analysis_id_" type="text" name="analysis_id_" value="{{ $analysis->analysis_id_ }}" readonly
-                autofocus autocomplete="analysis_id_">
+            <label for="sample_id">Sample ID</label>
+            <input id="sample_id" type="text" name="sample_id" value="{{ $analysis->labAcceptance->sample_id }}" readonly
+                autofocus autocomplete="sample_id">
         </div>
 
     </div>
