@@ -483,7 +483,8 @@ const chem1 = () => {
     }
 
     chem1_average_instrument_reading.value = averageReading.toFixed(2); // eg. 5.33
-    chem1_final_result.value = Math.round(averageReading); // eg. 5
+    chem1_final_result.value = averageReading.toFixed(2); // eg. 5.33
+    // chem1_final_result.value = Math.round(averageReading); // eg. 5
 };
 
 // chem2
@@ -504,7 +505,7 @@ const chem2 = () => {
         chem2_final_result_remarks.value = "FAIL";
     }
     chem2_average_instrument_reading.value = averageReading2.toFixed(2);
-    chem2_final_result.value = averageReading2.toFixed(0);
+    chem2_final_result.value = averageReading2.toFixed(2);
 };
 
 // chem3
