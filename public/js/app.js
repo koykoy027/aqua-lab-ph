@@ -303,7 +303,7 @@ const test = (val) => {
 const micro1 = () => {
 
     // variables
-    var water_purpose = document.querySelector('[name="water_purpose"]');
+    var water_purpose = document.querySelector('[name="water_purpose"]').value; // Drinking | Dialysis | Others
     var micr1_hpc_plate_a = parseFloat(document.querySelector('[name="micr1_hpc_plate_a"]').value);
     var micr1_hpc_plate_b = parseFloat(document.querySelector('[name="micr1_hpc_plate_b"]').value);
     var micr1_hpc_average = document.querySelector('[name="micr1_hpc_average"]');
@@ -311,23 +311,23 @@ const micro1 = () => {
     var micr1_hpc_final_result = document.querySelector('[name="micr1_hpc_final_result"]');
     var micr1_hpc_remarks = document.querySelector('[name="micr1_hpc_remarks"]');
 
-    watersample = water_purpose.value; // Drinking | Dialysis | Others
-
     // computation
     var microvalues = micr1_hpc_plate_a + micr1_hpc_plate_b;
-    var averagecolony = microvalues / 2;
-    var roundedAverage = Math.ceil(averagecolony);
     var microdifference = Math.abs(micr1_hpc_plate_a - micr1_hpc_plate_b) / microvalues / 2;
-    var roundedNumber = Math.round(roundedAverage / 10) * 10;
 
-    if (watersample == "Dialysis"){ // DIALYSIS - IF THE roundedAverage IS >200 REMARKS WILL STILL BE "FAIL"
+    // average
+    var averagecolony = Math.floor(microvalues / 2 * 10) / 10;  // average with 1 decimal point
+    var roundedAverage = Math.ceil(averagecolony); // eg. 25.5 final is 26
+    var roundedNumber = Math.round(roundedAverage / 10) * 10; // eg. 125 final is 130
+
+    if (water_purpose == "Dialysis"){ // DIALYSIS - IF THE roundedAverage IS >200 REMARKS WILL STILL BE "FAIL"
         micr1_hpc_remarks.value = roundedAverage >= 200 ? 'FAIL' : 'PASS';
     } else { // IF [Final Result] >= 500, [Final Result Remarks] = FAIL
         micr1_hpc_remarks.value = roundedAverage >= 500 ? 'FAIL' : 'PASS';
     }
 
     // global
-    micr1_hpc_average.value = roundedAverage;
+    micr1_hpc_average.value = averagecolony;
     micr1_hpc_difference.value = microdifference.toFixed(3);
 
     if (micr1_hpc_average.value >= 500) {
@@ -336,10 +336,14 @@ const micro1 = () => {
     else if (micr1_hpc_average.value <= 0) {
         micr1_hpc_final_result.value = "<1.0";
     }
-    else {
-        micr1_hpc_final_result.value = roundedNumber.toFixed(0);
+    // Note: 2 significant figures (max) and must be whole number.
+    // (e.g. if average is 1.2, result should be 1; if average is 156, result should be 160)
+    else if(micr1_hpc_average.value >= 1 &&  micr1_hpc_average.value <= 99){ 
+        micr1_hpc_final_result.value = roundedAverage;
     }
-    
+    else{
+        micr1_hpc_final_result.value = roundedNumber;
+    }
 };
 
 // can be seen in laboratory.lab_work_order-partials
