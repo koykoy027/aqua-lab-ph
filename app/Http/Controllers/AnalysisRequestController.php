@@ -385,7 +385,7 @@ class AnalysisRequestController extends Controller
                 ->back()
                 ->with(['message' => 'Analysis Request has been created successfully!'])
                 ->withInput();
-        } catch (\Exception $e) {
+        } catch (\Exception $error) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Ooops Something went wrong... Please try again');
         }
