@@ -175,10 +175,6 @@ class LabAcceptanceController extends Controller
             $finalFormat = $findAnalysisRequest->test_parameters == 'micro' ? $totalMicroSampleTodaySampleFormat : $totalPyChemSampleTodaySampleFormat;
             // end of format
 
-
-
-
-
             if (!$findLabAcceptance->sample_id) { // store new sample_id
                 $findLabAcceptance->update([
                     'sample_id' => $finalFormat,
