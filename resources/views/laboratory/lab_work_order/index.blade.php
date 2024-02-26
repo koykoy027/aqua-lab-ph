@@ -13,7 +13,7 @@
             <div class="ml-1 text-sm font-medium text-gray-500 md:ml-2s">
                 <h1 class="uppercase">@yield('title')</h1>
                 <p class="text-xs">
-                    List of Samples Accepted|Conditionally Accepted|Testing on-going|For approval|For releasing
+                    List of all Samples
                 </p>
             </div>
             @include('components.search')
@@ -55,7 +55,7 @@
                                 {{ \Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $analysisRequests->test_parameters_type }}
+                                {{ $analysisRequests->test_parameters_code }}
                             </td>
                             <td class="px-6 py-4">
                                 <span

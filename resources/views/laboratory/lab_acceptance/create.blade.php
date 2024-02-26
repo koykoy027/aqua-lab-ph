@@ -122,9 +122,9 @@
 
         <div class="grid gap-4 sm:gid-cols-1 lg:grid-cols-2">
             <div class="mb-3">
-                <label for="test_parameters_type">Test Parameters</label>
-                <select name="test_parameters_type" id="test_parameters_type" disabled autofocus autocomplete="test_parameters_type">
-                    <option value="{{ $requests->test_parameters_type }}">{{ $requests->test_parameters_type }}</option>
+                <label for="test_parameters_code">Test Parameters</label>
+                <select name="test_parameters_code" id="test_parameters_code" disabled autofocus autocomplete="test_parameters_code">
+                    <option value="{{ $requests->test_parameters_code }}">{{ $requests->test_parameters_code }}</option>
                 </select>
             </div>
         </div>

@@ -147,7 +147,7 @@ class LabResultStatusController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters_type', 'LIKE', "%$query%");
+                    ->orWhere('test_parameters_code', 'LIKE', "%$query%");
             });
         }
 

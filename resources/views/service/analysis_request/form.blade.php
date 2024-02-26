@@ -470,7 +470,7 @@
 
                 </select>
 
-                <input type="hidden" name="test_parameters_type" id="test_parameters_type" readonly>
+                <input type="hidden" name="test_parameters_code" id="test_parameters_code" readonly>
             </div>
 
             <div class="hidden mb-3" id="microx">

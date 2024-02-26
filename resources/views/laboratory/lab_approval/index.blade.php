@@ -36,7 +36,7 @@
                                 {{ $request->labAcceptance->sample_id }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $request->test_parameters_type }}
+                                {{ $request->test_parameters_code }}
                             </td>
                             <td class="px-6 py-4">
                                 <span

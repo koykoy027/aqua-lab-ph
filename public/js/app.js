@@ -30,9 +30,9 @@
 function toggleTestParameters(selectedValue, selectElement) {
     
     // get text instead of value in dropdown
-    var test_parameters_type = document.getElementById("test_parameters_type");
+    var test_parameters_code = document.getElementById("test_parameters_code");
     var selectedText = selectElement.options[selectElement.selectedIndex].text;
-    test_parameters_type.value = selectedText;
+    test_parameters_code.value = selectedText;
 
     
     var divMicrox = document.getElementById("microx");

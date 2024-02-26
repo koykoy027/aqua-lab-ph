@@ -386,8 +386,7 @@ class AnalysisRequestController extends Controller
                 ->withInput();
         } catch (\Exception $error) {
             DB::rollBack();
-            dd($error);
-            return redirect()->back()->with('error', 'Ooops Something went wrong... Please try again');
+            return redirect()->back()->with('error', 'Ooops... Something went wrong. Please try again.');
         }
     }
 

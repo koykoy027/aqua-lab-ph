@@ -102,7 +102,7 @@
 
                     </td>
                     <td class="px-6 py-4">
-                        {{ $data->test_parameters_type }}
+                        {{ $data->test_parameters_code }}
                     </td>
 
                     <td class="px-6 py-4">
