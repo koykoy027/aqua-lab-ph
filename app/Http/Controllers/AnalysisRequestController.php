@@ -79,6 +79,7 @@ class AnalysisRequestController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->date_collected);
         DB::beginTransaction();
 
         $request->validate([
@@ -387,6 +388,7 @@ class AnalysisRequestController extends Controller
         } catch (\Exception $error) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Ooops... Something went wrong. Please try again.');
+            // dd($error);
         }
     }
 

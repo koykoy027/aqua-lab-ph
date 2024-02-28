@@ -457,8 +457,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="test_parameter">Test Parameters</label>
-                <select id="test_parameter" name="test_parameters" value="{{ old('test_parameter') }}" required
+                <label for="test_parameters">Test Parameters</label>
+                <select id="test_parameters" name="test_parameters" value="{{ old('test_parameters') }}" required
                     onchange="toggleTestParameters(this.value, this)">
                     <option disabled selected>Select Test Parameters</option>
 
@@ -469,6 +469,11 @@
                     @endforeach
 
                 </select>
+                @error('test_parameters')
+                <span class="invalid" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
                 <input type="hidden" name="test_parameters_code" id="test_parameters_code" readonly>
             </div>
