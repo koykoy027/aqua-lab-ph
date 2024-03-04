@@ -6,7 +6,7 @@
             <label for="micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h">No. of yellow/flourescent wells rxn after 18h</label>
             <input id="micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h" type="number" step="any" min="0" max="100000"
                 name="micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h"
-                value="{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}" required autofocus
+                value="{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}" readonly autofocus
                 autocomplete="micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h" />
 
             @error('micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h')
