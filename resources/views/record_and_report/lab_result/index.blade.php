@@ -62,7 +62,11 @@
             </table>
         </div>
         <div class="my-5">
-            {{ $datas->links() }}
+            {{ $datas->appends([
+                'search' => $query,
+                'start_date' => $start_date,
+                'end_date' => $end_date,
+            ])->links() }}
         </div>
     </div>
 

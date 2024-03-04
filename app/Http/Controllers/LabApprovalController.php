@@ -38,6 +38,9 @@ class LabApprovalController extends Controller
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
+            })
+            ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                $queryBuilder->where('sample_id', 'LIKE', "%$query%");
             });
 
         $requests = $queryBuilder
@@ -57,7 +60,9 @@ class LabApprovalController extends Controller
             ->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
-
+            })
+            ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                $queryBuilder->where('sample_id', 'LIKE', "%$query%");
             });
 
         $requests = $queryBuilder
@@ -79,11 +84,11 @@ class LabApprovalController extends Controller
         $micro1 = Micro1::where('analysis_id', $analysis_id)->get();
         $micro2 = Micro2::where('analysis_id', $analysis_id)->get();
         $micro3 = Micro3::where('analysis_id', $analysis_id)->get();
-        $micr3_9223B = Micro3_9223B::where('analysis_id',$analysis_id)->first();
+        $micr3_9223B = Micro3_9223B::where('analysis_id', $analysis_id)->first();
         $micro4 = Micro4::where('analysis_id', $analysis_id)->get();
-        $micr4_9223B = Micro4_9223B::where('analysis_id',$analysis_id)->first();
-        $micro6a = Micro6A::where('analysis_id',$analysis_id)->first();
-        
+        $micr4_9223B = Micro4_9223B::where('analysis_id', $analysis_id)->first();
+        $micro6a = Micro6A::where('analysis_id', $analysis_id)->first();
+
         $chem1 = Chem1::where('analysis_id', $analysis_id)->get();
         $chem2 = Chem2::where('analysis_id', $analysis_id)->get();
         $chem3 = Chem3::where('analysis_id', $analysis_id)->get();

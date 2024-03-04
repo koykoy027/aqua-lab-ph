@@ -67,7 +67,9 @@
             </table>
         </div>
         <div class="my-5">
-            {{ $requests->links() }}
+            {{ $requests->appends([
+                'search' => $query,
+            ])->links() }}
         </div>
     </div>
 

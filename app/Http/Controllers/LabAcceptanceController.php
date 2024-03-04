@@ -65,7 +65,10 @@ class LabAcceptanceController extends Controller
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
                     ->where('test_parameters', 'micro');
-            });
+            })
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                });
         }
 
         $analysisRequest = $queryBuilder
@@ -101,7 +104,10 @@ class LabAcceptanceController extends Controller
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
                     ->orWhere('test_parameters', 'LIKE', "%$query%");
-            });
+            })
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                });
         }
 
         $analysisRequest = $queryBuilder
