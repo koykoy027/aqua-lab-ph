@@ -157,6 +157,7 @@ class LabResultStatusController extends Controller
             ->whereHas('labAcceptance', function ($queryBuilder) use ($query) {
                 $queryBuilder->where('remarks', 'Approve');
             })
+            ->orderBy('date_collected', 'desc')
             ->paginate(10);
         return view('record_and_report.lab_result.index', compact(
             'datas',
