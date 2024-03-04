@@ -370,9 +370,9 @@ const micro2 = () => {
         }
 
         if (micr2_tc_final_result.value == "< 1.1") {
-            micr2_tc_remarks.value = "PASSED";
+            micr2_tc_remarks.value = "PASS";
         } else {
-            micr2_tc_remarks.value = "FAILED";
+            micr2_tc_remarks.value = "FAIL";
         }
     } else {
         micr2_tc_final_result.value = "";
@@ -404,9 +404,9 @@ const micro3 = () => {
             micr3_final_result.value = ">8.0";
         }
         if (micr3_final_result.value == "<1.1") {
-            micr3_remarks.value = "PASSED";
+            micr3_remarks.value = "PASS";
         } else {
-            micr3_remarks.value = "FAILED";
+            micr3_remarks.value = "FAIL";
         }
     } else {
         micr3_final_result.value = "";
