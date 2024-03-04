@@ -118,7 +118,7 @@ class LibraryTestParameterSeeder extends Seeder
             'is_show' => false,
         ]);
         LibraryTestParameter::create([
-            'filename' => 'micro6a',
+            'filename' => 'micr6a',
             'type' => 'micro',
             'parameter' => 'MICR6A',
             'service' => 'Legionella pneumophila',

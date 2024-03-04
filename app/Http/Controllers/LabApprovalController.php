@@ -43,7 +43,7 @@ class LabApprovalController extends Controller
         $requests = $queryBuilder
             ->whereIn('test_parameters', ['micro'])
             ->whereHas('labAcceptance', function ($query) {
-                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
+                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing', 'Disapprove']);
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
@@ -63,7 +63,7 @@ class LabApprovalController extends Controller
         $requests = $queryBuilder
             ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
             ->whereHas('labAcceptance', function ($query) {
-                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing']);
+                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing', 'Disapprove']);
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
