@@ -13,8 +13,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        with:
-            fetch-depth: 1
 
       - name: Install Composer dependencies
         run: composer install --no-interaction --optimize-autoloader
