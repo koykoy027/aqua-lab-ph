@@ -150,7 +150,6 @@ class LabAcceptanceController extends Controller
 
         try {
 
-
             $currentDate = now(); // Get the current date
             // Get the month and date components
             $month = $currentDate->format('n') - 1; // Convert to 0-based index
@@ -170,14 +169,17 @@ class LabAcceptanceController extends Controller
                 ->whereHas('analysisRequest', function ($queryBuilder) use ($findAnalysisRequest) {
                     $queryBuilder->where('test_parameters', 'micro'); // find if micro or pychem
                 })
+                ->where('sample_id','!=' ,null)
                 ->count();
             $totalPyChemSampleToday = LabAcceptance::whereDate('created_at', $currentDate->toDateString())
                 ->whereHas('analysisRequest', function ($queryBuilder) use ($findAnalysisRequest) {
                     $queryBuilder->where('test_parameters', '!=', 'micro'); // find if micro or pychem
                 })
                 ->count();
-            $totalMicroSampleTodaySampleFormat = $plainFormat . (str_pad($totalMicroSampleToday, 2, '0', STR_PAD_LEFT));
-            $totalPyChemSampleTodaySampleFormat = $plainFormat . (str_pad($totalPyChemSampleToday, 2, '0', STR_PAD_LEFT)) . 'PC';
+
+            // dd($totalMicroSampleToday + 1);
+            $totalMicroSampleTodaySampleFormat = $plainFormat . (str_pad($totalMicroSampleToday + 1, 2, '0', STR_PAD_LEFT));
+            $totalPyChemSampleTodaySampleFormat = $plainFormat . (str_pad($totalPyChemSampleToday + 1, 2, '0', STR_PAD_LEFT)) . 'PC';
             $finalFormat = $findAnalysisRequest->test_parameters == 'micro' ? $totalMicroSampleTodaySampleFormat : $totalPyChemSampleTodaySampleFormat;
             // end of format
 
