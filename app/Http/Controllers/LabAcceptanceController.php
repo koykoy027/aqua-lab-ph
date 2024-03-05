@@ -74,7 +74,7 @@ class LabAcceptanceController extends Controller
         $analysisRequest = $queryBuilder
             ->where('test_parameters', 'micro')
             ->whereHas('labAcceptance', function ($query) {
-                $query->whereNotIn('remarks', ['Pending', 'Disapprove']);
+                $query->whereNotIn('remarks', ['Pending', 'Disapprove', 'Rejected']);
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
@@ -113,7 +113,7 @@ class LabAcceptanceController extends Controller
         $analysisRequest = $queryBuilder
             ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
             ->whereHas('labAcceptance', function ($query) {
-                $query->whereNotIn('remarks', ['Pending', 'Disapprove']);
+                $query->whereNotIn('remarks', ['Pending', 'Disapprove', 'Rejected']);
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
@@ -150,6 +150,7 @@ class LabAcceptanceController extends Controller
 
         try {
 
+            $remarks = $request->remarks;
             $currentDate = now(); // Get the current date
             // Get the month and date components
             $month = $currentDate->format('n') - 1; // Convert to 0-based index
@@ -169,12 +170,13 @@ class LabAcceptanceController extends Controller
                 ->whereHas('analysisRequest', function ($queryBuilder) use ($findAnalysisRequest) {
                     $queryBuilder->where('test_parameters', 'micro'); // find if micro or pychem
                 })
-                ->where('sample_id','!=' ,null)
+                ->where('sample_id', '!=', null)
                 ->count();
             $totalPyChemSampleToday = LabAcceptance::whereDate('created_at', $currentDate->toDateString())
                 ->whereHas('analysisRequest', function ($queryBuilder) use ($findAnalysisRequest) {
                     $queryBuilder->where('test_parameters', '!=', 'micro'); // find if micro or pychem
                 })
+                ->where('sample_id', '!=', null)
                 ->count();
 
             // dd($totalMicroSampleToday + 1);
@@ -183,7 +185,8 @@ class LabAcceptanceController extends Controller
             $finalFormat = $findAnalysisRequest->test_parameters == 'micro' ? $totalMicroSampleTodaySampleFormat : $totalPyChemSampleTodaySampleFormat;
             // end of format
 
-            if (!$findLabAcceptance->sample_id) { // store new sample_id
+            if (!$findLabAcceptance->sample_id && $remarks != 'Rejected') {
+
                 $findLabAcceptance->update([
                     'sample_id' => $finalFormat,
                 ]);
@@ -199,11 +202,9 @@ class LabAcceptanceController extends Controller
             }
 
             $findLabAcceptance->update([ // update all fields
-                // 'analysis_id' => $request->analysis_id,
                 'evaluated_by' => $request->evaluated_by,
                 'date_evaluated' => $request->date_evaluated,
                 'time_evaluated' => $request->time_evaluated,
-                // 'sample_condition' => $request->sample_condition,
                 'remarks' => $request->remarks,
                 'if_remarks_are_rejected' => $request->if_remarks_are_rejected,
             ]);
