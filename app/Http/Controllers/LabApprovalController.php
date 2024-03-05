@@ -34,41 +34,48 @@ class LabApprovalController extends Controller
     public function micro(Request $request)
     {
         $query = $request->input('search');
-        $queryBuilder = AnalysisRequest::query()
-            ->where(function ($search) use ($query) {
-                $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
-            })
-            ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                $queryBuilder->where('sample_id', 'LIKE', "%$query%");
-            });
+        $analysisRequestQuery = AnalysisRequest::query();
 
-        $requests = $queryBuilder
-            ->whereIn('test_parameters', ['micro'])
-            ->whereHas('labAcceptance', function ($query) {
-                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing', 'Disapprove']);
+        if ($query) {
+            $analysisRequestQuery->where('collector_name', 'LIKE', "%$query%")
+                ->orWhere('test_parameters', 'LIKE', "%$query%")
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                });
+        }
+
+        $requests = $analysisRequestQuery->where('test_parameters', 'micro')
+            ->whereHas('labAcceptance', function ($queryBuilder) {
+                $queryBuilder->where('remarks', '!=', ['Rejected'])
+                    ->where('remarks', '!=', 'Pending')
+                    ->where('remarks', '!=', 'Accepted')
+                    ->where('remarks', '!=', 'Conditionally Accepted');
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
+
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 
     public function phyChem(Request $request)
     {
         $query = $request->input('search');
-        $queryBuilder = AnalysisRequest::query()
-            ->where(function ($search) use ($query) {
-                $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
-            })
-            ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                $queryBuilder->where('sample_id', 'LIKE', "%$query%");
-            });
+        $analysisRequestQuery = AnalysisRequest::query();
 
-        $requests = $queryBuilder
-            ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
-            ->whereHas('labAcceptance', function ($query) {
-                $query->whereIn('remarks', ['Approve', 'Testing on-going', 'For approval', 'For releasing', 'Disapprove']);
+        if ($query) {
+            $analysisRequestQuery->where('collector_name', 'LIKE', "%$query%")
+                ->orWhere('test_parameters', 'LIKE', "%$query%")
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                });
+        }
+
+        $requests = $analysisRequestQuery->where('test_parameters', '!=', 'micro')
+            ->whereHas('labAcceptance', function ($queryBuilder) {
+                $queryBuilder->where('remarks', '!=', ['Rejected'])
+                    ->where('remarks', '!=', 'Pending')
+                    ->where('remarks', '!=', 'Accepted')
+                    ->where('remarks', '!=', 'Conditionally Accepted');
             })
             ->orderBy('created_at', 'desc')
             ->paginate(10);
