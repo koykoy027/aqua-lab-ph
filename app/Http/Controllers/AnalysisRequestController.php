@@ -151,8 +151,9 @@ class AnalysisRequestController extends Controller
             ]);
 
 
-            $selectedParameters = $request->input('selectedParameters', []);
+            $selectedParameters = $request->input('selectedParameters', []); // pang select sa checkbox
 
+            // create row sa migration
             if (in_array(1, $selectedParameters) || $test_parameters_dropdown == 1 || in_array(6, $selectedParameters) || $test_parameters_dropdown == 6 || $test_parameters_dropdown == 7) {
                 Micro1::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -203,49 +204,49 @@ class AnalysisRequestController extends Controller
                     'test_parameters_id' => 11,
                 ]);
             }
-            if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13) {
+            if (in_array(13, $selectedParameters) || $test_parameters_dropdown == 13 || $test_parameters_dropdown == 59) {
 
                 Chem1::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 13,
                 ]);
             }
-            if (in_array(14, $selectedParameters) || $test_parameters_dropdown == 14) {
+            if (in_array(14, $selectedParameters) || $test_parameters_dropdown == 14 || $test_parameters_dropdown == 59) {
 
                 Chem2::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 14,
                 ]);
             }
-            if (in_array(17, $selectedParameters) || $test_parameters_dropdown == 17) {
+            if (in_array(17, $selectedParameters) || $test_parameters_dropdown == 17 || $test_parameters_dropdown == 59) {
 
                 Chem3::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 17,
                 ]);
             }
-            if (in_array(18, $selectedParameters) || $test_parameters_dropdown == 18) {
+            if (in_array(18, $selectedParameters) || $test_parameters_dropdown == 18 || $test_parameters_dropdown == 59) {
 
                 Chem4::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 18,
                 ]);
             }
-            if (in_array(19, $selectedParameters) || $test_parameters_dropdown == 19) {
+            if (in_array(19, $selectedParameters) || $test_parameters_dropdown == 19 || $test_parameters_dropdown == 59) {
 
                 Chem5::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 19,
                 ]);
             }
-            if (in_array(20, $selectedParameters) || $test_parameters_dropdown == 20) {
+            if (in_array(20, $selectedParameters) || $test_parameters_dropdown == 20 || $test_parameters_dropdown == 59) {
 
                 Chem6::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 20,
                 ]);
             }
-            if (in_array(21, $selectedParameters) || $test_parameters_dropdown == 21) {
+            if (in_array(21, $selectedParameters) || $test_parameters_dropdown == 21 || $test_parameters_dropdown == 59) {
 
                 Chem7::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -280,14 +281,14 @@ class AnalysisRequestController extends Controller
                     'test_parameters_id' => 63,
                 ]);
             }
-            if (in_array(63, $selectedParameters) || $test_parameters_dropdown == 63) {
+            if (in_array(63, $selectedParameters) || $test_parameters_dropdown == 63 || $test_parameters_dropdown == 59) {
 
                 Phys3::create([
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters_id' => 63,
                 ]);
             }
-            if (in_array(65, $selectedParameters) || $test_parameters_dropdown == 65) {
+            if (in_array(65, $selectedParameters) || $test_parameters_dropdown == 65 || $test_parameters_dropdown == 59) {
 
                 Phys4::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -295,6 +296,7 @@ class AnalysisRequestController extends Controller
                 ]);
             }
 
+            // create test parameter sa naka select na checkbox
             foreach ($selectedParameters as $parameterValue) {
                 TestParameter::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -303,6 +305,7 @@ class AnalysisRequestController extends Controller
             }
 
 
+            // create test parameter sa mga dropdown na multiple parameters
             if ($test_parameters_dropdown == 6) { // if dropdown = MICRO5
                 TestParameter::create([
                     'analysis_id' => $analysisRequest->analysis_id,
@@ -356,19 +359,53 @@ class AnalysisRequestController extends Controller
                     'analysis_id' => $analysisRequest->analysis_id,
                     'test_parameters' => 4,
                 ]);
+            }else if ($test_parameters_dropdown == 59) { // if dropdown = PHCH1,
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 64,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 65,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 13,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 14,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 17,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 18,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 19,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 20,
+                ]);
+                TestParameter::create([
+                    'analysis_id' => $analysisRequest->analysis_id,
+                    'test_parameters' => 21,
+                ]);
             }
 
-            // 12 = MICROX,
-            // 58 = CHEMX
-            // 61 = PHYSX
-            // 6 = MICRO5
-            // 7 = MICRO5B
+            // para hindi mag create ng parameters kapag multiple parameters
             if (
-                $test_parameters_dropdown != 12 &&
-                $test_parameters_dropdown != 58 &&
-                $test_parameters_dropdown != 61 &&
-                $test_parameters_dropdown != 6 &&
-                $test_parameters_dropdown != 7 &&
+                $test_parameters_dropdown != 12 && // 12 = MICROX
+                $test_parameters_dropdown != 58 && // 58 = CHEMX
+                $test_parameters_dropdown != 59 && // 59 = PHCH1
+                $test_parameters_dropdown != 61 && // 61 = PHYSX
+                $test_parameters_dropdown != 6 && // 6 = MICRO5
+                $test_parameters_dropdown != 7 && // 7 = MICRO5B
                 $test_parameters_dropdown != 8 &&
                 $test_parameters_dropdown != 9 &&
                 $test_parameters_dropdown != 10

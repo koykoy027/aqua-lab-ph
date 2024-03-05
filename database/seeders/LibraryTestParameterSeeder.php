@@ -607,7 +607,7 @@ class LibraryTestParameterSeeder extends Seeder
         // PHCH START
         LibraryTestParameter::create([
             'filename' => '',
-            'type' => '',
+            'type' => 'phys',
             'parameter' => 'PHCH1',
             'service' => 'All Nine (9) Mandatory Physical and Chemical Parameters (PNSDW 2017/DOH AO 2013-003)',
             'method' => '',
