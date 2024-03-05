@@ -613,7 +613,7 @@ class LibraryTestParameterSeeder extends Seeder
             'method' => '',
             'limit' => '',
             'sequence' => '61',
-            'is_show' => false,
+            'is_show' => true,
         ]);
         LibraryTestParameter::create([
             'filename' => '',
