@@ -1272,7 +1272,7 @@
             </tr>
             <br>
             <tr>
-                <td style="vertical-align: top; z-index: 1;">Note/s:</td>
+                <td style="vertical-align: top;">Note/s:</td>
                 <td colspan="4">
                     <p>
                         Comma (,) is used in this report to emphasize presentation of decimal separation/s.
