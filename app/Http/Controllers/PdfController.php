@@ -35,6 +35,7 @@ class PdfController extends Controller
     public function generateAnalysisPdf($analysis_id)
     {
         $currentDateTime = Carbon::now();
+        $generatedOn = $currentDateTime->format('m/d/Y g:i:s');
         $analysisRequests = AnalysisRequest::find($analysis_id);
         $account_number = $analysisRequests->account_number;
         $clients = Client::find($account_number);
@@ -90,6 +91,7 @@ class PdfController extends Controller
         $pdf = Pdf::loadView(
             'record_and_report.lab_result.pdf',
             [
+                'generatedOn' => $generatedOn,
                 'analysisRequests' => $analysisRequests,
                 'collection_details' => $collection_details,
                 'clients' => $clients,

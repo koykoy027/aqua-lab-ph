@@ -7,8 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $clients->account_name }}</title>
-    {{-- <style>
-        /* ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com */
+
+    {{-- ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com --}}
+    <style>
         *,
         ::after,
         ::before {
@@ -28,8 +29,9 @@
             -webkit-text-size-adjust: 100%;
             -moz-tab-size: 4;
             tab-size: 4;
-            font-family: Figtree, sans-serif;
-            font-feature-settings: normal
+            font-family: Arial, Helvetica, sans-serif;
+            font-feature-settings: normal;
+            font-size: 10px;
         }
 
         body {
@@ -96,11 +98,11 @@
             top: -.5em
         }
 
-        table {
+        /* table {
             text-indent: 0;
             border-color: inherit;
             border-collapse: collapse
-        }
+        } */
 
         button,
         input,
@@ -822,670 +824,483 @@
                 padding: 2rem
             }
         }
-    </style> --}}
+    </style>
 
+    {{-- custom style --}}
     <style>
-        body {
-            /* margin-top: 235px; */
-            line-height: 1;
-            font-size: small;
-
-        }
-
-        .p {
-            padding: 0;
-            margin: 0;
-            overflow-wrap: break-word;
-            width: 350px
-        }
-
-        .title {
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: 400;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .table-container {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10px;
+        /* global style */
+        table {
             width: 100%;
         }
-
-        .head {
-            border-top: 1px dotted black;
-            border-bottom: 1px dotted black;
-        }
-
-        th {
-            padding: 10px;
-            text-transform: uppercase;
-            font-size: 13px;
-        }
-
-        .details {
-            padding-top: 5px;
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 10px;
-            text-align: left;
-            text-transform: uppercase;
-            font-size: 10px;
-        }
-
-        .result_details {
-            /* padding-top: 10px; */
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 10px;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 10px;
-        }
-
-        tbody {
-            border-bottom: 1px dotted black;
-        }
-
-
-        .information {
-            margin-left: 20px;
-            font-size: 13px;
-        }
-
-        .information-1 {
-            margin-left: 20px;
-            font-size: 13px;
-        }
-
-        span {
-            padding-left: 40px;
-            font-size: 11px;
-        }
-
-        .requested {
-            padding-left: 51px;
-        }
-
-        .main-source {
-            padding-left: 55px;
-        }
-
-        .sampling_point {
-            padding-left: 45px;
-        }
-
-        .water_purpose {
-            padding-left: 20px;
-        }
-
-        .date_time_collecteed {
-            padding-left: 20px;
-        }
-
-        .type_of_water {
-            padding-left: 48px;
-        }
-
-        .date_time_received {
-            padding-left: 20px;
-        }
-
-        .date_time_tested {
-            padding-left: 30px;
-        }
-
-        .collected-by {
-            padding-left: 56px;
-        }
-
-        .top-information {
-            font-size: 11px;
-        }
-
-        .top_sampling {
-            padding-left: 165px;
-        }
-
-        .top_water {
-            padding-left: 165px;
-        }
-
-        .top_received {
-            padding-left: 165px;
-        }
-
-        .top_tested {
-            padding-left: 165px;
-        }
-
         .uppercase {
             text-transform: uppercase;
         }
-
-        span {
-            margin-left: 20px;
-
+        .text-center {
+            text-align: center;
+        }
+        .text-start {
+            text-align: start;
+        }
+        .bold {
+            font-weight: bold;
+        }
+        .w-20{
+            width: 20%;
+        }
+        .w-30{
+            width: 30%;
         }
 
-        .main-source {
-            margin-left: 21px;
-        }
-
-        .e_signature {
-            height: 50px;
-            width: 250px;
-            margin-left: 0px;
-        }
-
-        .e_signature1 {
-            height: 40px;
-            width: 250px;
-            margin-left: 30px;
-        }
-
+        /* custom style */
         .lims {
             margin-top: -30px;
-            height: 70px;
+            height: 90px;
             width: 300px;
-            margin-left: -25px;
+            margin-left: -20px;
         }
 
         .doh {
             margin-top: -30px;
             height: 70px;
-            width: 150px;
-            margin-left: 280px;
+            width: 140px;
+            /* margin-left: 280px; */
         }
 
-        .certi {
-            margin-left: 50px;
+        .header-dotted {
+            border-top: 1px dotted black;
+            border-bottom: 1px dotted black;
         }
 
-        .certi_no {
-            padding-left: 50px;
-            color: red;
-        }
-
-        .acc {
-            margin-left: 50px;
-        }
-
-        .acc_id {
-            padding-left: 61px;
-        }
-
-        .sample {
-            margin-left: 50px;
-        }
-
-        .sample_id {
-            padding-left: 65px;
-        }
-
-        .collected-by {
-            /* padding-left: 90px; */
-        }
-
-        .table-fixed-bottom {
-            position: fixed;
-            bottom: 75;
-            /* width: 100%; */
+        .footer-dotted {
+            border-bottom: 1px dotted black;
         }
     </style>
 </head>
 
 <body>
 
-    <div>
-        <table style="width: 100%; margin-top: 0px">
-            <thead>
-                <tr>
-                    <td style="font-size:  13px; font-weight: 900">
-                        <img src="{{ public_path('image/branding.png') }}" class="lims" alt="lab-aqua">
-                    </td>
-
-                    <td style="font-size:  13px; padding-right: 10px">
-                        <img src="{{ public_path('image/doh_logo.JPG') }}" class="doh" alt="doh-logo">
-                    </td>
-                </tr>
-            </thead>
-        </table>
-
-        <table style="width: 100%; margin-top: 3px">
-            <thead>
-                <tr>
-                    <td style="font-size:  11px; color:#4b5563;">
-                        <p>
-                            Aqualab Analytical Services Inc., operating under the name "AQUALAB PH" <br>
-                            Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite <br>
-                            Tel. No.: (046) 686 3704 | Mobile No. 0919 087 4880 | Email: info@aqualabph.com
-                        </p>
-                    </td>
-                </tr>
-            </thead>
-        </table>
-
-        <table style="width: 100%; margin-top: 0px">
-            <thead>
-                <tr>
-                    <td class="uppercase" style="font-size: 12px">
-                        <p class="p" style="font-weight: 900;">{{ $clients->account_name }}</p>
-                        <p class="p">
-                            {{ $clients->unit_no_floor_bldg_name }}
-                            {{ $clients->street_name_or_subdivision }}
-                            {{ $clients->barangay_name }}
-                            {{ $clients->municipality_or_city }}
-                            {{ $clients->province }}
-                            {{ $clients->zip_code }}
-                        </p>
-                    </td>
-
-                    <td style="font-size:  11px; padding-right: 40px">
-                        <p class="certi">
-                            Certificate No: <span class="certi_no">{{ $certificateNo }}</span>
-                        </p>
-                        <p class="acc">
-                            Account ID: <span class="acc_id">{{ $clients->client_id }}</span>
-                        </p>
-                        <p class="sample">
-                            Sample ID: <span class="sample_id">{{ $analysisRequests->labAcceptance->sample_id }}</span>
-                        </p>
-                    </td>
-                </tr>
-            </thead>
-        </table>
-
-        <table style="width: 100%; margin-top: 5px">
-            <thead>
-                <tr class="top-information">
-                    <td>
-                        Requested By: <span class="uppercase requested">{{ $clients->name_of_owner }}</span>
-                    </td>
-                </tr>
-
-                <tr class="top-information">
-                    <td>
-                        Main Source: <span class="uppercase main-source">{{ $analysisRequests->source_of_water_sample }}</span>
-                    </td>
-
-                    <td class="top_sampling">
-                        Sampling point: <span class="uppercase sampling_point">{{ $analysisRequests->collection_point }}
-                    </td>
-                </tr>
-
-                <tr class="top-information">
-                    <td>Water Purpose (Use): <span class="uppercase water_purpose">
-                        {{ $analysisRequests->water_purpose == 'Others' ? $analysisRequests->water_purpose_others : $analysisRequests->water_purpose }}</span>
-                    </td>
-                    <td class="top_water">Type of Water: <span class="uppercase type_of_water">
-                        {{ $analysisRequests->type_of_water == 'Others' ? $analysisRequests->type_of_water_others : $analysisRequests->type_of_water}}</span>
-                    </td>
-                </tr>
-
-                <tr class="top-information">
-                    <td>
-                        Date/Time Collected: <span class="date_time_collecteed">
-                        {{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} - 
-                        {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}</span>
-                    </td>
-
-                    <td class="top_received">Date/Time Received: <span class="date_time_received">
-                        {{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} - 
-                        {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}</span>
-                    </td>
-                </tr>
-
-                <tr class="top-information">
-                    <td>
-                        Collected by: <span class="uppercase collected-by">
-                        {{ $analysisRequests->collector_name }}</span>
-                    </td>
-                    <td class="top_tested">Date/Time Tested: <span class="date_time_tested">
-                        {{ \Carbon\Carbon::parse($labAcceptance->created_at)->format('m/d/Y - g:i A') }} </span>
-                    </td>
-                </tr>
-
-            </thead>
-        </table>
-    </div>
-
-    <div class="title" style="font-size: small">
-        @if ($analysisRequests->test_parameters == 'micro')
-            C E R T I F I C A T E O F M I C R O B I O L O G I C A L A N A L Y S I S
-        @else
-            C E R T I F I C A T E O F P H Y S I C A L A N D C H E M I C A L A N A L Y S I S
-        @endif
-    </div>
-
-    <table class="table-container">
-        <thead class="head">
+    {{-- header --}}
+    <table style="margin-top: 0px">
+        <thead>
             <tr>
-                <th class="test">parameter</th>
-                <th class="method">method of analysis</th>
-                <th class="result">result</th>
-                <th class="limit">limit</th>
-                <th class="remarks">remarks</th>
+                <td style="font-size: 13px; font-weight: 900; text-align: left; ">
+                    <img src="{{ public_path('image/branding.png') }}" class="lims" alt="lab-aqua">
+                </td>
+
+                <td style="font-size: 13px; padding-right: 10px; text-align: right;">
+                    <img src="{{ public_path('image/doh_logo.JPG') }}" class="doh" alt="doh-logo">
+                </td>
+            </tr>
+        </thead>
+    </table>
+
+
+    <table style="margin-top: -15px; ">
+        <thead>
+            <tr>
+                <td style="font-size:  11px; color:grey;">
+                    <p>
+                        Aqualab Analytical Services Inc., operating under the name "AQUALAB PH" <br>
+                        Block 39 Lot 1&3 Green Estate 3 Malagasang I-G Imus City 4103 Cavite <br>
+                        Tel. No.: <a href="tel:(046) 686 3704">(046) 686 3704</a> | Mobile No. <a href="tel:0919 087 4880">0919 087 4880</a> | Email:<a href="mailto:info@aqualabph.com">info@aqualabph.com</a>
+                    </p>
+                </td>
+            </tr>
+        </thead>
+    </table>
+    {{-- end of header --}}
+
+
+    {{-- info --}}
+    <table>
+        <thead>
+            <tr>
+                <td colspan="3"></td>
+                <td>Certificate no. </td>
+                <td style="color: {{ $analysisRequests->test_parameters == 'micro' ? '' : 'red' }};">
+                    <b> {{ $certificateNo }} </b>
+                </td>
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td colspan="3" rowspan="2">
+                    <b>{{ $clients->account_name }} </b> <br />
+                    {{ $clients->unit_no_floor_bldg_name }}
+                    {{ $clients->street_name_or_subdivision }}
+                    {{ $clients->barangay_name }} <br />
+                    {{ $clients->municipality_or_city }}
+                    {{ $clients->province }}
+                    {{ $clients->zip_code }}
+                </td>
+                <td>
+                    Account ID <br />
+                    Sample ID
+                </td>
+                <td>
+                    {{ $clients->client_id }} <br />
+                    {{ $analysisRequests->labAcceptance->sample_id }}
+                </td>
+            </tr>
 
             <tr>
-                @foreach ($collection_details as $collection_detail)
-                    @foreach ($test_parameters as $test_parameter)
-                        @foreach ($library_test_parameters as $library_test_parameter)
+                <td colspan="5"></td>
+            </tr>
+            <br>
+            <tr>
+                <td>Requested by:</td>
+                <td class="uppercase" colspan="2">{{ $clients->name_of_owner }}</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Main Source:</td>
+                <td class="uppercase" colspan="2">{{ $analysisRequests->source_of_water_sample }}</td>
+                <td>Sampling Point:</td>
+                <td class="uppercase">{{ $analysisRequests->collection_point }}</td>
+            </tr>
+            <tr>
+                <td>Water Purpose (Use):</td>
+                <td class="uppercase" colspan="2">
+                    {{ 
+                        $analysisRequests->water_purpose == 'Others' ?
+                        $analysisRequests->water_purpose_others : $analysisRequests->water_purpose 
+                    }}
+                </td>
+                <td>Type of Water:</td>
+                <td class="uppercase">
+                    {{ 
+                        $analysisRequests->type_of_water == 'Others' ? 
+                        $analysisRequests->type_of_water_others : $analysisRequests->type_of_water
+                    }}
+                </td>
+            </tr>
+            <tr>
+                <td>Date/Time Collected:</td>
+                <td colspan="2">
+                    {{ Carbon\Carbon::parse($analysisRequests->date_collected)->format('m/d/Y') }} -
+                    {{ Carbon\Carbon::parse($analysisRequests->time_collected)->format('g:i A') }}
+                </td>
+                <td>Date/Time Received:</td>
+                <td>
+                    {{ Carbon\Carbon::parse($labAcceptance->date_evaluated)->format('m/d/Y') }} -
+                    {{ Carbon\Carbon::parse($labAcceptance->time_evaluated)->format('g:i A') }}
+                </td>
+            </tr>
+            <tr>
+                <td>Collected By:</td>
+                <td class="uppercase" colspan="2">{{ $analysisRequests->collector_name }}</td>
+                <td>Date/Time Tested:</td>
+                <td>
+                    {{ \Carbon\Carbon::parse($labAcceptance->created_at)->format('m/d/Y - g:i A') }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    {{-- end of info --}}
 
-                            @if ($test_parameter->test_parameters == $library_test_parameter->id)
-                                <tr>
-                                    <td class="details">
-                                        {{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}
-                                    </td>
+    <br />
+    <p class="text-center uppercase bold" style=" letter-spacing: 4px;">
+        {{
+            $analysisRequests->test_parameters == 'micro' ?
+            'CERTIFICATE OF MICROBIOLOGICAL ANALYSIS' :
+            'CERTIFICATE OF PHYSICAL AND CHEMICAL ANALYSIS'
+        }}
+    </p>
 
-                                    <td class="details">
-                                        {{ $library_test_parameter->method }}
-                                    </td>
+    {{-- contents --}}
+    <table>
+        <thead class="header-dotted">
+            <tr class="text-center uppercase" >
+                <td class="w-20" style="padding: 10px">parameter</td>
+                <td class="w-20" style="padding: 10px">method of analysis</td>
+                <td class="w-20" style="padding: 10px">result</td>
+                <td class="w-20" style="padding: 10px">limit</td>
+                <td class="w-20" style="padding: 10px">remarks</td>
+            </tr>
+        </thead>
+        
+        <tbody>
+            @foreach ($collection_details as $collection_detail)
+                @foreach ($test_parameters as $test_parameter)
+                    @foreach ($library_test_parameters as $library_test_parameter)
 
-                                    @if ($library_test_parameter->id == 1)
-                                        @foreach ($micro1 as $data)
-                                            <td class="result_details">{{ $data->micr1_hpc_final_result }}</td>
-                                            <td class="result_details">
-                                                @if($data->micr1_hpc_final_result >= 500)
-                                                    &gt; 500
-                                                @else
-                                                    &lt; 500
-                                                @endif
-                                            </td>
-                                            <td class="result_details">{{ $data->micr1_hpc_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                        @if ($test_parameter->test_parameters == $library_test_parameter->id)
+                            <tr>
+                                <td class="w-20 text-start">
+                                    {{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}
+                                </td>
 
-                                    @if ($library_test_parameter->id == 3)
-                                        @foreach ($micro2 as $data)
-                                            <td class="result_details">{{ $data->micr2_tc_final_result }}</td>
-                                            <td class="result_details">
-                                                @if($data->micr2_tc_final_result >= 500)
-                                                    &gt; 500
-                                                @else
-                                                    &lt; 500
-                                                @endif
-                                            </td>
-                                        <td class="result_details">{{ $data->micr2_tc_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                <td class="w-30 text-start">
+                                    {{ $library_test_parameter->method }}
+                                </td>
 
-                                    @if ($library_test_parameter->id == 4)
-                                        @foreach ($micro3 as $data)
-                                            <td class="result_details">{{ $data->micr3_final_result }}</td>
-                                            <td class="result_details">
-                                                @if($data->micr3_final_result >= 500)
-                                                    &gt; 500
-                                                @else
-                                                    &lt; 500
-                                                @endif
-                                            </td>
-                                            <td class="result_details">{{ $data->micr3_remarks }}</td>
-                                        @endforeach
-                                    @endif
-
-                                    @if ($library_test_parameter->id == 5)
-                                        @foreach ($micro4 as $data)
-                                            <td class="result_details">{{ $data->micr4_color_of_the_sample }}</td>
-                                            <td class="result_details">{{ $data->micr4_fluorescence }}</td>
-                                            <td class="result_details">{{ $data->micr4_final_result }}</td>
-                                        @endforeach
-                                    @endif
-
-                                    @if ($library_test_parameter->id == 7)
-                                        @foreach ($micro5b as $data)
-                                            <td class="result_details">{{ $data->micr5b_hpc_final_result }}</td>
-                                            <td class="result_details">
-                                                @if($data->micr5b_hpc_final_result >= 500)
-                                                    &gt; 500
-                                                @else
-                                                    &lt; 500
-                                                @endif
-                                            </td>
-                                            <td class="result_details">{{ $data->micr5b_hpc_remarks }}</td>
-                                        @endforeach
-                                    @endif
-
-                                    @if ($library_test_parameter->id == 11)
-                                        <td class="result_details">{{ $micro6a->micro6a_hpc_final_result }}</td>
-                                        <td class="result_details">
-                                            @if($micro6a->micro6a_hpc_final_result >= 500)
+                                @if ($library_test_parameter->id == 1)
+                                    @foreach ($micro1 as $data)
+                                        <td class="w-20 text-center">{{ $data->micr1_hpc_final_result }}</td>
+                                        <td class="w-20 text-center">
+                                            @if($data->micr1_hpc_final_result >= 500)
                                                 &gt; 500
                                             @else
                                                 &lt; 500
                                             @endif
                                         </td>
-                                        <td class="result_details">{{ $micro6a->micro6a_hpc_remarks }}</td>
-                                    @endif
+                                        <td class="w-20 text-center">{{ $data->micr1_hpc_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 13)
-                                        @foreach ($chem1 as $data)
-                                            <td class="result_details">{{ $data->chem1_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem1_average_instrument_reading }}</td>
-                                            <td class="result_details">{{ $data->chem1_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 3)
+                                    @foreach ($micro2 as $data)
+                                        <td class="w-20 text-center">{{ $data->micr2_tc_final_result }}</td>
+                                        <td class="w-20 text-center">
+                                            @if($data->micr2_tc_final_result >= 500)
+                                                &gt; 500
+                                            @else
+                                                &lt; 500
+                                            @endif
+                                        </td>
+                                    <td class="w-20 text-center">{{ $data->micr2_tc_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 14)
-                                        @foreach ($chem2 as $data)
-                                            <td class="result_details">{{ $data->chem2_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem2_average_instrument_reading }}</td>
-                                            <td class="result_details">{{ $data->chem2_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 4)
+                                    @foreach ($micro3 as $data)
+                                        <td class="w-20 text-center">{{ $data->micr3_final_result }}</td>
+                                        <td class="w-20 text-center">
+                                            @if($data->micr3_final_result >= 500)
+                                                &gt; 500
+                                            @else
+                                                &lt; 500
+                                            @endif
+                                        </td>
+                                        <td class="w-20 text-center">{{ $data->micr3_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 17)
-                                        @foreach ($chem3 as $data)
-                                            <td class="result_details">{{ $data->chem3_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem3_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem3_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 5)
+                                    @foreach ($micro4 as $data)
+                                        <td class="w-20 text-center">{{ $data->micr4_color_of_the_sample }}</td>
+                                        <td class="w-20 text-center">{{ $data->micr4_fluorescence }}</td>
+                                        <td class="w-20 text-center">{{ $data->micr4_final_result }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 18)
-                                        @foreach ($chem4 as $data)
-                                            <td class="result_details">{{ $data->chem4_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem4_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem4_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 7)
+                                    @foreach ($micro5b as $data)
+                                        <td class="w-20 text-center">{{ $data->micr5b_hpc_final_result }}</td>
+                                        <td class="w-20 text-center">
+                                            @if($data->micr5b_hpc_final_result >= 500)
+                                                &gt; 500
+                                            @else
+                                                &lt; 500
+                                            @endif
+                                        </td>
+                                        <td class="w-20 text-center">{{ $data->micr5b_hpc_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 19)
-                                        @foreach ($chem5 as $data)
-                                            <td class="result_details">{{ $data->chem5_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem5_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem5_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 11)
+                                    <td class="w-20 text-center">{{ $micro6a->micro6a_hpc_final_result }}</td>
+                                    <td class="w-20 text-center">
+                                        @if($micro6a->micro6a_hpc_final_result >= 500)
+                                            &gt; 500
+                                        @else
+                                            &lt; 500
+                                        @endif
+                                    </td>
+                                    <td class="w-20 text-center">{{ $micro6a->micro6a_hpc_remarks }}</td>
+                                @endif
 
-                                    @if ($library_test_parameter->id == 20)
-                                        @foreach ($chem6 as $data)
-                                            <td class="result_details">{{ $data->chem6_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem6_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem6_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 13)
+                                    @foreach ($chem1 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem1_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem1_average_instrument_reading }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem1_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 21)
-                                        @foreach ($chem7 as $data)
-                                            <td class="result_details">{{ $data->chem7_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem7_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem7_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 14)
+                                    @foreach ($chem2 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem2_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem2_average_instrument_reading }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem2_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 23)
-                                        @foreach ($chem9 as $data)
-                                            <td class="result_details">{{ $data->chem9_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem9_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem9_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 17)
+                                    @foreach ($chem3 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem3_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 24)
-                                        @foreach ($chem10 as $data)
-                                            <td class="result_details">{{ $data->chem10_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem10_final_result }}</td>
-                                            <td class="result_details">{{ $data->chem10_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 18)
+                                    @foreach ($chem4 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem4_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 62)
-                                        @foreach ($phys1 as $data)
-                                            <td class="result_details">{{ $data->phys1_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys1_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys1_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 19)
+                                    @foreach ($chem5 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem5_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem5_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem5_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 63)
-                                        @foreach ($phys2 as $data)
-                                            <td class="result_details">{{ $data->phys2_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys2_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys2_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 20)
+                                    @foreach ($chem6 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem6_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem6_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem6_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 64)
-                                        @foreach ($phys3 as $data)
-                                            <td class="result_details">{{ $data->phys3_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys3_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys3_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 21)
+                                    @foreach ($chem7 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem7_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem7_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem7_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 65)
-                                        @foreach ($phys4 as $data)
-                                            <td class="result_details">{{ $data->phys4_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys4_final_result }}</td>
-                                            <td class="result_details">{{ $data->phys4_final_result_remarks }}</td>
-                                        @endforeach
-                                    @endif
+                                @if ($library_test_parameter->id == 23)
+                                    @foreach ($chem9 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem9_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem9_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem9_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 69)
-                                        <td class="result_details">{{ $micr3_9223B->micr3_9223b_no_of_yellow_wells_rxn_after_18h }}</td>
-                                        <td class="result_details">-</td>
-                                        <td class="result_details">-</td>
-                                    @endif
+                                @if ($library_test_parameter->id == 24)
+                                    @foreach ($chem10 as $data)
+                                        <td class="w-20 text-center">{{ $data->chem10_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem10_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->chem10_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
 
-                                    @if ($library_test_parameter->id == 70)
-                                        <td class="result_details">{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}</td>
-                                        <td class="result_details">-</td>
-                                        <td class="result_details">-</td>
-                                    @endif
-                                </tr>
-                            @endif
-                        @endforeach
+                                @if ($library_test_parameter->id == 62)
+                                    @foreach ($phys1 as $data)
+                                        <td class="w-20 text-center">{{ $data->phys1_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys1_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys1_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
+
+                                @if ($library_test_parameter->id == 63)
+                                    @foreach ($phys2 as $data)
+                                        <td class="w-20 text-center">{{ $data->phys2_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys2_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys2_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
+
+                                @if ($library_test_parameter->id == 64)
+                                    @foreach ($phys3 as $data)
+                                        <td class="w-20 text-center">{{ $data->phys3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys3_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
+
+                                @if ($library_test_parameter->id == 65)
+                                    @foreach ($phys4 as $data)
+                                        <td class="w-20 text-center">{{ $data->phys4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ $data->phys4_final_result_remarks }}</td>
+                                    @endforeach
+                                @endif
+
+                                @if ($library_test_parameter->id == 69)
+                                    <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_no_of_yellow_wells_rxn_after_18h }}</td>
+                                    <td class="w-20 text-center">-</td>
+                                    <td class="w-20 text-center">-</td>
+                                @endif
+
+                                @if ($library_test_parameter->id == 70)
+                                    <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}</td>
+                                    <td class="w-20 text-center">-</td>
+                                    <td class="w-20 text-center">-</td>
+                                @endif
+                            </tr>
+                        @endif
                     @endforeach
                 @endforeach
-            </tr>
-
-            <tr>
-                <td colspan="5" style="text-align: center;font-size: smaller">**NOTHING FOLLOWS**</td>
-            </tr>
-
+            @endforeach
         </tbody>
-    </table>
 
-    <table tyle="width: 100%">
-        <thead>
+        <tbody class="footer-dotted">
+            <tr class="text-center uppercase">
+                <td colspan="5">***NOTHING FOLLOWS***</td>
+            </tr>
+        </tbody>
+
+        <tfoot>
             <tr>
-                <td style="font-size:  13px">Remarks:</td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
+                <td style="vertical-align: top;">Remarks:</td>
+                <td colspan="4">
                     <p>
-                        Results of examination are specifically related to samples as received
+                        Results of examination are specifically related to samples as received.
+                    </p>
+                    <p class="bold" style="margin-top: 5px">
+                        Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was contained and transported in a sterilized container at controlled temperature by Aqualab PH trained personnel.
+                    </p>
+                    <p class="bold" style="margin-top: 5px">
+                        Sample analysis was conducted within eight (8) hours as prescribed by the standards
                     </p>
                 </td>
             </tr>
-
+            <br>
             <tr>
-                <td></td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  11px">
-                    <p style="margin-top: -10px; font-weight: 500; text-align: justify;">
-                        Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was
-                        contained and transported in a sterilized container at controlled temperature by Aqualab PH
-                        trained personnel.
-                    </p>
-                </td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  11px;">
-                    <p style="margin-top: -10px; font-weight: 500;">
-                        Sample analysis was conducted within eight (8) hours as prescribed by the standards.
-                    </p>
-                </td>
-            </tr>
-
-            <tr>
-                <td style="font-size:  13px;">Reference/s:</td>
-                <td style="padding-left: 115px; padding-right:50px; font-size:  11px;">
+                <td style="vertical-align: top;">Reference/s:</td>
+                <td colspan="4">
                     <p>
-                        Method of Analysis are based on the Standard Methods for the Examination of Water and Wastewater
-                        (SMEWW) American Water Works Association, 22nd Edition (2012); Parameters and
-                        Limits are based on Philippine National Standards for Drinking Water (2017) <br>Thermotolerant
-                        Coliform - also
-                        Fecal Coliform; MPN/100ml - Most Probable Number per 100 ml of sample; cfu - Colony Forming Unit
-                        per 1mL of sample
+                        Methods of Analysis are based on the Standard Methods for the Examination of Water and Wastewater (SMEWW), American
+                        Public Health Association, American Water Works Association, 22nd Edition (2012); Parameters and Limits are based on
+                        Philippine National Standards for Drinking Water (2017)
+                    </p>
+                    <p>
+                        Thermotolerant Coliform – also Fecal Coliform; MPN/100mL – Most Probable Number per 100mL of sample; cfu – Colony
+                        Forming Unit per 1mL of sample
                     </p>
                 </td>
             </tr>
-
-            {{-- <tr>
-                <td></td>
-                <td style="padding-left: 200px; font-size:  13px; padding-right:50px;">
-                    <p style="margin-top: -15px; text-align: justify;">
-                        Water and Wastewater (SMEWW) American Water Works Association, 22nd Edition (2012); Parameters
-                        and
-                        Limits are based on Philippine National Standards for Drinking Water (2017) Thermotolerant
-                        Coliform - also
-                        Fecal Coliform; MPN/100ml - Most Probable Number per 100 ml of sample; cfu - Colony Forming Unit
-                        per 1mL of sample
-                    </p>
-                </td>
-            </tr> --}}
-
+            <br>
             <tr>
-                <td style="font-size:  13px;"> Note/s: </td>
-                <td style="padding-left: 115px; font-size:  11px;">
+                <td style="vertical-align: top;">Note/s:</td>
+                <td colspan="4">
                     <p>
                         Comma (,) is used in this report to emphasize presentation of decimal separation/s.
                     </p>
                 </td>
             </tr>
-        </thead>
+        </tfoot>
     </table>
+    {{-- end of contents --}}
 
-    {{-- padding-top: 45%; padding-left: 15px; --}}
-    <table class="table-fixed-bottom" style="width: 100%; padding-left: 15px;  ">
+    {{-- footer --}}
+    <table style="position: fixed; bottom: 120; width: 100%;">
         <thead>
             <tr>
-            <tr>
-                <td style="font-size:  13px;">
-                    <img src="{{ public_path('image/e-signature2.JPG') }}" class="e_signature" alt="signature">
-                    <p style="font-weight: 500;"> CHLOE JOY C. GABAN, RMicro </p>
-                    <p style="margin-top: -3%; margin-left: 15%;"> Senior Microbiologist </p>
-                    <p style="margin-top: -3%; margin-left: 4%;"> PAM Reg. No. 105-00250 RM </p>
-                    <p style="margin-top: -3%; margin-left: 1px;"> DOH-RL Cert No. WMLA-18-0698 </p>
+                <td>
+                    <img src="{{ public_path('image/CHLOE JOY C GABAN SIGNATURE.png') }}" alt="CHLOE JOY C GABAN SIGNATURE" width="250">
                 </td>
-
-                <td style="font-size:  13px; padding-left: 180px; margin-top; -200px;">
-                    <img src="{{ public_path('image/e-signature.JPG') }}" class="e_signature1" alt="signature">
-                    <p style="font-weight: 500;"> PAULO ANTONIO E. CLEMENTE, MD, DPSP </p>
-                    <p style="margin-right: 10%; text-align: center;"> Head of Laboratory </p>
-                    <p style="margin-right: 10%; text-align: center;"> PRC Reg. No. 0113927 </p>
-                    <p></p>
+                <td style="padding-left: 180px">
+                    <img src="{{ public_path('image/ANTONIO E CLEMENTE SIGNATURE.png') }}" alt="ANTONIO E CLEMENTE SIGNATURE" width="250">
                 </td>
             </tr>
+            <tr>
+                <td class="text-center" colspan="2" style="color: grey;">
+                    *** THIS REPORT IS ELECTRONICALLY GENERATED ON {{ $generatedOn }} ***
+                </td>
             </tr>
         </thead>
     </table>
+    {{-- end of footer --}}
 
 </body>
 
