@@ -828,6 +828,7 @@
 
     {{-- custom style --}}
     <style>
+        
         /* global style */
         table {
             width: 100%;
@@ -1271,7 +1272,7 @@
             </tr>
             <br>
             <tr>
-                <td style="vertical-align: top;">Note/s:</td>
+                <td style="vertical-align: top; z-index: 1;">Note/s:</td>
                 <td colspan="4">
                     <p>
                         Comma (,) is used in this report to emphasize presentation of decimal separation/s.
@@ -1283,11 +1284,18 @@
     {{-- end of contents --}}
 
     {{-- footer --}}
-    <table style="position: fixed; bottom: 120; width: 100%;">
+    <table style="position: fixed; bottom: 115;">
         <thead>
             <tr>
                 <td>
-                    <img src="{{ public_path('image/CHLOE JOY C GABAN SIGNATURE.png') }}" alt="CHLOE JOY C GABAN SIGNATURE" width="250">
+                    {{-- micro == CHLOE JOY C GABAN SIGNATURE.png
+                    else = EDISON O SUBALA SIGNATURE.png --}}
+                    <img
+                        src="{{ public_path('image/' . ($analysisRequests->test_parameters == 'micro' ? 'CHLOE JOY C GABAN SIGNATURE.png' : 'EDISON O SUBALA SIGNATURE.png')) }}" 
+                        alt="{{ $analysisRequests->test_parameters == 'micro' ? 'CHLOE JOY C GABAN SIGNATURE.png' : 'EDISON O SUBALA SIGNATURE.png' }}" 
+                        width="250"
+                    />
+
                 </td>
                 <td style="padding-left: 180px">
                     <img src="{{ public_path('image/ANTONIO E CLEMENTE SIGNATURE.png') }}" alt="ANTONIO E CLEMENTE SIGNATURE" width="250">
