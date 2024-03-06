@@ -389,6 +389,8 @@
                     <option value="Quarterly">Quarterly</option>
                     <option value="BI Annual">BI Annual</option>
                     <option value="Annual">Annual</option>
+                    <option value="No Schedule">No Schedule</option>
+                    <option value="No Every Other Month">No Every Other Month</option>
                 </select>
 
                 @error('sample_collection_frequency_micro')
@@ -419,6 +421,8 @@
                     <option value="Quarterly">Quarterly</option>
                     <option value="BI Annual">BI Annual</option>
                     <option value="Annual">Annual</option>
+                    <option value="No Schedule">No Schedule</option>
+                    <option value="No Every Other Month">No Every Other Month</option>
                 </select>
 
                 @error('sample_collection_frequency_pchem')
