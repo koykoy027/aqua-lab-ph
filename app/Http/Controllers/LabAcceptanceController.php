@@ -56,6 +56,7 @@ class LabAcceptanceController extends Controller
 
         $queryBuilder = AnalysisRequest::query();
 
+
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
         }
@@ -63,12 +64,14 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
+
                     ->orWhere('test_parameters', 'LIKE', "%$query%")
-                    ->where('test_parameters', 'micro');
-            })
-                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
-                });
+                    ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                        $queryBuilder->where('remarks', 'LIKE', "%$query%")
+                            ->orWhere('sample_id', 'LIKE', "%$query%")
+                            ->whereNotIn('remarks', ['Pending', 'Disapprove', 'Rejected']);
+                    });
+            });
         }
 
         $analysisRequest = $queryBuilder
@@ -96,6 +99,7 @@ class LabAcceptanceController extends Controller
 
         $queryBuilder = AnalysisRequest::query();
 
+
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
         }
@@ -103,15 +107,17 @@ class LabAcceptanceController extends Controller
         if ($query) {
             $queryBuilder->where(function ($search) use ($query) {
                 $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
-            })
-                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
-                });
+
+                    ->orWhere('test_parameters', 'LIKE', "%$query%")
+                    ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                        $queryBuilder->where('remarks', 'LIKE', "%$query%")
+                            ->orWhere('sample_id', 'LIKE', "%$query%");
+                    });
+            });
         }
 
         $analysisRequest = $queryBuilder
-            ->whereIn('test_parameters', ['pychem', 'chem', 'phys'])
+            ->where('test_parameters', '!=', 'micro')
             ->whereHas('labAcceptance', function ($query) {
                 $query->whereNotIn('remarks', ['Pending', 'Disapprove', 'Rejected']);
             })

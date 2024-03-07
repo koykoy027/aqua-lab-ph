@@ -2,14 +2,14 @@
 @section('title', 'Lab Acceptance table')
 @section('content')
 
-    <div class="mb-3 justify-end lg:flex">
+    <div class="justify-end mb-3 lg:flex">
         <div class="bg-white card">
             @include('components.datefilter')
         </div>
     </div>
 
     <div class="mb-3 bg-white card">
-        <div class="flex justify-between items-center gap-2">
+        <div class="flex items-center justify-between gap-2">
             <div class="ml-1 text-sm font-medium text-gray-500 md:ml-2s">
                 <h1 class="uppercase">@yield('title')</h1>
                 <p class="text-xs">List of all Analysis Request</p>
@@ -125,7 +125,12 @@
             </table>
         </div>
         <div class="my-5">
-            {{ $datas->links() }}
+            {{ $datas->appends([
+                'start_date' => $start_date,
+                'end_date' => $end_date,
+                'search' => $query,
+            ])
+            ->links() }}
         </div>
     </div>
 

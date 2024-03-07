@@ -74,24 +74,24 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
         $start_date = $request->input('start_date');
         $end_date = $request->input('end_date');
-
+        
         $queryBuilder = AnalysisRequest::query();
-
+        
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
         }
-
-        if ($query) {
-            $queryBuilder->where(function ($search) use ($query) {
-                $search->where('analysis_id', 'LIKE', "%$query%")
-                    ->orWhere('collector_name', 'LIKE', "$query")
-                    ->orWhere('date_collected', 'LIKE', "%$query");
-            });
-        }
-
-        $datas = $queryBuilder->where('test_parameters', 'micro')
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+        
+        $datas = $queryBuilder->where(function($queryBuilder) use ($query) {
+            $queryBuilder->where('collector_name', 'LIKE', "%$query%")
+                ->orWhere('date_collected', 'LIKE', "%$query%")
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('remarks', 'LIKE', "%$query%");
+                });
+        })
+        ->where('test_parameters', 'micro')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
+        
 
         return view('service.lab_result_status.index', compact(
             'datas',
@@ -106,29 +106,30 @@ class LabResultStatusController extends Controller
         $query = $request->input('search');
         $start_date = $request->input('start_date');
         $end_date = $request->input('end_date');
-
+        
         $queryBuilder = AnalysisRequest::query();
-
-
+        
         if ($start_date || $end_date) {
             $queryBuilder->whereBetween('date_collected', [$start_date, $end_date]);
         }
+        
+        $datas = $queryBuilder->where(function($queryBuilder) use ($query) {
+            $queryBuilder->where('collector_name', 'LIKE', "%$query%")
+                ->orWhere('date_collected', 'LIKE', "%$query%")
+                ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
+                    $queryBuilder->where('remarks', 'LIKE', "%$query%");
+                });
+        })
+        ->where('test_parameters', '!=' ,'micro')
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
 
-        if ($query) {
-            $queryBuilder->where(function ($search) use ($query) {
-                $search->where('collector_name', 'LIKE', "%$query%")
-                    ->orWhere('remarks', 'LIKE', "$query")
-                    ->orWhere('test_parameters', 'LIKE', "%$query%");
-            });
-        }
-
-        $datas = $queryBuilder
-            ->where('test_parameters', 'chem')
-            ->orWhere('test_parameters', 'phys')
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
-
-        return view('service.lab_result_status.index', compact('datas', 'query'));
+        return view('service.lab_result_status.index', compact(
+            'datas',
+            'query',
+            'start_date',
+            'end_date'
+        ));
     }
 
     public function table(Request $request)

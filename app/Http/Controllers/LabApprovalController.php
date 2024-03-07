@@ -36,21 +36,19 @@ class LabApprovalController extends Controller
         $query = $request->input('search');
         $analysisRequestQuery = AnalysisRequest::query();
 
-        if ($query) {
-            $analysisRequestQuery->where('collector_name', 'LIKE', "%$query%")
-                ->orWhere('test_parameters', 'LIKE', "%$query%")
+        $analysisRequestQuery->where(function ($q) use ($query) {
+            $q->where('collector_name', 'LIKE', "%$query%")
                 ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%")
+                        ->orWhere('remarks', 'LIKE', "%$query%");
                 });
-        }
+        });
 
-        $requests = $analysisRequestQuery->where('test_parameters', 'micro')
+        $requests = $analysisRequestQuery
             ->whereHas('labAcceptance', function ($queryBuilder) {
-                $queryBuilder->where('remarks', '!=', ['Rejected'])
-                    ->where('remarks', '!=', 'Pending')
-                    ->where('remarks', '!=', 'Accepted')
-                    ->where('remarks', '!=', 'Conditionally Accepted');
+                $queryBuilder->whereNotIn('remarks', ['Rejected', 'Pending', 'Accepted', 'Conditionally Accepted']);
             })
+            ->where('test_parameters', 'micro')
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
@@ -62,23 +60,22 @@ class LabApprovalController extends Controller
         $query = $request->input('search');
         $analysisRequestQuery = AnalysisRequest::query();
 
-        if ($query) {
-            $analysisRequestQuery->where('collector_name', 'LIKE', "%$query%")
-                ->orWhere('test_parameters', 'LIKE', "%$query%")
+        $analysisRequestQuery->where(function ($q) use ($query) {
+            $q->where('collector_name', 'LIKE', "%$query%")
                 ->orWhereHas('labAcceptance', function ($queryBuilder) use ($query) {
-                    $queryBuilder->where('sample_id', 'LIKE', "%$query%");
+                    $queryBuilder->where('sample_id', 'LIKE', "%$query%")
+                        ->orWhere('remarks', 'LIKE', "%$query%");
                 });
-        }
+        });
 
-        $requests = $analysisRequestQuery->where('test_parameters', '!=', 'micro')
+        $requests = $analysisRequestQuery
             ->whereHas('labAcceptance', function ($queryBuilder) {
-                $queryBuilder->where('remarks', '!=', ['Rejected'])
-                    ->where('remarks', '!=', 'Pending')
-                    ->where('remarks', '!=', 'Accepted')
-                    ->where('remarks', '!=', 'Conditionally Accepted');
+                $queryBuilder->whereNotIn('remarks', ['Rejected', 'Pending', 'Accepted', 'Conditionally Accepted']);
             })
+            ->where('test_parameters', '!=', 'micro')
             ->orderBy('created_at', 'desc')
             ->paginate(10);
+
         return view('laboratory.lab_approval.index', compact('requests', 'query'));
     }
 
