@@ -49,6 +49,7 @@ class MicroController extends Controller
             $micro = Micro6A::where('analysis_id', $analysis_id)->firstOrFail();
             $micro->update($request->all());
         }
+        // dd($request->all());
 
         $remarks = $request->input('remarks');
         LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);

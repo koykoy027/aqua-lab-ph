@@ -380,6 +380,7 @@ const micro2 = () => {
     }
 };
 
+// micro 3
 const micro3 = () => {
     var micr3_brillant_48 = parseFloat(
         document.querySelector('[name="micr3_brillant_48"]').value
@@ -413,6 +414,348 @@ const micro3 = () => {
         micr3_remarks.value = "";
     }
 };
+
+// micr3_9223b
+const micr3_9223b = () => {
+    var micr3_9223b_no_of_yellow_wells_rxn_after_18h = document.querySelector('[name="micr3_9223b_no_of_yellow_wells_rxn_after_18h"]').value;
+    var micr3_9223b_final_result = document.querySelector('[name="micr3_9223b_final_result"]');
+    var micr3_9223b_remarks = document.querySelector('[name="micr3_9223b_remarks"]');
+
+
+    if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 0 ){
+        micr3_9223b_remarks.value = "PASS";
+    } else {
+        micr3_9223b_remarks.value = "FAIL";
+    }
+
+    if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 0 ){
+        micr3_9223b_final_result.value = "<1.0";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 1 ){
+        micr3_9223b_final_result.value = "1.0";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 2 ){
+        micr3_9223b_final_result.value = "2.0";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 3 ){
+        micr3_9223b_final_result.value = "3.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 4 ){
+        micr3_9223b_final_result.value = "4.2";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 5 ){
+        micr3_9223b_final_result.value = "5.3";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 6 ){
+        micr3_9223b_final_result.value = "6.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 7 ){
+        micr3_9223b_final_result.value = "7.5";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 8 ){
+        micr3_9223b_final_result.value = "8.7";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 9 ){
+        micr3_9223b_final_result.value = "9.9";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 10 ){
+        micr3_9223b_final_result.value = "11.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 11 ){
+        micr3_9223b_final_result.value = "12.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 12 ){
+        micr3_9223b_final_result.value = "13.7";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 13 ){
+        micr3_9223b_final_result.value = "15.0";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 14 ){
+        micr3_9223b_final_result.value = "16.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 15 ){
+        micr3_9223b_final_result.value = "17.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 16 ){
+        micr3_9223b_final_result.value = "19.2";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 17 ){
+        micr3_9223b_final_result.value = "20.7";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 18 ){
+        micr3_9223b_final_result.value = "22.2";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 19 ){
+        micr3_9223b_final_result.value = "23.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 20 ){
+        micr3_9223b_final_result.value = "25.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 21 ){
+        micr3_9223b_final_result.value = "27.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 22 ){
+        micr3_9223b_final_result.value = "28.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 23 ){
+        micr3_9223b_final_result.value = "30.6";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 24 ){
+        micr3_9223b_final_result.value = "32.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 25 ){
+        micr3_9223b_final_result.value = "34.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 26 ){
+        micr3_9223b_final_result.value = "36.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 27 ){
+        micr3_9223b_final_result.value = "38.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 28 ){
+        micr3_9223b_final_result.value = "40.6";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 29 ){
+        micr3_9223b_final_result.value = "42.9";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 30 ){
+        micr3_9223b_final_result.value = "45.3";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 31 ){
+        micr3_9223b_final_result.value = "47.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 32 ){
+        micr3_9223b_final_result.value = "50.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 33 ){
+        micr3_9223b_final_result.value = "53.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 34 ){
+        micr3_9223b_final_result.value = "56.0";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 35 ){
+        micr3_9223b_final_result.value = "59.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 36 ){
+        micr3_9223b_final_result.value = "62.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 37 ){
+        micr3_9223b_final_result.value = "65.9";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 38 ){
+        micr3_9223b_final_result.value = "69.7";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 39 ){
+        micr3_9223b_final_result.value = "73.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 40 ){
+        micr3_9223b_final_result.value = "78.2";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 41 ){
+        micr3_9223b_final_result.value = "83.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 42 ){
+        micr3_9223b_final_result.value = "88.5";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 43 ){
+        micr3_9223b_final_result.value = "94.5";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 44 ){
+        micr3_9223b_final_result.value = "101.3";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 45 ){
+        micr3_9223b_final_result.value = "109.1";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 46 ){
+        micr3_9223b_final_result.value = "118.4";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 47 ){
+        micr3_9223b_final_result.value = "129.8";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 48 ){
+        micr3_9223b_final_result.value = "144.5";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 49 ){
+        micr3_9223b_final_result.value = "165.2";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 50 ){
+        micr3_9223b_final_result.value = "200.5";
+    }
+    else if(micr3_9223b_no_of_yellow_wells_rxn_after_18h == 51 ){
+        micr3_9223b_final_result.value = "> 200.5";
+    }
+
+}
+const micr4_9223b = () => {
+    var micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h = document.querySelector('[name="micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h"]').value;
+    var micr4_9223b_final_result = document.querySelector('[name="micr4_9223b_final_result"]');
+    var micr4_9223b_remarks = document.querySelector('[name="micr4_9223b_remarks"]');
+
+
+    if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 0 ){
+        micr4_9223b_remarks.value = "PASS";
+    } else {
+        micr4_9223b_remarks.value = "FAIL";
+    }
+
+    if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 0 ){
+        micr4_9223b_final_result.value = "<1.0";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 1 ){
+        micr4_9223b_final_result.value = "1.0";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 2 ){
+        micr4_9223b_final_result.value = "2.0";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 3 ){
+        micr4_9223b_final_result.value = "3.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 4 ){
+        micr4_9223b_final_result.value = "4.2";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 5 ){
+        micr4_9223b_final_result.value = "5.3";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 6 ){
+        micr4_9223b_final_result.value = "6.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 7 ){
+        micr4_9223b_final_result.value = "7.5";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 8 ){
+        micr4_9223b_final_result.value = "8.7";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 9 ){
+        micr4_9223b_final_result.value = "9.9";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 10 ){
+        micr4_9223b_final_result.value = "11.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 11 ){
+        micr4_9223b_final_result.value = "12.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 12 ){
+        micr4_9223b_final_result.value = "13.7";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 13 ){
+        micr4_9223b_final_result.value = "15.0";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 14 ){
+        micr4_9223b_final_result.value = "16.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 15 ){
+        micr4_9223b_final_result.value = "17.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 16 ){
+        micr4_9223b_final_result.value = "19.2";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 17 ){
+        micr4_9223b_final_result.value = "20.7";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 18 ){
+        micr4_9223b_final_result.value = "22.2";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 19 ){
+        micr4_9223b_final_result.value = "23.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 20 ){
+        micr4_9223b_final_result.value = "25.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 21 ){
+        micr4_9223b_final_result.value = "27.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 22 ){
+        micr4_9223b_final_result.value = "28.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 23 ){
+        micr4_9223b_final_result.value = "30.6";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 24 ){
+        micr4_9223b_final_result.value = "32.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 25 ){
+        micr4_9223b_final_result.value = "34.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 26 ){
+        micr4_9223b_final_result.value = "36.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 27 ){
+        micr4_9223b_final_result.value = "38.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 28 ){
+        micr4_9223b_final_result.value = "40.6";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 29 ){
+        micr4_9223b_final_result.value = "42.9";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 30 ){
+        micr4_9223b_final_result.value = "45.3";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 31 ){
+        micr4_9223b_final_result.value = "47.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 32 ){
+        micr4_9223b_final_result.value = "50.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 33 ){
+        micr4_9223b_final_result.value = "53.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 34 ){
+        micr4_9223b_final_result.value = "56.0";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 35 ){
+        micr4_9223b_final_result.value = "59.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 36 ){
+        micr4_9223b_final_result.value = "62.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 37 ){
+        micr4_9223b_final_result.value = "65.9";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 38 ){
+        micr4_9223b_final_result.value = "69.7";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 39 ){
+        micr4_9223b_final_result.value = "73.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 40 ){
+        micr4_9223b_final_result.value = "78.2";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 41 ){
+        micr4_9223b_final_result.value = "83.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 42 ){
+        micr4_9223b_final_result.value = "88.5";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 43 ){
+        micr4_9223b_final_result.value = "94.5";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 44 ){
+        micr4_9223b_final_result.value = "101.3";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 45 ){
+        micr4_9223b_final_result.value = "109.1";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 46 ){
+        micr4_9223b_final_result.value = "118.4";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 47 ){
+        micr4_9223b_final_result.value = "129.8";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 48 ){
+        micr4_9223b_final_result.value = "144.5";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 49 ){
+        micr4_9223b_final_result.value = "165.2";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 50 ){
+        micr4_9223b_final_result.value = "200.5";
+    }
+    else if(micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h == 51 ){
+        micr4_9223b_final_result.value = "> 200.5";
+    }
+
+}
 
 // micro 4
 

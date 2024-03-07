@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('analysis_id')->constrained('analysis_requests', 'analysis_id');
             $table->foreignId('test_parameters_id')->constrained('library_test_parameters');
             $table->string('micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h')->nullable();
+            $table->string('micr4_9223b_final_result')->nullable();
+            $table->string('micr4_9223b_remarks')->nullable();
             $table->timestamps();
         });
     }

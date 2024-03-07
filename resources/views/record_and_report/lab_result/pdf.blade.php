@@ -1218,14 +1218,14 @@
 
                                 @if ($library_test_parameter->id == 69)
                                     <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_no_of_yellow_wells_rxn_after_18h }}</td>
-                                    <td class="w-20 text-center">-</td>
-                                    <td class="w-20 text-center">-</td>
+                                    <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_final_result }}</td>
+                                    <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_remarks }}</td>
                                 @endif
 
                                 @if ($library_test_parameter->id == 70)
                                     <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}</td>
-                                    <td class="w-20 text-center">-</td>
-                                    <td class="w-20 text-center">-</td>
+                                    <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_final_result }}</td>
+                                    <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_remarks }}</td>
                                 @endif
                             </tr>
                         @endif

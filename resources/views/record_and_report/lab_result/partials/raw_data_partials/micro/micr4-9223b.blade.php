@@ -15,5 +15,34 @@
             </span>
             @enderror
         </div>
+        <div class="mb-3">
+            <label for="micr4_9223b_final_result">Final result</label>
+            <input id="micr4_9223b_final_result"
+                name="micr4_9223b_final_result"
+                value="{{ $micr4_9223B->micr4_9223b_final_result }}"
+                autocomplete="micr4_9223b_final_result"
+                required readonly autofocus/>
+
+            @error('micr4_9223b_final_result')
+            <span class="invalid" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-3">
+            <label for="micr4_9223b_remarks">Remarks</label>
+            <input id="micr4_9223b_remarks"
+                name="micr4_9223b_remarks"
+                value="{{ $micr4_9223B->micr4_9223b_remarks }}"
+                autocomplete="micr4_9223b_remarks" 
+                required readonly autofocus/>
+
+            @error('micr4_9223b_remarks')
+            <span class="invalid" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+        </div>
     </div>
 </div>
