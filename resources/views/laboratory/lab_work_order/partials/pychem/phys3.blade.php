@@ -12,107 +12,117 @@
                     @endforeach --}}
 
                     @foreach ($phys3 as $phys3s)
-                    @if ($phys3s->phys3_concentration_of_comparable_color_standard === "&lt; 10")
-                        <option value="&lt; 10" selected>&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "10")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10" selected>10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "15")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15" selected>15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "20")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20" selected>20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "25")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25" selected>25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
+                        @if ($phys3s->phys3_concentration_of_comparable_color_standard === "&lt; 10")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10" selected>&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "10")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10" selected>10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "15")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15" selected>15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "20")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20" selected>20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "25")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25" selected>25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
                         @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "30")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30" selected>30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "40")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "50")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50" selected>50</option>
-                        <option value="100">100</option>
-                    @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "100")
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100" selected>100</option>
-                    @else
-                        <option value="&lt; 10">&lt; 10</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="40">40</option>
-                        <option value="50">50</option>
-                        <option value="100">100</option>
-                    @endif
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30" selected>30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "40")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "50")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50" selected>50</option>
+                            <option value="100">100</option>
+                        @elseif ($phys3s->phys3_concentration_of_comparable_color_standard === "100")
+                            <option value="" disabled></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100" selected>100</option>
+                        @else
+                            <option value="" disabled selected></option>
+                            <option value="&lt; 10">&lt; 10</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                            <option value="25">25</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        @endif
                     @endforeach
                 </select>
                 @error('phys3_concentration_of_comparable_color_standard')

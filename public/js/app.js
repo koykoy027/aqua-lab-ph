@@ -1179,21 +1179,14 @@ const phy2 = () => {
 // update
 
 const phy3 = () => {
-    var phys3_concentration_of_comparable_color_standard =
-        document.querySelector(
-            '[name="phys3_concentration_of_comparable_color_standard"]'
-        ).value;
-    var phys3_final_result = document.querySelector(
-        '[name="phys3_final_result"]'
-    );
-    var phys3_final_result_remarks = document.querySelector(
-        '[name="phys3_final_result_remarks"]'
-    );
-
+    var phys3_concentration_of_comparable_color_standard = document.querySelector('[name="phys3_concentration_of_comparable_color_standard"]').value;
+    var phys3_final_result = document.querySelector('[name="phys3_final_result"]');
+    var phys3_final_result_remarks = document.querySelector('[name="phys3_final_result_remarks"]');
     var finalResultValue = phys3_concentration_of_comparable_color_standard;
 
     phys3_final_result.value = phys3_concentration_of_comparable_color_standard;
-    if (finalResultValue == 10) {
+
+    if (finalResultValue == "< 10") {
         phys3_final_result_remarks.value = "PASS";
     } else {
         phys3_final_result_remarks.value = "FAIL";
