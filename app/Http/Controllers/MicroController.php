@@ -53,16 +53,19 @@ class MicroController extends Controller
 
         $remarks = $request->input('remarks');
         LabAcceptance::where('analysis_id', $analysis_id)->update(['remarks' => $remarks]);
-        
+
 
 
         $acceptedAndConditionallyAcceptedFromLabAcceptance = LabAcceptance::query()
-            ->whereHas('analysisRequest', function ($queryBuilder){
+            ->whereHas('analysisRequest', function ($queryBuilder) {
                 $queryBuilder->where('test_parameters', 'micro');
             })
-            ->where('remarks', 'Accepted')
-            ->orWhere('remarks', 'Conditionally Accepted')
+            ->where(function ($query) {
+                $query->where('remarks', 'Accepted')
+                    ->orWhere('remarks', 'Conditionally Accepted');
+            })
             ->first();
+
 
         if ($acceptedAndConditionallyAcceptedFromLabAcceptance) {
             return redirect()
