@@ -4,6 +4,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $clients->account_name }}</title>
@@ -911,13 +912,12 @@
     </table>
     {{-- end of header --}}
 
-
     {{-- info --}}
     <table>
         <thead>
             <tr>
                 <td colspan="3"></td>
-                <td>Certificate no. </td>
+                <td>Certificate No. </td>
                 <td style="color: {{ $analysisRequests->test_parameters == 'micro' ? '' : 'red' }};">
                     <b> {{ $certificateNo }} </b>
                 </td>
@@ -1038,193 +1038,163 @@
 
                                 @if ($library_test_parameter->id == 1)
                                     @foreach ($micro1 as $data)
-                                        <td class="w-20 text-center">{{ $data->micr1_hpc_final_result }}</td>
-                                        <td class="w-20 text-center">
-                                            @if($data->micr1_hpc_final_result >= 500)
-                                                &gt; 500
-                                            @else
-                                                &lt; 500
-                                            @endif
-                                        </td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->micr1_hpc_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->micr1_hpc_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 3)
                                     @foreach ($micro2 as $data)
-                                        <td class="w-20 text-center">{{ $data->micr2_tc_final_result }}</td>
-                                        <td class="w-20 text-center">
-                                            @if($data->micr2_tc_final_result >= 500)
-                                                &gt; 500
-                                            @else
-                                                &lt; 500
-                                            @endif
-                                        </td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->micr2_tc_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                     <td class="w-20 text-center">{{ $data->micr2_tc_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 4)
                                     @foreach ($micro3 as $data)
-                                        <td class="w-20 text-center">{{ $data->micr3_final_result }}</td>
-                                        <td class="w-20 text-center">
-                                            @if($data->micr3_final_result >= 500)
-                                                &gt; 500
-                                            @else
-                                                &lt; 500
-                                            @endif
-                                        </td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->micr3_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->micr3_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 5)
                                     @foreach ($micro4 as $data)
-                                        <td class="w-20 text-center">{{ $data->micr4_color_of_the_sample }}</td>
-                                        <td class="w-20 text-center">{{ $data->micr4_fluorescence }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->micr4_color_of_the_sample) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->micr4_final_result }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 7)
                                     @foreach ($micro5b as $data)
-                                        <td class="w-20 text-center">{{ $data->micr5b_hpc_final_result }}</td>
-                                        <td class="w-20 text-center">
-                                            @if($data->micr5b_hpc_final_result >= 500)
-                                                &gt; 500
-                                            @else
-                                                &lt; 500
-                                            @endif
-                                        </td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->micr5b_hpc_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->micr5b_hpc_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 11)
-                                    <td class="w-20 text-center">{{ $micro6a->micro6a_hpc_final_result }}</td>
-                                    <td class="w-20 text-center">
-                                        @if($micro6a->micro6a_hpc_final_result >= 500)
-                                            &gt; 500
-                                        @else
-                                            &lt; 500
-                                        @endif
-                                    </td>
+                                    <td class="w-20 text-center">{{ str_replace('.', ',', $micro6a->micro6a_hpc_final_result) }}</td>
+                                    <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                     <td class="w-20 text-center">{{ $micro6a->micro6a_hpc_remarks }}</td>
                                 @endif
 
                                 @if ($library_test_parameter->id == 13)
                                     @foreach ($chem1 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem1_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem1_average_instrument_reading }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem1_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem1_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 14)
                                     @foreach ($chem2 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem2_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem2_average_instrument_reading }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem2_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem2_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 17)
                                     @foreach ($chem3 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem3_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem3_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem3_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 18)
                                     @foreach ($chem4 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem4_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem4_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem4_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 19)
                                     @foreach ($chem5 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem5_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem5_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem5_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem5_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 20)
                                     @foreach ($chem6 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem6_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem6_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem6_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem6_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 21)
                                     @foreach ($chem7 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem7_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem7_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem7_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem7_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 23)
                                     @foreach ($chem9 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem9_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem9_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem9_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem9_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 24)
                                     @foreach ($chem10 as $data)
-                                        <td class="w-20 text-center">{{ $data->chem10_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->chem10_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem10_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->chem10_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 62)
                                     @foreach ($phys1 as $data)
-                                        <td class="w-20 text-center">{{ $data->phys1_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->phys1_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys1_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->phys1_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 63)
                                     @foreach ($phys2 as $data)
-                                        <td class="w-20 text-center">{{ $data->phys2_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->phys2_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys2_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->phys2_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 64)
                                     @foreach ($phys3 as $data)
-                                        <td class="w-20 text-center">{{ $data->phys3_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->phys3_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys3_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->phys3_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 65)
                                     @foreach ($phys4 as $data)
-                                        <td class="w-20 text-center">{{ $data->phys4_final_result }}</td>
-                                        <td class="w-20 text-center">{{ $data->phys4_final_result }}</td>
+                                        <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys4_final_result) }}</td>
+                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                         <td class="w-20 text-center">{{ $data->phys4_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
 
                                 @if ($library_test_parameter->id == 69)
-                                    <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_no_of_yellow_wells_rxn_after_18h }}</td>
-                                    <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_final_result }}</td>
+                                    <td class="w-20 text-center">{{ str_replace('.', ',', $micr3_9223B->micr3_9223b_no_of_yellow_wells_rxn_after_18h) }}</td>
+                                    <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                     <td class="w-20 text-center">{{ $micr3_9223B->micr3_9223b_remarks }}</td>
                                 @endif
 
                                 @if ($library_test_parameter->id == 70)
-                                    <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_no_of_yellow_flourescent_wells_rxn_after_18h }}</td>
-                                    <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_final_result }}</td>
+                                    <td class="w-20 text-center">{{ str_replace('.', ',', $micr4_9223B->micr4_9223b_final_result) }}</td>
+                                    <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
                                     <td class="w-20 text-center">{{ $micr4_9223B->micr4_9223b_remarks }}</td>
                                 @endif
                             </tr>
@@ -1247,12 +1217,12 @@
                     <p>
                         Results of examination are specifically related to samples as received.
                     </p>
-                    <p class="bold" style="margin-top: 5px">
+                    {{-- <p class="bold" style="margin-top: 5px">
                         Pursuant to PNSDW 2017, sample was collected according to prescribed aseptic technique and was contained and transported in a sterilized container at controlled temperature by Aqualab PH trained personnel.
                     </p>
                     <p class="bold" style="margin-top: 5px">
                         Sample analysis was conducted within eight (8) hours as prescribed by the standards
-                    </p>
+                    </p> --}}
                 </td>
             </tr>
             <br>
