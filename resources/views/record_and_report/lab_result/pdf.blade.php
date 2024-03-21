@@ -1136,7 +1136,10 @@
                                 @if ($library_test_parameter->id == 20)
                                     @foreach ($chem6 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem6_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem6_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
