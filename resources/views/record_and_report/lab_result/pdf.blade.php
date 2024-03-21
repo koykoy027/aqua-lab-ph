@@ -1001,7 +1001,7 @@
     {{-- end of info --}}
 
     <br />
-    <p class="text-center uppercase bold" style=" letter-spacing: 4px;">
+    <p class="text-center uppercase bold" style="letter-spacing: 4px;">
         {{
             $analysisRequests->test_parameters == 'micro' ?
             'CERTIFICATE OF MICROBIOLOGICAL ANALYSIS' :
@@ -1030,6 +1030,7 @@
                             <tr>
                                 <td class="w-20 text-start">
                                     {{ $library_test_parameter->service }}, {{ $library_test_parameter->limit }}
+                                    
                                 </td>
 
                                 <td class="w-30 text-start">
@@ -1093,7 +1094,10 @@
                                 @if ($library_test_parameter->id == 14)
                                     @foreach ($chem2 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem2_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem2_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1101,7 +1105,11 @@
                                 @if ($library_test_parameter->id == 17)
                                     @foreach ($chem3 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem3_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center">
+                                            {{-- less than or equal sign --}}
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> 600 <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> 10*
+
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem3_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1117,7 +1125,10 @@
                                 @if ($library_test_parameter->id == 19)
                                     @foreach ($chem5 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem5_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem5_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1133,7 +1144,10 @@
                                 @if ($library_test_parameter->id == 21)
                                     @foreach ($chem7 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem7_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem7_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1141,7 +1155,10 @@
                                 @if ($library_test_parameter->id == 23)
                                     @foreach ($chem9 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem9_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem9_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1149,7 +1166,10 @@
                                 @if ($library_test_parameter->id == 24)
                                     @foreach ($chem10 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->chem10_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->chem10_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1165,7 +1185,10 @@
                                 @if ($library_test_parameter->id == 63)
                                     @foreach ($phys2 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys2_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->phys2_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1173,7 +1196,11 @@
                                 @if ($library_test_parameter->id == 64)
                                     @foreach ($phys3 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys3_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
+                                        
                                         <td class="w-20 text-center">{{ $data->phys3_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
@@ -1181,7 +1208,10 @@
                                 @if ($library_test_parameter->id == 65)
                                     @foreach ($phys4 as $data)
                                         <td class="w-20 text-center">{{ str_replace('.', ',', $data->phys4_final_result) }}</td>
-                                        <td class="w-20 text-center">{!! $library_test_parameter->specs !!}</td>
+                                        <td class="w-20 text-center" style="vertical-align: middle; horizontal-align: middle;">
+                                            <img src="{{ public_path('image/less-than-equal-svgrepo-com.svg') }}" width="0.8px" height="0.8px" style="margin-right: 10px; margin-top:-10px"/> {{-- less than or equal sign --}}
+                                            {!! $library_test_parameter->specs !!} 
+                                        </td>
                                         <td class="w-20 text-center">{{ $data->phys4_final_result_remarks }}</td>
                                     @endforeach
                                 @endif
